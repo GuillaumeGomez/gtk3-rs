@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/enums.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>enums.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../atk/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../atk/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button">?</button>
                 <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
@@ -2793,7 +2793,7 @@
 <span class="kw">use</span> <span class="ident">std::fmt</span>;
 
 <span class="doccomment">/// Specifies how xy coordinates are to be interpreted. Used by functions such</span>
-<span class="doccomment">/// as [`crate::Component::get_position()`] and [`crate::Text::get_character_extents()`]</span>
+<span class="doccomment">/// as [`ComponentExt::position()`][crate::prelude::ComponentExt::position()] and [`TextExt::character_extents()`][crate::prelude::TextExt::character_extents()]</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>
 <span class="attribute">#[<span class="ident">non_exhaustive</span>]</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;AtkCoordType&quot;</span>)]</span>
@@ -2847,9 +2847,9 @@
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::AtkCoordType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">match</span> <span class="ident">value</span> {
-            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Screen</span>,
-            <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Window</span>,
-            <span class="number">2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Parent</span>,
+            <span class="ident">ffi::ATK_XY_SCREEN</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Screen</span>,
+            <span class="ident">ffi::ATK_XY_WINDOW</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Window</span>,
+            <span class="ident">ffi::ATK_XY_PARENT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Parent</span>,
             <span class="ident">value</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::__Unknown</span>(<span class="ident">value</span>),
         }
     }
@@ -2969,14 +2969,14 @@
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::AtkLayer</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">match</span> <span class="ident">value</span> {
-            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Invalid</span>,
-            <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Background</span>,
-            <span class="number">2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Canvas</span>,
-            <span class="number">3</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Widget</span>,
-            <span class="number">4</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Mdi</span>,
-            <span class="number">5</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Popup</span>,
-            <span class="number">6</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Overlay</span>,
-            <span class="number">7</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Window</span>,
+            <span class="ident">ffi::ATK_LAYER_INVALID</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Invalid</span>,
+            <span class="ident">ffi::ATK_LAYER_BACKGROUND</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Background</span>,
+            <span class="ident">ffi::ATK_LAYER_CANVAS</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Canvas</span>,
+            <span class="ident">ffi::ATK_LAYER_WIDGET</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Widget</span>,
+            <span class="ident">ffi::ATK_LAYER_MDI</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Mdi</span>,
+            <span class="ident">ffi::ATK_LAYER_POPUP</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Popup</span>,
+            <span class="ident">ffi::ATK_LAYER_OVERLAY</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Overlay</span>,
+            <span class="ident">ffi::ATK_LAYER_WINDOW</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Window</span>,
             <span class="ident">value</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::__Unknown</span>(<span class="ident">value</span>),
         }
     }
@@ -3057,7 +3057,7 @@
     <span class="doccomment">///  another&#39;s content.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_RELATION_EMBEDS&quot;</span>)]</span>
     <span class="ident">Embeds</span>,
-    <span class="doccomment">/// Reciprocal of [`Self::Embeds`], indicates that</span>
+    <span class="doccomment">/// Reciprocal of [`Embeds`][Self::Embeds], indicates that</span>
     <span class="doccomment">///  this object&#39;s content is visualy embedded in another object.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_RELATION_EMBEDDED_BY&quot;</span>)]</span>
     <span class="ident">EmbeddedBy</span>,
@@ -3067,47 +3067,47 @@
     <span class="doccomment">/// Indicates that an object is a parent window of another object.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_RELATION_PARENT_WINDOW_OF&quot;</span>)]</span>
     <span class="ident">ParentWindowOf</span>,
-    <span class="doccomment">/// Reciprocal of [`Self::DescriptionFor`]. Indicates that one</span>
+    <span class="doccomment">/// Reciprocal of [`DescriptionFor`][Self::DescriptionFor]. Indicates that one</span>
     <span class="doccomment">/// or more target objects provide descriptive information about this object. This relation</span>
     <span class="doccomment">/// type is most appropriate for information that is not essential as its presentation may</span>
     <span class="doccomment">/// be user-configurable and/or limited to an on-demand mechanism such as an assistive</span>
     <span class="doccomment">/// technology command. For brief, essential information such as can be found in a widget&#39;s</span>
-    <span class="doccomment">/// on-screen label, use [`Self::LabelledBy`]. For an on-screen error message, use</span>
-    <span class="doccomment">/// [`Self::ErrorMessage`]. For lengthy extended descriptive information contained in</span>
-    <span class="doccomment">/// an on-screen object, consider using [`Self::Details`] as assistive technologies may</span>
+    <span class="doccomment">/// on-screen label, use [`LabelledBy`][Self::LabelledBy]. For an on-screen error message, use</span>
+    <span class="doccomment">/// [`ErrorMessage`][Self::ErrorMessage]. For lengthy extended descriptive information contained in</span>
+    <span class="doccomment">/// an on-screen object, consider using [`Details`][Self::Details] as assistive technologies may</span>
     <span class="doccomment">/// provide a means for the user to navigate to objects containing detailed descriptions so</span>
     <span class="doccomment">/// that their content can be more closely reviewed.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_RELATION_DESCRIBED_BY&quot;</span>)]</span>
     <span class="ident">DescribedBy</span>,
-    <span class="doccomment">/// Reciprocal of [`Self::DescribedBy`]. Indicates that this</span>
+    <span class="doccomment">/// Reciprocal of [`DescribedBy`][Self::DescribedBy]. Indicates that this</span>
     <span class="doccomment">/// object provides descriptive information about the target object(s). See also</span>
-    <span class="doccomment">/// [`Self::DetailsFor`] and [`Self::ErrorFor`].</span>
+    <span class="doccomment">/// [`DetailsFor`][Self::DetailsFor] and [`ErrorFor`][Self::ErrorFor].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_RELATION_DESCRIPTION_FOR&quot;</span>)]</span>
     <span class="ident">DescriptionFor</span>,
     <span class="doccomment">/// Indicates an object is a cell in a treetable and is expanded to display other cells in the same column.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_RELATION_NODE_PARENT_OF&quot;</span>)]</span>
     <span class="ident">NodeParentOf</span>,
-    <span class="doccomment">/// Reciprocal of [`Self::DetailsFor`]. Indicates that this object</span>
+    <span class="doccomment">/// Reciprocal of [`DetailsFor`][Self::DetailsFor]. Indicates that this object</span>
     <span class="doccomment">/// has a detailed or extended description, the contents of which can be found in the target</span>
     <span class="doccomment">/// object(s). This relation type is most appropriate for information that is sufficiently</span>
     <span class="doccomment">/// lengthy as to make navigation to the container of that information desirable. For less</span>
-    <span class="doccomment">/// verbose information suitable for announcement only, see [`Self::DescribedBy`]. If</span>
-    <span class="doccomment">/// the detailed information describes an error condition, [`Self::ErrorFor`] should be</span>
+    <span class="doccomment">/// verbose information suitable for announcement only, see [`DescribedBy`][Self::DescribedBy]. If</span>
+    <span class="doccomment">/// the detailed information describes an error condition, [`ErrorFor`][Self::ErrorFor] should be</span>
     <span class="doccomment">/// used instead. `Since`: ATK-2.26.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_RELATION_DETAILS&quot;</span>)]</span>
     <span class="ident">Details</span>,
-    <span class="doccomment">/// Reciprocal of [`Self::Details`]. Indicates that this object</span>
+    <span class="doccomment">/// Reciprocal of [`Details`][Self::Details]. Indicates that this object</span>
     <span class="doccomment">/// provides a detailed or extended description about the target object(s). See also</span>
-    <span class="doccomment">/// [`Self::DescriptionFor`] and [`Self::ErrorFor`]. `Since`: ATK-2.26.</span>
+    <span class="doccomment">/// [`DescriptionFor`][Self::DescriptionFor] and [`ErrorFor`][Self::ErrorFor]. `Since`: ATK-2.26.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_RELATION_DETAILS_FOR&quot;</span>)]</span>
     <span class="ident">DetailsFor</span>,
-    <span class="doccomment">/// Reciprocal of [`Self::ErrorFor`]. Indicates that this object</span>
+    <span class="doccomment">/// Reciprocal of [`ErrorFor`][Self::ErrorFor]. Indicates that this object</span>
     <span class="doccomment">/// has one or more errors, the nature of which is described in the contents of the target</span>
-    <span class="doccomment">/// object(s). Objects that have this relation type should also contain [`crate::StateType::InvalidEntry`]</span>
-    <span class="doccomment">/// in their [`crate::StateSet`]. `Since`: ATK-2.26.</span>
+    <span class="doccomment">/// object(s). Objects that have this relation type should also contain [`StateType::InvalidEntry`][crate::StateType::InvalidEntry]</span>
+    <span class="doccomment">/// in their [`StateSet`][crate::StateSet]. `Since`: ATK-2.26.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_RELATION_ERROR_MESSAGE&quot;</span>)]</span>
     <span class="ident">ErrorMessage</span>,
-    <span class="doccomment">/// Reciprocal of [`Self::ErrorMessage`]. Indicates that this object</span>
+    <span class="doccomment">/// Reciprocal of [`ErrorMessage`][Self::ErrorMessage]. Indicates that this object</span>
     <span class="doccomment">/// contains an error message describing an invalid condition in the target object(s). `Since`:</span>
     <span class="doccomment">/// ATK_2.26.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_RELATION_ERROR_FOR&quot;</span>)]</span>
@@ -3206,28 +3206,28 @@
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::AtkRelationType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">match</span> <span class="ident">value</span> {
-            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Null</span>,
-            <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ControlledBy</span>,
-            <span class="number">2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ControllerFor</span>,
-            <span class="number">3</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LabelFor</span>,
-            <span class="number">4</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LabelledBy</span>,
-            <span class="number">5</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MemberOf</span>,
-            <span class="number">6</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::NodeChildOf</span>,
-            <span class="number">7</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FlowsTo</span>,
-            <span class="number">8</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FlowsFrom</span>,
-            <span class="number">9</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SubwindowOf</span>,
-            <span class="number">10</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Embeds</span>,
-            <span class="number">11</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::EmbeddedBy</span>,
-            <span class="number">12</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PopupFor</span>,
-            <span class="number">13</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ParentWindowOf</span>,
-            <span class="number">14</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DescribedBy</span>,
-            <span class="number">15</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DescriptionFor</span>,
-            <span class="number">16</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::NodeParentOf</span>,
-            <span class="number">17</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Details</span>,
-            <span class="number">18</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DetailsFor</span>,
-            <span class="number">19</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ErrorMessage</span>,
-            <span class="number">20</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ErrorFor</span>,
-            <span class="number">21</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LastDefined</span>,
+            <span class="ident">ffi::ATK_RELATION_NULL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Null</span>,
+            <span class="ident">ffi::ATK_RELATION_CONTROLLED_BY</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ControlledBy</span>,
+            <span class="ident">ffi::ATK_RELATION_CONTROLLER_FOR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ControllerFor</span>,
+            <span class="ident">ffi::ATK_RELATION_LABEL_FOR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LabelFor</span>,
+            <span class="ident">ffi::ATK_RELATION_LABELLED_BY</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LabelledBy</span>,
+            <span class="ident">ffi::ATK_RELATION_MEMBER_OF</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MemberOf</span>,
+            <span class="ident">ffi::ATK_RELATION_NODE_CHILD_OF</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::NodeChildOf</span>,
+            <span class="ident">ffi::ATK_RELATION_FLOWS_TO</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FlowsTo</span>,
+            <span class="ident">ffi::ATK_RELATION_FLOWS_FROM</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FlowsFrom</span>,
+            <span class="ident">ffi::ATK_RELATION_SUBWINDOW_OF</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SubwindowOf</span>,
+            <span class="ident">ffi::ATK_RELATION_EMBEDS</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Embeds</span>,
+            <span class="ident">ffi::ATK_RELATION_EMBEDDED_BY</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::EmbeddedBy</span>,
+            <span class="ident">ffi::ATK_RELATION_POPUP_FOR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PopupFor</span>,
+            <span class="ident">ffi::ATK_RELATION_PARENT_WINDOW_OF</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ParentWindowOf</span>,
+            <span class="ident">ffi::ATK_RELATION_DESCRIBED_BY</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DescribedBy</span>,
+            <span class="ident">ffi::ATK_RELATION_DESCRIPTION_FOR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DescriptionFor</span>,
+            <span class="ident">ffi::ATK_RELATION_NODE_PARENT_OF</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::NodeParentOf</span>,
+            <span class="ident">ffi::ATK_RELATION_DETAILS</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Details</span>,
+            <span class="ident">ffi::ATK_RELATION_DETAILS_FOR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DetailsFor</span>,
+            <span class="ident">ffi::ATK_RELATION_ERROR_MESSAGE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ErrorMessage</span>,
+            <span class="ident">ffi::ATK_RELATION_ERROR_FOR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ErrorFor</span>,
+            <span class="ident">ffi::ATK_RELATION_LAST_DEFINED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LastDefined</span>,
             <span class="ident">value</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::__Unknown</span>(<span class="ident">value</span>),
         }
     }
@@ -3270,7 +3270,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// These are the built-in enumerated roles that UI components can have</span>
 <span class="doccomment">/// in ATK. Other roles may be added at runtime, so an AtkRole &gt;=</span>
-<span class="doccomment">/// [`Self::LastDefined`] is not necessarily an error.</span>
+<span class="doccomment">/// [`LastDefined`][Self::LastDefined] is not necessarily an error.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>
 <span class="attribute">#[<span class="ident">non_exhaustive</span>]</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;AtkRole&quot;</span>)]</span>
@@ -3500,7 +3500,7 @@
     <span class="doccomment">/// An object which describes margins and tab stops, etc. for text objects which it controls (should have CONTROLLER_FOR relation to such). (Since: 1.1.1)</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_ROLE_RULER&quot;</span>)]</span>
     <span class="ident">Ruler</span>,
-    <span class="doccomment">/// The object is an application object, which may contain [`Self::Frame`] objects or other types of accessibles. The root accessible of any application&#39;s ATK hierarchy should have ATK_ROLE_APPLICATION. (Since: 1.1.4)</span>
+    <span class="doccomment">/// The object is an application object, which may contain [`Frame`][Self::Frame] objects or other types of accessibles. The root accessible of any application&#39;s ATK hierarchy should have ATK_ROLE_APPLICATION. (Since: 1.1.4)</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_ROLE_APPLICATION&quot;</span>)]</span>
     <span class="ident">Application</span>,
     <span class="doccomment">/// The object is a dialog or list containing items for insertion into an entry widget, for instance a list of words for completion of a text entry. (Since: 1.3)</span>
@@ -3512,7 +3512,7 @@
     <span class="doccomment">/// The object is an embedded container within a document or panel. This role is a grouping &quot;hint&quot; indicating that the contained objects share a context. (Since: 1.7.2)</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_ROLE_EMBEDDED&quot;</span>)]</span>
     <span class="ident">Embedded</span>,
-    <span class="doccomment">/// The object is a component whose textual content may be entered or modified by the user, provided [`crate::StateType::Editable`] (XXX: @-reference does not belong to Role!) is present. (Since: 1.11)</span>
+    <span class="doccomment">/// The object is a component whose textual content may be entered or modified by the user, provided [`StateType::Editable`][crate::StateType::Editable] is present. (Since: 1.11)</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_ROLE_ENTRY&quot;</span>)]</span>
     <span class="ident">Entry</span>,
     <span class="doccomment">/// The object is a graphical depiction of quantitative data. It may contain multiple subelements whose attributes and/or description may be queried to obtain both the quantitative data and information about how the data is being presented. The LABELLED_BY relation is particularly important in interpreting objects of this type, as is the accessible-description property. (Since: 1.11)</span>
@@ -3527,7 +3527,7 @@
     <span class="doccomment">/// The object serves as a heading for content which follows it in a document. The &#39;heading level&#39; of the heading, if availabe, may be obtained by querying the object&#39;s attributes.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_ROLE_HEADING&quot;</span>)]</span>
     <span class="ident">Heading</span>,
-    <span class="doccomment">/// The object is a containing instance which encapsulates a page of information. [`Self::Page`] is used in documents and content which support a paginated navigation model. (Since: 1.11)</span>
+    <span class="doccomment">/// The object is a containing instance which encapsulates a page of information. [`Page`][Self::Page] is used in documents and content which support a paginated navigation model. (Since: 1.11)</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_ROLE_PAGE&quot;</span>)]</span>
     <span class="ident">Page</span>,
     <span class="doccomment">/// The object is a containing instance of document content which constitutes a particular &#39;logical&#39; section of the document. The type of content within a section, and the nature of the section division itself, may be obtained by querying the object&#39;s attributes. Sections may be nested. (Since: 1.11)</span>
@@ -3673,16 +3673,16 @@
     <span class="doccomment">/// A generic non-container object whose purpose is to display a</span>
     <span class="doccomment">/// brief amount of information to the user and whose role is known by the</span>
     <span class="doccomment">/// implementor but lacks semantic value for the user. Examples in which</span>
-    <span class="doccomment">/// [`Self::Static`] is appropriate include the message displayed in a message box</span>
-    <span class="doccomment">/// and an image used as an alternative means to display text. [`Self::Static`]</span>
+    <span class="doccomment">/// [`Static`][Self::Static] is appropriate include the message displayed in a message box</span>
+    <span class="doccomment">/// and an image used as an alternative means to display text. [`Static`][Self::Static]</span>
     <span class="doccomment">/// should not be applied to widgets which are traditionally interactive, objects</span>
     <span class="doccomment">/// which display a significant amount of content, or any object which has an</span>
     <span class="doccomment">/// accessible relation pointing to another object. Implementors should expose the</span>
     <span class="doccomment">/// displayed information through the accessible name of the object. If doing so seems</span>
     <span class="doccomment">/// inappropriate, it may indicate that a different role should be used. For</span>
-    <span class="doccomment">/// labels which describe another widget, see [`Self::Label`]. For text views, see</span>
-    <span class="doccomment">/// [`Self::Text`]. For generic containers, see [`Self::Panel`]. For objects whose</span>
-    <span class="doccomment">/// role is not known by the implementor, see [`Self::Unknown`]. (Since: 2.16)</span>
+    <span class="doccomment">/// labels which describe another widget, see [`Label`][Self::Label]. For text views, see</span>
+    <span class="doccomment">/// [`Text`][Self::Text]. For generic containers, see [`Panel`][Self::Panel]. For objects whose</span>
+    <span class="doccomment">/// role is not known by the implementor, see [`Unknown`][Self::Unknown]. (Since: 2.16)</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_ROLE_STATIC&quot;</span>)]</span>
     <span class="ident">Static</span>,
     <span class="doccomment">/// An object that represents a mathematical fraction.</span>
@@ -3717,16 +3717,16 @@
     <span class="doccomment">/// A run of content that is marked or highlighted, such as for</span>
     <span class="doccomment">/// reference purposes, or to call it out as having a special purpose. If the</span>
     <span class="doccomment">/// marked content has an associated section in the document elaborating on the</span>
-    <span class="doccomment">/// reason for the mark, then [`crate::RelationType::Details`] should be used on the mark</span>
+    <span class="doccomment">/// reason for the mark, then [`RelationType::Details`][crate::RelationType::Details] should be used on the mark</span>
     <span class="doccomment">/// to point to that associated section. In addition, the reciprocal relation</span>
-    <span class="doccomment">/// [`crate::RelationType::DetailsFor`] should be used on the associated content section</span>
+    <span class="doccomment">/// [`RelationType::DetailsFor`][crate::RelationType::DetailsFor] should be used on the associated content section</span>
     <span class="doccomment">/// to point back to the mark. (Since: 2.36)</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_ROLE_MARK&quot;</span>)]</span>
     <span class="ident">Mark</span>,
     <span class="doccomment">/// A container for content that is called out as a proposed</span>
     <span class="doccomment">/// change from the current version of the document, such as by a reviewer of the</span>
-    <span class="doccomment">/// content. This role should include either [`Self::ContentDeletion`] and/or</span>
-    <span class="doccomment">/// [`Self::ContentInsertion`] children, in any order, to indicate what the</span>
+    <span class="doccomment">/// content. This role should include either [`ContentDeletion`][Self::ContentDeletion] and/or</span>
+    <span class="doccomment">/// [`ContentInsertion`][Self::ContentInsertion] children, in any order, to indicate what the</span>
     <span class="doccomment">/// actual change is. (Since: 2.36)</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_ROLE_SUGGESTION&quot;</span>)]</span>
     <span class="ident">Suggestion</span>,
@@ -4043,134 +4043,134 @@
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::AtkRole</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">match</span> <span class="ident">value</span> {
-            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Invalid</span>,
-            <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::AcceleratorLabel</span>,
-            <span class="number">2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Alert</span>,
-            <span class="number">3</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Animation</span>,
-            <span class="number">4</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Arrow</span>,
-            <span class="number">5</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Calendar</span>,
-            <span class="number">6</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Canvas</span>,
-            <span class="number">7</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::CheckBox</span>,
-            <span class="number">8</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::CheckMenuItem</span>,
-            <span class="number">9</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ColorChooser</span>,
-            <span class="number">10</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ColumnHeader</span>,
-            <span class="number">11</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ComboBox</span>,
-            <span class="number">12</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DateEditor</span>,
-            <span class="number">13</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DesktopIcon</span>,
-            <span class="number">14</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DesktopFrame</span>,
-            <span class="number">15</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Dial</span>,
-            <span class="number">16</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Dialog</span>,
-            <span class="number">17</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DirectoryPane</span>,
-            <span class="number">18</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DrawingArea</span>,
-            <span class="number">19</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FileChooser</span>,
-            <span class="number">20</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Filler</span>,
-            <span class="number">21</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FontChooser</span>,
-            <span class="number">22</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Frame</span>,
-            <span class="number">23</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::GlassPane</span>,
-            <span class="number">24</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::HtmlContainer</span>,
-            <span class="number">25</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Icon</span>,
-            <span class="number">26</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Image</span>,
-            <span class="number">27</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::InternalFrame</span>,
-            <span class="number">28</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Label</span>,
-            <span class="number">29</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LayeredPane</span>,
-            <span class="number">30</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::List</span>,
-            <span class="number">31</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ListItem</span>,
-            <span class="number">32</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Menu</span>,
-            <span class="number">33</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MenuBar</span>,
-            <span class="number">34</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MenuItem</span>,
-            <span class="number">35</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::OptionPane</span>,
-            <span class="number">36</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PageTab</span>,
-            <span class="number">37</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PageTabList</span>,
-            <span class="number">38</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Panel</span>,
-            <span class="number">39</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PasswordText</span>,
-            <span class="number">40</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PopupMenu</span>,
-            <span class="number">41</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ProgressBar</span>,
-            <span class="number">42</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PushButton</span>,
-            <span class="number">43</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RadioButton</span>,
-            <span class="number">44</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RadioMenuItem</span>,
-            <span class="number">45</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RootPane</span>,
-            <span class="number">46</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RowHeader</span>,
-            <span class="number">47</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ScrollBar</span>,
-            <span class="number">48</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ScrollPane</span>,
-            <span class="number">49</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Separator</span>,
-            <span class="number">50</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Slider</span>,
-            <span class="number">51</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SplitPane</span>,
-            <span class="number">52</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SpinButton</span>,
-            <span class="number">53</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Statusbar</span>,
-            <span class="number">54</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Table</span>,
-            <span class="number">55</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TableCell</span>,
-            <span class="number">56</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TableColumnHeader</span>,
-            <span class="number">57</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TableRowHeader</span>,
-            <span class="number">58</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TearOffMenuItem</span>,
-            <span class="number">59</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Terminal</span>,
-            <span class="number">60</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Text</span>,
-            <span class="number">61</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ToggleButton</span>,
-            <span class="number">62</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ToolBar</span>,
-            <span class="number">63</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ToolTip</span>,
-            <span class="number">64</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Tree</span>,
-            <span class="number">65</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TreeTable</span>,
-            <span class="number">66</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Unknown</span>,
-            <span class="number">67</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Viewport</span>,
-            <span class="number">68</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Window</span>,
-            <span class="number">69</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Header</span>,
-            <span class="number">70</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Footer</span>,
-            <span class="number">71</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Paragraph</span>,
-            <span class="number">72</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Ruler</span>,
-            <span class="number">73</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Application</span>,
-            <span class="number">74</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Autocomplete</span>,
-            <span class="number">75</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::EditBar</span>,
-            <span class="number">76</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Embedded</span>,
-            <span class="number">77</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Entry</span>,
-            <span class="number">78</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Chart</span>,
-            <span class="number">79</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Caption</span>,
-            <span class="number">80</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentFrame</span>,
-            <span class="number">81</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Heading</span>,
-            <span class="number">82</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Page</span>,
-            <span class="number">83</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Section</span>,
-            <span class="number">84</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RedundantObject</span>,
-            <span class="number">85</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Form</span>,
-            <span class="number">86</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Link</span>,
-            <span class="number">87</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::InputMethodWindow</span>,
-            <span class="number">88</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TableRow</span>,
-            <span class="number">89</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TreeItem</span>,
-            <span class="number">90</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentSpreadsheet</span>,
-            <span class="number">91</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentPresentation</span>,
-            <span class="number">92</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentText</span>,
-            <span class="number">93</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentWeb</span>,
-            <span class="number">94</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentEmail</span>,
-            <span class="number">95</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Comment</span>,
-            <span class="number">96</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ListBox</span>,
-            <span class="number">97</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Grouping</span>,
-            <span class="number">98</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ImageMap</span>,
-            <span class="number">99</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Notification</span>,
-            <span class="number">100</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::InfoBar</span>,
-            <span class="number">101</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LevelBar</span>,
-            <span class="number">102</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TitleBar</span>,
-            <span class="number">103</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BlockQuote</span>,
-            <span class="number">104</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Audio</span>,
-            <span class="number">105</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Video</span>,
-            <span class="number">106</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Definition</span>,
-            <span class="number">107</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Article</span>,
-            <span class="number">108</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Landmark</span>,
-            <span class="number">109</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Log</span>,
-            <span class="number">110</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Marquee</span>,
-            <span class="number">111</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Math</span>,
-            <span class="number">112</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Rating</span>,
-            <span class="number">113</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Timer</span>,
-            <span class="number">114</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DescriptionList</span>,
-            <span class="number">115</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DescriptionTerm</span>,
-            <span class="number">116</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DescriptionValue</span>,
-            <span class="number">117</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Static</span>,
-            <span class="number">118</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MathFraction</span>,
-            <span class="number">119</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MathRoot</span>,
-            <span class="number">120</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Subscript</span>,
-            <span class="number">121</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Superscript</span>,
-            <span class="number">122</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Footnote</span>,
-            <span class="number">123</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ContentDeletion</span>,
-            <span class="number">124</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ContentInsertion</span>,
-            <span class="number">125</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Mark</span>,
-            <span class="number">126</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Suggestion</span>,
-            <span class="number">127</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LastDefined</span>,
+            <span class="ident">ffi::ATK_ROLE_INVALID</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Invalid</span>,
+            <span class="ident">ffi::ATK_ROLE_ACCEL_LABEL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::AcceleratorLabel</span>,
+            <span class="ident">ffi::ATK_ROLE_ALERT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Alert</span>,
+            <span class="ident">ffi::ATK_ROLE_ANIMATION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Animation</span>,
+            <span class="ident">ffi::ATK_ROLE_ARROW</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Arrow</span>,
+            <span class="ident">ffi::ATK_ROLE_CALENDAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Calendar</span>,
+            <span class="ident">ffi::ATK_ROLE_CANVAS</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Canvas</span>,
+            <span class="ident">ffi::ATK_ROLE_CHECK_BOX</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::CheckBox</span>,
+            <span class="ident">ffi::ATK_ROLE_CHECK_MENU_ITEM</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::CheckMenuItem</span>,
+            <span class="ident">ffi::ATK_ROLE_COLOR_CHOOSER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ColorChooser</span>,
+            <span class="ident">ffi::ATK_ROLE_COLUMN_HEADER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ColumnHeader</span>,
+            <span class="ident">ffi::ATK_ROLE_COMBO_BOX</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ComboBox</span>,
+            <span class="ident">ffi::ATK_ROLE_DATE_EDITOR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DateEditor</span>,
+            <span class="ident">ffi::ATK_ROLE_DESKTOP_ICON</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DesktopIcon</span>,
+            <span class="ident">ffi::ATK_ROLE_DESKTOP_FRAME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DesktopFrame</span>,
+            <span class="ident">ffi::ATK_ROLE_DIAL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Dial</span>,
+            <span class="ident">ffi::ATK_ROLE_DIALOG</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Dialog</span>,
+            <span class="ident">ffi::ATK_ROLE_DIRECTORY_PANE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DirectoryPane</span>,
+            <span class="ident">ffi::ATK_ROLE_DRAWING_AREA</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DrawingArea</span>,
+            <span class="ident">ffi::ATK_ROLE_FILE_CHOOSER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FileChooser</span>,
+            <span class="ident">ffi::ATK_ROLE_FILLER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Filler</span>,
+            <span class="ident">ffi::ATK_ROLE_FONT_CHOOSER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FontChooser</span>,
+            <span class="ident">ffi::ATK_ROLE_FRAME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Frame</span>,
+            <span class="ident">ffi::ATK_ROLE_GLASS_PANE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::GlassPane</span>,
+            <span class="ident">ffi::ATK_ROLE_HTML_CONTAINER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::HtmlContainer</span>,
+            <span class="ident">ffi::ATK_ROLE_ICON</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Icon</span>,
+            <span class="ident">ffi::ATK_ROLE_IMAGE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Image</span>,
+            <span class="ident">ffi::ATK_ROLE_INTERNAL_FRAME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::InternalFrame</span>,
+            <span class="ident">ffi::ATK_ROLE_LABEL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Label</span>,
+            <span class="ident">ffi::ATK_ROLE_LAYERED_PANE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LayeredPane</span>,
+            <span class="ident">ffi::ATK_ROLE_LIST</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::List</span>,
+            <span class="ident">ffi::ATK_ROLE_LIST_ITEM</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ListItem</span>,
+            <span class="ident">ffi::ATK_ROLE_MENU</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Menu</span>,
+            <span class="ident">ffi::ATK_ROLE_MENU_BAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MenuBar</span>,
+            <span class="ident">ffi::ATK_ROLE_MENU_ITEM</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MenuItem</span>,
+            <span class="ident">ffi::ATK_ROLE_OPTION_PANE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::OptionPane</span>,
+            <span class="ident">ffi::ATK_ROLE_PAGE_TAB</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PageTab</span>,
+            <span class="ident">ffi::ATK_ROLE_PAGE_TAB_LIST</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PageTabList</span>,
+            <span class="ident">ffi::ATK_ROLE_PANEL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Panel</span>,
+            <span class="ident">ffi::ATK_ROLE_PASSWORD_TEXT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PasswordText</span>,
+            <span class="ident">ffi::ATK_ROLE_POPUP_MENU</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PopupMenu</span>,
+            <span class="ident">ffi::ATK_ROLE_PROGRESS_BAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ProgressBar</span>,
+            <span class="ident">ffi::ATK_ROLE_PUSH_BUTTON</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PushButton</span>,
+            <span class="ident">ffi::ATK_ROLE_RADIO_BUTTON</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RadioButton</span>,
+            <span class="ident">ffi::ATK_ROLE_RADIO_MENU_ITEM</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RadioMenuItem</span>,
+            <span class="ident">ffi::ATK_ROLE_ROOT_PANE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RootPane</span>,
+            <span class="ident">ffi::ATK_ROLE_ROW_HEADER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RowHeader</span>,
+            <span class="ident">ffi::ATK_ROLE_SCROLL_BAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ScrollBar</span>,
+            <span class="ident">ffi::ATK_ROLE_SCROLL_PANE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ScrollPane</span>,
+            <span class="ident">ffi::ATK_ROLE_SEPARATOR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Separator</span>,
+            <span class="ident">ffi::ATK_ROLE_SLIDER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Slider</span>,
+            <span class="ident">ffi::ATK_ROLE_SPLIT_PANE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SplitPane</span>,
+            <span class="ident">ffi::ATK_ROLE_SPIN_BUTTON</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SpinButton</span>,
+            <span class="ident">ffi::ATK_ROLE_STATUSBAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Statusbar</span>,
+            <span class="ident">ffi::ATK_ROLE_TABLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Table</span>,
+            <span class="ident">ffi::ATK_ROLE_TABLE_CELL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TableCell</span>,
+            <span class="ident">ffi::ATK_ROLE_TABLE_COLUMN_HEADER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TableColumnHeader</span>,
+            <span class="ident">ffi::ATK_ROLE_TABLE_ROW_HEADER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TableRowHeader</span>,
+            <span class="ident">ffi::ATK_ROLE_TEAR_OFF_MENU_ITEM</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TearOffMenuItem</span>,
+            <span class="ident">ffi::ATK_ROLE_TERMINAL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Terminal</span>,
+            <span class="ident">ffi::ATK_ROLE_TEXT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Text</span>,
+            <span class="ident">ffi::ATK_ROLE_TOGGLE_BUTTON</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ToggleButton</span>,
+            <span class="ident">ffi::ATK_ROLE_TOOL_BAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ToolBar</span>,
+            <span class="ident">ffi::ATK_ROLE_TOOL_TIP</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ToolTip</span>,
+            <span class="ident">ffi::ATK_ROLE_TREE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Tree</span>,
+            <span class="ident">ffi::ATK_ROLE_TREE_TABLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TreeTable</span>,
+            <span class="ident">ffi::ATK_ROLE_UNKNOWN</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Unknown</span>,
+            <span class="ident">ffi::ATK_ROLE_VIEWPORT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Viewport</span>,
+            <span class="ident">ffi::ATK_ROLE_WINDOW</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Window</span>,
+            <span class="ident">ffi::ATK_ROLE_HEADER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Header</span>,
+            <span class="ident">ffi::ATK_ROLE_FOOTER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Footer</span>,
+            <span class="ident">ffi::ATK_ROLE_PARAGRAPH</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Paragraph</span>,
+            <span class="ident">ffi::ATK_ROLE_RULER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Ruler</span>,
+            <span class="ident">ffi::ATK_ROLE_APPLICATION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Application</span>,
+            <span class="ident">ffi::ATK_ROLE_AUTOCOMPLETE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Autocomplete</span>,
+            <span class="ident">ffi::ATK_ROLE_EDITBAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::EditBar</span>,
+            <span class="ident">ffi::ATK_ROLE_EMBEDDED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Embedded</span>,
+            <span class="ident">ffi::ATK_ROLE_ENTRY</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Entry</span>,
+            <span class="ident">ffi::ATK_ROLE_CHART</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Chart</span>,
+            <span class="ident">ffi::ATK_ROLE_CAPTION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Caption</span>,
+            <span class="ident">ffi::ATK_ROLE_DOCUMENT_FRAME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentFrame</span>,
+            <span class="ident">ffi::ATK_ROLE_HEADING</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Heading</span>,
+            <span class="ident">ffi::ATK_ROLE_PAGE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Page</span>,
+            <span class="ident">ffi::ATK_ROLE_SECTION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Section</span>,
+            <span class="ident">ffi::ATK_ROLE_REDUNDANT_OBJECT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RedundantObject</span>,
+            <span class="ident">ffi::ATK_ROLE_FORM</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Form</span>,
+            <span class="ident">ffi::ATK_ROLE_LINK</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Link</span>,
+            <span class="ident">ffi::ATK_ROLE_INPUT_METHOD_WINDOW</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::InputMethodWindow</span>,
+            <span class="ident">ffi::ATK_ROLE_TABLE_ROW</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TableRow</span>,
+            <span class="ident">ffi::ATK_ROLE_TREE_ITEM</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TreeItem</span>,
+            <span class="ident">ffi::ATK_ROLE_DOCUMENT_SPREADSHEET</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentSpreadsheet</span>,
+            <span class="ident">ffi::ATK_ROLE_DOCUMENT_PRESENTATION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentPresentation</span>,
+            <span class="ident">ffi::ATK_ROLE_DOCUMENT_TEXT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentText</span>,
+            <span class="ident">ffi::ATK_ROLE_DOCUMENT_WEB</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentWeb</span>,
+            <span class="ident">ffi::ATK_ROLE_DOCUMENT_EMAIL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DocumentEmail</span>,
+            <span class="ident">ffi::ATK_ROLE_COMMENT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Comment</span>,
+            <span class="ident">ffi::ATK_ROLE_LIST_BOX</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ListBox</span>,
+            <span class="ident">ffi::ATK_ROLE_GROUPING</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Grouping</span>,
+            <span class="ident">ffi::ATK_ROLE_IMAGE_MAP</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ImageMap</span>,
+            <span class="ident">ffi::ATK_ROLE_NOTIFICATION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Notification</span>,
+            <span class="ident">ffi::ATK_ROLE_INFO_BAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::InfoBar</span>,
+            <span class="ident">ffi::ATK_ROLE_LEVEL_BAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LevelBar</span>,
+            <span class="ident">ffi::ATK_ROLE_TITLE_BAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TitleBar</span>,
+            <span class="ident">ffi::ATK_ROLE_BLOCK_QUOTE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BlockQuote</span>,
+            <span class="ident">ffi::ATK_ROLE_AUDIO</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Audio</span>,
+            <span class="ident">ffi::ATK_ROLE_VIDEO</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Video</span>,
+            <span class="ident">ffi::ATK_ROLE_DEFINITION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Definition</span>,
+            <span class="ident">ffi::ATK_ROLE_ARTICLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Article</span>,
+            <span class="ident">ffi::ATK_ROLE_LANDMARK</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Landmark</span>,
+            <span class="ident">ffi::ATK_ROLE_LOG</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Log</span>,
+            <span class="ident">ffi::ATK_ROLE_MARQUEE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Marquee</span>,
+            <span class="ident">ffi::ATK_ROLE_MATH</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Math</span>,
+            <span class="ident">ffi::ATK_ROLE_RATING</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Rating</span>,
+            <span class="ident">ffi::ATK_ROLE_TIMER</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Timer</span>,
+            <span class="ident">ffi::ATK_ROLE_DESCRIPTION_LIST</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DescriptionList</span>,
+            <span class="ident">ffi::ATK_ROLE_DESCRIPTION_TERM</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DescriptionTerm</span>,
+            <span class="ident">ffi::ATK_ROLE_DESCRIPTION_VALUE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::DescriptionValue</span>,
+            <span class="ident">ffi::ATK_ROLE_STATIC</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Static</span>,
+            <span class="ident">ffi::ATK_ROLE_MATH_FRACTION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MathFraction</span>,
+            <span class="ident">ffi::ATK_ROLE_MATH_ROOT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MathRoot</span>,
+            <span class="ident">ffi::ATK_ROLE_SUBSCRIPT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Subscript</span>,
+            <span class="ident">ffi::ATK_ROLE_SUPERSCRIPT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Superscript</span>,
+            <span class="ident">ffi::ATK_ROLE_FOOTNOTE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Footnote</span>,
+            <span class="ident">ffi::ATK_ROLE_CONTENT_DELETION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ContentDeletion</span>,
+            <span class="ident">ffi::ATK_ROLE_CONTENT_INSERTION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ContentInsertion</span>,
+            <span class="ident">ffi::ATK_ROLE_MARK</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Mark</span>,
+            <span class="ident">ffi::ATK_ROLE_SUGGESTION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Suggestion</span>,
+            <span class="ident">ffi::ATK_ROLE_LAST_DEFINED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LastDefined</span>,
             <span class="ident">value</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::__Unknown</span>(<span class="ident">value</span>),
         }
     }
@@ -4297,13 +4297,13 @@
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::AtkScrollType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">match</span> <span class="ident">value</span> {
-            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TopLeft</span>,
-            <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BottomRight</span>,
-            <span class="number">2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TopEdge</span>,
-            <span class="number">3</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BottomEdge</span>,
-            <span class="number">4</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LeftEdge</span>,
-            <span class="number">5</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RightEdge</span>,
-            <span class="number">6</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Anywhere</span>,
+            <span class="ident">ffi::ATK_SCROLL_TOP_LEFT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TopLeft</span>,
+            <span class="ident">ffi::ATK_SCROLL_BOTTOM_RIGHT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BottomRight</span>,
+            <span class="ident">ffi::ATK_SCROLL_TOP_EDGE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TopEdge</span>,
+            <span class="ident">ffi::ATK_SCROLL_BOTTOM_EDGE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BottomEdge</span>,
+            <span class="ident">ffi::ATK_SCROLL_LEFT_EDGE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LeftEdge</span>,
+            <span class="ident">ffi::ATK_SCROLL_RIGHT_EDGE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RightEdge</span>,
+            <span class="ident">ffi::ATK_SCROLL_ANYWHERE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Anywhere</span>,
             <span class="ident">value</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::__Unknown</span>(<span class="ident">value</span>),
         }
     }
@@ -4377,7 +4377,7 @@
     <span class="doccomment">/// user can change the textual contents of this object by editing those contents</span>
     <span class="doccomment">/// directly. For an object which is expected to be editable due to its type, but</span>
     <span class="doccomment">/// which cannot be edited due to the application or platform preventing the user</span>
-    <span class="doccomment">/// from doing so, that object&#39;s [`crate::StateSet`] should lack ATK_STATE_EDITABLE and</span>
+    <span class="doccomment">/// from doing so, that object&#39;s [`StateSet`][crate::StateSet] should lack ATK_STATE_EDITABLE and</span>
     <span class="doccomment">/// should contain ATK_STATE_READ_ONLY.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_STATE_EDITABLE&quot;</span>)]</span>
     <span class="ident">Editable</span>,
@@ -4459,13 +4459,13 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_STATE_VERTICAL&quot;</span>)]</span>
     <span class="ident">Vertical</span>,
     <span class="doccomment">/// Indicates this object is visible, e.g. has been explicitly marked for exposure to the user.</span>
-    <span class="doccomment">/// **note**: [`Self::Visible`] is no guarantee that the object is actually unobscured on the screen, only</span>
+    <span class="doccomment">/// **note**: [`Visible`][Self::Visible] is no guarantee that the object is actually unobscured on the screen, only</span>
     <span class="doccomment">/// that it is &#39;potentially&#39; visible, barring obstruction, being scrolled or clipped out of the</span>
     <span class="doccomment">/// field of view, or having an ancestor container that has not yet made visible.</span>
-    <span class="doccomment">/// A widget is potentially onscreen if it has both [`Self::Visible`] and [`Self::Showing`].</span>
-    <span class="doccomment">/// The absence of [`Self::Visible`] and [`Self::Showing`] is semantically equivalent to saying</span>
-    <span class="doccomment">/// that an object is &#39;hidden&#39;. See also [`Self::Truncated`], which applies if an object with</span>
-    <span class="doccomment">/// [`Self::Visible`] and [`Self::Showing`] set lies within a viewport which means that its</span>
+    <span class="doccomment">/// A widget is potentially onscreen if it has both [`Visible`][Self::Visible] and [`Showing`][Self::Showing].</span>
+    <span class="doccomment">/// The absence of [`Visible`][Self::Visible] and [`Showing`][Self::Showing] is semantically equivalent to saying</span>
+    <span class="doccomment">/// that an object is &#39;hidden&#39;. See also [`Truncated`][Self::Truncated], which applies if an object with</span>
+    <span class="doccomment">/// [`Visible`][Self::Visible] and [`Showing`][Self::Showing] set lies within a viewport which means that its</span>
     <span class="doccomment">/// contents are clipped, e.g. a truncated spreadsheet cell or</span>
     <span class="doccomment">/// an image within a scrolling viewport. Mostly useful for screen-review and magnification</span>
     <span class="doccomment">/// algorithms.</span>
@@ -4507,10 +4507,10 @@
     <span class="doccomment">/// This state is normally only useful and encountered on objects that implement Selection.</span>
     <span class="doccomment">/// In some cases the typeahead behavior may result in full or partial ¨completion¨ of</span>
     <span class="doccomment">/// the data in the input field, in which case these input events may trigger text-changed</span>
-    <span class="doccomment">/// events from the AtkText interface. This state supplants [`crate::Role::Autocomplete`] (XXX: @-reference does not belong to StateType!).</span>
+    <span class="doccomment">/// events from the AtkText interface. This state supplants [`Role::Autocomplete`][crate::Role::Autocomplete].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_STATE_SUPPORTS_AUTOCOMPLETION&quot;</span>)]</span>
     <span class="ident">SupportsAutocompletion</span>,
-    <span class="doccomment">/// Indicates that the object in question supports text selection. It should only be exposed on objects which implement the Text interface, in order to distinguish this state from [`Self::Selectable`], which infers that the object in question is a selectable child of an object which implements Selection. While similar, text selection and subelement selection are distinct operations.</span>
+    <span class="doccomment">/// Indicates that the object in question supports text selection. It should only be exposed on objects which implement the Text interface, in order to distinguish this state from [`Selectable`][Self::Selectable], which infers that the object in question is a selectable child of an object which implements Selection. While similar, text selection and subelement selection are distinct operations.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_STATE_SELECTABLE_TEXT&quot;</span>)]</span>
     <span class="ident">SelectableText</span>,
     <span class="doccomment">/// Indicates that the object is the &quot;default&quot; active component, i.e. the object which is activated by an end-user press of the &quot;Enter&quot; or &quot;Return&quot; key. Typically a &quot;close&quot; or &quot;submit&quot; button.</span>
@@ -4689,50 +4689,50 @@
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::AtkStateType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">match</span> <span class="ident">value</span> {
-            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Invalid</span>,
-            <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Active</span>,
-            <span class="number">2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Armed</span>,
-            <span class="number">3</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Busy</span>,
-            <span class="number">4</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Checked</span>,
-            <span class="number">5</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Defunct</span>,
-            <span class="number">6</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Editable</span>,
-            <span class="number">7</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Enabled</span>,
-            <span class="number">8</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Expandable</span>,
-            <span class="number">9</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Expanded</span>,
-            <span class="number">10</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Focusable</span>,
-            <span class="number">11</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Focused</span>,
-            <span class="number">12</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Horizontal</span>,
-            <span class="number">13</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Iconified</span>,
-            <span class="number">14</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Modal</span>,
-            <span class="number">15</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MultiLine</span>,
-            <span class="number">16</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Multiselectable</span>,
-            <span class="number">17</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Opaque</span>,
-            <span class="number">18</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Pressed</span>,
-            <span class="number">19</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Resizable</span>,
-            <span class="number">20</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Selectable</span>,
-            <span class="number">21</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Selected</span>,
-            <span class="number">22</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Sensitive</span>,
-            <span class="number">23</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Showing</span>,
-            <span class="number">24</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SingleLine</span>,
-            <span class="number">25</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Stale</span>,
-            <span class="number">26</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Transient</span>,
-            <span class="number">27</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Vertical</span>,
-            <span class="number">28</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Visible</span>,
-            <span class="number">29</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ManagesDescendants</span>,
-            <span class="number">30</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Indeterminate</span>,
-            <span class="number">31</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Truncated</span>,
-            <span class="number">32</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Required</span>,
-            <span class="number">33</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::InvalidEntry</span>,
-            <span class="number">34</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SupportsAutocompletion</span>,
-            <span class="number">35</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SelectableText</span>,
-            <span class="number">36</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Default</span>,
-            <span class="number">37</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Animated</span>,
-            <span class="number">38</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Visited</span>,
-            <span class="number">39</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Checkable</span>,
-            <span class="number">40</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::HasPopup</span>,
-            <span class="number">41</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::HasTooltip</span>,
-            <span class="number">42</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ReadOnly</span>,
-            <span class="number">43</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LastDefined</span>,
+            <span class="ident">ffi::ATK_STATE_INVALID</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Invalid</span>,
+            <span class="ident">ffi::ATK_STATE_ACTIVE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Active</span>,
+            <span class="ident">ffi::ATK_STATE_ARMED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Armed</span>,
+            <span class="ident">ffi::ATK_STATE_BUSY</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Busy</span>,
+            <span class="ident">ffi::ATK_STATE_CHECKED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Checked</span>,
+            <span class="ident">ffi::ATK_STATE_DEFUNCT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Defunct</span>,
+            <span class="ident">ffi::ATK_STATE_EDITABLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Editable</span>,
+            <span class="ident">ffi::ATK_STATE_ENABLED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Enabled</span>,
+            <span class="ident">ffi::ATK_STATE_EXPANDABLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Expandable</span>,
+            <span class="ident">ffi::ATK_STATE_EXPANDED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Expanded</span>,
+            <span class="ident">ffi::ATK_STATE_FOCUSABLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Focusable</span>,
+            <span class="ident">ffi::ATK_STATE_FOCUSED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Focused</span>,
+            <span class="ident">ffi::ATK_STATE_HORIZONTAL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Horizontal</span>,
+            <span class="ident">ffi::ATK_STATE_ICONIFIED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Iconified</span>,
+            <span class="ident">ffi::ATK_STATE_MODAL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Modal</span>,
+            <span class="ident">ffi::ATK_STATE_MULTI_LINE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::MultiLine</span>,
+            <span class="ident">ffi::ATK_STATE_MULTISELECTABLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Multiselectable</span>,
+            <span class="ident">ffi::ATK_STATE_OPAQUE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Opaque</span>,
+            <span class="ident">ffi::ATK_STATE_PRESSED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Pressed</span>,
+            <span class="ident">ffi::ATK_STATE_RESIZABLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Resizable</span>,
+            <span class="ident">ffi::ATK_STATE_SELECTABLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Selectable</span>,
+            <span class="ident">ffi::ATK_STATE_SELECTED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Selected</span>,
+            <span class="ident">ffi::ATK_STATE_SENSITIVE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Sensitive</span>,
+            <span class="ident">ffi::ATK_STATE_SHOWING</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Showing</span>,
+            <span class="ident">ffi::ATK_STATE_SINGLE_LINE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SingleLine</span>,
+            <span class="ident">ffi::ATK_STATE_STALE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Stale</span>,
+            <span class="ident">ffi::ATK_STATE_TRANSIENT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Transient</span>,
+            <span class="ident">ffi::ATK_STATE_VERTICAL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Vertical</span>,
+            <span class="ident">ffi::ATK_STATE_VISIBLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Visible</span>,
+            <span class="ident">ffi::ATK_STATE_MANAGES_DESCENDANTS</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ManagesDescendants</span>,
+            <span class="ident">ffi::ATK_STATE_INDETERMINATE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Indeterminate</span>,
+            <span class="ident">ffi::ATK_STATE_TRUNCATED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Truncated</span>,
+            <span class="ident">ffi::ATK_STATE_REQUIRED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Required</span>,
+            <span class="ident">ffi::ATK_STATE_INVALID_ENTRY</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::InvalidEntry</span>,
+            <span class="ident">ffi::ATK_STATE_SUPPORTS_AUTOCOMPLETION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SupportsAutocompletion</span>,
+            <span class="ident">ffi::ATK_STATE_SELECTABLE_TEXT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SelectableText</span>,
+            <span class="ident">ffi::ATK_STATE_DEFAULT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Default</span>,
+            <span class="ident">ffi::ATK_STATE_ANIMATED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Animated</span>,
+            <span class="ident">ffi::ATK_STATE_VISITED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Visited</span>,
+            <span class="ident">ffi::ATK_STATE_CHECKABLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Checkable</span>,
+            <span class="ident">ffi::ATK_STATE_HAS_POPUP</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::HasPopup</span>,
+            <span class="ident">ffi::ATK_STATE_HAS_TOOLTIP</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::HasTooltip</span>,
+            <span class="ident">ffi::ATK_STATE_READ_ONLY</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::ReadOnly</span>,
+            <span class="ident">ffi::ATK_STATE_LAST_DEFINED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LastDefined</span>,
             <span class="ident">value</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::__Unknown</span>(<span class="ident">value</span>),
         }
     }
@@ -4836,10 +4836,10 @@
     <span class="doccomment">/// The foreground color. The value is an RGB value of the format &quot;`u`,`u`,`u`&quot;</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_TEXT_ATTR_FG_COLOR&quot;</span>)]</span>
     <span class="ident">FgColor</span>,
-    <span class="doccomment">/// &quot;true&quot; if a ``GdkBitmap`` is set for stippling the background color.</span>
+    <span class="doccomment">/// &quot;true&quot; if a `GdkBitmap` is set for stippling the background color.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_TEXT_ATTR_BG_STIPPLE&quot;</span>)]</span>
     <span class="ident">BgStipple</span>,
-    <span class="doccomment">/// &quot;true&quot; if a ``GdkBitmap`` is set for stippling the foreground color.</span>
+    <span class="doccomment">/// &quot;true&quot; if a `GdkBitmap` is set for stippling the foreground color.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ATK_TEXT_ATTR_FG_STIPPLE&quot;</span>)]</span>
     <span class="ident">FgStipple</span>,
     <span class="doccomment">/// The wrap mode of the text, if any. Values are &quot;none&quot;, &quot;char&quot;, &quot;word&quot;, or &quot;word_char&quot;.</span>
@@ -4980,36 +4980,36 @@
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::AtkTextAttribute</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">match</span> <span class="ident">value</span> {
-            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Invalid</span>,
-            <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LeftMargin</span>,
-            <span class="number">2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RightMargin</span>,
-            <span class="number">3</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Indent</span>,
-            <span class="number">4</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Invisible</span>,
-            <span class="number">5</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Editable</span>,
-            <span class="number">6</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PixelsAboveLines</span>,
-            <span class="number">7</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PixelsBelowLines</span>,
-            <span class="number">8</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PixelsInsideWrap</span>,
-            <span class="number">9</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BgFullHeight</span>,
-            <span class="number">10</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Rise</span>,
-            <span class="number">11</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Underline</span>,
-            <span class="number">12</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Strikethrough</span>,
-            <span class="number">13</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Size</span>,
-            <span class="number">14</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Scale</span>,
-            <span class="number">15</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Weight</span>,
-            <span class="number">16</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Language</span>,
-            <span class="number">17</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FamilyName</span>,
-            <span class="number">18</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BgColor</span>,
-            <span class="number">19</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FgColor</span>,
-            <span class="number">20</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BgStipple</span>,
-            <span class="number">21</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FgStipple</span>,
-            <span class="number">22</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::WrapMode</span>,
-            <span class="number">23</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Direction</span>,
-            <span class="number">24</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Justification</span>,
-            <span class="number">25</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Stretch</span>,
-            <span class="number">26</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Variant</span>,
-            <span class="number">27</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Style</span>,
-            <span class="number">28</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TextPosition</span>,
-            <span class="number">29</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LastDefined</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_INVALID</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Invalid</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_LEFT_MARGIN</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LeftMargin</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_RIGHT_MARGIN</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::RightMargin</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_INDENT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Indent</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_INVISIBLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Invisible</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_EDITABLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Editable</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_PIXELS_ABOVE_LINES</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PixelsAboveLines</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_PIXELS_BELOW_LINES</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PixelsBelowLines</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_PIXELS_INSIDE_WRAP</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::PixelsInsideWrap</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_BG_FULL_HEIGHT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BgFullHeight</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_RISE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Rise</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_UNDERLINE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Underline</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_STRIKETHROUGH</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Strikethrough</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_SIZE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Size</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_SCALE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Scale</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_WEIGHT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Weight</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_LANGUAGE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Language</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_FAMILY_NAME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FamilyName</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_BG_COLOR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BgColor</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_FG_COLOR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FgColor</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_BG_STIPPLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::BgStipple</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_FG_STIPPLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::FgStipple</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_WRAP_MODE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::WrapMode</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_DIRECTION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Direction</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_JUSTIFICATION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Justification</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_STRETCH</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Stretch</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_VARIANT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Variant</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_STYLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Style</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_TEXT_POSITION</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::TextPosition</span>,
+            <span class="ident">ffi::ATK_TEXT_ATTR_LAST_DEFINED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LastDefined</span>,
             <span class="ident">value</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::__Unknown</span>(<span class="ident">value</span>),
         }
     }
@@ -5050,7 +5050,7 @@
 
 <span class="doccomment">/// Text boundary types used for specifying boundaries for regions of text.</span>
 <span class="doccomment">/// This enumeration is deprecated since 2.9.4 and should not be used. Use</span>
-<span class="doccomment">/// AtkTextGranularity with [`crate::Text::get_string_at_offset`] instead.</span>
+<span class="doccomment">/// AtkTextGranularity with `atk_text_get_string_at_offset` instead.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>
 <span class="attribute">#[<span class="ident">non_exhaustive</span>]</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;AtkTextBoundary&quot;</span>)]</span>
@@ -5129,13 +5129,13 @@
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::AtkTextBoundary</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">match</span> <span class="ident">value</span> {
-            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Char</span>,
-            <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::WordStart</span>,
-            <span class="number">2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::WordEnd</span>,
-            <span class="number">3</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SentenceStart</span>,
-            <span class="number">4</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SentenceEnd</span>,
-            <span class="number">5</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LineStart</span>,
-            <span class="number">6</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LineEnd</span>,
+            <span class="ident">ffi::ATK_TEXT_BOUNDARY_CHAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Char</span>,
+            <span class="ident">ffi::ATK_TEXT_BOUNDARY_WORD_START</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::WordStart</span>,
+            <span class="ident">ffi::ATK_TEXT_BOUNDARY_WORD_END</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::WordEnd</span>,
+            <span class="ident">ffi::ATK_TEXT_BOUNDARY_SENTENCE_START</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SentenceStart</span>,
+            <span class="ident">ffi::ATK_TEXT_BOUNDARY_SENTENCE_END</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::SentenceEnd</span>,
+            <span class="ident">ffi::ATK_TEXT_BOUNDARY_LINE_START</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LineStart</span>,
+            <span class="ident">ffi::ATK_TEXT_BOUNDARY_LINE_END</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LineEnd</span>,
             <span class="ident">value</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::__Unknown</span>(<span class="ident">value</span>),
         }
     }
@@ -5231,10 +5231,10 @@
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::AtkTextClipType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">match</span> <span class="ident">value</span> {
-            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::None</span>,
-            <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Min</span>,
-            <span class="number">2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Max</span>,
-            <span class="number">3</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Both</span>,
+            <span class="ident">ffi::ATK_TEXT_CLIP_NONE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::None</span>,
+            <span class="ident">ffi::ATK_TEXT_CLIP_MIN</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Min</span>,
+            <span class="ident">ffi::ATK_TEXT_CLIP_MAX</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Max</span>,
+            <span class="ident">ffi::ATK_TEXT_CLIP_BOTH</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Both</span>,
             <span class="ident">value</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::__Unknown</span>(<span class="ident">value</span>),
         }
     }
@@ -5345,11 +5345,11 @@
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::AtkTextGranularity</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">match</span> <span class="ident">value</span> {
-            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Char</span>,
-            <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Word</span>,
-            <span class="number">2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Sentence</span>,
-            <span class="number">3</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Line</span>,
-            <span class="number">4</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Paragraph</span>,
+            <span class="ident">ffi::ATK_TEXT_GRANULARITY_CHAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Char</span>,
+            <span class="ident">ffi::ATK_TEXT_GRANULARITY_WORD</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Word</span>,
+            <span class="ident">ffi::ATK_TEXT_GRANULARITY_SENTENCE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Sentence</span>,
+            <span class="ident">ffi::ATK_TEXT_GRANULARITY_LINE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Line</span>,
+            <span class="ident">ffi::ATK_TEXT_GRANULARITY_PARAGRAPH</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Paragraph</span>,
             <span class="ident">value</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::__Unknown</span>(<span class="ident">value</span>),
         }
     }
@@ -5390,7 +5390,7 @@
 
 <span class="doccomment">/// Default types for a given value. Those are defined in order to</span>
 <span class="doccomment">/// easily get localized strings to describe a given value or a given</span>
-<span class="doccomment">/// subrange, using [`Self::get_localized_name()`].</span>
+<span class="doccomment">/// subrange, using `atk_value_type_get_localized_name()`.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>
 <span class="attribute">#[<span class="ident">non_exhaustive</span>]</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;AtkValueType&quot;</span>)]</span>
@@ -5507,22 +5507,22 @@
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::AtkValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">match</span> <span class="ident">value</span> {
-            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryWeak</span>,
-            <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Weak</span>,
-            <span class="number">2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Acceptable</span>,
-            <span class="number">3</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Strong</span>,
-            <span class="number">4</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryStrong</span>,
-            <span class="number">5</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryLow</span>,
-            <span class="number">6</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Low</span>,
-            <span class="number">7</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Medium</span>,
-            <span class="number">8</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::High</span>,
-            <span class="number">9</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryHigh</span>,
-            <span class="number">10</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryBad</span>,
-            <span class="number">11</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Bad</span>,
-            <span class="number">12</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Good</span>,
-            <span class="number">13</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryGood</span>,
-            <span class="number">14</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Best</span>,
-            <span class="number">15</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LastDefined</span>,
+            <span class="ident">ffi::ATK_VALUE_VERY_WEAK</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryWeak</span>,
+            <span class="ident">ffi::ATK_VALUE_WEAK</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Weak</span>,
+            <span class="ident">ffi::ATK_VALUE_ACCEPTABLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Acceptable</span>,
+            <span class="ident">ffi::ATK_VALUE_STRONG</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Strong</span>,
+            <span class="ident">ffi::ATK_VALUE_VERY_STRONG</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryStrong</span>,
+            <span class="ident">ffi::ATK_VALUE_VERY_LOW</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryLow</span>,
+            <span class="ident">ffi::ATK_VALUE_LOW</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Low</span>,
+            <span class="ident">ffi::ATK_VALUE_MEDIUM</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Medium</span>,
+            <span class="ident">ffi::ATK_VALUE_HIGH</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::High</span>,
+            <span class="ident">ffi::ATK_VALUE_VERY_HIGH</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryHigh</span>,
+            <span class="ident">ffi::ATK_VALUE_VERY_BAD</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryBad</span>,
+            <span class="ident">ffi::ATK_VALUE_BAD</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Bad</span>,
+            <span class="ident">ffi::ATK_VALUE_GOOD</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Good</span>,
+            <span class="ident">ffi::ATK_VALUE_VERY_GOOD</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::VeryGood</span>,
+            <span class="ident">ffi::ATK_VALUE_BEST</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Best</span>,
+            <span class="ident">ffi::ATK_VALUE_LAST_DEFINED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::LastDefined</span>,
             <span class="ident">value</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::__Unknown</span>(<span class="ident">value</span>),
         }
     }

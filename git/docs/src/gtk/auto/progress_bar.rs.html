@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/progress_bar.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>progress_bar.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button">?</button>
                 <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
@@ -862,6 +862,112 @@
 <span id="859">859</span>
 <span id="860">860</span>
 <span id="861">861</span>
+<span id="862">862</span>
+<span id="863">863</span>
+<span id="864">864</span>
+<span id="865">865</span>
+<span id="866">866</span>
+<span id="867">867</span>
+<span id="868">868</span>
+<span id="869">869</span>
+<span id="870">870</span>
+<span id="871">871</span>
+<span id="872">872</span>
+<span id="873">873</span>
+<span id="874">874</span>
+<span id="875">875</span>
+<span id="876">876</span>
+<span id="877">877</span>
+<span id="878">878</span>
+<span id="879">879</span>
+<span id="880">880</span>
+<span id="881">881</span>
+<span id="882">882</span>
+<span id="883">883</span>
+<span id="884">884</span>
+<span id="885">885</span>
+<span id="886">886</span>
+<span id="887">887</span>
+<span id="888">888</span>
+<span id="889">889</span>
+<span id="890">890</span>
+<span id="891">891</span>
+<span id="892">892</span>
+<span id="893">893</span>
+<span id="894">894</span>
+<span id="895">895</span>
+<span id="896">896</span>
+<span id="897">897</span>
+<span id="898">898</span>
+<span id="899">899</span>
+<span id="900">900</span>
+<span id="901">901</span>
+<span id="902">902</span>
+<span id="903">903</span>
+<span id="904">904</span>
+<span id="905">905</span>
+<span id="906">906</span>
+<span id="907">907</span>
+<span id="908">908</span>
+<span id="909">909</span>
+<span id="910">910</span>
+<span id="911">911</span>
+<span id="912">912</span>
+<span id="913">913</span>
+<span id="914">914</span>
+<span id="915">915</span>
+<span id="916">916</span>
+<span id="917">917</span>
+<span id="918">918</span>
+<span id="919">919</span>
+<span id="920">920</span>
+<span id="921">921</span>
+<span id="922">922</span>
+<span id="923">923</span>
+<span id="924">924</span>
+<span id="925">925</span>
+<span id="926">926</span>
+<span id="927">927</span>
+<span id="928">928</span>
+<span id="929">929</span>
+<span id="930">930</span>
+<span id="931">931</span>
+<span id="932">932</span>
+<span id="933">933</span>
+<span id="934">934</span>
+<span id="935">935</span>
+<span id="936">936</span>
+<span id="937">937</span>
+<span id="938">938</span>
+<span id="939">939</span>
+<span id="940">940</span>
+<span id="941">941</span>
+<span id="942">942</span>
+<span id="943">943</span>
+<span id="944">944</span>
+<span id="945">945</span>
+<span id="946">946</span>
+<span id="947">947</span>
+<span id="948">948</span>
+<span id="949">949</span>
+<span id="950">950</span>
+<span id="951">951</span>
+<span id="952">952</span>
+<span id="953">953</span>
+<span id="954">954</span>
+<span id="955">955</span>
+<span id="956">956</span>
+<span id="957">957</span>
+<span id="958">958</span>
+<span id="959">959</span>
+<span id="960">960</span>
+<span id="961">961</span>
+<span id="962">962</span>
+<span id="963">963</span>
+<span id="964">964</span>
+<span id="965">965</span>
+<span id="966">966</span>
+<span id="967">967</span>
 </pre><pre class="rust">
 <span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
@@ -885,26 +991,26 @@
 <span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
 
 <span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// The [`crate::ProgressBar`] is typically used to display the progress of a long</span>
+    <span class="doccomment">/// The [`ProgressBar`][crate::ProgressBar] is typically used to display the progress of a long</span>
     <span class="doccomment">/// running operation. It provides a visual clue that processing is underway.</span>
-    <span class="doccomment">/// The `ProgressBar` can be used in two different modes: percentage mode</span>
+    <span class="doccomment">/// The GtkProgressBar can be used in two different modes: percentage mode</span>
     <span class="doccomment">/// and activity mode.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// When an application can determine how much work needs to take place</span>
     <span class="doccomment">/// (e.g. read a fixed number of bytes from a file) and can monitor its</span>
-    <span class="doccomment">/// progress, it can use the `ProgressBar` in percentage mode and the</span>
+    <span class="doccomment">/// progress, it can use the GtkProgressBar in percentage mode and the</span>
     <span class="doccomment">/// user sees a growing bar indicating the percentage of the work that</span>
     <span class="doccomment">/// has been completed. In this mode, the application is required to call</span>
-    <span class="doccomment">/// [`crate::prelude::ProgressBarExt::set_fraction()`] periodically to update the progress bar.</span>
+    <span class="doccomment">/// [`ProgressBarExt::set_fraction()`][crate::prelude::ProgressBarExt::set_fraction()] periodically to update the progress bar.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// When an application has no accurate way of knowing the amount of work</span>
-    <span class="doccomment">/// to do, it can use the [`crate::ProgressBar`] in activity mode, which shows</span>
+    <span class="doccomment">/// to do, it can use the [`ProgressBar`][crate::ProgressBar] in activity mode, which shows</span>
     <span class="doccomment">/// activity by a block moving back and forth within the progress area. In</span>
-    <span class="doccomment">/// this mode, the application is required to call [`crate::prelude::ProgressBarExt::pulse()`]</span>
+    <span class="doccomment">/// this mode, the application is required to call [`ProgressBarExt::pulse()`][crate::prelude::ProgressBarExt::pulse()]</span>
     <span class="doccomment">/// periodically to update the progress bar.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// There is quite a bit of flexibility provided to control the appearance</span>
-    <span class="doccomment">/// of the [`crate::ProgressBar`]. Functions are provided to control the orientation</span>
+    <span class="doccomment">/// of the [`ProgressBar`][crate::ProgressBar]. Functions are provided to control the orientation</span>
     <span class="doccomment">/// of the bar, optional text can be displayed along with the bar, and the</span>
     <span class="doccomment">/// step size used in activity mode can be set.</span>
     <span class="doccomment">///</span>
@@ -918,17 +1024,17 @@
     <span class="doccomment">///     ╰── progress[.pulse]</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `ProgressBar` has a main CSS node with name progressbar and subnodes with</span>
+    <span class="doccomment">/// GtkProgressBar has a main CSS node with name progressbar and subnodes with</span>
     <span class="doccomment">/// names text and trough, of which the latter has a subnode named progress. The</span>
     <span class="doccomment">/// text subnode is only present if text is shown. The progress subnode has the</span>
     <span class="doccomment">/// style class .pulse when in activity mode. It gets the style classes .left,</span>
     <span class="doccomment">/// .right, .top or .bottom added when the progress &#39;touches&#39; the corresponding</span>
-    <span class="doccomment">/// end of the `ProgressBar`. The .osd class on the progressbar node is for use</span>
+    <span class="doccomment">/// end of the GtkProgressBar. The .osd class on the progressbar node is for use</span>
     <span class="doccomment">/// in overlays like the one Epiphany has for page loading progress.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Implements</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`trait@crate::prelude::ProgressBarExt`], [`trait@crate::prelude::WidgetExt`], [`trait@glib::object::ObjectExt`], [`trait@crate::prelude::BuildableExt`], [`trait@crate::prelude::OrientableExt`], [`trait@crate::prelude::WidgetExtManual`], [`trait@crate::prelude::BuildableExtManual`]</span>
+    <span class="doccomment">/// [`ProgressBarExt`][trait@crate::prelude::ProgressBarExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`OrientableExt`][trait@crate::prelude::OrientableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`BuildableExtManual`][trait@crate::prelude::BuildableExtManual]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ProgressBar</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GtkProgressBar</span>, <span class="ident">ffi::GtkProgressBarClass</span><span class="op">&gt;</span>) @<span class="ident">extends</span> <span class="ident">Widget</span>, @<span class="ident">implements</span> <span class="ident">Buildable</span>, <span class="ident">Orientable</span>;
 
     <span class="kw">match</span> <span class="kw">fn</span> {
@@ -937,15 +1043,22 @@
 }
 
 <span class="kw">impl</span> <span class="ident">ProgressBar</span> {
-    <span class="doccomment">/// Creates a new [`crate::ProgressBar`].</span>
+    <span class="doccomment">/// Creates a new [`ProgressBar`][crate::ProgressBar].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a [`crate::ProgressBar`].</span>
+    <span class="doccomment">/// a [`ProgressBar`][crate::ProgressBar].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_progress_bar_new&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ProgressBar</span> {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe</span> { <span class="ident">Widget::from_glib_none</span>(<span class="ident">ffi::gtk_progress_bar_new</span>()).<span class="ident">unsafe_cast</span>() }
+    }
+
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
+    <span class="doccomment">/// Creates a new builder-style object to construct a [`ProgressBar`]</span>
+    <span class="doccomment">/// This method returns an instance of [`ProgressBarBuilder`] which can be used to create a [`ProgressBar`].</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">builder</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ProgressBarBuilder</span> {
+        <span class="ident">ProgressBarBuilder::default</span>()
     }
 }
 
@@ -956,6 +1069,8 @@
 }
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Default</span>)]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
+<span class="doccomment">/// A builder for generating a [`ProgressBar`].</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ProgressBarBuilder</span> {
     <span class="ident">ellipsize</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">pango::EllipsizeMode</span><span class="op">&gt;</span>,
     <span class="ident">fraction</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>,
@@ -1001,10 +1116,14 @@
 }
 
 <span class="kw">impl</span> <span class="ident">ProgressBarBuilder</span> {
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
+    <span class="doccomment">/// Create a new [`ProgressBarBuilder`].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">Self</span><span class="ident">::default</span>()
     }
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
+    <span class="doccomment">/// Build the [`ProgressBar`].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ProgressBar</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">properties</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>)<span class="op">&gt;</span> <span class="op">=</span> <span class="macro">vec!</span>[];
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">ellipsize</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">ellipsize</span> {
@@ -1129,6 +1248,14 @@
             .<span class="ident">expect</span>(<span class="string">&quot;Failed to create an instance of ProgressBar&quot;</span>)
     }
 
+    <span class="doccomment">/// The preferred place to ellipsize the string, if the progress bar does</span>
+    <span class="doccomment">/// not have enough room to display the entire string, specified as a</span>
+    <span class="doccomment">/// [`pango::EllipsizeMode`][crate::pango::EllipsizeMode].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that setting this property to a value other than</span>
+    <span class="doccomment">/// [`pango::EllipsizeMode::None`][crate::pango::EllipsizeMode::None] has the side-effect that the progress bar requests</span>
+    <span class="doccomment">/// only enough space to display the ellipsis (&quot;...&quot;). Another means to set a</span>
+    <span class="doccomment">/// progress bar&#39;s width is [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ellipsize</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ellipsize</span>: <span class="ident">pango::EllipsizeMode</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">ellipsize</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">ellipsize</span>);
         <span class="self">self</span>
@@ -1149,6 +1276,15 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Sets whether the progress bar will show a text in addition</span>
+    <span class="doccomment">/// to the bar itself. The shown text is either the value of</span>
+    <span class="doccomment">/// the `property::ProgressBar::text` property or, if that is [`None`],</span>
+    <span class="doccomment">/// the `property::ProgressBar::fraction` value, as a percentage.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// To make a progress bar that is styled and sized suitably for</span>
+    <span class="doccomment">/// showing text (even if the actual text is blank), set</span>
+    <span class="doccomment">/// `property::ProgressBar::show-text` to [`true`] and `property::ProgressBar::text`</span>
+    <span class="doccomment">/// to the empty string (not [`None`]).</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">show_text</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">show_text</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">show_text</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">show_text</span>);
         <span class="self">self</span>
@@ -1179,11 +1315,18 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether to expand in both directions. Setting this sets both `property::Widget::hexpand` and `property::Widget::vexpand`</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">expand</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">expand</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">expand</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">expand</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether the widget should grab focus when it is clicked with the mouse.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This property is only relevant for widgets that can take focus.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Before 3.20, several widgets (GtkButton, GtkFileChooserButton,</span>
+    <span class="doccomment">/// GtkComboBox) implemented this property individually.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v3_20&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v3_20&quot;</span>)))]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">focus_on_click</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">focus_on_click</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
@@ -1191,6 +1334,7 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// How to distribute horizontal space if widget gets extra space, see [`Align`][crate::Align]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">halign</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">halign</span>: <span class="ident">Align</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">halign</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">halign</span>);
         <span class="self">self</span>
@@ -1206,6 +1350,15 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Enables or disables the emission of `signal::Widget::query-tooltip` on `widget`.</span>
+    <span class="doccomment">/// A value of [`true`] indicates that `widget` can have a tooltip, in this case</span>
+    <span class="doccomment">/// the widget will be queried using `signal::Widget::query-tooltip` to determine</span>
+    <span class="doccomment">/// whether it will provide a tooltip or not.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that setting this property to [`true`] for the first time will change</span>
+    <span class="doccomment">/// the event masks of the GdkWindows of this widget to include leave-notify</span>
+    <span class="doccomment">/// and motion-notify events. This cannot and will not be undone when the</span>
+    <span class="doccomment">/// property is set to [`false`] again.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">has_tooltip</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">has_tooltip</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">has_tooltip</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">has_tooltip</span>);
         <span class="self">self</span>
@@ -1216,11 +1369,13 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether to expand horizontally. See [`WidgetExt::set_hexpand()`][crate::prelude::WidgetExt::set_hexpand()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">hexpand</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">hexpand</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">hexpand</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">hexpand</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether to use the `property::Widget::hexpand` property. See [`WidgetExt::is_hexpand_set()`][crate::prelude::WidgetExt::is_hexpand_set()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">hexpand_set</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">hexpand_set</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">hexpand_set</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">hexpand_set</span>);
         <span class="self">self</span>
@@ -1231,26 +1386,50 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Sets all four sides&#39; margin at once. If read, returns max</span>
+    <span class="doccomment">/// margin on any side.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Margin on bottom side of widget.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
+    <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_bottom</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_bottom</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_bottom</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_bottom</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Margin on end of widget, horizontally. This property supports</span>
+    <span class="doccomment">/// left-to-right and right-to-left text directions.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
+    <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_end</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_end</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_end</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_end</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Margin on start of widget, horizontally. This property supports</span>
+    <span class="doccomment">/// left-to-right and right-to-left text directions.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
+    <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_start</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_start</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_start</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_start</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Margin on top side of widget.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
+    <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_top</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_top</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_top</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_top</span>);
         <span class="self">self</span>
@@ -1266,6 +1445,10 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// The requested opacity of the widget. See [`WidgetExt::set_opacity()`][crate::prelude::WidgetExt::set_opacity()] for</span>
+    <span class="doccomment">/// more details about window opacity.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Before 3.8 this was only available in GtkWindow</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">opacity</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">opacity</span>: <span class="ident">f64</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">opacity</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">opacity</span>);
         <span class="self">self</span>
@@ -1286,26 +1469,51 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Sets the text of tooltip to be the given string, which is marked up</span>
+    <span class="doccomment">/// with the [Pango text markup language][PangoMarkupFormat].</span>
+    <span class="doccomment">/// Also see [`Tooltip::set_markup()`][crate::Tooltip::set_markup()].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is a convenience property which will take care of getting the</span>
+    <span class="doccomment">/// tooltip shown if the given string is not [`None`]: `property::Widget::has-tooltip`</span>
+    <span class="doccomment">/// will automatically be set to [`true`] and there will be taken care of</span>
+    <span class="doccomment">/// `signal::Widget::query-tooltip` in the default signal handler.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that if both `property::Widget::tooltip-text` and `property::Widget::tooltip-markup`</span>
+    <span class="doccomment">/// are set, the last one wins.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">tooltip_markup</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">tooltip_markup</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">tooltip_markup</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">tooltip_markup</span>.<span class="ident">to_string</span>());
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Sets the text of tooltip to be the given string.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Also see [`Tooltip::set_text()`][crate::Tooltip::set_text()].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is a convenience property which will take care of getting the</span>
+    <span class="doccomment">/// tooltip shown if the given string is not [`None`]: `property::Widget::has-tooltip`</span>
+    <span class="doccomment">/// will automatically be set to [`true`] and there will be taken care of</span>
+    <span class="doccomment">/// `signal::Widget::query-tooltip` in the default signal handler.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that if both `property::Widget::tooltip-text` and `property::Widget::tooltip-markup`</span>
+    <span class="doccomment">/// are set, the last one wins.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">tooltip_text</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">tooltip_text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">tooltip_text</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">tooltip_text</span>.<span class="ident">to_string</span>());
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// How to distribute vertical space if widget gets extra space, see [`Align`][crate::Align]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">valign</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">valign</span>: <span class="ident">Align</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">valign</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">valign</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether to expand vertically. See [`WidgetExt::set_vexpand()`][crate::prelude::WidgetExt::set_vexpand()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">vexpand</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">vexpand</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">vexpand</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">vexpand</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether to use the `property::Widget::vexpand` property. See [`WidgetExt::is_vexpand_set()`][crate::prelude::WidgetExt::is_vexpand_set()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">vexpand_set</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">vexpand_set</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">vexpand_set</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">vexpand_set</span>);
         <span class="self">self</span>
@@ -1321,6 +1529,7 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// The orientation of the orientable.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">orientation</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">orientation</span>: <span class="ident">Orientation</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">orientation</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">orientation</span>);
         <span class="self">self</span>
@@ -1329,18 +1538,18 @@
 
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE_PROGRESS_BAR</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
 
-<span class="doccomment">/// Trait containing all `ProgressBar` methods.</span>
+<span class="doccomment">/// Trait containing all [`struct@ProgressBar`] methods.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Implementors</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`struct@crate::ProgressBar`]</span>
+<span class="doccomment">/// [`ProgressBar`][struct@crate::ProgressBar]</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ProgressBarExt</span>: <span class="lifetime">&#39;static</span> {
     <span class="doccomment">/// Returns the ellipsizing position of the progress bar.</span>
-    <span class="doccomment">/// See [`Self::set_ellipsize()`].</span>
+    <span class="doccomment">/// See [`set_ellipsize()`][Self::set_ellipsize()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`crate::pango::EllipsizeMode`]</span>
+    <span class="doccomment">/// [`pango::EllipsizeMode`][crate::pango::EllipsizeMode]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_progress_bar_get_ellipsize&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_ellipsize&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">ellipsize</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">pango::EllipsizeMode</span>;
@@ -1354,7 +1563,7 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_fraction&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">fraction</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f64</span>;
 
-    <span class="doccomment">/// Gets the value set by [`Self::set_inverted()`].</span>
+    <span class="doccomment">/// Gets the value set by [`set_inverted()`][Self::set_inverted()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -1363,7 +1572,7 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_inverted&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">is_inverted</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
 
-    <span class="doccomment">/// Retrieves the pulse step set with [`Self::set_pulse_step()`].</span>
+    <span class="doccomment">/// Retrieves the pulse step set with [`set_pulse_step()`][Self::set_pulse_step()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -1372,8 +1581,8 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_pulse_step&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">pulse_step</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f64</span>;
 
-    <span class="doccomment">/// Gets the value of the [`crate::ProgressBar:show-text`] property.</span>
-    <span class="doccomment">/// See [`Self::set_show_text()`].</span>
+    <span class="doccomment">/// Gets the value of the `property::ProgressBar::show-text` property.</span>
+    <span class="doccomment">/// See [`set_show_text()`][Self::set_show_text()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -1397,16 +1606,16 @@
 
     <span class="doccomment">/// Indicates that some progress has been made, but you don’t know how much.</span>
     <span class="doccomment">/// Causes the progress bar to enter “activity mode,” where a block</span>
-    <span class="doccomment">/// bounces back and forth. Each call to [`Self::pulse()`]</span>
+    <span class="doccomment">/// bounces back and forth. Each call to [`pulse()`][Self::pulse()]</span>
     <span class="doccomment">/// causes the block to move by a little bit (the amount of movement</span>
-    <span class="doccomment">/// per pulse is determined by [`Self::set_pulse_step()`]).</span>
+    <span class="doccomment">/// per pulse is determined by [`set_pulse_step()`][Self::set_pulse_step()]).</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_progress_bar_pulse&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">pulse</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Sets the mode used to ellipsize (add an ellipsis: &quot;...&quot;) the</span>
     <span class="doccomment">/// text if there is not enough space to render the entire string.</span>
     <span class="doccomment">/// ## `mode`</span>
-    <span class="doccomment">/// a [`crate::pango::EllipsizeMode`]</span>
+    <span class="doccomment">/// a [`pango::EllipsizeMode`][crate::pango::EllipsizeMode]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_progress_bar_set_ellipsize&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_ellipsize</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">mode</span>: <span class="ident">pango::EllipsizeMode</span>);
 
@@ -1426,20 +1635,20 @@
     <span class="kw">fn</span> <span class="ident">set_inverted</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">inverted</span>: <span class="ident">bool</span>);
 
     <span class="doccomment">/// Sets the fraction of total progress bar length to move the</span>
-    <span class="doccomment">/// bouncing block for each call to [`Self::pulse()`].</span>
+    <span class="doccomment">/// bouncing block for each call to [`pulse()`][Self::pulse()].</span>
     <span class="doccomment">/// ## `fraction`</span>
     <span class="doccomment">/// fraction between 0.0 and 1.0</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_progress_bar_set_pulse_step&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_pulse_step</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">fraction</span>: <span class="ident">f64</span>);
 
     <span class="doccomment">/// Sets whether the progress bar will show text next to the bar.</span>
-    <span class="doccomment">/// The shown text is either the value of the [`crate::ProgressBar:text`]</span>
-    <span class="doccomment">/// property or, if that is [`None`], the [`crate::ProgressBar:fraction`] value,</span>
+    <span class="doccomment">/// The shown text is either the value of the `property::ProgressBar::text`</span>
+    <span class="doccomment">/// property or, if that is [`None`], the `property::ProgressBar::fraction` value,</span>
     <span class="doccomment">/// as a percentage.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// To make a progress bar that is styled and sized suitably for containing</span>
-    <span class="doccomment">/// text (even if the actual text is blank), set [`crate::ProgressBar:show-text`] to</span>
-    <span class="doccomment">/// [`true`] and [`crate::ProgressBar:text`] to the empty string (not [`None`]).</span>
+    <span class="doccomment">/// text (even if the actual text is blank), set `property::ProgressBar::show-text` to</span>
+    <span class="doccomment">/// [`true`] and `property::ProgressBar::text` to the empty string (not [`None`]).</span>
     <span class="doccomment">/// ## `show_text`</span>
     <span class="doccomment">/// whether to show text</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_progress_bar_set_show_text&quot;</span>)]</span>
@@ -1447,14 +1656,14 @@
 
     <span class="doccomment">/// Causes the given `text` to appear next to the progress bar.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `text` is [`None`] and [`crate::ProgressBar:show-text`] is [`true`], the current</span>
-    <span class="doccomment">/// value of [`crate::ProgressBar:fraction`] will be displayed as a percentage.</span>
+    <span class="doccomment">/// If `text` is [`None`] and `property::ProgressBar::show-text` is [`true`], the current</span>
+    <span class="doccomment">/// value of `property::ProgressBar::fraction` will be displayed as a percentage.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `text` is non-[`None`] and [`crate::ProgressBar:show-text`] is [`true`], the text</span>
+    <span class="doccomment">/// If `text` is non-[`None`] and `property::ProgressBar::show-text` is [`true`], the text</span>
     <span class="doccomment">/// will be displayed. In this case, it will not display the progress</span>
     <span class="doccomment">/// percentage. If `text` is the empty string, the progress bar will still</span>
     <span class="doccomment">/// be styled and sized suitably for containing text, as long as</span>
-    <span class="doccomment">/// [`crate::ProgressBar:show-text`] is [`true`].</span>
+    <span class="doccomment">/// `property::ProgressBar::show-text` is [`true`].</span>
     <span class="doccomment">/// ## `text`</span>
     <span class="doccomment">/// a UTF-8 string, or [`None`]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_progress_bar_set_text&quot;</span>)]</span>
@@ -1570,13 +1779,14 @@
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;ellipsize&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_ellipsize_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_ellipsize_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_ellipsize_trampoline</span><span class="op">&lt;</span>
+            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>,
+            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+        <span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkProgressBar</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>,
-        {
+        ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">ProgressBar::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
@@ -1595,13 +1805,14 @@
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;fraction&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_fraction_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_fraction_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_fraction_trampoline</span><span class="op">&lt;</span>
+            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>,
+            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+        <span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkProgressBar</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>,
-        {
+        ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">ProgressBar::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
@@ -1620,13 +1831,14 @@
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;inverted&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_inverted_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_inverted_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_inverted_trampoline</span><span class="op">&lt;</span>
+            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>,
+            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+        <span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkProgressBar</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>,
-        {
+        ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">ProgressBar::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
@@ -1645,13 +1857,14 @@
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pulse-step&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_pulse_step_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_pulse_step_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_pulse_step_trampoline</span><span class="op">&lt;</span>
+            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>,
+            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+        <span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkProgressBar</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>,
-        {
+        ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">ProgressBar::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
@@ -1670,13 +1883,14 @@
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;show-text&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_show_text_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_show_text_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_show_text_trampoline</span><span class="op">&lt;</span>
+            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>,
+            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+        <span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkProgressBar</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>,
-        {
+        ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">ProgressBar::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
@@ -1695,13 +1909,11 @@
 
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;text&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_text_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_text_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_text_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkProgressBar</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ProgressBar</span><span class="op">&gt;</span>,
-        {
+        ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">ProgressBar::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }

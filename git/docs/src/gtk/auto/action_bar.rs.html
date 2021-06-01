@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/action_bar.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>action_bar.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button">?</button>
                 <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
@@ -540,6 +540,91 @@
 <span id="537">537</span>
 <span id="538">538</span>
 <span id="539">539</span>
+<span id="540">540</span>
+<span id="541">541</span>
+<span id="542">542</span>
+<span id="543">543</span>
+<span id="544">544</span>
+<span id="545">545</span>
+<span id="546">546</span>
+<span id="547">547</span>
+<span id="548">548</span>
+<span id="549">549</span>
+<span id="550">550</span>
+<span id="551">551</span>
+<span id="552">552</span>
+<span id="553">553</span>
+<span id="554">554</span>
+<span id="555">555</span>
+<span id="556">556</span>
+<span id="557">557</span>
+<span id="558">558</span>
+<span id="559">559</span>
+<span id="560">560</span>
+<span id="561">561</span>
+<span id="562">562</span>
+<span id="563">563</span>
+<span id="564">564</span>
+<span id="565">565</span>
+<span id="566">566</span>
+<span id="567">567</span>
+<span id="568">568</span>
+<span id="569">569</span>
+<span id="570">570</span>
+<span id="571">571</span>
+<span id="572">572</span>
+<span id="573">573</span>
+<span id="574">574</span>
+<span id="575">575</span>
+<span id="576">576</span>
+<span id="577">577</span>
+<span id="578">578</span>
+<span id="579">579</span>
+<span id="580">580</span>
+<span id="581">581</span>
+<span id="582">582</span>
+<span id="583">583</span>
+<span id="584">584</span>
+<span id="585">585</span>
+<span id="586">586</span>
+<span id="587">587</span>
+<span id="588">588</span>
+<span id="589">589</span>
+<span id="590">590</span>
+<span id="591">591</span>
+<span id="592">592</span>
+<span id="593">593</span>
+<span id="594">594</span>
+<span id="595">595</span>
+<span id="596">596</span>
+<span id="597">597</span>
+<span id="598">598</span>
+<span id="599">599</span>
+<span id="600">600</span>
+<span id="601">601</span>
+<span id="602">602</span>
+<span id="603">603</span>
+<span id="604">604</span>
+<span id="605">605</span>
+<span id="606">606</span>
+<span id="607">607</span>
+<span id="608">608</span>
+<span id="609">609</span>
+<span id="610">610</span>
+<span id="611">611</span>
+<span id="612">612</span>
+<span id="613">613</span>
+<span id="614">614</span>
+<span id="615">615</span>
+<span id="616">616</span>
+<span id="617">617</span>
+<span id="618">618</span>
+<span id="619">619</span>
+<span id="620">620</span>
+<span id="621">621</span>
+<span id="622">622</span>
+<span id="623">623</span>
+<span id="624">624</span>
 </pre><pre class="rust">
 <span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
@@ -560,7 +645,7 @@
 <span class="kw">use</span> <span class="ident">std::fmt</span>;
 
 <span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// `ActionBar` is designed to present contextual actions. It is</span>
+    <span class="doccomment">/// GtkActionBar is designed to present contextual actions. It is</span>
     <span class="doccomment">/// expected to be displayed below the content and expand horizontally</span>
     <span class="doccomment">/// to fill the area.</span>
     <span class="doccomment">///</span>
@@ -571,11 +656,11 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # CSS nodes</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `ActionBar` has a single CSS node with name actionbar.</span>
+    <span class="doccomment">/// GtkActionBar has a single CSS node with name actionbar.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Implements</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`trait@crate::prelude::ActionBarExt`], [`trait@crate::prelude::BinExt`], [`trait@crate::prelude::ContainerExt`], [`trait@crate::prelude::WidgetExt`], [`trait@glib::object::ObjectExt`], [`trait@crate::prelude::BuildableExt`], [`trait@crate::prelude::WidgetExtManual`], [`trait@crate::prelude::BuildableExtManual`]</span>
+    <span class="doccomment">/// [`ActionBarExt`][trait@crate::prelude::ActionBarExt], [`BinExt`][trait@crate::prelude::BinExt], [`ContainerExt`][trait@crate::prelude::ContainerExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`BuildableExtManual`][trait@crate::prelude::BuildableExtManual]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ActionBar</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GtkActionBar</span>, <span class="ident">ffi::GtkActionBarClass</span><span class="op">&gt;</span>) @<span class="ident">extends</span> <span class="ident">Bin</span>, <span class="ident">Container</span>, <span class="ident">Widget</span>, @<span class="ident">implements</span> <span class="ident">Buildable</span>;
 
     <span class="kw">match</span> <span class="kw">fn</span> {
@@ -584,15 +669,22 @@
 }
 
 <span class="kw">impl</span> <span class="ident">ActionBar</span> {
-    <span class="doccomment">/// Creates a new [`crate::ActionBar`] widget.</span>
+    <span class="doccomment">/// Creates a new [`ActionBar`][crate::ActionBar] widget.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a new [`crate::ActionBar`]</span>
+    <span class="doccomment">/// a new [`ActionBar`][crate::ActionBar]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_action_bar_new&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ActionBar</span> {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe</span> { <span class="ident">Widget::from_glib_none</span>(<span class="ident">ffi::gtk_action_bar_new</span>()).<span class="ident">unsafe_cast</span>() }
+    }
+
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
+    <span class="doccomment">/// Creates a new builder-style object to construct a [`ActionBar`]</span>
+    <span class="doccomment">/// This method returns an instance of [`ActionBarBuilder`] which can be used to create a [`ActionBar`].</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">builder</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ActionBarBuilder</span> {
+        <span class="ident">ActionBarBuilder::default</span>()
     }
 }
 
@@ -603,6 +695,8 @@
 }
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Default</span>)]</span>
+<span class="comment">// rustdoc-stripper-ignore-next</span>
+<span class="doccomment">/// A builder for generating a [`ActionBar`].</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ActionBarBuilder</span> {
     <span class="ident">border_width</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>,
     <span class="ident">child</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>,
@@ -644,10 +738,14 @@
 }
 
 <span class="kw">impl</span> <span class="ident">ActionBarBuilder</span> {
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
+    <span class="doccomment">/// Create a new [`ActionBarBuilder`].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">Self</span><span class="ident">::default</span>()
     }
 
+    <span class="comment">// rustdoc-stripper-ignore-next</span>
+    <span class="doccomment">/// Build the [`ActionBar`].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ActionBar</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">properties</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>)<span class="op">&gt;</span> <span class="op">=</span> <span class="macro">vec!</span>[];
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">border_width</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">border_width</span> {
@@ -795,11 +893,18 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether to expand in both directions. Setting this sets both `property::Widget::hexpand` and `property::Widget::vexpand`</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">expand</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">expand</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">expand</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">expand</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether the widget should grab focus when it is clicked with the mouse.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This property is only relevant for widgets that can take focus.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Before 3.20, several widgets (GtkButton, GtkFileChooserButton,</span>
+    <span class="doccomment">/// GtkComboBox) implemented this property individually.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v3_20&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v3_20&quot;</span>)))]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">focus_on_click</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">focus_on_click</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
@@ -807,6 +912,7 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// How to distribute horizontal space if widget gets extra space, see [`Align`][crate::Align]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">halign</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">halign</span>: <span class="ident">Align</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">halign</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">halign</span>);
         <span class="self">self</span>
@@ -822,6 +928,15 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Enables or disables the emission of `signal::Widget::query-tooltip` on `widget`.</span>
+    <span class="doccomment">/// A value of [`true`] indicates that `widget` can have a tooltip, in this case</span>
+    <span class="doccomment">/// the widget will be queried using `signal::Widget::query-tooltip` to determine</span>
+    <span class="doccomment">/// whether it will provide a tooltip or not.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that setting this property to [`true`] for the first time will change</span>
+    <span class="doccomment">/// the event masks of the GdkWindows of this widget to include leave-notify</span>
+    <span class="doccomment">/// and motion-notify events. This cannot and will not be undone when the</span>
+    <span class="doccomment">/// property is set to [`false`] again.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">has_tooltip</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">has_tooltip</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">has_tooltip</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">has_tooltip</span>);
         <span class="self">self</span>
@@ -832,11 +947,13 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether to expand horizontally. See [`WidgetExt::set_hexpand()`][crate::prelude::WidgetExt::set_hexpand()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">hexpand</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">hexpand</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">hexpand</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">hexpand</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether to use the `property::Widget::hexpand` property. See [`WidgetExt::is_hexpand_set()`][crate::prelude::WidgetExt::is_hexpand_set()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">hexpand_set</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">hexpand_set</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">hexpand_set</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">hexpand_set</span>);
         <span class="self">self</span>
@@ -847,26 +964,50 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Sets all four sides&#39; margin at once. If read, returns max</span>
+    <span class="doccomment">/// margin on any side.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Margin on bottom side of widget.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
+    <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_bottom</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_bottom</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_bottom</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_bottom</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Margin on end of widget, horizontally. This property supports</span>
+    <span class="doccomment">/// left-to-right and right-to-left text directions.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
+    <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_end</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_end</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_end</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_end</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Margin on start of widget, horizontally. This property supports</span>
+    <span class="doccomment">/// left-to-right and right-to-left text directions.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
+    <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_start</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_start</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_start</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_start</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Margin on top side of widget.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
+    <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_top</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_top</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_top</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_top</span>);
         <span class="self">self</span>
@@ -882,6 +1023,10 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// The requested opacity of the widget. See [`WidgetExt::set_opacity()`][crate::prelude::WidgetExt::set_opacity()] for</span>
+    <span class="doccomment">/// more details about window opacity.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Before 3.8 this was only available in GtkWindow</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">opacity</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">opacity</span>: <span class="ident">f64</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">opacity</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">opacity</span>);
         <span class="self">self</span>
@@ -902,26 +1047,51 @@
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Sets the text of tooltip to be the given string, which is marked up</span>
+    <span class="doccomment">/// with the [Pango text markup language][PangoMarkupFormat].</span>
+    <span class="doccomment">/// Also see [`Tooltip::set_markup()`][crate::Tooltip::set_markup()].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is a convenience property which will take care of getting the</span>
+    <span class="doccomment">/// tooltip shown if the given string is not [`None`]: `property::Widget::has-tooltip`</span>
+    <span class="doccomment">/// will automatically be set to [`true`] and there will be taken care of</span>
+    <span class="doccomment">/// `signal::Widget::query-tooltip` in the default signal handler.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that if both `property::Widget::tooltip-text` and `property::Widget::tooltip-markup`</span>
+    <span class="doccomment">/// are set, the last one wins.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">tooltip_markup</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">tooltip_markup</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">tooltip_markup</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">tooltip_markup</span>.<span class="ident">to_string</span>());
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Sets the text of tooltip to be the given string.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Also see [`Tooltip::set_text()`][crate::Tooltip::set_text()].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is a convenience property which will take care of getting the</span>
+    <span class="doccomment">/// tooltip shown if the given string is not [`None`]: `property::Widget::has-tooltip`</span>
+    <span class="doccomment">/// will automatically be set to [`true`] and there will be taken care of</span>
+    <span class="doccomment">/// `signal::Widget::query-tooltip` in the default signal handler.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that if both `property::Widget::tooltip-text` and `property::Widget::tooltip-markup`</span>
+    <span class="doccomment">/// are set, the last one wins.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">tooltip_text</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">tooltip_text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">tooltip_text</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">tooltip_text</span>.<span class="ident">to_string</span>());
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// How to distribute vertical space if widget gets extra space, see [`Align`][crate::Align]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">valign</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">valign</span>: <span class="ident">Align</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">valign</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">valign</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether to expand vertically. See [`WidgetExt::set_vexpand()`][crate::prelude::WidgetExt::set_vexpand()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">vexpand</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">vexpand</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">vexpand</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">vexpand</span>);
         <span class="self">self</span>
     }
 
+    <span class="doccomment">/// Whether to use the `property::Widget::vexpand` property. See [`WidgetExt::is_vexpand_set()`][crate::prelude::WidgetExt::is_vexpand_set()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">vexpand_set</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">vexpand_set</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">vexpand_set</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">vexpand_set</span>);
         <span class="self">self</span>
@@ -940,17 +1110,17 @@
 
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE_ACTION_BAR</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">ActionBar</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
 
-<span class="doccomment">/// Trait containing all `ActionBar` methods.</span>
+<span class="doccomment">/// Trait containing all [`struct@ActionBar`] methods.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Implementors</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`struct@crate::ActionBar`]</span>
+<span class="doccomment">/// [`ActionBar`][struct@crate::ActionBar]</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ActionBarExt</span>: <span class="lifetime">&#39;static</span> {
     <span class="doccomment">/// Retrieves the center bar widget of the bar.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// the center [`crate::Widget`] or [`None`].</span>
+    <span class="doccomment">/// the center [`Widget`][crate::Widget] or [`None`].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_action_bar_get_center_widget&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_center_widget&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">center_widget</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>;
@@ -958,18 +1128,18 @@
     <span class="doccomment">/// Adds `child` to `self`, packed with reference to the</span>
     <span class="doccomment">/// end of the `self`.</span>
     <span class="doccomment">/// ## `child`</span>
-    <span class="doccomment">/// the [`crate::Widget`] to be added to `self`</span>
+    <span class="doccomment">/// the [`Widget`][crate::Widget] to be added to `self`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_action_bar_pack_end&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">pack_end</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">child</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>);
 
     <span class="doccomment">/// Adds `child` to `self`, packed with reference to the</span>
     <span class="doccomment">/// start of the `self`.</span>
     <span class="doccomment">/// ## `child`</span>
-    <span class="doccomment">/// the [`crate::Widget`] to be added to `self`</span>
+    <span class="doccomment">/// the [`Widget`][crate::Widget] to be added to `self`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_action_bar_pack_start&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">pack_start</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">child</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>);
 
-    <span class="doccomment">/// Sets the center widget for the [`crate::ActionBar`].</span>
+    <span class="doccomment">/// Sets the center widget for the [`ActionBar`][crate::ActionBar].</span>
     <span class="doccomment">/// ## `center_widget`</span>
     <span class="doccomment">/// a widget to use for the center</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_action_bar_set_center_widget&quot;</span>)]</span>
