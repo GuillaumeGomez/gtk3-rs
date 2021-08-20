@@ -1,8 +1,77 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/widget.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>widget.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk&#x2F;src&#x2F;widget.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>widget.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../gtk/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+    function checkDocsLatestStable() {
+        function popup(msg, url) { return `
+            <style scoped="scoped">
+                .popup {
+                    max-width: 16em;
+                    background-color: #fff;
+                    position: fixed;
+                    z-index: 1;
+                    margin-left: auto;
+                    bottom: 1em;
+                    right: 1em;
+                    border-radius: 5px;
+                    box-shadow: 1px 1px 4px #777;
+                }
+
+                .popup a.version {
+                    color: #e57300;
+                    padding: 0.6em 1em;
+                    display: block;
+                }
+                .popup a.version:hover {
+                    color: #b25900;
+                }
+
+                .popup a.close {
+                    color: white;
+                    background: grey;
+                    border-radius: 99px;
+                    display: inline-block;
+                    width: 19px;
+                    line-height: 19px;
+                    font-weight: bold;
+                    text-align: center;
+                    margin: 0.6em;
+                    float: right;
+                }
+                .popup a.close:hover {
+                    background: black;
+                }
+            </style>
+            <section class="popup" id="gir_docs_popup">
+                <a class="close" href="#" onclick="document.getElementById('gir_docs_popup').remove(); return false">×</a>
+                <a class="version" href="https://gtk-rs.org/gtk3-rs/stable/latest/docs">
+                    ⚠ ${msg}
+                </a>
+            </section>
+        ` };
+
+        if ("master" == "master") {
+            document.body.insertAdjacentHTML(
+                'beforeend',
+                popup("This is the development version. Go to latest stable version.", "stable/latest")
+            );
+        } else {
+            fetch('https://gtk-rs.org/gtk3-rs/LATEST_RELEASE_BRANCH')
+                .then(response => response.text())
+                .then(latest_branch => {
+                    if (latest_branch.trim() != "master") {
+                        document.body.insertAdjacentHTML(
+                            'beforeend',
+                            popup("This version is outdated. Go to latest version.", "stable/latest")
+                        );
+                    }
+                });
+        }
+    }
+</script>
+
+
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../gtk/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -456,8 +525,42 @@
 <span id="452">452</span>
 <span id="453">453</span>
 <span id="454">454</span>
-</pre><pre class="rust">
-<span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+<span id="455">455</span>
+<span id="456">456</span>
+<span id="457">457</span>
+<span id="458">458</span>
+<span id="459">459</span>
+<span id="460">460</span>
+<span id="461">461</span>
+<span id="462">462</span>
+<span id="463">463</span>
+<span id="464">464</span>
+<span id="465">465</span>
+<span id="466">466</span>
+<span id="467">467</span>
+<span id="468">468</span>
+<span id="469">469</span>
+<span id="470">470</span>
+<span id="471">471</span>
+<span id="472">472</span>
+<span id="473">473</span>
+<span id="474">474</span>
+<span id="475">475</span>
+<span id="476">476</span>
+<span id="477">477</span>
+<span id="478">478</span>
+<span id="479">479</span>
+<span id="480">480</span>
+<span id="481">481</span>
+<span id="482">482</span>
+<span id="483">483</span>
+<span id="484">484</span>
+<span id="485">485</span>
+<span id="486">486</span>
+<span id="487">487</span>
+<span id="488">488</span>
+<span id="489">489</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="kw">use</span> <span class="ident">gdk</span>::{<span class="ident">DragAction</span>, <span class="ident">Event</span>, <span class="ident">ModifierType</span>};
 <span class="kw">use</span> <span class="ident">glib::ffi::gboolean</span>;
@@ -467,7 +570,7 @@
 <span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
 <span class="kw">use</span> <span class="ident">std::ptr</span>;
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::prelude</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prelude</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">DestDefaults</span>, <span class="ident">Rectangle</span>, <span class="ident">TargetEntry</span>, <span class="ident">Widget</span>};
 
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TickCallbackId</span> {
@@ -508,6 +611,9 @@
     <span class="doccomment">/// There’s no way to set a default action here, you can use the</span>
     <span class="doccomment">/// `signal::Widget::drag-motion` callback for that. Here’s an example which selects</span>
     <span class="doccomment">/// the action to use depending on whether the control key is pressed or not:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// **⚠️ The following code is in C ⚠️**</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ```C</span>
     <span class="doccomment">/// static void</span>
@@ -689,6 +795,38 @@
     <span class="doccomment">/// This will not necessarily entirely remove the widget from existence but</span>
     <span class="doccomment">/// you must *NOT* query the widget&#39;s state subsequently.  Do not call this</span>
     <span class="doccomment">/// yourself unless you really mean to.</span>
+    <span class="comment">// rustdoc-stripper-ignore-next-stop</span>
+    <span class="doccomment">/// Destroys a widget.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// When a widget is destroyed all references it holds on other objects</span>
+    <span class="doccomment">/// will be released:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///  - if the widget is inside a container, it will be removed from its</span>
+    <span class="doccomment">///  parent</span>
+    <span class="doccomment">///  - if the widget is a container, all its children will be destroyed,</span>
+    <span class="doccomment">///  recursively</span>
+    <span class="doccomment">///  - if the widget is a top level, it will be removed from the list</span>
+    <span class="doccomment">///  of top level widgets that GTK+ maintains internally</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// It&#39;s expected that all references held on the widget will also</span>
+    <span class="doccomment">/// be released; you should connect to the `signal::Widget::destroy` signal</span>
+    <span class="doccomment">/// if you hold a reference to `self` and you wish to remove it when</span>
+    <span class="doccomment">/// this function is called. It is not necessary to do so if you are</span>
+    <span class="doccomment">/// implementing a [`Container`][crate::Container], as you&#39;ll be able to use the</span>
+    <span class="doccomment">/// `GtkContainerClass.remove()` virtual function for that.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// It&#39;s important to notice that `gtk_widget_destroy()` will only cause</span>
+    <span class="doccomment">/// the `self` to be finalized if no additional references, acquired</span>
+    <span class="doccomment">/// using `g_object_ref()`, are held on it. In case additional references</span>
+    <span class="doccomment">/// are in place, the `self` will be in an &quot;inert&quot; state after calling</span>
+    <span class="doccomment">/// this function; `self` will still point to valid memory, allowing you</span>
+    <span class="doccomment">/// to release the references you hold, but you may not query the widget&#39;s</span>
+    <span class="doccomment">/// own state.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// You should typically call this function on top level widgets, and</span>
+    <span class="doccomment">/// rarely on child widgets.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// See also: [`ContainerExt::remove()`][crate::prelude::ContainerExt::remove()]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_widget_destroy&quot;</span>)]</span>
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">destroy</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
@@ -774,7 +912,7 @@
             <span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>,
         {
             <span class="ident">f</span>(
-                <span class="kw-2">&amp;</span><span class="ident">Widget::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
+                <span class="ident">Widget::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
                 <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">event</span>),
             )
             .<span class="ident">into_glib</span>()
@@ -805,7 +943,7 @@
             <span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>,
         {
             <span class="ident">f</span>(
-                <span class="kw-2">&amp;</span><span class="ident">Widget::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
+                <span class="ident">Widget::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
                 <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">event</span>),
             )
             .<span class="ident">into_glib</span>()
@@ -840,7 +978,7 @@
             <span class="kw">let</span> <span class="ident">widget</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">widget</span>);
             <span class="kw">let</span> <span class="ident">frame_clock</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">frame_clock</span>);
             <span class="kw">let</span> <span class="ident">callback</span>: <span class="kw-2">&amp;</span><span class="ident">P</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
-            <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">callback</span>)(<span class="kw-2">&amp;</span><span class="ident">widget</span>.<span class="ident">unsafe_cast_ref</span>(), <span class="kw-2">&amp;</span><span class="ident">frame_clock</span>);
+            <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">callback</span>)(<span class="ident">widget</span>.<span class="ident">unsafe_cast_ref</span>(), <span class="kw-2">&amp;</span><span class="ident">frame_clock</span>);
             <span class="ident">res</span>.<span class="ident">into_glib</span>()
         }
         <span class="kw">let</span> <span class="ident">callback</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">callback_func</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">P</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw">_</span>);
@@ -902,7 +1040,7 @@
     <span class="kw">fn</span> <span class="ident">init_template</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="kw">crate</span><span class="ident">::subclass::widget::WidgetImpl</span><span class="op">&gt;</span> <span class="ident">InitializingWidgetExt</span>
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident"><span class="kw">crate</span>::subclass::widget::WidgetImpl</span><span class="op">&gt;</span> <span class="ident">InitializingWidgetExt</span>
     <span class="kw">for</span> <span class="ident">glib::subclass::InitializingObject</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
 {
     <span class="kw">fn</span> <span class="ident">init_template</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
@@ -911,5 +1049,7 @@
         }
     }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gtk" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gtk" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div>
+    <script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script>
+</body></html>

@@ -1,8 +1,77 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/flags.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>flags.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk&#x2F;src&#x2F;auto&#x2F;flags.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>flags.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
+    function checkDocsLatestStable() {
+        function popup(msg, url) { return `
+            <style scoped="scoped">
+                .popup {
+                    max-width: 16em;
+                    background-color: #fff;
+                    position: fixed;
+                    z-index: 1;
+                    margin-left: auto;
+                    bottom: 1em;
+                    right: 1em;
+                    border-radius: 5px;
+                    box-shadow: 1px 1px 4px #777;
+                }
+
+                .popup a.version {
+                    color: #e57300;
+                    padding: 0.6em 1em;
+                    display: block;
+                }
+                .popup a.version:hover {
+                    color: #b25900;
+                }
+
+                .popup a.close {
+                    color: white;
+                    background: grey;
+                    border-radius: 99px;
+                    display: inline-block;
+                    width: 19px;
+                    line-height: 19px;
+                    font-weight: bold;
+                    text-align: center;
+                    margin: 0.6em;
+                    float: right;
+                }
+                .popup a.close:hover {
+                    background: black;
+                }
+            </style>
+            <section class="popup" id="gir_docs_popup">
+                <a class="close" href="#" onclick="document.getElementById('gir_docs_popup').remove(); return false">×</a>
+                <a class="version" href="https://gtk-rs.org/gtk3-rs/stable/latest/docs">
+                    ⚠ ${msg}
+                </a>
+            </section>
+        ` };
+
+        if ("master" == "master") {
+            document.body.insertAdjacentHTML(
+                'beforeend',
+                popup("This is the development version. Go to latest stable version.", "stable/latest")
+            );
+        } else {
+            fetch('https://gtk-rs.org/gtk3-rs/LATEST_RELEASE_BRANCH')
+                .then(response => response.text())
+                .then(latest_branch => {
+                    if (latest_branch.trim() != "master") {
+                        document.body.insertAdjacentHTML(
+                            'beforeend',
+                            popup("This version is outdated. Go to latest version.", "stable/latest")
+                        );
+                    }
+                });
+        }
+    }
+</script>
+
+
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -1829,8 +1898,7 @@
 <span id="1825">1825</span>
 <span id="1826">1826</span>
 <span id="1827">1827</span>
-</pre><pre class="rust">
-<span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
 <span class="comment">// DO NOT EDIT</span>
 
@@ -1877,7 +1945,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkAccelFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">AccelFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkAccelFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -1910,7 +1978,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -1955,7 +2023,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkApplicationInhibitFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ApplicationInhibitFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkApplicationInhibitFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -1988,7 +2056,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -2035,7 +2103,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkCalendarDisplayOptions</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">CalendarDisplayOptions</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkCalendarDisplayOptions</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -2068,7 +2136,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -2120,7 +2188,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkCellRendererState</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">CellRendererState</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkCellRendererState</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -2153,7 +2221,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -2208,7 +2276,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkDestDefaults</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">DestDefaults</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkDestDefaults</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -2241,7 +2309,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -2283,7 +2351,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkDialogFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">DialogFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkDialogFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -2316,7 +2384,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -2373,7 +2441,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkEventControllerScrollFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">EventControllerScrollFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkEventControllerScrollFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -2414,7 +2482,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -2458,7 +2526,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkFileFilterFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">FileFilterFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkFileFilterFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -2491,7 +2559,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -2547,7 +2615,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkFontChooserLevel</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">FontChooserLevel</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkFontChooserLevel</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -2588,7 +2656,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -2659,7 +2727,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkIconLookupFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">IconLookupFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkIconLookupFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -2692,7 +2760,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -2773,7 +2841,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkInputHints</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">InputHints</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkInputHints</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -2806,7 +2874,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -2863,7 +2931,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkJunctionSides</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">JunctionSides</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkJunctionSides</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -2896,7 +2964,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -2954,7 +3022,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkPlacesOpenFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">PlacesOpenFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkPlacesOpenFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -2987,7 +3055,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -3039,7 +3107,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkRecentFilterFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">RecentFilterFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkRecentFilterFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -3072,7 +3140,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -3120,7 +3188,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkRegionFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">RegionFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkRegionFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -3153,7 +3221,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -3227,7 +3295,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkStateFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">StateFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkStateFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -3260,7 +3328,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -3309,7 +3377,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkStyleContextPrintFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">StyleContextPrintFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkStyleContextPrintFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -3350,7 +3418,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -3397,7 +3465,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkTargetFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TargetFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkTargetFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -3430,7 +3498,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -3476,7 +3544,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkTextSearchFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TextSearchFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkTextSearchFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -3509,7 +3577,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -3545,7 +3613,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkToolPaletteDragTargets</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ToolPaletteDragTargets</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkToolPaletteDragTargets</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -3578,7 +3646,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
 
@@ -3621,7 +3689,7 @@
 <span class="kw">impl</span> <span class="ident">FromGlib</span><span class="op">&lt;</span><span class="ident">ffi::GtkTreeModelFlags</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TreeModelFlags</span> {
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib</span>(<span class="ident">value</span>: <span class="ident">ffi::GtkTreeModelFlags</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="self">Self</span><span class="ident">::from_bits_truncate</span>(<span class="ident">value</span>)
+        <span class="ident"><span class="self">Self</span>::from_bits_truncate</span>(<span class="ident">value</span>)
     }
 }
 
@@ -3654,8 +3722,10 @@
     }
 
     <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::Type</span> {
-        <span class="self">Self</span><span class="ident">::static_type</span>()
+        <span class="ident"><span class="self">Self</span>::static_type</span>()
     }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
+    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script>
+</body></html>

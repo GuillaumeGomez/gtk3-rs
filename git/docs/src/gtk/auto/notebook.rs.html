@@ -1,8 +1,77 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/notebook.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>notebook.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
-<link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk&#x2F;src&#x2F;auto&#x2F;notebook.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>notebook.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
+    function checkDocsLatestStable() {
+        function popup(msg, url) { return `
+            <style scoped="scoped">
+                .popup {
+                    max-width: 16em;
+                    background-color: #fff;
+                    position: fixed;
+                    z-index: 1;
+                    margin-left: auto;
+                    bottom: 1em;
+                    right: 1em;
+                    border-radius: 5px;
+                    box-shadow: 1px 1px 4px #777;
+                }
+
+                .popup a.version {
+                    color: #e57300;
+                    padding: 0.6em 1em;
+                    display: block;
+                }
+                .popup a.version:hover {
+                    color: #b25900;
+                }
+
+                .popup a.close {
+                    color: white;
+                    background: grey;
+                    border-radius: 99px;
+                    display: inline-block;
+                    width: 19px;
+                    line-height: 19px;
+                    font-weight: bold;
+                    text-align: center;
+                    margin: 0.6em;
+                    float: right;
+                }
+                .popup a.close:hover {
+                    background: black;
+                }
+            </style>
+            <section class="popup" id="gir_docs_popup">
+                <a class="close" href="#" onclick="document.getElementById('gir_docs_popup').remove(); return false">×</a>
+                <a class="version" href="https://gtk-rs.org/gtk3-rs/stable/latest/docs">
+                    ⚠ ${msg}
+                </a>
+            </section>
+        ` };
+
+        if ("master" == "master") {
+            document.body.insertAdjacentHTML(
+                'beforeend',
+                popup("This is the development version. Go to latest stable version.", "stable/latest")
+            );
+        } else {
+            fetch('https://gtk-rs.org/gtk3-rs/LATEST_RELEASE_BRANCH')
+                .then(response => response.text())
+                .then(latest_branch => {
+                    if (latest_branch.trim() != "master") {
+                        document.body.insertAdjacentHTML(
+                            'beforeend',
+                            popup("This version is outdated. Go to latest version.", "stable/latest")
+                        );
+                    }
+                });
+        }
+    }
+</script>
+
+
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -2146,29 +2215,19 @@
 <span id="2142">2142</span>
 <span id="2143">2143</span>
 <span id="2144">2144</span>
-<span id="2145">2145</span>
-<span id="2146">2146</span>
-<span id="2147">2147</span>
-<span id="2148">2148</span>
-<span id="2149">2149</span>
-<span id="2150">2150</span>
-<span id="2151">2151</span>
-<span id="2152">2152</span>
-<span id="2153">2153</span>
-</pre><pre class="rust">
-<span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
 <span class="comment">// DO NOT EDIT</span>
 
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Align</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Buildable</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Container</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::DirectionType</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::NotebookTab</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::PackType</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::PositionType</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::ResizeMode</span>;
-<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::Widget</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Align</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Buildable</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Container</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::DirectionType</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::NotebookTab</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::PackType</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::PositionType</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ResizeMode</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Widget</span>;
 <span class="kw">use</span> <span class="ident">glib::object::Cast</span>;
 <span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
 <span class="kw">use</span> <span class="ident">glib::object::ObjectExt</span>;
@@ -2207,6 +2266,9 @@
     <span class="doccomment">/// `&lt;child&gt;` element.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// An example of a UI definition fragment with GtkNotebook:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// **⚠️ The following code is in plain ⚠️**</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ```plain</span>
     <span class="doccomment">/// notebook</span>
@@ -2271,9 +2333,9 @@
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// Creates a new builder-style object to construct a [`Notebook`].</span>
+    <span class="doccomment">/// Creates a new builder-pattern struct instance to construct [`Notebook`] objects.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// This method returns an instance of [`NotebookBuilder`] which can be used to create a [`Notebook`].</span>
+    <span class="doccomment">/// This method returns an instance of [`NotebookBuilder`] which can be used to create [`Notebook`] objects.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">builder</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">NotebookBuilder</span> {
         <span class="ident">NotebookBuilder::default</span>()
     }
@@ -2281,13 +2343,15 @@
 
 <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">Notebook</span> {
     <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="self">Self</span><span class="ident">::new</span>()
+        <span class="ident"><span class="self">Self</span>::new</span>()
     }
 }
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Default</span>)]</span>
 <span class="comment">// rustdoc-stripper-ignore-next</span>
-<span class="doccomment">/// A builder for generating a [`Notebook`].</span>
+<span class="doccomment">/// A [builder-pattern] type to construct [`Notebook`] objects.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">NotebookBuilder</span> {
     <span class="ident">enable_popup</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span>,
     <span class="ident">group_name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
@@ -2339,7 +2403,7 @@
     <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Create a new [`NotebookBuilder`].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="self">Self</span><span class="ident">::default</span>()
+        <span class="ident"><span class="self">Self</span>::default</span>()
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next</span>
@@ -3022,6 +3086,9 @@
     <span class="doccomment">/// will initiate a drag cancel animation.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// **⚠️ The following code is in C ⚠️**</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// ```C</span>
     <span class="doccomment">///  static void</span>
     <span class="doccomment">///  on_drag_data_received (GtkWidget        *widget,</span>
@@ -3568,8 +3635,8 @@
     <span class="kw">fn</span> <span class="ident">child_is_detachable</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::from_type</span>(<span class="op">&lt;</span><span class="ident">bool</span> <span class="kw">as</span> <span class="ident">StaticType</span><span class="op">&gt;</span><span class="ident">::static_type</span>());
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_get_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_get_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;detachable\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
@@ -3583,8 +3650,8 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_child_detachable</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">detachable</span>: <span class="ident">bool</span>) {
         <span class="kw">unsafe</span> {
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_set_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_set_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;detachable\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">detachable</span>.<span class="ident">to_value</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -3596,8 +3663,8 @@
     <span class="kw">fn</span> <span class="ident">child_menu_label</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::from_type</span>(<span class="op">&lt;</span><span class="ident">glib::GString</span> <span class="kw">as</span> <span class="ident">StaticType</span><span class="op">&gt;</span><span class="ident">::static_type</span>());
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_get_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_get_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;menu-label\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
@@ -3611,8 +3678,8 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_child_menu_label</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">menu_label</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
         <span class="kw">unsafe</span> {
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_set_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_set_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;menu-label\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">menu_label</span>.<span class="ident">to_value</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -3624,8 +3691,8 @@
     <span class="kw">fn</span> <span class="ident">child_position</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::from_type</span>(<span class="op">&lt;</span><span class="ident">i32</span> <span class="kw">as</span> <span class="ident">StaticType</span><span class="op">&gt;</span><span class="ident">::static_type</span>());
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_get_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_get_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;position\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
@@ -3639,8 +3706,8 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_child_position</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">position</span>: <span class="ident">i32</span>) {
         <span class="kw">unsafe</span> {
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_set_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_set_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;position\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">position</span>.<span class="ident">to_value</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -3652,8 +3719,8 @@
     <span class="kw">fn</span> <span class="ident">child_is_reorderable</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::from_type</span>(<span class="op">&lt;</span><span class="ident">bool</span> <span class="kw">as</span> <span class="ident">StaticType</span><span class="op">&gt;</span><span class="ident">::static_type</span>());
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_get_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_get_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;reorderable\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
@@ -3667,8 +3734,8 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_child_reorderable</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">reorderable</span>: <span class="ident">bool</span>) {
         <span class="kw">unsafe</span> {
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_set_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_set_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;reorderable\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">reorderable</span>.<span class="ident">to_value</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -3680,8 +3747,8 @@
     <span class="kw">fn</span> <span class="ident">child_tab_expands</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::from_type</span>(<span class="op">&lt;</span><span class="ident">bool</span> <span class="kw">as</span> <span class="ident">StaticType</span><span class="op">&gt;</span><span class="ident">::static_type</span>());
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_get_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_get_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;tab-expand\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
@@ -3695,8 +3762,8 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_child_tab_expand</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">tab_expand</span>: <span class="ident">bool</span>) {
         <span class="kw">unsafe</span> {
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_set_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_set_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;tab-expand\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">tab_expand</span>.<span class="ident">to_value</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -3708,8 +3775,8 @@
     <span class="kw">fn</span> <span class="ident">child_tab_fills</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::from_type</span>(<span class="op">&lt;</span><span class="ident">bool</span> <span class="kw">as</span> <span class="ident">StaticType</span><span class="op">&gt;</span><span class="ident">::static_type</span>());
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_get_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_get_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;tab-fill\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
@@ -3723,8 +3790,8 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_child_tab_fill</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">tab_fill</span>: <span class="ident">bool</span>) {
         <span class="kw">unsafe</span> {
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_set_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_set_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;tab-fill\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">tab_fill</span>.<span class="ident">to_value</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -3736,8 +3803,8 @@
     <span class="kw">fn</span> <span class="ident">child_tab_label</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::from_type</span>(<span class="op">&lt;</span><span class="ident">glib::GString</span> <span class="kw">as</span> <span class="ident">StaticType</span><span class="op">&gt;</span><span class="ident">::static_type</span>());
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_get_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_get_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;tab-label\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
@@ -3751,8 +3818,8 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_child_tab_label</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">tab_label</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
         <span class="kw">unsafe</span> {
-            <span class="kw">crate</span><span class="ident">::ffi::gtk_container_child_set_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">crate</span><span class="ident">::ffi::GtkContainer</span>,
+            <span class="ident"><span class="kw">crate</span>::ffi::gtk_container_child_set_property</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GtkContainer</span>,
                 <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="string">b&quot;tab-label\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">tab_label</span>.<span class="ident">to_value</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -3760,7 +3827,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;change-current-page&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_change_current_page</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
@@ -3774,7 +3840,7 @@
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::ffi::gboolean</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(), <span class="ident">object</span>).<span class="ident">into_glib</span>()
+            <span class="ident">f</span>(<span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(), <span class="ident">object</span>).<span class="ident">into_glib</span>()
         }
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
@@ -3800,7 +3866,6 @@
             .<span class="ident">expect</span>(<span class="string">&quot;Return Value for `emit_change_current_page`&quot;</span>)
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;create-window&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_create_window</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><span class="ident">Widget</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Notebook</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
@@ -3817,7 +3882,7 @@
         ) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkNotebook</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(
-                <span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
+                <span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
                 <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">page</span>),
                 <span class="ident">x</span>,
                 <span class="ident">y</span>,
@@ -3838,7 +3903,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;focus-tab&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_focus_tab</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">NotebookTab</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
@@ -3853,7 +3917,7 @@
         ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::ffi::gboolean</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(
-                <span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
+                <span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
                 <span class="ident">from_glib</span>(<span class="ident">object</span>),
             )
             .<span class="ident">into_glib</span>()
@@ -3882,7 +3946,6 @@
             .<span class="ident">expect</span>(<span class="string">&quot;Return Value for `emit_focus_tab`&quot;</span>)
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;move-focus-out&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_move_focus_out</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">DirectionType</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
@@ -3897,7 +3960,7 @@
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(
-                <span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
+                <span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
                 <span class="ident">from_glib</span>(<span class="ident">object</span>),
             )
         }
@@ -3922,7 +3985,6 @@
         };
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;page-added&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_page_added</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><span class="ident">Widget</span>, <span class="ident">u32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">page_added_trampoline</span><span class="op">&lt;</span>
             <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Notebook</span><span class="op">&gt;</span>,
@@ -3935,7 +3997,7 @@
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(
-                <span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
+                <span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
                 <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">child</span>),
                 <span class="ident">page_num</span>,
             )
@@ -3953,7 +4015,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;page-removed&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_page_removed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><span class="ident">Widget</span>, <span class="ident">u32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">page_removed_trampoline</span><span class="op">&lt;</span>
             <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Notebook</span><span class="op">&gt;</span>,
@@ -3966,7 +4027,7 @@
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(
-                <span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
+                <span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
                 <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">child</span>),
                 <span class="ident">page_num</span>,
             )
@@ -3984,7 +4045,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;page-reordered&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_page_reordered</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><span class="ident">Widget</span>, <span class="ident">u32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
@@ -4000,7 +4060,7 @@
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(
-                <span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
+                <span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
                 <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">child</span>),
                 <span class="ident">page_num</span>,
             )
@@ -4018,7 +4078,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;reorder-tab&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_reorder_tab</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">DirectionType</span>, <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
@@ -4034,7 +4093,7 @@
         ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::ffi::gboolean</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(
-                <span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
+                <span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
                 <span class="ident">from_glib</span>(<span class="ident">object</span>),
                 <span class="ident">from_glib</span>(<span class="ident">p0</span>),
             )
@@ -4064,7 +4123,6 @@
             .<span class="ident">expect</span>(<span class="string">&quot;Return Value for `emit_reorder_tab`&quot;</span>)
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;select-page&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_select_page</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">select_page_trampoline</span><span class="op">&lt;</span>
             <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Notebook</span><span class="op">&gt;</span>,
@@ -4076,7 +4134,7 @@
         ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib::ffi::gboolean</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(
-                <span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
+                <span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
                 <span class="ident">from_glib</span>(<span class="ident">object</span>),
             )
             .<span class="ident">into_glib</span>()
@@ -4105,7 +4163,6 @@
             .<span class="ident">expect</span>(<span class="string">&quot;Return Value for `emit_select_page`&quot;</span>)
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;switch-page&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_switch_page</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><span class="ident">Widget</span>, <span class="ident">u32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">switch_page_trampoline</span><span class="op">&lt;</span>
             <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Notebook</span><span class="op">&gt;</span>,
@@ -4118,7 +4175,7 @@
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
             <span class="ident">f</span>(
-                <span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
+                <span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
                 <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">page</span>),
                 <span class="ident">page_num</span>,
             )
@@ -4136,7 +4193,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;enable-popup&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_enable_popup_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_enable_popup_trampoline</span><span class="op">&lt;</span>
             <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Notebook</span><span class="op">&gt;</span>,
@@ -4147,7 +4203,7 @@
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="ident">f</span>(<span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
@@ -4162,7 +4218,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;group-name&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_group_name_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_group_name_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Notebook</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkNotebook</span>,
@@ -4170,7 +4225,7 @@
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="ident">f</span>(<span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
@@ -4185,7 +4240,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;page&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_page_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_page_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Notebook</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkNotebook</span>,
@@ -4193,7 +4247,7 @@
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="ident">f</span>(<span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
@@ -4208,7 +4262,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;scrollable&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_scrollable_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_scrollable_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Notebook</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkNotebook</span>,
@@ -4216,7 +4269,7 @@
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="ident">f</span>(<span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
@@ -4231,7 +4284,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;show-border&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_show_border_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_show_border_trampoline</span><span class="op">&lt;</span>
             <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Notebook</span><span class="op">&gt;</span>,
@@ -4242,7 +4294,7 @@
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="ident">f</span>(<span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
@@ -4257,7 +4309,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;show-tabs&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_show_tabs_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_show_tabs_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Notebook</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkNotebook</span>,
@@ -4265,7 +4316,7 @@
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="ident">f</span>(<span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
@@ -4280,7 +4331,6 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;tab-pos&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">connect_tab_pos_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_tab_pos_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Notebook</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkNotebook</span>,
@@ -4288,7 +4338,7 @@
             <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="ident">f</span>(<span class="ident">Notebook::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
         }
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
@@ -4309,5 +4359,7 @@
         <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Notebook&quot;</span>)
     }
 }
-</pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>
+</code></pre></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
+    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script>
+</body></html>
