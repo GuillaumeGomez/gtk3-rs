@@ -239,6 +239,7 @@
 <span id="166">166</span>
 <span id="167">167</span>
 <span id="168">168</span>
+<span id="169">169</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">clippy::needless_doctest_main</span>)]</span>
@@ -302,7 +303,7 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">static</span> <span class="ident">TEST_THREAD_WORKER</span>: <span class="ident">once_cell::sync::Lazy</span><span class="op">&lt;</span><span class="ident">glib::ThreadPool</span><span class="op">&gt;</span> <span class="op">=</span>
     <span class="ident">once_cell::sync::Lazy::new</span>(<span class="op">|</span><span class="op">|</span> {
-        <span class="kw">let</span> <span class="ident">pool</span> <span class="op">=</span> <span class="ident">glib::ThreadPool::new_exclusive</span>(<span class="number">1</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">pool</span> <span class="op">=</span> <span class="ident">glib::ThreadPool::exclusive</span>(<span class="number">1</span>).<span class="ident">unwrap</span>();
         <span class="ident">pool</span>.<span class="ident">push</span>(<span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
             <span class="ident"><span class="kw">crate</span>::init</span>().<span class="ident">expect</span>(<span class="string">&quot;Tests failed to initialize gtk&quot;</span>);
         })
@@ -338,6 +339,7 @@
 <span class="kw">mod</span> <span class="ident">file_chooser_dialog</span>;
 <span class="kw">mod</span> <span class="ident">fixed</span>;
 <span class="kw">mod</span> <span class="ident">flow_box</span>;
+<span class="kw">mod</span> <span class="ident">functions</span>;
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v3_24&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="kw">mod</span> <span class="ident">gesture_stylus</span>;
 <span class="kw">mod</span> <span class="ident">im_context_simple</span>;
@@ -383,6 +385,7 @@
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">subclass</span>;
 
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">builders</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">prelude</span>;
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::auto::functions</span>::<span class="kw-2">*</span>;
@@ -396,15 +399,14 @@
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::app_chooser::AppChooser</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::border::Border</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::entry_buffer::EntryBuffer</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::image::ImageBuilder</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::page_range::PageRange</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::recent_data::RecentData</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::requisition::Requisition</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::response_type::ResponseType</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::stack_switcher::StackSwitcherBuilder</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::target_entry::TargetEntry</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::tree_sortable::SortColumn</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::widget::TickCallbackId</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">functions</span>::<span class="kw-2">*</span>;
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v3_22&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">pad_action_entry::PadActionEntry</span>;
 </code></pre></div>
