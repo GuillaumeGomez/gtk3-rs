@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk/src/auto/gl_context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>gl_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk/src/auto/gl_context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>gl_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -442,371 +436,370 @@
 <span id="363">363</span>
 <span id="364">364</span>
 <span id="365">365</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Display</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Window</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem</span>;
-<span class="kw">use</span> <span class="ident">std::ptr</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::Display;
+<span class="kw">use </span><span class="kw">crate</span>::Window;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem;
+<span class="kw">use </span>std::ptr;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// [`GLContext`][crate::GLContext] is an object representing the platform-specific</span>
-    <span class="doccomment">/// OpenGL drawing context.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// `GdkGLContexts` are created for a [`Window`][crate::Window] using</span>
-    <span class="doccomment">/// [`Window::create_gl_context()`][crate::Window::create_gl_context()], and the context will match</span>
-    <span class="doccomment">/// the [`Visual`][crate::Visual] of the window.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A [`GLContext`][crate::GLContext] is not tied to any particular normal framebuffer.</span>
-    <span class="doccomment">/// For instance, it cannot draw to the [`Window`][crate::Window] back buffer. The GDK</span>
-    <span class="doccomment">/// repaint system is in full control of the painting to that. Instead,</span>
-    <span class="doccomment">/// you can create render buffers or textures and use `gdk_cairo_draw_from_gl()`</span>
-    <span class="doccomment">/// in the draw function of your widget to draw them. Then GDK will handle</span>
-    <span class="doccomment">/// the integration of your rendering with that of other widgets.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Support for [`GLContext`][crate::GLContext] is platform-specific, context creation</span>
-    <span class="doccomment">/// can fail, returning [`None`] context.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A [`GLContext`][crate::GLContext] has to be made &quot;current&quot; in order to start using</span>
-    <span class="doccomment">/// it, otherwise any OpenGL call will be ignored.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Creating a new OpenGL context ##</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// In order to create a new [`GLContext`][crate::GLContext] instance you need a</span>
-    <span class="doccomment">/// [`Window`][crate::Window], which you typically get during the realize call</span>
-    <span class="doccomment">/// of a widget.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A [`GLContext`][crate::GLContext] is not realized until either [`make_current()`][Self::make_current()],</span>
-    <span class="doccomment">/// or until it is realized using [`realize()`][Self::realize()]. It is possible to</span>
-    <span class="doccomment">/// specify details of the GL context like the OpenGL version to be used, or</span>
-    <span class="doccomment">/// whether the GL context should have extra state validation enabled after</span>
-    <span class="doccomment">/// calling [`Window::create_gl_context()`][crate::Window::create_gl_context()] by calling [`realize()`][Self::realize()].</span>
-    <span class="doccomment">/// If the realization fails you have the option to change the settings of the</span>
-    <span class="doccomment">/// [`GLContext`][crate::GLContext] and try again.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Using a GdkGLContext ##</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// You will need to make the [`GLContext`][crate::GLContext] the current context</span>
-    <span class="doccomment">/// before issuing OpenGL calls; the system sends OpenGL commands to</span>
-    <span class="doccomment">/// whichever context is current. It is possible to have multiple</span>
-    <span class="doccomment">/// contexts, so you always need to ensure that the one which you</span>
-    <span class="doccomment">/// want to draw with is the current one before issuing commands:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// **⚠️ The following code is in C ⚠️**</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```C</span>
-    <span class="doccomment">///   gdk_gl_context_make_current (context);</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// You can now perform your drawing using OpenGL commands.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// You can check which [`GLContext`][crate::GLContext] is the current one by using</span>
-    <span class="doccomment">/// [`current()`][Self::current()]; you can also unset any [`GLContext`][crate::GLContext]</span>
-    <span class="doccomment">/// that is currently set by calling [`clear_current()`][Self::clear_current()].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This is an Abstract Base Class, you cannot instantiate it.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GdkGLContext&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">GLContext</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GdkGLContext</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// [`GLContext`][crate::GLContext] is an object representing the platform-specific
+    /// OpenGL drawing context.
+    ///
+    /// `GdkGLContexts` are created for a [`Window`][crate::Window] using
+    /// [`Window::create_gl_context()`][crate::Window::create_gl_context()], and the context will match
+    /// the [`Visual`][crate::Visual] of the window.
+    ///
+    /// A [`GLContext`][crate::GLContext] is not tied to any particular normal framebuffer.
+    /// For instance, it cannot draw to the [`Window`][crate::Window] back buffer. The GDK
+    /// repaint system is in full control of the painting to that. Instead,
+    /// you can create render buffers or textures and use `gdk_cairo_draw_from_gl()`
+    /// in the draw function of your widget to draw them. Then GDK will handle
+    /// the integration of your rendering with that of other widgets.
+    ///
+    /// Support for [`GLContext`][crate::GLContext] is platform-specific, context creation
+    /// can fail, returning [`None`] context.
+    ///
+    /// A [`GLContext`][crate::GLContext] has to be made &quot;current&quot; in order to start using
+    /// it, otherwise any OpenGL call will be ignored.
+    ///
+    /// ## Creating a new OpenGL context ##
+    ///
+    /// In order to create a new [`GLContext`][crate::GLContext] instance you need a
+    /// [`Window`][crate::Window], which you typically get during the realize call
+    /// of a widget.
+    ///
+    /// A [`GLContext`][crate::GLContext] is not realized until either [`make_current()`][Self::make_current()],
+    /// or until it is realized using [`realize()`][Self::realize()]. It is possible to
+    /// specify details of the GL context like the OpenGL version to be used, or
+    /// whether the GL context should have extra state validation enabled after
+    /// calling [`Window::create_gl_context()`][crate::Window::create_gl_context()] by calling [`realize()`][Self::realize()].
+    /// If the realization fails you have the option to change the settings of the
+    /// [`GLContext`][crate::GLContext] and try again.
+    ///
+    /// ## Using a GdkGLContext ##
+    ///
+    /// You will need to make the [`GLContext`][crate::GLContext] the current context
+    /// before issuing OpenGL calls; the system sends OpenGL commands to
+    /// whichever context is current. It is possible to have multiple
+    /// contexts, so you always need to ensure that the one which you
+    /// want to draw with is the current one before issuing commands:
+    ///
+    ///
+    ///
+    /// **⚠️ The following code is in C ⚠️**
+    ///
+    /// ```C
+    ///   gdk_gl_context_make_current (context);
+    /// ```
+    ///
+    /// You can now perform your drawing using OpenGL commands.
+    ///
+    /// You can check which [`GLContext`][crate::GLContext] is the current one by using
+    /// [`current()`][Self::current()]; you can also unset any [`GLContext`][crate::GLContext]
+    /// that is currently set by calling [`clear_current()`][Self::clear_current()].
+    ///
+    /// This is an Abstract Base Class, you cannot instantiate it.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GdkGLContext&quot;</span>)]
+    </span><span class="kw">pub struct </span>GLContext(Object&lt;ffi::GdkGLContext&gt;);
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gdk_gl_context_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gdk_gl_context_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">GLContext</span> {
-    <span class="doccomment">/// Retrieves the value set using [`set_debug_enabled()`][Self::set_debug_enabled()].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if debugging is enabled</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_get_debug_enabled&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_debug_enabled&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_debug_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_gl_context_get_debug_enabled</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+<span class="kw">impl </span>GLContext {
+    <span class="doccomment">/// Retrieves the value set using [`set_debug_enabled()`][Self::set_debug_enabled()].
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if debugging is enabled
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_debug_enabled&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_debug_enabled&quot;</span>)]
+    </span><span class="kw">pub fn </span>is_debug_enabled(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{ from_glib(ffi::gdk_gl_context_get_debug_enabled(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Retrieves the [`Display`][crate::Display] the `self` is created for</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a [`Display`][crate::Display] or [`None`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_get_display&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_display&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">display</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Display</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_gl_context_get_display</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="doccomment">/// Retrieves the [`Display`][crate::Display] the `self` is created for
+    ///
+    /// # Returns
+    ///
+    /// a [`Display`][crate::Display] or [`None`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_display&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_display&quot;</span>)]
+    </span><span class="kw">pub fn </span>display(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Display&gt; {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gdk_gl_context_get_display(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Retrieves the value set using [`set_forward_compatible()`][Self::set_forward_compatible()].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if the context should be forward compatible</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_get_forward_compatible&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_forward_compatible&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_forward_compatible</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_gl_context_get_forward_compatible</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="doccomment">/// Retrieves the value set using [`set_forward_compatible()`][Self::set_forward_compatible()].
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if the context should be forward compatible
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_forward_compatible&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_forward_compatible&quot;</span>)]
+    </span><span class="kw">pub fn </span>is_forward_compatible(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gdk_gl_context_get_forward_compatible(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Retrieves the major and minor version requested by calling</span>
-    <span class="doccomment">/// [`set_required_version()`][Self::set_required_version()].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `major`</span>
-    <span class="doccomment">/// return location for the major version to request</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `minor`</span>
-    <span class="doccomment">/// return location for the minor version to request</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_get_required_version&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_required_version&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">required_version</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">major</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">minor</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="ident">ffi::gdk_gl_context_get_required_version</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">major</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">minor</span>.<span class="ident">as_mut_ptr</span>(),
+    <span class="doccomment">/// Retrieves the major and minor version requested by calling
+    /// [`set_required_version()`][Self::set_required_version()].
+    ///
+    /// # Returns
+    ///
+    ///
+    /// ## `major`
+    /// return location for the major version to request
+    ///
+    /// ## `minor`
+    /// return location for the minor version to request
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_required_version&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_required_version&quot;</span>)]
+    </span><span class="kw">pub fn </span>required_version(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>major = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>minor = mem::MaybeUninit::uninit();
+            ffi::gdk_gl_context_get_required_version(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                major.as_mut_ptr(),
+                minor.as_mut_ptr(),
             );
-            (<span class="ident">major</span>.<span class="ident">assume_init</span>(), <span class="ident">minor</span>.<span class="ident">assume_init</span>())
+            (major.assume_init(), minor.assume_init())
         }
     }
 
-    <span class="doccomment">/// Retrieves the [`GLContext`][crate::GLContext] that this `self` share data with.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a [`GLContext`][crate::GLContext] or [`None`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_get_shared_context&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_shared_context&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">must_use</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">shared_context</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">GLContext</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_gl_context_get_shared_context</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="doccomment">/// Retrieves the [`GLContext`][crate::GLContext] that this `self` share data with.
+    ///
+    /// # Returns
+    ///
+    /// a [`GLContext`][crate::GLContext] or [`None`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_shared_context&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_shared_context&quot;</span>)]
+    #[must_use]
+    </span><span class="kw">pub fn </span>shared_context(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;GLContext&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gdk_gl_context_get_shared_context(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Checks whether the `self` is using an OpenGL or OpenGL ES profile.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if the [`GLContext`][crate::GLContext] is using an OpenGL ES profile</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_get_use_es&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_use_es&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">uses_es</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_gl_context_get_use_es</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="doccomment">/// Checks whether the `self` is using an OpenGL or OpenGL ES profile.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if the [`GLContext`][crate::GLContext] is using an OpenGL ES profile
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_use_es&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_use_es&quot;</span>)]
+    </span><span class="kw">pub fn </span>uses_es(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{ from_glib(ffi::gdk_gl_context_get_use_es(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Retrieves the OpenGL version of the `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The `self` must be realized prior to calling this function.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `major`</span>
-    <span class="doccomment">/// return location for the major version</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `minor`</span>
-    <span class="doccomment">/// return location for the minor version</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_get_version&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_version&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">version</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">major</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">minor</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="ident">ffi::gdk_gl_context_get_version</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">major</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">minor</span>.<span class="ident">as_mut_ptr</span>(),
+    <span class="doccomment">/// Retrieves the OpenGL version of the `self`.
+    ///
+    /// The `self` must be realized prior to calling this function.
+    ///
+    /// # Returns
+    ///
+    ///
+    /// ## `major`
+    /// return location for the major version
+    ///
+    /// ## `minor`
+    /// return location for the minor version
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_version&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_version&quot;</span>)]
+    </span><span class="kw">pub fn </span>version(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>major = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>minor = mem::MaybeUninit::uninit();
+            ffi::gdk_gl_context_get_version(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                major.as_mut_ptr(),
+                minor.as_mut_ptr(),
             );
-            (<span class="ident">major</span>.<span class="ident">assume_init</span>(), <span class="ident">minor</span>.<span class="ident">assume_init</span>())
+            (major.assume_init(), minor.assume_init())
         }
     }
 
-    <span class="doccomment">/// Retrieves the [`Window`][crate::Window] used by the `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a [`Window`][crate::Window] or [`None`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_get_window&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_window&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">window</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Window</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_gl_context_get_window</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="doccomment">/// Retrieves the [`Window`][crate::Window] used by the `self`.
+    ///
+    /// # Returns
+    ///
+    /// a [`Window`][crate::Window] or [`None`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_window&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_window&quot;</span>)]
+    </span><span class="kw">pub fn </span>window(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Window&gt; {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gdk_gl_context_get_window(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Whether the [`GLContext`][crate::GLContext] is in legacy mode or not.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The [`GLContext`][crate::GLContext] must be realized before calling this function.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// When realizing a GL context, GDK will try to use the OpenGL 3.2 core</span>
-    <span class="doccomment">/// profile; this profile removes all the OpenGL API that was deprecated</span>
-    <span class="doccomment">/// prior to the 3.2 version of the specification. If the realization is</span>
-    <span class="doccomment">/// successful, this function will return [`false`].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the underlying OpenGL implementation does not support core profiles,</span>
-    <span class="doccomment">/// GDK will fall back to a pre-3.2 compatibility profile, and this function</span>
-    <span class="doccomment">/// will return [`true`].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// You can use the value returned by this function to decide which kind</span>
-    <span class="doccomment">/// of OpenGL API to use, or whether to do extension discovery, or what</span>
-    <span class="doccomment">/// kind of shader programs to load.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if the GL context is in legacy mode</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_is_legacy&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_legacy</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_gl_context_is_legacy</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="doccomment">/// Whether the [`GLContext`][crate::GLContext] is in legacy mode or not.
+    ///
+    /// The [`GLContext`][crate::GLContext] must be realized before calling this function.
+    ///
+    /// When realizing a GL context, GDK will try to use the OpenGL 3.2 core
+    /// profile; this profile removes all the OpenGL API that was deprecated
+    /// prior to the 3.2 version of the specification. If the realization is
+    /// successful, this function will return [`false`].
+    ///
+    /// If the underlying OpenGL implementation does not support core profiles,
+    /// GDK will fall back to a pre-3.2 compatibility profile, and this function
+    /// will return [`true`].
+    ///
+    /// You can use the value returned by this function to decide which kind
+    /// of OpenGL API to use, or whether to do extension discovery, or what
+    /// kind of shader programs to load.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if the GL context is in legacy mode
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_is_legacy&quot;</span>)]
+    </span><span class="kw">pub fn </span>is_legacy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{ from_glib(ffi::gdk_gl_context_is_legacy(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Makes the `self` the current one.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_make_current&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">make_current</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_gl_context_make_current</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="doccomment">/// Makes the `self` the current one.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_make_current&quot;</span>)]
+    </span><span class="kw">pub fn </span>make_current(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gdk_gl_context_make_current(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="doccomment">/// Realizes the given [`GLContext`][crate::GLContext].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// It is safe to call this function on a realized [`GLContext`][crate::GLContext].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if the context is realized</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_realize&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">realize</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="ident">is_ok</span> <span class="op">=</span> <span class="ident">ffi::gdk_gl_context_realize</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="kw-2">&amp;mut</span> <span class="ident">error</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">is_ok</span> <span class="op">==</span> <span class="ident">glib::ffi::GFALSE</span>, <span class="op">!</span><span class="ident">error</span>.<span class="ident">is_null</span>());
-            <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
+    <span class="doccomment">/// Realizes the given [`GLContext`][crate::GLContext].
+    ///
+    /// It is safe to call this function on a realized [`GLContext`][crate::GLContext].
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if the context is realized
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_realize&quot;</span>)]
+    </span><span class="kw">pub fn </span>realize(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span>is_ok = ffi::gdk_gl_context_realize(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, <span class="kw-2">&amp;mut </span>error);
+            <span class="macro">assert_eq!</span>(is_ok == glib::ffi::GFALSE, !error.is_null());
+            <span class="kw">if </span>error.is_null() {
                 <span class="prelude-val">Ok</span>(())
-            } <span class="kw">else</span> {
-                <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(error))
             }
         }
     }
 
-    <span class="doccomment">/// Sets whether the [`GLContext`][crate::GLContext] should perform extra validations and</span>
-    <span class="doccomment">/// run time checking. This is useful during development, but has</span>
-    <span class="doccomment">/// additional overhead.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The [`GLContext`][crate::GLContext] must not be realized or made current prior to</span>
-    <span class="doccomment">/// calling this function.</span>
-    <span class="doccomment">/// ## `enabled`</span>
-    <span class="doccomment">/// whether to enable debugging in the context</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_set_debug_enabled&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_debug_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">enabled</span>: <span class="ident">bool</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_gl_context_set_debug_enabled</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">enabled</span>.<span class="ident">into_glib</span>());
+    <span class="doccomment">/// Sets whether the [`GLContext`][crate::GLContext] should perform extra validations and
+    /// run time checking. This is useful during development, but has
+    /// additional overhead.
+    ///
+    /// The [`GLContext`][crate::GLContext] must not be realized or made current prior to
+    /// calling this function.
+    /// ## `enabled`
+    /// whether to enable debugging in the context
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_debug_enabled&quot;</span>)]
+    </span><span class="kw">pub fn </span>set_debug_enabled(<span class="kw-2">&amp;</span><span class="self">self</span>, enabled: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gdk_gl_context_set_debug_enabled(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, enabled.into_glib());
         }
     }
 
-    <span class="doccomment">/// Sets whether the [`GLContext`][crate::GLContext] should be forward compatible.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Forward compatibile contexts must not support OpenGL functionality that</span>
-    <span class="doccomment">/// has been marked as deprecated in the requested version; non-forward</span>
-    <span class="doccomment">/// compatible contexts, on the other hand, must support both deprecated and</span>
-    <span class="doccomment">/// non deprecated functionality.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The [`GLContext`][crate::GLContext] must not be realized or made current prior to calling</span>
-    <span class="doccomment">/// this function.</span>
-    <span class="doccomment">/// ## `compatible`</span>
-    <span class="doccomment">/// whether the context should be forward compatible</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_set_forward_compatible&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_forward_compatible</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">compatible</span>: <span class="ident">bool</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_gl_context_set_forward_compatible</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">compatible</span>.<span class="ident">into_glib</span>(),
+    <span class="doccomment">/// Sets whether the [`GLContext`][crate::GLContext] should be forward compatible.
+    ///
+    /// Forward compatibile contexts must not support OpenGL functionality that
+    /// has been marked as deprecated in the requested version; non-forward
+    /// compatible contexts, on the other hand, must support both deprecated and
+    /// non deprecated functionality.
+    ///
+    /// The [`GLContext`][crate::GLContext] must not be realized or made current prior to calling
+    /// this function.
+    /// ## `compatible`
+    /// whether the context should be forward compatible
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_forward_compatible&quot;</span>)]
+    </span><span class="kw">pub fn </span>set_forward_compatible(<span class="kw-2">&amp;</span><span class="self">self</span>, compatible: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gdk_gl_context_set_forward_compatible(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                compatible.into_glib(),
             );
         }
     }
 
-    <span class="doccomment">/// Sets the major and minor version of OpenGL to request.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Setting `major` and `minor` to zero will use the default values.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The [`GLContext`][crate::GLContext] must not be realized or made current prior to calling</span>
-    <span class="doccomment">/// this function.</span>
-    <span class="doccomment">/// ## `major`</span>
-    <span class="doccomment">/// the major version to request</span>
-    <span class="doccomment">/// ## `minor`</span>
-    <span class="doccomment">/// the minor version to request</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_set_required_version&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_required_version</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">major</span>: <span class="ident">i32</span>, <span class="ident">minor</span>: <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_gl_context_set_required_version</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">major</span>, <span class="ident">minor</span>);
+    <span class="doccomment">/// Sets the major and minor version of OpenGL to request.
+    ///
+    /// Setting `major` and `minor` to zero will use the default values.
+    ///
+    /// The [`GLContext`][crate::GLContext] must not be realized or made current prior to calling
+    /// this function.
+    /// ## `major`
+    /// the major version to request
+    /// ## `minor`
+    /// the minor version to request
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_required_version&quot;</span>)]
+    </span><span class="kw">pub fn </span>set_required_version(<span class="kw-2">&amp;</span><span class="self">self</span>, major: i32, minor: i32) {
+        <span class="kw">unsafe </span>{
+            ffi::gdk_gl_context_set_required_version(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, major, minor);
         }
     }
 
-    <span class="doccomment">/// Requests that GDK create a OpenGL ES context instead of an OpenGL one,</span>
-    <span class="doccomment">/// if the platform and windowing system allows it.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The `self` must not have been realized.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// By default, GDK will attempt to automatically detect whether the</span>
-    <span class="doccomment">/// underlying GL implementation is OpenGL or OpenGL ES once the `self`</span>
-    <span class="doccomment">/// is realized.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// You should check the return value of [`uses_es()`][Self::uses_es()] after</span>
-    <span class="doccomment">/// calling [`realize()`][Self::realize()] to decide whether to use the OpenGL or</span>
-    <span class="doccomment">/// OpenGL ES API, extensions, or shaders.</span>
-    <span class="doccomment">/// ## `use_es`</span>
-    <span class="doccomment">/// whether the context should use OpenGL ES instead of OpenGL,</span>
-    <span class="doccomment">///  or -1 to allow auto-detection</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_set_use_es&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_use_es</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">use_es</span>: <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_gl_context_set_use_es</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">use_es</span>);
+    <span class="doccomment">/// Requests that GDK create a OpenGL ES context instead of an OpenGL one,
+    /// if the platform and windowing system allows it.
+    ///
+    /// The `self` must not have been realized.
+    ///
+    /// By default, GDK will attempt to automatically detect whether the
+    /// underlying GL implementation is OpenGL or OpenGL ES once the `self`
+    /// is realized.
+    ///
+    /// You should check the return value of [`uses_es()`][Self::uses_es()] after
+    /// calling [`realize()`][Self::realize()] to decide whether to use the OpenGL or
+    /// OpenGL ES API, extensions, or shaders.
+    /// ## `use_es`
+    /// whether the context should use OpenGL ES instead of OpenGL,
+    ///  or -1 to allow auto-detection
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_use_es&quot;</span>)]
+    </span><span class="kw">pub fn </span>set_use_es(<span class="kw-2">&amp;</span><span class="self">self</span>, use_es: i32) {
+        <span class="kw">unsafe </span>{
+            ffi::gdk_gl_context_set_use_es(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, use_es);
         }
     }
 
-    <span class="doccomment">/// Clears the current [`GLContext`][crate::GLContext].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Any OpenGL call after this function returns will be ignored</span>
-    <span class="doccomment">/// until [`make_current()`][Self::make_current()] is called.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_clear_current&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">clear_current</span>() {
+    <span class="doccomment">/// Clears the current [`GLContext`][crate::GLContext].
+    ///
+    /// Any OpenGL call after this function returns will be ignored
+    /// until [`make_current()`][Self::make_current()] is called.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_clear_current&quot;</span>)]
+    </span><span class="kw">pub fn </span>clear_current() {
         <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_gl_context_clear_current</span>();
+        <span class="kw">unsafe </span>{
+            ffi::gdk_gl_context_clear_current();
         }
     }
 
-    <span class="doccomment">/// Retrieves the current [`GLContext`][crate::GLContext].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the current [`GLContext`][crate::GLContext], or [`None`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_get_current&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_current&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">current</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">GLContext</span><span class="op">&gt;</span> {
+    <span class="doccomment">/// Retrieves the current [`GLContext`][crate::GLContext].
+    ///
+    /// # Returns
+    ///
+    /// the current [`GLContext`][crate::GLContext], or [`None`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_current&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_current&quot;</span>)]
+    </span><span class="kw">pub fn </span>current() -&gt; <span class="prelude-ty">Option</span>&lt;GLContext&gt; {
         <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_gl_context_get_current</span>()) }
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gdk_gl_context_get_current()) }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">GLContext</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;GLContext&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>GLContext {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;GLContext&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

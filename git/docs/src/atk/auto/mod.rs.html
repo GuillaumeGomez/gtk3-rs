@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -223,152 +217,151 @@
 <span id="144">144</span>
 <span id="145">145</span>
 <span id="146">146</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">mod</span> <span class="ident">action</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::action::Action</span>;
+</span><span class="kw">mod </span>action;
+<span class="kw">pub use </span><span class="self">self</span>::action::Action;
 
-<span class="kw">mod</span> <span class="ident">component</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::component::Component</span>;
+<span class="kw">mod </span>component;
+<span class="kw">pub use </span><span class="self">self</span>::component::Component;
 
-<span class="kw">mod</span> <span class="ident">document</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::document::Document</span>;
+<span class="kw">mod </span>document;
+<span class="kw">pub use </span><span class="self">self</span>::document::Document;
 
-<span class="kw">mod</span> <span class="ident">editable_text</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::editable_text::EditableText</span>;
+<span class="kw">mod </span>editable_text;
+<span class="kw">pub use </span><span class="self">self</span>::editable_text::EditableText;
 
-<span class="kw">mod</span> <span class="ident">gobject_accessible</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::gobject_accessible::GObjectAccessible</span>;
+<span class="kw">mod </span>gobject_accessible;
+<span class="kw">pub use </span><span class="self">self</span>::gobject_accessible::GObjectAccessible;
 
-<span class="kw">mod</span> <span class="ident">hyperlink</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::hyperlink::Hyperlink</span>;
+<span class="kw">mod </span>hyperlink;
+<span class="kw">pub use </span><span class="self">self</span>::hyperlink::Hyperlink;
 
-<span class="kw">mod</span> <span class="ident">hyperlink_impl</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::hyperlink_impl::HyperlinkImpl</span>;
+<span class="kw">mod </span>hyperlink_impl;
+<span class="kw">pub use </span><span class="self">self</span>::hyperlink_impl::HyperlinkImpl;
 
-<span class="kw">mod</span> <span class="ident">hypertext</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::hypertext::Hypertext</span>;
+<span class="kw">mod </span>hypertext;
+<span class="kw">pub use </span><span class="self">self</span>::hypertext::Hypertext;
 
-<span class="kw">mod</span> <span class="ident">image</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::image::Image</span>;
+<span class="kw">mod </span>image;
+<span class="kw">pub use </span><span class="self">self</span>::image::Image;
 
-<span class="kw">mod</span> <span class="ident">misc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::misc::Misc</span>;
+<span class="kw">mod </span>misc;
+<span class="kw">pub use </span><span class="self">self</span>::misc::Misc;
 
-<span class="kw">mod</span> <span class="ident">no_op_object</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::no_op_object::NoOpObject</span>;
+<span class="kw">mod </span>no_op_object;
+<span class="kw">pub use </span><span class="self">self</span>::no_op_object::NoOpObject;
 
-<span class="kw">mod</span> <span class="ident">no_op_object_factory</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::no_op_object_factory::NoOpObjectFactory</span>;
+<span class="kw">mod </span>no_op_object_factory;
+<span class="kw">pub use </span><span class="self">self</span>::no_op_object_factory::NoOpObjectFactory;
 
-<span class="kw">mod</span> <span class="ident">object</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::object::Object</span>;
+<span class="kw">mod </span>object;
+<span class="kw">pub use </span><span class="self">self</span>::object::Object;
 
-<span class="kw">mod</span> <span class="ident">object_factory</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::object_factory::ObjectFactory</span>;
+<span class="kw">mod </span>object_factory;
+<span class="kw">pub use </span><span class="self">self</span>::object_factory::ObjectFactory;
 
-<span class="kw">mod</span> <span class="ident">plug</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::plug::Plug</span>;
+<span class="kw">mod </span>plug;
+<span class="kw">pub use </span><span class="self">self</span>::plug::Plug;
 
-<span class="kw">mod</span> <span class="ident">registry</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::registry::Registry</span>;
+<span class="kw">mod </span>registry;
+<span class="kw">pub use </span><span class="self">self</span>::registry::Registry;
 
-<span class="kw">mod</span> <span class="ident">relation</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::relation::Relation</span>;
+<span class="kw">mod </span>relation;
+<span class="kw">pub use </span><span class="self">self</span>::relation::Relation;
 
-<span class="kw">mod</span> <span class="ident">relation_set</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::relation_set::RelationSet</span>;
+<span class="kw">mod </span>relation_set;
+<span class="kw">pub use </span><span class="self">self</span>::relation_set::RelationSet;
 
-<span class="kw">mod</span> <span class="ident">selection</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::selection::Selection</span>;
+<span class="kw">mod </span>selection;
+<span class="kw">pub use </span><span class="self">self</span>::selection::Selection;
 
-<span class="kw">mod</span> <span class="ident">socket</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::socket::Socket</span>;
+<span class="kw">mod </span>socket;
+<span class="kw">pub use </span><span class="self">self</span>::socket::Socket;
 
-<span class="kw">mod</span> <span class="ident">state_set</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::state_set::StateSet</span>;
+<span class="kw">mod </span>state_set;
+<span class="kw">pub use </span><span class="self">self</span>::state_set::StateSet;
 
-<span class="kw">mod</span> <span class="ident">streamable_content</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::streamable_content::StreamableContent</span>;
+<span class="kw">mod </span>streamable_content;
+<span class="kw">pub use </span><span class="self">self</span>::streamable_content::StreamableContent;
 
-<span class="kw">mod</span> <span class="ident">table</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::table::Table</span>;
+<span class="kw">mod </span>table;
+<span class="kw">pub use </span><span class="self">self</span>::table::Table;
 
-<span class="kw">mod</span> <span class="ident">table_cell</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::table_cell::TableCell</span>;
+<span class="kw">mod </span>table_cell;
+<span class="kw">pub use </span><span class="self">self</span>::table_cell::TableCell;
 
-<span class="kw">mod</span> <span class="ident">text</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::text::Text</span>;
+<span class="kw">mod </span>text;
+<span class="kw">pub use </span><span class="self">self</span>::text::Text;
 
-<span class="kw">mod</span> <span class="ident">util</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::util::Util</span>;
+<span class="kw">mod </span>util;
+<span class="kw">pub use </span><span class="self">self</span>::util::Util;
 
-<span class="kw">mod</span> <span class="ident">value</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::value::Value</span>;
+<span class="kw">mod </span>value;
+<span class="kw">pub use </span><span class="self">self</span>::value::Value;
 
-<span class="kw">mod</span> <span class="ident">window</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::window::Window</span>;
+<span class="kw">mod </span>window;
+<span class="kw">pub use </span><span class="self">self</span>::window::Window;
 
-<span class="kw">mod</span> <span class="ident">range</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::range::Range</span>;
+<span class="kw">mod </span>range;
+<span class="kw">pub use </span><span class="self">self</span>::range::Range;
 
-<span class="kw">mod</span> <span class="ident">rectangle</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::rectangle::Rectangle</span>;
+<span class="kw">mod </span>rectangle;
+<span class="kw">pub use </span><span class="self">self</span>::rectangle::Rectangle;
 
-<span class="kw">mod</span> <span class="ident">text_range</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::text_range::TextRange</span>;
+<span class="kw">mod </span>text_range;
+<span class="kw">pub use </span><span class="self">self</span>::text_range::TextRange;
 
-<span class="kw">mod</span> <span class="ident">enums</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::CoordType</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::Layer</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::RelationType</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::Role</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::ScrollType</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::StateType</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::TextAttribute</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::TextBoundary</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::TextClipType</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::TextGranularity</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::ValueType</span>;
+<span class="kw">mod </span>enums;
+<span class="kw">pub use </span><span class="self">self</span>::enums::CoordType;
+<span class="kw">pub use </span><span class="self">self</span>::enums::Layer;
+<span class="kw">pub use </span><span class="self">self</span>::enums::RelationType;
+<span class="kw">pub use </span><span class="self">self</span>::enums::Role;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_30&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_30&quot;</span>)))]
+</span><span class="kw">pub use </span><span class="self">self</span>::enums::ScrollType;
+<span class="kw">pub use </span><span class="self">self</span>::enums::StateType;
+<span class="kw">pub use </span><span class="self">self</span>::enums::TextAttribute;
+<span class="kw">pub use </span><span class="self">self</span>::enums::TextBoundary;
+<span class="kw">pub use </span><span class="self">self</span>::enums::TextClipType;
+<span class="kw">pub use </span><span class="self">self</span>::enums::TextGranularity;
+<span class="kw">pub use </span><span class="self">self</span>::enums::ValueType;
 
-<span class="kw">mod</span> <span class="ident">flags</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::HyperlinkStateFlags</span>;
+<span class="kw">mod </span>flags;
+<span class="kw">pub use </span><span class="self">self</span>::flags::HyperlinkStateFlags;
 
-<span class="kw">mod</span> <span class="ident">alias</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::alias::State</span>;
+<span class="kw">mod </span>alias;
+<span class="kw">pub use </span><span class="self">self</span>::alias::State;
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">traits</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::action::AtkActionExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::component::ComponentExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::document::DocumentExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::editable_text::EditableTextExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::gobject_accessible::GObjectAccessibleExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::hyperlink::HyperlinkExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::hyperlink_impl::HyperlinkImplExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::hypertext::HypertextExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::image::AtkImageExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::misc::AtkMiscExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::object::AtkObjectExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::object_factory::ObjectFactoryExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::plug::AtkPlugExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::registry::RegistryExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::relation::RelationExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::relation_set::RelationSetExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::selection::SelectionExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::socket::AtkSocketExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::state_set::StateSetExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::streamable_content::StreamableContentExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::table::TableExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::table_cell::TableCellExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::text::TextExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::value::ValueExt</span>;
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::window::AtkWindowExt</span>;
+<span class="attribute">#[doc(hidden)]
+</span><span class="kw">pub mod </span>traits {
+    <span class="kw">pub use </span><span class="kw">super</span>::action::AtkActionExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::component::ComponentExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::document::DocumentExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::editable_text::EditableTextExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::gobject_accessible::GObjectAccessibleExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::hyperlink::HyperlinkExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::hyperlink_impl::HyperlinkImplExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::hypertext::HypertextExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::image::AtkImageExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::misc::AtkMiscExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::object::AtkObjectExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::object_factory::ObjectFactoryExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::plug::AtkPlugExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::registry::RegistryExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::relation::RelationExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::relation_set::RelationSetExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::selection::SelectionExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::socket::AtkSocketExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::state_set::StateSetExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::streamable_content::StreamableContentExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::table::TableExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::table_cell::TableCellExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::text::TextExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::value::ValueExt;
+    <span class="kw">pub use </span><span class="kw">super</span>::window::AtkWindowExt;
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

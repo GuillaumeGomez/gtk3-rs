@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/icon_theme.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>icon_theme.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/icon_theme.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>icon_theme.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -607,536 +601,535 @@
 <span id="528">528</span>
 <span id="529">529</span>
 <span id="530">530</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::IconInfo</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::IconLookupFlags</span>;
-<span class="kw">use</span> <span class="ident">glib::object::Cast</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::connect_raw</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::SignalHandlerId</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
-<span class="kw">use</span> <span class="ident">std::ptr</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::IconInfo;
+<span class="kw">use </span><span class="kw">crate</span>::IconLookupFlags;
+<span class="kw">use </span>glib::object::Cast;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::signal::connect_raw;
+<span class="kw">use </span>glib::signal::SignalHandlerId;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem::transmute;
+<span class="kw">use </span>std::ptr;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// [`IconTheme`][crate::IconTheme] provides a facility for looking up icons by name</span>
-    <span class="doccomment">/// and size. The main reason for using a name rather than simply</span>
-    <span class="doccomment">/// providing a filename is to allow different icons to be used</span>
-    <span class="doccomment">/// depending on what “icon theme” is selected</span>
-    <span class="doccomment">/// by the user. The operation of icon themes on Linux and Unix</span>
-    <span class="doccomment">/// follows the [Icon Theme Specification](http://www.freedesktop.org/Standards/icon-theme-spec)</span>
-    <span class="doccomment">/// There is a fallback icon theme, named `hicolor`, where applications</span>
-    <span class="doccomment">/// should install their icons, but additional icon themes can be installed</span>
-    <span class="doccomment">/// as operating system vendors and users choose.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Named icons are similar to the deprecated [Stock Items][gtkstock],</span>
-    <span class="doccomment">/// and the distinction between the two may be a bit confusing.</span>
-    <span class="doccomment">/// A few things to keep in mind:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - Stock images usually are used in conjunction with</span>
-    <span class="doccomment">///  [Stock Items][gtkstock], such as `GTK_STOCK_OK` or</span>
-    <span class="doccomment">///  `GTK_STOCK_OPEN`. Named icons are easier to set up and therefore</span>
-    <span class="doccomment">///  are more useful for new icons that an application wants to</span>
-    <span class="doccomment">///  add, such as application icons or window icons.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - Stock images can only be loaded at the symbolic sizes defined</span>
-    <span class="doccomment">///  by the [`IconSize`][crate::IconSize] enumeration, or by custom sizes defined</span>
-    <span class="doccomment">///  by `gtk_icon_size_register()`, while named icons are more flexible</span>
-    <span class="doccomment">///  and any pixel size can be specified.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - Because stock images are closely tied to stock items, and thus</span>
-    <span class="doccomment">///  to actions in the user interface, stock images may come in</span>
-    <span class="doccomment">///  multiple variants for different widget states or writing</span>
-    <span class="doccomment">///  directions.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A good rule of thumb is that if there is a stock image for what</span>
-    <span class="doccomment">/// you want to use, use it, otherwise use a named icon. It turns</span>
-    <span class="doccomment">/// out that internally stock images are generally defined in</span>
-    <span class="doccomment">/// terms of one or more named icons. (An example of the</span>
-    <span class="doccomment">/// more than one case is icons that depend on writing direction;</span>
-    <span class="doccomment">/// `GTK_STOCK_GO_FORWARD` uses the two themed icons</span>
-    <span class="doccomment">/// “gtk-stock-go-forward-ltr” and “gtk-stock-go-forward-rtl”.)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// In many cases, named themes are used indirectly, via [`Image`][crate::Image]</span>
-    <span class="doccomment">/// or stock items, rather than directly, but looking up icons</span>
-    <span class="doccomment">/// directly is also simple. The [`IconTheme`][crate::IconTheme] object acts</span>
-    <span class="doccomment">/// as a database of all the icons in the current theme. You</span>
-    <span class="doccomment">/// can create new [`IconTheme`][crate::IconTheme] objects, but it’s much more</span>
-    <span class="doccomment">/// efficient to use the standard icon theme for the [`gdk::Screen`][crate::gdk::Screen]</span>
-    <span class="doccomment">/// so that the icon information is shared with other people</span>
-    <span class="doccomment">/// looking up icons.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// **⚠️ The following code is in C ⚠️**</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```C</span>
-    <span class="doccomment">/// GError *error = NULL;</span>
-    <span class="doccomment">/// GtkIconTheme *icon_theme;</span>
-    <span class="doccomment">/// GdkPixbuf *pixbuf;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// icon_theme = gtk_icon_theme_get_default ();</span>
-    <span class="doccomment">/// pixbuf = gtk_icon_theme_load_icon (icon_theme,</span>
-    <span class="doccomment">///                                    &quot;my-icon-name&quot;, // icon name</span>
-    <span class="doccomment">///                                    48, // icon size</span>
-    <span class="doccomment">///                                    0,  // flags</span>
-    <span class="doccomment">///                                    &amp;error);</span>
-    <span class="doccomment">/// if (!pixbuf)</span>
-    <span class="doccomment">///   {</span>
-    <span class="doccomment">///     g_warning (&quot;Couldn’t load icon: %s&quot;, error-&gt;message);</span>
-    <span class="doccomment">///     g_error_free (error);</span>
-    <span class="doccomment">///   }</span>
-    <span class="doccomment">/// else</span>
-    <span class="doccomment">///   {</span>
-    <span class="doccomment">///     // Use the pixbuf</span>
-    <span class="doccomment">///     g_object_unref (pixbuf);</span>
-    <span class="doccomment">///   }</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`IconThemeExt`][trait@crate::prelude::IconThemeExt], [`trait@glib::ObjectExt`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GtkIconTheme&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">IconTheme</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GtkIconTheme</span>, <span class="ident">ffi::GtkIconThemeClass</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// [`IconTheme`][crate::IconTheme] provides a facility for looking up icons by name
+    /// and size. The main reason for using a name rather than simply
+    /// providing a filename is to allow different icons to be used
+    /// depending on what “icon theme” is selected
+    /// by the user. The operation of icon themes on Linux and Unix
+    /// follows the [Icon Theme Specification](http://www.freedesktop.org/Standards/icon-theme-spec)
+    /// There is a fallback icon theme, named `hicolor`, where applications
+    /// should install their icons, but additional icon themes can be installed
+    /// as operating system vendors and users choose.
+    ///
+    /// Named icons are similar to the deprecated [Stock Items][gtkstock],
+    /// and the distinction between the two may be a bit confusing.
+    /// A few things to keep in mind:
+    ///
+    /// - Stock images usually are used in conjunction with
+    ///  [Stock Items][gtkstock], such as `GTK_STOCK_OK` or
+    ///  `GTK_STOCK_OPEN`. Named icons are easier to set up and therefore
+    ///  are more useful for new icons that an application wants to
+    ///  add, such as application icons or window icons.
+    ///
+    /// - Stock images can only be loaded at the symbolic sizes defined
+    ///  by the [`IconSize`][crate::IconSize] enumeration, or by custom sizes defined
+    ///  by `gtk_icon_size_register()`, while named icons are more flexible
+    ///  and any pixel size can be specified.
+    ///
+    /// - Because stock images are closely tied to stock items, and thus
+    ///  to actions in the user interface, stock images may come in
+    ///  multiple variants for different widget states or writing
+    ///  directions.
+    ///
+    /// A good rule of thumb is that if there is a stock image for what
+    /// you want to use, use it, otherwise use a named icon. It turns
+    /// out that internally stock images are generally defined in
+    /// terms of one or more named icons. (An example of the
+    /// more than one case is icons that depend on writing direction;
+    /// `GTK_STOCK_GO_FORWARD` uses the two themed icons
+    /// “gtk-stock-go-forward-ltr” and “gtk-stock-go-forward-rtl”.)
+    ///
+    /// In many cases, named themes are used indirectly, via [`Image`][crate::Image]
+    /// or stock items, rather than directly, but looking up icons
+    /// directly is also simple. The [`IconTheme`][crate::IconTheme] object acts
+    /// as a database of all the icons in the current theme. You
+    /// can create new [`IconTheme`][crate::IconTheme] objects, but it’s much more
+    /// efficient to use the standard icon theme for the [`gdk::Screen`][crate::gdk::Screen]
+    /// so that the icon information is shared with other people
+    /// looking up icons.
+    ///
+    ///
+    /// **⚠️ The following code is in C ⚠️**
+    ///
+    /// ```C
+    /// GError *error = NULL;
+    /// GtkIconTheme *icon_theme;
+    /// GdkPixbuf *pixbuf;
+    ///
+    /// icon_theme = gtk_icon_theme_get_default ();
+    /// pixbuf = gtk_icon_theme_load_icon (icon_theme,
+    ///                                    &quot;my-icon-name&quot;, // icon name
+    ///                                    48, // icon size
+    ///                                    0,  // flags
+    ///                                    &amp;error);
+    /// if (!pixbuf)
+    ///   {
+    ///     g_warning (&quot;Couldn’t load icon: %s&quot;, error-&gt;message);
+    ///     g_error_free (error);
+    ///   }
+    /// else
+    ///   {
+    ///     // Use the pixbuf
+    ///     g_object_unref (pixbuf);
+    ///   }
+    /// ```
+    ///
+    /// # Implements
+    ///
+    /// [`IconThemeExt`][trait@crate::prelude::IconThemeExt], [`trait@glib::ObjectExt`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkIconTheme&quot;</span>)]
+    </span><span class="kw">pub struct </span>IconTheme(Object&lt;ffi::GtkIconTheme, ffi::GtkIconThemeClass&gt;);
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_icon_theme_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gtk_icon_theme_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">IconTheme</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">IconTheme</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+<span class="kw">impl </span>IconTheme {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>IconTheme&gt; = <span class="prelude-val">None</span>;
 
-    <span class="doccomment">/// Creates a new icon theme object. Icon theme objects are used</span>
-    <span class="doccomment">/// to lookup up an icon by name in a particular icon theme.</span>
-    <span class="doccomment">/// Usually, you’ll want to use [`default()`][Self::default()]</span>
-    <span class="doccomment">/// or [`for_screen()`][Self::for_screen()] rather than creating</span>
-    <span class="doccomment">/// a new icon theme object for scratch.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the newly created [`IconTheme`][crate::IconTheme] object.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_new&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="ident">IconTheme</span> {
+    <span class="doccomment">/// Creates a new icon theme object. Icon theme objects are used
+    /// to lookup up an icon by name in a particular icon theme.
+    /// Usually, you’ll want to use [`default()`][Self::default()]
+    /// or [`for_screen()`][Self::for_screen()] rather than creating
+    /// a new icon theme object for scratch.
+    ///
+    /// # Returns
+    ///
+    /// the newly created [`IconTheme`][crate::IconTheme] object.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_new&quot;</span>)]
+    </span><span class="kw">pub fn </span>new() -&gt; IconTheme {
         <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::gtk_icon_theme_new</span>()) }
+        <span class="kw">unsafe </span>{ from_glib_full(ffi::gtk_icon_theme_new()) }
     }
 
-    <span class="doccomment">/// Gets the icon theme for the default screen. See</span>
-    <span class="doccomment">/// [`for_screen()`][Self::for_screen()].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A unique [`IconTheme`][crate::IconTheme] associated with</span>
-    <span class="doccomment">///  the default screen. This icon theme is associated with</span>
-    <span class="doccomment">///  the screen and can be used as long as the screen</span>
-    <span class="doccomment">///  is open. Do not ref or unref it.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_get_default&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_default&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">IconTheme</span><span class="op">&gt;</span> {
+    <span class="doccomment">/// Gets the icon theme for the default screen. See
+    /// [`for_screen()`][Self::for_screen()].
+    ///
+    /// # Returns
+    ///
+    /// A unique [`IconTheme`][crate::IconTheme] associated with
+    ///  the default screen. This icon theme is associated with
+    ///  the screen and can be used as long as the screen
+    ///  is open. Do not ref or unref it.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_get_default&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_default&quot;</span>)]
+    </span><span class="kw">pub fn </span>default() -&gt; <span class="prelude-ty">Option</span>&lt;IconTheme&gt; {
         <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_icon_theme_get_default</span>()) }
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_icon_theme_get_default()) }
     }
 
-    <span class="doccomment">/// Gets the icon theme object associated with `screen`; if this</span>
-    <span class="doccomment">/// function has not previously been called for the given</span>
-    <span class="doccomment">/// screen, a new icon theme object will be created and</span>
-    <span class="doccomment">/// associated with the screen. Icon theme objects are</span>
-    <span class="doccomment">/// fairly expensive to create, so using this function</span>
-    <span class="doccomment">/// is usually a better choice than calling than [`new()`][Self::new()]</span>
-    <span class="doccomment">/// and setting the screen yourself; by using this function</span>
-    <span class="doccomment">/// a single icon theme object will be shared between users.</span>
-    <span class="doccomment">/// ## `screen`</span>
-    <span class="doccomment">/// a [`gdk::Screen`][crate::gdk::Screen]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A unique [`IconTheme`][crate::IconTheme] associated with</span>
-    <span class="doccomment">///  the given screen. This icon theme is associated with</span>
-    <span class="doccomment">///  the screen and can be used as long as the screen</span>
-    <span class="doccomment">///  is open. Do not ref or unref it.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_get_for_screen&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_for_screen&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">for_screen</span>(<span class="ident">screen</span>: <span class="kw-2">&amp;</span><span class="ident">gdk::Screen</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">IconTheme</span><span class="op">&gt;</span> {
+    <span class="doccomment">/// Gets the icon theme object associated with `screen`; if this
+    /// function has not previously been called for the given
+    /// screen, a new icon theme object will be created and
+    /// associated with the screen. Icon theme objects are
+    /// fairly expensive to create, so using this function
+    /// is usually a better choice than calling than [`new()`][Self::new()]
+    /// and setting the screen yourself; by using this function
+    /// a single icon theme object will be shared between users.
+    /// ## `screen`
+    /// a [`gdk::Screen`][crate::gdk::Screen]
+    ///
+    /// # Returns
+    ///
+    /// A unique [`IconTheme`][crate::IconTheme] associated with
+    ///  the given screen. This icon theme is associated with
+    ///  the screen and can be used as long as the screen
+    ///  is open. Do not ref or unref it.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_get_for_screen&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_for_screen&quot;</span>)]
+    </span><span class="kw">pub fn </span>for_screen(screen: <span class="kw-2">&amp;</span>gdk::Screen) -&gt; <span class="prelude-ty">Option</span>&lt;IconTheme&gt; {
         <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_icon_theme_get_for_screen</span>(<span class="ident">screen</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_icon_theme_get_for_screen(screen.to_glib_none().<span class="number">0</span>)) }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">IconTheme</span> {
-    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
-        <span class="ident"><span class="self">Self</span>::new</span>()
+<span class="kw">impl </span>Default <span class="kw">for </span>IconTheme {
+    <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::new()
     }
 }
 
-<span class="doccomment">/// Trait containing all [`struct@IconTheme`] methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementors</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`IconTheme`][struct@crate::IconTheme]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">IconThemeExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Adds a resource path that will be looked at when looking</span>
-    <span class="doccomment">/// for icons, similar to search paths.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function should be used to make application-specific icons</span>
-    <span class="doccomment">/// available as part of the icon theme.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The resources are considered as part of the hicolor icon theme</span>
-    <span class="doccomment">/// and must be located in subdirectories that are defined in the</span>
-    <span class="doccomment">/// hicolor icon theme, such as ``path`/16x16/actions/run.png`.</span>
-    <span class="doccomment">/// Icons that are directly placed in the resource path instead</span>
-    <span class="doccomment">/// of a subdirectory are also considered as ultimate fallback.</span>
-    <span class="doccomment">/// ## `path`</span>
-    <span class="doccomment">/// a resource path</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_add_resource_path&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">add_resource_path</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>);
+<span class="doccomment">/// Trait containing all [`struct@IconTheme`] methods.
+///
+/// # Implementors
+///
+/// [`IconTheme`][struct@crate::IconTheme]
+</span><span class="kw">pub trait </span>IconThemeExt: <span class="lifetime">&#39;static </span>{
+    <span class="doccomment">/// Adds a resource path that will be looked at when looking
+    /// for icons, similar to search paths.
+    ///
+    /// This function should be used to make application-specific icons
+    /// available as part of the icon theme.
+    ///
+    /// The resources are considered as part of the hicolor icon theme
+    /// and must be located in subdirectories that are defined in the
+    /// hicolor icon theme, such as ``path`/16x16/actions/run.png`.
+    /// Icons that are directly placed in the resource path instead
+    /// of a subdirectory are also considered as ultimate fallback.
+    /// ## `path`
+    /// a resource path
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_add_resource_path&quot;</span>)]
+    </span><span class="kw">fn </span>add_resource_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>str);
 
-    <span class="doccomment">/// Appends a directory to the search path.</span>
-    <span class="doccomment">/// See `gtk_icon_theme_set_search_path()`.</span>
-    <span class="doccomment">/// ## `path`</span>
-    <span class="doccomment">/// directory name to append to the icon path</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_append_search_path&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">append_search_path</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">path</span>: <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">std::path::Path</span><span class="op">&gt;</span>);
+    <span class="doccomment">/// Appends a directory to the search path.
+    /// See `gtk_icon_theme_set_search_path()`.
+    /// ## `path`
+    /// directory name to append to the icon path
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_append_search_path&quot;</span>)]
+    </span><span class="kw">fn </span>append_search_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw">impl </span>AsRef&lt;std::path::Path&gt;);
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_get_example_icon_name&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_example_icon_name&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">example_icon_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_get_example_icon_name&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_example_icon_name&quot;</span>)]
+    </span><span class="kw">fn </span>example_icon_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_has_icon&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">has_icon</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="ident">bool</span>;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_has_icon&quot;</span>)]
+    </span><span class="kw">fn </span>has_icon(<span class="kw-2">&amp;</span><span class="self">self</span>, icon_name: <span class="kw-2">&amp;</span>str) -&gt; bool;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_list_contexts&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">list_contexts</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_list_contexts&quot;</span>)]
+    </span><span class="kw">fn </span>list_contexts(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;glib::GString&gt;;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_list_icons&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">list_icons</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">context</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_list_icons&quot;</span>)]
+    </span><span class="kw">fn </span>list_icons(<span class="kw-2">&amp;</span><span class="self">self</span>, context: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) -&gt; Vec&lt;glib::GString&gt;;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_load_icon&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">load_icon</span>(
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_load_icon&quot;</span>)]
+    </span><span class="kw">fn </span>load_icon(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk_pixbuf::Pixbuf</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>;
+        icon_name: <span class="kw-2">&amp;</span>str,
+        size: i32,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt;, glib::Error&gt;;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_load_icon_for_scale&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">load_icon_for_scale</span>(
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_load_icon_for_scale&quot;</span>)]
+    </span><span class="kw">fn </span>load_icon_for_scale(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">scale</span>: <span class="ident">i32</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk_pixbuf::Pixbuf</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>;
+        icon_name: <span class="kw-2">&amp;</span>str,
+        size: i32,
+        scale: i32,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt;, glib::Error&gt;;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_load_surface&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">load_surface</span>(
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_load_surface&quot;</span>)]
+    </span><span class="kw">fn </span>load_surface(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">scale</span>: <span class="ident">i32</span>,
-        <span class="ident">for_window</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">gdk::Window</span><span class="op">&gt;</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">cairo::Surface</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>;
+        icon_name: <span class="kw-2">&amp;</span>str,
+        size: i32,
+        scale: i32,
+        for_window: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk::Window&gt;,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;cairo::Surface&gt;, glib::Error&gt;;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_lookup_by_gicon&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">lookup_by_gicon</span>(
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_lookup_by_gicon&quot;</span>)]
+    </span><span class="kw">fn </span>lookup_by_gicon(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Icon</span><span class="op">&gt;</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">IconInfo</span><span class="op">&gt;</span>;
+        icon: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Icon&gt;,
+        size: i32,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;IconInfo&gt;;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_lookup_by_gicon_for_scale&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">lookup_by_gicon_for_scale</span>(
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_lookup_by_gicon_for_scale&quot;</span>)]
+    </span><span class="kw">fn </span>lookup_by_gicon_for_scale(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Icon</span><span class="op">&gt;</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">scale</span>: <span class="ident">i32</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">IconInfo</span><span class="op">&gt;</span>;
+        icon: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Icon&gt;,
+        size: i32,
+        scale: i32,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;IconInfo&gt;;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_lookup_icon&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">lookup_icon</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">size</span>: <span class="ident">i32</span>, <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">IconInfo</span><span class="op">&gt;</span>;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_lookup_icon&quot;</span>)]
+    </span><span class="kw">fn </span>lookup_icon(<span class="kw-2">&amp;</span><span class="self">self</span>, icon_name: <span class="kw-2">&amp;</span>str, size: i32, flags: IconLookupFlags) -&gt; <span class="prelude-ty">Option</span>&lt;IconInfo&gt;;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_lookup_icon_for_scale&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">lookup_icon_for_scale</span>(
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_lookup_icon_for_scale&quot;</span>)]
+    </span><span class="kw">fn </span>lookup_icon_for_scale(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">scale</span>: <span class="ident">i32</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">IconInfo</span><span class="op">&gt;</span>;
+        icon_name: <span class="kw-2">&amp;</span>str,
+        size: i32,
+        scale: i32,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;IconInfo&gt;;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_prepend_search_path&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">prepend_search_path</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">path</span>: <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">std::path::Path</span><span class="op">&gt;</span>);
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_prepend_search_path&quot;</span>)]
+    </span><span class="kw">fn </span>prepend_search_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw">impl </span>AsRef&lt;std::path::Path&gt;);
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_rescan_if_needed&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">rescan_if_needed</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span>;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_rescan_if_needed&quot;</span>)]
+    </span><span class="kw">fn </span>rescan_if_needed(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_set_custom_theme&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_custom_theme</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">theme_name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>);
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_set_custom_theme&quot;</span>)]
+    </span><span class="kw">fn </span>set_custom_theme(<span class="kw-2">&amp;</span><span class="self">self</span>, theme_name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_icon_theme_set_screen&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_screen</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">screen</span>: <span class="kw-2">&amp;</span><span class="ident">gdk::Screen</span>);
+    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_icon_theme_set_screen&quot;</span>)]
+    </span><span class="kw">fn </span>set_screen(<span class="kw-2">&amp;</span><span class="self">self</span>, screen: <span class="kw-2">&amp;</span>gdk::Screen);
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;changed&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_changed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;changed&quot;</span>)]
+    </span><span class="kw">fn </span>connect_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">IconTheme</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">IconThemeExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">add_resource_path</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_icon_theme_add_resource_path</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">path</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+<span class="kw">impl</span>&lt;O: IsA&lt;IconTheme&gt;&gt; IconThemeExt <span class="kw">for </span>O {
+    <span class="kw">fn </span>add_resource_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>str) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_icon_theme_add_resource_path(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                path.to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">append_search_path</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">path</span>: <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">std::path::Path</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_icon_theme_append_search_path</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">path</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>append_search_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw">impl </span>AsRef&lt;std::path::Path&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_icon_theme_append_search_path(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                path.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">example_icon_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::gtk_icon_theme_get_example_icon_name</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>example_icon_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gtk_icon_theme_get_example_icon_name(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">has_icon</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_icon_theme_has_icon</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">icon_name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>has_icon(<span class="kw-2">&amp;</span><span class="self">self</span>, icon_name: <span class="kw-2">&amp;</span>str) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_icon_theme_has_icon(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                icon_name.to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">list_contexts</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">FromGlibPtrContainer::from_glib_full</span>(<span class="ident">ffi::gtk_icon_theme_list_contexts</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>list_contexts(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            FromGlibPtrContainer::from_glib_full(ffi::gtk_icon_theme_list_contexts(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">list_icons</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">context</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">FromGlibPtrContainer::from_glib_full</span>(<span class="ident">ffi::gtk_icon_theme_list_icons</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">context</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>list_icons(<span class="kw-2">&amp;</span><span class="self">self</span>, context: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) -&gt; Vec&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            FromGlibPtrContainer::from_glib_full(ffi::gtk_icon_theme_list_icons(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">load_icon</span>(
+    <span class="kw">fn </span>load_icon(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk_pixbuf::Pixbuf</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">ffi::gtk_icon_theme_load_icon</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">icon_name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">size</span>,
-                <span class="ident">flags</span>.<span class="ident">into_glib</span>(),
-                <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
+        icon_name: <span class="kw-2">&amp;</span>str,
+        size: i32,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt;, glib::Error&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span>ret = ffi::gtk_icon_theme_load_icon(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                icon_name.to_glib_none().<span class="number">0</span>,
+                size,
+                flags.into_glib(),
+                <span class="kw-2">&amp;mut </span>error,
             );
-            <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
-                <span class="prelude-val">Ok</span>(<span class="ident">from_glib_full</span>(<span class="ident">ret</span>))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+            <span class="kw">if </span>error.is_null() {
+                <span class="prelude-val">Ok</span>(from_glib_full(ret))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(error))
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">load_icon_for_scale</span>(
+    <span class="kw">fn </span>load_icon_for_scale(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">scale</span>: <span class="ident">i32</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk_pixbuf::Pixbuf</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">ffi::gtk_icon_theme_load_icon_for_scale</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">icon_name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">size</span>,
-                <span class="ident">scale</span>,
-                <span class="ident">flags</span>.<span class="ident">into_glib</span>(),
-                <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
+        icon_name: <span class="kw-2">&amp;</span>str,
+        size: i32,
+        scale: i32,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt;, glib::Error&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span>ret = ffi::gtk_icon_theme_load_icon_for_scale(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                icon_name.to_glib_none().<span class="number">0</span>,
+                size,
+                scale,
+                flags.into_glib(),
+                <span class="kw-2">&amp;mut </span>error,
             );
-            <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
-                <span class="prelude-val">Ok</span>(<span class="ident">from_glib_full</span>(<span class="ident">ret</span>))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+            <span class="kw">if </span>error.is_null() {
+                <span class="prelude-val">Ok</span>(from_glib_full(ret))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(error))
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">load_surface</span>(
+    <span class="kw">fn </span>load_surface(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">scale</span>: <span class="ident">i32</span>,
-        <span class="ident">for_window</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">gdk::Window</span><span class="op">&gt;</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">cairo::Surface</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">ffi::gtk_icon_theme_load_surface</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">icon_name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">size</span>,
-                <span class="ident">scale</span>,
-                <span class="ident">for_window</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">flags</span>.<span class="ident">into_glib</span>(),
-                <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
+        icon_name: <span class="kw-2">&amp;</span>str,
+        size: i32,
+        scale: i32,
+        for_window: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk::Window&gt;,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;cairo::Surface&gt;, glib::Error&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span>ret = ffi::gtk_icon_theme_load_surface(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                icon_name.to_glib_none().<span class="number">0</span>,
+                size,
+                scale,
+                for_window.to_glib_none().<span class="number">0</span>,
+                flags.into_glib(),
+                <span class="kw-2">&amp;mut </span>error,
             );
-            <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
-                <span class="prelude-val">Ok</span>(<span class="ident">from_glib_full</span>(<span class="ident">ret</span>))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+            <span class="kw">if </span>error.is_null() {
+                <span class="prelude-val">Ok</span>(from_glib_full(ret))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(error))
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">lookup_by_gicon</span>(
+    <span class="kw">fn </span>lookup_by_gicon(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Icon</span><span class="op">&gt;</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">IconInfo</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::gtk_icon_theme_lookup_by_gicon</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">icon</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">size</span>,
-                <span class="ident">flags</span>.<span class="ident">into_glib</span>(),
+        icon: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Icon&gt;,
+        size: i32,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;IconInfo&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gtk_icon_theme_lookup_by_gicon(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                icon.as_ref().to_glib_none().<span class="number">0</span>,
+                size,
+                flags.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">lookup_by_gicon_for_scale</span>(
+    <span class="kw">fn </span>lookup_by_gicon_for_scale(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Icon</span><span class="op">&gt;</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">scale</span>: <span class="ident">i32</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">IconInfo</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::gtk_icon_theme_lookup_by_gicon_for_scale</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">icon</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">size</span>,
-                <span class="ident">scale</span>,
-                <span class="ident">flags</span>.<span class="ident">into_glib</span>(),
+        icon: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Icon&gt;,
+        size: i32,
+        scale: i32,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;IconInfo&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gtk_icon_theme_lookup_by_gicon_for_scale(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                icon.as_ref().to_glib_none().<span class="number">0</span>,
+                size,
+                scale,
+                flags.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">lookup_icon</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">size</span>: <span class="ident">i32</span>, <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">IconInfo</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::gtk_icon_theme_lookup_icon</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">icon_name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">size</span>,
-                <span class="ident">flags</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>lookup_icon(<span class="kw-2">&amp;</span><span class="self">self</span>, icon_name: <span class="kw-2">&amp;</span>str, size: i32, flags: IconLookupFlags) -&gt; <span class="prelude-ty">Option</span>&lt;IconInfo&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gtk_icon_theme_lookup_icon(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                icon_name.to_glib_none().<span class="number">0</span>,
+                size,
+                flags.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">lookup_icon_for_scale</span>(
+    <span class="kw">fn </span>lookup_icon_for_scale(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">icon_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-        <span class="ident">size</span>: <span class="ident">i32</span>,
-        <span class="ident">scale</span>: <span class="ident">i32</span>,
-        <span class="ident">flags</span>: <span class="ident">IconLookupFlags</span>,
-    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">IconInfo</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::gtk_icon_theme_lookup_icon_for_scale</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">icon_name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">size</span>,
-                <span class="ident">scale</span>,
-                <span class="ident">flags</span>.<span class="ident">into_glib</span>(),
+        icon_name: <span class="kw-2">&amp;</span>str,
+        size: i32,
+        scale: i32,
+        flags: IconLookupFlags,
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;IconInfo&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gtk_icon_theme_lookup_icon_for_scale(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                icon_name.to_glib_none().<span class="number">0</span>,
+                size,
+                scale,
+                flags.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">prepend_search_path</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">path</span>: <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">std::path::Path</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_icon_theme_prepend_search_path</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">path</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>prepend_search_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw">impl </span>AsRef&lt;std::path::Path&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_icon_theme_prepend_search_path(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                path.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">rescan_if_needed</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_icon_theme_rescan_if_needed</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>rescan_if_needed(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_icon_theme_rescan_if_needed(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_custom_theme</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">theme_name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_icon_theme_set_custom_theme</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">theme_name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>set_custom_theme(<span class="kw-2">&amp;</span><span class="self">self</span>, theme_name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_icon_theme_set_custom_theme(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                theme_name.to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_screen</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">screen</span>: <span class="kw-2">&amp;</span><span class="ident">gdk::Screen</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_icon_theme_set_screen</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">screen</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="kw">fn </span>set_screen(<span class="kw-2">&amp;</span><span class="self">self</span>, screen: <span class="kw-2">&amp;</span>gdk::Screen) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_icon_theme_set_screen(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, screen.to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_changed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">changed_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">IconTheme</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkIconTheme</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>changed_trampoline&lt;P: IsA&lt;IconTheme&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkIconTheme,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">IconTheme::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(IconTheme::from_glib_borrow(this).unsafe_cast_ref())
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;changed\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">changed_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;changed\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    changed_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">IconTheme</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;IconTheme&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>IconTheme {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;IconTheme&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

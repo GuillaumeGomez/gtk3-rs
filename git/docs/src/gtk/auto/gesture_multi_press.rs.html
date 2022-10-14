@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/gesture_multi_press.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>gesture_multi_press.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/gesture_multi_press.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>gesture_multi_press.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -399,332 +393,327 @@
 <span id="320">320</span>
 <span id="321">321</span>
 <span id="322">322</span>
-<span id="323">323</span>
-<span id="324">324</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::EventController</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Gesture</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::GestureSingle</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::PropagationPhase</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Widget</span>;
-<span class="kw">use</span> <span class="ident">glib::object::Cast</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::object::ObjectType</span> <span class="kw">as</span> <span class="ident">ObjectType_</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::connect_raw</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::SignalHandlerId</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib::StaticType</span>;
-<span class="kw">use</span> <span class="ident">glib::ToValue</span>;
-<span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::EventController;
+<span class="kw">use </span><span class="kw">crate</span>::Gesture;
+<span class="kw">use </span><span class="kw">crate</span>::GestureSingle;
+<span class="kw">use </span><span class="kw">crate</span>::PropagationPhase;
+<span class="kw">use </span><span class="kw">crate</span>::Widget;
+<span class="kw">use </span>glib::object::Cast;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::object::ObjectType <span class="kw">as </span>ObjectType_;
+<span class="kw">use </span>glib::signal::connect_raw;
+<span class="kw">use </span>glib::signal::SignalHandlerId;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::StaticType;
+<span class="kw">use </span>glib::ToValue;
+<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem::transmute;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// [`GestureMultiPress`][crate::GestureMultiPress] is a [`Gesture`][crate::Gesture] implementation able to recognize</span>
-    <span class="doccomment">/// multiple clicks on a nearby zone, which can be listened for through the</span>
-    <span class="doccomment">/// `signal::GestureMultiPress::pressed` signal. Whenever time or distance between</span>
-    <span class="doccomment">/// clicks exceed the GTK+ defaults, `signal::GestureMultiPress::stopped` is emitted,</span>
-    <span class="doccomment">/// and the click counter is reset.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Callers may also restrict the area that is considered valid for a &gt;1</span>
-    <span class="doccomment">/// touch/button press through [`set_area()`][Self::set_area()], so any</span>
-    <span class="doccomment">/// click happening outside that area is considered to be a first click of</span>
-    <span class="doccomment">/// its own.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`GestureSingleExt`][trait@crate::prelude::GestureSingleExt], [`GestureExt`][trait@crate::prelude::GestureExt], [`EventControllerExt`][trait@crate::prelude::EventControllerExt], [`trait@glib::ObjectExt`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GtkGestureMultiPress&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">GestureMultiPress</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GtkGestureMultiPress</span>, <span class="ident">ffi::GtkGestureMultiPressClass</span><span class="op">&gt;</span>) @<span class="ident">extends</span> <span class="ident">GestureSingle</span>, <span class="ident">Gesture</span>, <span class="ident">EventController</span>;
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// [`GestureMultiPress`][crate::GestureMultiPress] is a [`Gesture`][crate::Gesture] implementation able to recognize
+    /// multiple clicks on a nearby zone, which can be listened for through the
+    /// `signal::GestureMultiPress::pressed` signal. Whenever time or distance between
+    /// clicks exceed the GTK+ defaults, `signal::GestureMultiPress::stopped` is emitted,
+    /// and the click counter is reset.
+    ///
+    /// Callers may also restrict the area that is considered valid for a &gt;1
+    /// touch/button press through [`set_area()`][Self::set_area()], so any
+    /// click happening outside that area is considered to be a first click of
+    /// its own.
+    ///
+    /// # Implements
+    ///
+    /// [`GestureSingleExt`][trait@crate::prelude::GestureSingleExt], [`GestureExt`][trait@crate::prelude::GestureExt], [`EventControllerExt`][trait@crate::prelude::EventControllerExt], [`trait@glib::ObjectExt`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkGestureMultiPress&quot;</span>)]
+    </span><span class="kw">pub struct </span>GestureMultiPress(Object&lt;ffi::GtkGestureMultiPress, ffi::GtkGestureMultiPressClass&gt;) @extends GestureSingle, Gesture, EventController;
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_gesture_multi_press_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gtk_gesture_multi_press_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">GestureMultiPress</span> {
-    <span class="doccomment">/// Returns a newly created [`Gesture`][crate::Gesture] that recognizes single and multiple</span>
-    <span class="doccomment">/// presses.</span>
-    <span class="doccomment">/// ## `widget`</span>
-    <span class="doccomment">/// a [`Widget`][crate::Widget]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a newly created [`GestureMultiPress`][crate::GestureMultiPress]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_gesture_multi_press_new&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">widget</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>) -&gt; <span class="ident">GestureMultiPress</span> {
+<span class="kw">impl </span>GestureMultiPress {
+    <span class="doccomment">/// Returns a newly created [`Gesture`][crate::Gesture] that recognizes single and multiple
+    /// presses.
+    /// ## `widget`
+    /// a [`Widget`][crate::Widget]
+    ///
+    /// # Returns
+    ///
+    /// a newly created [`GestureMultiPress`][crate::GestureMultiPress]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_gesture_multi_press_new&quot;</span>)]
+    </span><span class="kw">pub fn </span>new(widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) -&gt; GestureMultiPress {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="kw">unsafe</span> {
-            <span class="ident">Gesture::from_glib_full</span>(<span class="ident">ffi::gtk_gesture_multi_press_new</span>(
-                <span class="ident">widget</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+        <span class="kw">unsafe </span>{
+            Gesture::from_glib_full(ffi::gtk_gesture_multi_press_new(
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
             ))
-            .<span class="ident">unsafe_cast</span>()
+            .unsafe_cast()
         }
     }
 
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// Creates a new builder-pattern struct instance to construct [`GestureMultiPress`] objects.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method returns an instance of [`GestureMultiPressBuilder`](crate::builders::GestureMultiPressBuilder) which can be used to create [`GestureMultiPress`] objects.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">builder</span>() -&gt; <span class="ident">GestureMultiPressBuilder</span> {
-        <span class="ident">GestureMultiPressBuilder::default</span>()
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// Creates a new builder-pattern struct instance to construct [`GestureMultiPress`] objects.
+    ///
+    /// This method returns an instance of [`GestureMultiPressBuilder`](crate::builders::GestureMultiPressBuilder) which can be used to create [`GestureMultiPress`] objects.
+    </span><span class="kw">pub fn </span>builder() -&gt; GestureMultiPressBuilder {
+        GestureMultiPressBuilder::default()
     }
 
-    <span class="doccomment">/// If an area was set through [`set_area()`][Self::set_area()],</span>
-    <span class="doccomment">/// this function will return [`true`] and fill in `rect` with the</span>
-    <span class="doccomment">/// press area. See [`set_area()`][Self::set_area()] for more</span>
-    <span class="doccomment">/// details on what the press area represents.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if `rect` was filled with the press area</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `rect`</span>
-    <span class="doccomment">/// return location for the press area</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_gesture_multi_press_get_area&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_area&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk::Rectangle</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">gdk::Rectangle::uninitialized</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_gesture_multi_press_get_area</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">rect</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
+    <span class="doccomment">/// If an area was set through [`set_area()`][Self::set_area()],
+    /// this function will return [`true`] and fill in `rect` with the
+    /// press area. See [`set_area()`][Self::set_area()] for more
+    /// details on what the press area represents.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if `rect` was filled with the press area
+    ///
+    /// ## `rect`
+    /// return location for the press area
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_gesture_multi_press_get_area&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_area&quot;</span>)]
+    </span><span class="kw">pub fn </span>area(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::Rectangle&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>rect = gdk::Rectangle::uninitialized();
+            <span class="kw">let </span>ret = from_glib(ffi::gtk_gesture_multi_press_get_area(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                rect.to_glib_none_mut().<span class="number">0</span>,
             ));
-            <span class="kw">if</span> <span class="ident">ret</span> {
-                <span class="prelude-val">Some</span>(<span class="ident">rect</span>)
-            } <span class="kw">else</span> {
-                <span class="prelude-val">None</span>
-            }
+            <span class="kw">if </span>ret {
+                <span class="prelude-val">Some</span>(rect)
+            } <span class="kw">else </span>{
+                <span class="prelude-val">None
+            </span>}
         }
     }
 
-    <span class="doccomment">/// If `rect` is non-[`None`], the press area will be checked to be</span>
-    <span class="doccomment">/// confined within the rectangle, otherwise the button count</span>
-    <span class="doccomment">/// will be reset so the press is seen as being the first one.</span>
-    <span class="doccomment">/// If `rect` is [`None`], the area will be reset to an unrestricted</span>
-    <span class="doccomment">/// state.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note: The rectangle is only used to determine whether any</span>
-    <span class="doccomment">/// non-first click falls within the expected area. This is not</span>
-    <span class="doccomment">/// akin to an input shape.</span>
-    <span class="doccomment">/// ## `rect`</span>
-    <span class="doccomment">/// rectangle to receive coordinates on</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_gesture_multi_press_set_area&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">rect</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">gdk::Rectangle</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_gesture_multi_press_set_area</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">rect</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="doccomment">/// If `rect` is non-[`None`], the press area will be checked to be
+    /// confined within the rectangle, otherwise the button count
+    /// will be reset so the press is seen as being the first one.
+    /// If `rect` is [`None`], the area will be reset to an unrestricted
+    /// state.
+    ///
+    /// Note: The rectangle is only used to determine whether any
+    /// non-first click falls within the expected area. This is not
+    /// akin to an input shape.
+    /// ## `rect`
+    /// rectangle to receive coordinates on
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_gesture_multi_press_set_area&quot;</span>)]
+    </span><span class="kw">pub fn </span>set_area(<span class="kw-2">&amp;</span><span class="self">self</span>, rect: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk::Rectangle&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_gesture_multi_press_set_area(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, rect.to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="doccomment">/// This signal is emitted whenever a button or touch press happens.</span>
-    <span class="doccomment">/// ## `n_press`</span>
-    <span class="doccomment">/// how many touch/button presses happened with this one</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// The X coordinate, in widget allocation coordinates</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// The Y coordinate, in widget allocation coordinates</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pressed&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_pressed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">f64</span>, <span class="ident">f64</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">pressed_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">GestureMultiPress</span>, <span class="ident">i32</span>, <span class="ident">f64</span>, <span class="ident">f64</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkGestureMultiPress</span>,
-            <span class="ident">n_press</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">x</span>: <span class="ident">libc::c_double</span>,
-            <span class="ident">y</span>: <span class="ident">libc::c_double</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="doccomment">/// This signal is emitted whenever a button or touch press happens.
+    /// ## `n_press`
+    /// how many touch/button presses happened with this one
+    /// ## `x`
+    /// The X coordinate, in widget allocation coordinates
+    /// ## `y`
+    /// The Y coordinate, in widget allocation coordinates
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;pressed&quot;</span>)]
+    </span><span class="kw">pub fn </span>connect_pressed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, f64, f64) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>pressed_trampoline&lt;
+            F: Fn(<span class="kw-2">&amp;</span>GestureMultiPress, i32, f64, f64) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkGestureMultiPress,
+            n_press: libc::c_int,
+            x: libc::c_double,
+            y: libc::c_double,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>), <span class="ident">n_press</span>, <span class="ident">x</span>, <span class="ident">y</span>)
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(<span class="kw-2">&amp;</span>from_glib_borrow(this), n_press, x, y)
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;pressed\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">pressed_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;pressed\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    pressed_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="doccomment">/// This signal is emitted when a button or touch is released. `n_press`</span>
-    <span class="doccomment">/// will report the number of press that is paired to this event, note</span>
-    <span class="doccomment">/// that `signal::GestureMultiPress::stopped` may have been emitted between the</span>
-    <span class="doccomment">/// press and its release, `n_press` will only start over at the next press.</span>
-    <span class="doccomment">/// ## `n_press`</span>
-    <span class="doccomment">/// number of press that is paired with this release</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// The X coordinate, in widget allocation coordinates</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// The Y coordinate, in widget allocation coordinates</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;released&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_released</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">f64</span>, <span class="ident">f64</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">released_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">GestureMultiPress</span>, <span class="ident">i32</span>, <span class="ident">f64</span>, <span class="ident">f64</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkGestureMultiPress</span>,
-            <span class="ident">n_press</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">x</span>: <span class="ident">libc::c_double</span>,
-            <span class="ident">y</span>: <span class="ident">libc::c_double</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="doccomment">/// This signal is emitted when a button or touch is released. `n_press`
+    /// will report the number of press that is paired to this event, note
+    /// that `signal::GestureMultiPress::stopped` may have been emitted between the
+    /// press and its release, `n_press` will only start over at the next press.
+    /// ## `n_press`
+    /// number of press that is paired with this release
+    /// ## `x`
+    /// The X coordinate, in widget allocation coordinates
+    /// ## `y`
+    /// The Y coordinate, in widget allocation coordinates
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;released&quot;</span>)]
+    </span><span class="kw">pub fn </span>connect_released&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, f64, f64) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>released_trampoline&lt;
+            F: Fn(<span class="kw-2">&amp;</span>GestureMultiPress, i32, f64, f64) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkGestureMultiPress,
+            n_press: libc::c_int,
+            x: libc::c_double,
+            y: libc::c_double,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>), <span class="ident">n_press</span>, <span class="ident">x</span>, <span class="ident">y</span>)
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(<span class="kw-2">&amp;</span>from_glib_borrow(this), n_press, x, y)
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;released\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">released_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;released\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    released_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="doccomment">/// This signal is emitted whenever any time/distance threshold has</span>
-    <span class="doccomment">/// been exceeded.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;stopped&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_stopped</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">stopped_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">GestureMultiPress</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkGestureMultiPress</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="doccomment">/// This signal is emitted whenever any time/distance threshold has
+    /// been exceeded.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;stopped&quot;</span>)]
+    </span><span class="kw">pub fn </span>connect_stopped&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>stopped_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>GestureMultiPress) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkGestureMultiPress,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;stopped\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">stopped_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;stopped\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    stopped_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">GestureMultiPress</span> {
-    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
-        <span class="ident">glib::object::Object::new</span>::<span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span>[])
-            .<span class="ident">expect</span>(<span class="string">&quot;Can&#39;t construct GestureMultiPress object with default parameters&quot;</span>)
+<span class="kw">impl </span>Default <span class="kw">for </span>GestureMultiPress {
+    <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+        glib::object::Object::new::&lt;<span class="self">Self</span>&gt;(<span class="kw-2">&amp;</span>[])
     }
 }
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Default</span>)]</span>
-<span class="comment">// rustdoc-stripper-ignore-next</span>
-<span class="doccomment">/// A [builder-pattern] type to construct [`GestureMultiPress`] objects.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html</span>
-<span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;The builder must be built to be used&quot;</span>]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">GestureMultiPressBuilder</span> {
-    <span class="ident">button</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>,
-    <span class="ident">exclusive</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span>,
-    <span class="ident">touch_only</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span>,
-    <span class="ident">n_points</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>,
-    <span class="ident">window</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk::Window</span><span class="op">&gt;</span>,
-    <span class="ident">propagation_phase</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">PropagationPhase</span><span class="op">&gt;</span>,
-    <span class="ident">widget</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>,
+<span class="attribute">#[derive(Clone, Default)]
+</span><span class="comment">// rustdoc-stripper-ignore-next
+</span><span class="doccomment">/// A [builder-pattern] type to construct [`GestureMultiPress`] objects.
+///
+/// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
+</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="kw">pub struct </span>GestureMultiPressBuilder {
+    button: <span class="prelude-ty">Option</span>&lt;u32&gt;,
+    exclusive: <span class="prelude-ty">Option</span>&lt;bool&gt;,
+    touch_only: <span class="prelude-ty">Option</span>&lt;bool&gt;,
+    n_points: <span class="prelude-ty">Option</span>&lt;u32&gt;,
+    window: <span class="prelude-ty">Option</span>&lt;gdk::Window&gt;,
+    propagation_phase: <span class="prelude-ty">Option</span>&lt;PropagationPhase&gt;,
+    widget: <span class="prelude-ty">Option</span>&lt;Widget&gt;,
 }
 
-<span class="kw">impl</span> <span class="ident">GestureMultiPressBuilder</span> {
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// Create a new [`GestureMultiPressBuilder`].</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="self">Self</span> {
-        <span class="ident"><span class="self">Self</span>::default</span>()
+<span class="kw">impl </span>GestureMultiPressBuilder {
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// Create a new [`GestureMultiPressBuilder`].
+    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::default()
     }
 
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// Build the [`GestureMultiPress`].</span>
-    <span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) -&gt; <span class="ident">GestureMultiPress</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">properties</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>)<span class="op">&gt;</span> <span class="op">=</span> <span class="macro">vec!</span>[];
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">button</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">button</span> {
-            <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;button&quot;</span>, <span class="ident">button</span>));
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// Build the [`GestureMultiPress`].
+    </span><span class="attribute">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; GestureMultiPress {
+        <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>button) = <span class="self">self</span>.button {
+            properties.push((<span class="string">&quot;button&quot;</span>, button));
         }
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">exclusive</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">exclusive</span> {
-            <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;exclusive&quot;</span>, <span class="ident">exclusive</span>));
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>exclusive) = <span class="self">self</span>.exclusive {
+            properties.push((<span class="string">&quot;exclusive&quot;</span>, exclusive));
         }
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">touch_only</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">touch_only</span> {
-            <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;touch-only&quot;</span>, <span class="ident">touch_only</span>));
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>touch_only) = <span class="self">self</span>.touch_only {
+            properties.push((<span class="string">&quot;touch-only&quot;</span>, touch_only));
         }
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">n_points</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">n_points</span> {
-            <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;n-points&quot;</span>, <span class="ident">n_points</span>));
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>n_points) = <span class="self">self</span>.n_points {
+            properties.push((<span class="string">&quot;n-points&quot;</span>, n_points));
         }
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">window</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">window</span> {
-            <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;window&quot;</span>, <span class="ident">window</span>));
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>window) = <span class="self">self</span>.window {
+            properties.push((<span class="string">&quot;window&quot;</span>, window));
         }
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">propagation_phase</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">propagation_phase</span> {
-            <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;propagation-phase&quot;</span>, <span class="ident">propagation_phase</span>));
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>propagation_phase) = <span class="self">self</span>.propagation_phase {
+            properties.push((<span class="string">&quot;propagation-phase&quot;</span>, propagation_phase));
         }
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">widget</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">widget</span> {
-            <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;widget&quot;</span>, <span class="ident">widget</span>));
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>widget) = <span class="self">self</span>.widget {
+            properties.push((<span class="string">&quot;widget&quot;</span>, widget));
         }
-        <span class="ident">glib::Object::new</span>::<span class="op">&lt;</span><span class="ident">GestureMultiPress</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="ident">properties</span>)
-            .<span class="ident">expect</span>(<span class="string">&quot;Failed to create an instance of GestureMultiPress&quot;</span>)
+        glib::Object::new::&lt;GestureMultiPress&gt;(<span class="kw-2">&amp;</span>properties)
     }
 
-    <span class="doccomment">/// Mouse button number to listen to, or 0 to listen for any button.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">button</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">button</span>: <span class="ident">u32</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">button</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">button</span>);
-        <span class="self">self</span>
-    }
+    <span class="doccomment">/// Mouse button number to listen to, or 0 to listen for any button.
+    </span><span class="kw">pub fn </span>button(<span class="kw-2">mut </span><span class="self">self</span>, button: u32) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.button = <span class="prelude-val">Some</span>(button);
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Whether the gesture is exclusive. Exclusive gestures only listen to pointer</span>
-    <span class="doccomment">/// and pointer emulated events.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exclusive</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">exclusive</span>: <span class="ident">bool</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">exclusive</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">exclusive</span>);
-        <span class="self">self</span>
-    }
+    <span class="doccomment">/// Whether the gesture is exclusive. Exclusive gestures only listen to pointer
+    /// and pointer emulated events.
+    </span><span class="kw">pub fn </span>exclusive(<span class="kw-2">mut </span><span class="self">self</span>, exclusive: bool) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.exclusive = <span class="prelude-val">Some</span>(exclusive);
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Whether the gesture handles only touch events.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">touch_only</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">touch_only</span>: <span class="ident">bool</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">touch_only</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">touch_only</span>);
-        <span class="self">self</span>
-    }
+    <span class="doccomment">/// Whether the gesture handles only touch events.
+    </span><span class="kw">pub fn </span>touch_only(<span class="kw-2">mut </span><span class="self">self</span>, touch_only: bool) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.touch_only = <span class="prelude-val">Some</span>(touch_only);
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// The number of touch points that trigger recognition on this gesture,</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">n_points</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">n_points</span>: <span class="ident">u32</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">n_points</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">n_points</span>);
-        <span class="self">self</span>
-    }
+    <span class="doccomment">/// The number of touch points that trigger recognition on this gesture,
+    </span><span class="kw">pub fn </span>n_points(<span class="kw-2">mut </span><span class="self">self</span>, n_points: u32) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.n_points = <span class="prelude-val">Some</span>(n_points);
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// If non-[`None`], the gesture will only listen for events that happen on</span>
-    <span class="doccomment">/// this [`gdk::Window`][crate::gdk::Window], or a child of it.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">window</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">window</span>: <span class="kw-2">&amp;</span><span class="ident">gdk::Window</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">window</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">window</span>.<span class="ident">clone</span>());
-        <span class="self">self</span>
-    }
+    <span class="doccomment">/// If non-[`None`], the gesture will only listen for events that happen on
+    /// this [`gdk::Window`][crate::gdk::Window], or a child of it.
+    </span><span class="kw">pub fn </span>window(<span class="kw-2">mut </span><span class="self">self</span>, window: <span class="kw-2">&amp;</span>gdk::Window) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.window = <span class="prelude-val">Some</span>(window.clone());
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// The propagation phase at which this controller will handle events.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">propagation_phase</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">propagation_phase</span>: <span class="ident">PropagationPhase</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">propagation_phase</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">propagation_phase</span>);
-        <span class="self">self</span>
-    }
+    <span class="doccomment">/// The propagation phase at which this controller will handle events.
+    </span><span class="kw">pub fn </span>propagation_phase(<span class="kw-2">mut </span><span class="self">self</span>, propagation_phase: PropagationPhase) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.propagation_phase = <span class="prelude-val">Some</span>(propagation_phase);
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// The widget receiving the `GdkEvents` that the controller will handle.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">widget</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">widget</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">widget</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">widget</span>.<span class="ident">clone</span>().<span class="ident">upcast</span>());
-        <span class="self">self</span>
-    }
+    <span class="doccomment">/// The widget receiving the `GdkEvents` that the controller will handle.
+    </span><span class="kw">pub fn </span>widget(<span class="kw-2">mut </span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.widget = <span class="prelude-val">Some</span>(widget.clone().upcast());
+        <span class="self">self
+    </span>}
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">GestureMultiPress</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;GestureMultiPress&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>GestureMultiPress {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;GestureMultiPress&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

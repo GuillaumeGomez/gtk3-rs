@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/relation_set.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>relation_set.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/relation_set.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>relation_set.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -302,231 +296,230 @@
 <span id="223">223</span>
 <span id="224">224</span>
 <span id="225">225</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Object</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Relation</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::RelationType</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::Object;
+<span class="kw">use </span><span class="kw">crate</span>::Relation;
+<span class="kw">use </span><span class="kw">crate</span>::RelationType;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::fmt;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// The AtkRelationSet held by an object establishes its relationships</span>
-    <span class="doccomment">/// with objects beyond the normal &quot;parent/child&quot; hierarchical</span>
-    <span class="doccomment">/// relationships that all user interface objects have.</span>
-    <span class="doccomment">/// AtkRelationSets establish whether objects are labelled or</span>
-    <span class="doccomment">/// controlled by other components, share group membership with other</span>
-    <span class="doccomment">/// components (for instance within a radio-button group), or share</span>
-    <span class="doccomment">/// content which &quot;flows&quot; between them, among other types of possible</span>
-    <span class="doccomment">/// relationships.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`RelationSetExt`][trait@crate::prelude::RelationSetExt], [`trait@glib::ObjectExt`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;AtkRelationSet&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RelationSet</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::AtkRelationSet</span>, <span class="ident">ffi::AtkRelationSetClass</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// The AtkRelationSet held by an object establishes its relationships
+    /// with objects beyond the normal &quot;parent/child&quot; hierarchical
+    /// relationships that all user interface objects have.
+    /// AtkRelationSets establish whether objects are labelled or
+    /// controlled by other components, share group membership with other
+    /// components (for instance within a radio-button group), or share
+    /// content which &quot;flows&quot; between them, among other types of possible
+    /// relationships.
+    ///
+    /// # Implements
+    ///
+    /// [`RelationSetExt`][trait@crate::prelude::RelationSetExt], [`trait@glib::ObjectExt`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;AtkRelationSet&quot;</span>)]
+    </span><span class="kw">pub struct </span>RelationSet(Object&lt;ffi::AtkRelationSet, ffi::AtkRelationSetClass&gt;);
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::atk_relation_set_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::atk_relation_set_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">RelationSet</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">RelationSet</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+<span class="kw">impl </span>RelationSet {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>RelationSet&gt; = <span class="prelude-val">None</span>;
 
-    <span class="doccomment">/// Creates a new empty relation set.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a new [`RelationSet`][crate::RelationSet]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_relation_set_new&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="ident">RelationSet</span> {
+    <span class="doccomment">/// Creates a new empty relation set.
+    ///
+    /// # Returns
+    ///
+    /// a new [`RelationSet`][crate::RelationSet]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_relation_set_new&quot;</span>)]
+    </span><span class="kw">pub fn </span>new() -&gt; RelationSet {
         <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::atk_relation_set_new</span>()) }
+        <span class="kw">unsafe </span>{ from_glib_full(ffi::atk_relation_set_new()) }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">RelationSet</span> {
-    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
-        <span class="ident"><span class="self">Self</span>::new</span>()
+<span class="kw">impl </span>Default <span class="kw">for </span>RelationSet {
+    <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::new()
     }
 }
 
-<span class="doccomment">/// Trait containing all [`struct@RelationSet`] methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementors</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`RelationSet`][struct@crate::RelationSet]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">RelationSetExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Add a new relation to the current relation set if it is not already</span>
-    <span class="doccomment">/// present.</span>
-    <span class="doccomment">/// This function ref&#39;s the AtkRelation so the caller of this function</span>
-    <span class="doccomment">/// should unref it to ensure that it will be destroyed when the AtkRelationSet</span>
-    <span class="doccomment">/// is destroyed.</span>
-    <span class="doccomment">/// ## `relation`</span>
-    <span class="doccomment">/// an [`Relation`][crate::Relation]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_relation_set_add&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">add</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relation</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Relation</span><span class="op">&gt;</span>);
+<span class="doccomment">/// Trait containing all [`struct@RelationSet`] methods.
+///
+/// # Implementors
+///
+/// [`RelationSet`][struct@crate::RelationSet]
+</span><span class="kw">pub trait </span>RelationSetExt: <span class="lifetime">&#39;static </span>{
+    <span class="doccomment">/// Add a new relation to the current relation set if it is not already
+    /// present.
+    /// This function ref&#39;s the AtkRelation so the caller of this function
+    /// should unref it to ensure that it will be destroyed when the AtkRelationSet
+    /// is destroyed.
+    /// ## `relation`
+    /// an [`Relation`][crate::Relation]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_relation_set_add&quot;</span>)]
+    </span><span class="kw">fn </span>add(<span class="kw-2">&amp;</span><span class="self">self</span>, relation: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Relation&gt;);
 
-    <span class="doccomment">/// Add a new relation of the specified type with the specified target to</span>
-    <span class="doccomment">/// the current relation set if the relation set does not contain a relation</span>
-    <span class="doccomment">/// of that type. If it is does contain a relation of that typea the target</span>
-    <span class="doccomment">/// is added to the relation.</span>
-    <span class="doccomment">/// ## `relationship`</span>
-    <span class="doccomment">/// an [`RelationType`][crate::RelationType]</span>
-    <span class="doccomment">/// ## `target`</span>
-    <span class="doccomment">/// an [`Object`][crate::Object]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_relation_set_add_relation_by_type&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">add_relation_by_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relationship</span>: <span class="ident">RelationType</span>, <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>);
+    <span class="doccomment">/// Add a new relation of the specified type with the specified target to
+    /// the current relation set if the relation set does not contain a relation
+    /// of that type. If it is does contain a relation of that typea the target
+    /// is added to the relation.
+    /// ## `relationship`
+    /// an [`RelationType`][crate::RelationType]
+    /// ## `target`
+    /// an [`Object`][crate::Object]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_relation_set_add_relation_by_type&quot;</span>)]
+    </span><span class="kw">fn </span>add_relation_by_type(<span class="kw-2">&amp;</span><span class="self">self</span>, relationship: RelationType, target: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;);
 
-    <span class="doccomment">/// Determines whether the relation set contains a relation that matches the</span>
-    <span class="doccomment">/// specified type.</span>
-    <span class="doccomment">/// ## `relationship`</span>
-    <span class="doccomment">/// an [`RelationType`][crate::RelationType]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if `relationship` is the relationship type of a relation</span>
-    <span class="doccomment">/// in `self`, [`false`] otherwise</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_relation_set_contains&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relationship</span>: <span class="ident">RelationType</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Determines whether the relation set contains a relation that matches the
+    /// specified type.
+    /// ## `relationship`
+    /// an [`RelationType`][crate::RelationType]
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if `relationship` is the relationship type of a relation
+    /// in `self`, [`false`] otherwise
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_relation_set_contains&quot;</span>)]
+    </span><span class="kw">fn </span>contains(<span class="kw-2">&amp;</span><span class="self">self</span>, relationship: RelationType) -&gt; bool;
 
-    <span class="doccomment">/// Determines whether the relation set contains a relation that</span>
-    <span class="doccomment">/// matches the specified pair formed by type `relationship` and object</span>
-    <span class="doccomment">/// `target`.</span>
-    <span class="doccomment">/// ## `relationship`</span>
-    <span class="doccomment">/// an [`RelationType`][crate::RelationType]</span>
-    <span class="doccomment">/// ## `target`</span>
-    <span class="doccomment">/// an [`Object`][crate::Object]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if `self` contains a relation with the relationship</span>
-    <span class="doccomment">/// type `relationship` with an object `target`, [`false`] otherwise</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_relation_set_contains_target&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">contains_target</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relationship</span>: <span class="ident">RelationType</span>, <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Determines whether the relation set contains a relation that
+    /// matches the specified pair formed by type `relationship` and object
+    /// `target`.
+    /// ## `relationship`
+    /// an [`RelationType`][crate::RelationType]
+    /// ## `target`
+    /// an [`Object`][crate::Object]
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if `self` contains a relation with the relationship
+    /// type `relationship` with an object `target`, [`false`] otherwise
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_relation_set_contains_target&quot;</span>)]
+    </span><span class="kw">fn </span>contains_target(<span class="kw-2">&amp;</span><span class="self">self</span>, relationship: RelationType, target: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;) -&gt; bool;
 
-    <span class="doccomment">/// Determines the number of relations in a relation set.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// an integer representing the number of relations in the set.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_relation_set_get_n_relations&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_n_relations&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">n_relations</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Determines the number of relations in a relation set.
+    ///
+    /// # Returns
+    ///
+    /// an integer representing the number of relations in the set.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_relation_set_get_n_relations&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_n_relations&quot;</span>)]
+    </span><span class="kw">fn </span>n_relations(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
-    <span class="doccomment">/// Determines the relation at the specified position in the relation set.</span>
-    <span class="doccomment">/// ## `i`</span>
-    <span class="doccomment">/// a gint representing a position in the set, starting from 0.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a [`Relation`][crate::Relation], which is the relation at</span>
-    <span class="doccomment">/// position i in the set.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_relation_set_get_relation&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_relation&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">relation</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">i</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Relation</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Determines the relation at the specified position in the relation set.
+    /// ## `i`
+    /// a gint representing a position in the set, starting from 0.
+    ///
+    /// # Returns
+    ///
+    /// a [`Relation`][crate::Relation], which is the relation at
+    /// position i in the set.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_relation_set_get_relation&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_relation&quot;</span>)]
+    </span><span class="kw">fn </span>relation(<span class="kw-2">&amp;</span><span class="self">self</span>, i: i32) -&gt; <span class="prelude-ty">Option</span>&lt;Relation&gt;;
 
-    <span class="doccomment">/// Finds a relation that matches the specified type.</span>
-    <span class="doccomment">/// ## `relationship`</span>
-    <span class="doccomment">/// an [`RelationType`][crate::RelationType]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// an [`Relation`][crate::Relation], which is a relation matching the</span>
-    <span class="doccomment">/// specified type.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_relation_set_get_relation_by_type&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_relation_by_type&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">relation_by_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relationship</span>: <span class="ident">RelationType</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Relation</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Finds a relation that matches the specified type.
+    /// ## `relationship`
+    /// an [`RelationType`][crate::RelationType]
+    ///
+    /// # Returns
+    ///
+    /// an [`Relation`][crate::Relation], which is a relation matching the
+    /// specified type.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_relation_set_get_relation_by_type&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_relation_by_type&quot;</span>)]
+    </span><span class="kw">fn </span>relation_by_type(<span class="kw-2">&amp;</span><span class="self">self</span>, relationship: RelationType) -&gt; <span class="prelude-ty">Option</span>&lt;Relation&gt;;
 
-    <span class="doccomment">/// Removes a relation from the relation set.</span>
-    <span class="doccomment">/// This function unref&#39;s the [`Relation`][crate::Relation] so it will be deleted unless there</span>
-    <span class="doccomment">/// is another reference to it.</span>
-    <span class="doccomment">/// ## `relation`</span>
-    <span class="doccomment">/// an [`Relation`][crate::Relation]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_relation_set_remove&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relation</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Relation</span><span class="op">&gt;</span>);
+    <span class="doccomment">/// Removes a relation from the relation set.
+    /// This function unref&#39;s the [`Relation`][crate::Relation] so it will be deleted unless there
+    /// is another reference to it.
+    /// ## `relation`
+    /// an [`Relation`][crate::Relation]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_relation_set_remove&quot;</span>)]
+    </span><span class="kw">fn </span>remove(<span class="kw-2">&amp;</span><span class="self">self</span>, relation: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Relation&gt;);
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">RelationSet</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">RelationSetExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">add</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relation</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Relation</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_relation_set_add</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">relation</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+<span class="kw">impl</span>&lt;O: IsA&lt;RelationSet&gt;&gt; RelationSetExt <span class="kw">for </span>O {
+    <span class="kw">fn </span>add(<span class="kw-2">&amp;</span><span class="self">self</span>, relation: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Relation&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::atk_relation_set_add(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                relation.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">add_relation_by_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relationship</span>: <span class="ident">RelationType</span>, <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_relation_set_add_relation_by_type</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">relationship</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">target</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>add_relation_by_type(<span class="kw-2">&amp;</span><span class="self">self</span>, relationship: RelationType, target: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::atk_relation_set_add_relation_by_type(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                relationship.into_glib(),
+                target.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relationship</span>: <span class="ident">RelationType</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_relation_set_contains</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">relationship</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>contains(<span class="kw-2">&amp;</span><span class="self">self</span>, relationship: RelationType) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_relation_set_contains(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                relationship.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">contains_target</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relationship</span>: <span class="ident">RelationType</span>, <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_relation_set_contains_target</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">relationship</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">target</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>contains_target(<span class="kw-2">&amp;</span><span class="self">self</span>, relationship: RelationType, target: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_relation_set_contains_target(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                relationship.into_glib(),
+                target.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">n_relations</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_relation_set_get_n_relations</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">fn </span>n_relations(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_relation_set_get_n_relations(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">relation</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">i</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Relation</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::atk_relation_set_get_relation</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">i</span>,
+    <span class="kw">fn </span>relation(<span class="kw-2">&amp;</span><span class="self">self</span>, i: i32) -&gt; <span class="prelude-ty">Option</span>&lt;Relation&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::atk_relation_set_get_relation(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                i,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">relation_by_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relationship</span>: <span class="ident">RelationType</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Relation</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::atk_relation_set_get_relation_by_type</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">relationship</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>relation_by_type(<span class="kw-2">&amp;</span><span class="self">self</span>, relationship: RelationType) -&gt; <span class="prelude-ty">Option</span>&lt;Relation&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::atk_relation_set_get_relation_by_type(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                relationship.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">relation</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Relation</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_relation_set_remove</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">relation</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>remove(<span class="kw-2">&amp;</span><span class="self">self</span>, relation: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Relation&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::atk_relation_set_remove(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                relation.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">RelationSet</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;RelationSet&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>RelationSet {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;RelationSet&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

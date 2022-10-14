@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/target_entry.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>target_entry.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/target_entry.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>target_entry.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gtk/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gtk/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -210,139 +204,138 @@
 <span id="131">131</span>
 <span id="132">132</span>
 <span id="133">133</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::TargetFlags</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">libc::c_char</span>;
-<span class="kw">use</span> <span class="ident">std::ffi::CStr</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::TargetFlags;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>libc::c_char;
+<span class="kw">use </span>std::ffi::CStr;
 
-<span class="doccomment">/// A [`TargetEntry`][crate::TargetEntry] represents a single type of</span>
-<span class="doccomment">/// data than can be supplied for by a widget for a selection</span>
-<span class="doccomment">/// or for supplied or received during drag-and-drop.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
-<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GtkTargetEntry&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TargetEntry</span> {
-    <span class="ident">target</span>: <span class="ident">String</span>,
-    <span class="ident">flags</span>: <span class="ident">TargetFlags</span>,
-    <span class="ident">info</span>: <span class="ident">u32</span>,
+<span class="doccomment">/// A [`TargetEntry`][crate::TargetEntry] represents a single type of
+/// data than can be supplied for by a widget for a selection
+/// or for supplied or received during drag-and-drop.
+</span><span class="attribute">#[derive(Clone, Debug)]
+#[repr(C)]
+#[doc(alias = <span class="string">&quot;GtkTargetEntry&quot;</span>)]
+</span><span class="kw">pub struct </span>TargetEntry {
+    target: String,
+    flags: TargetFlags,
+    info: u32,
 }
 
-<span class="kw">impl</span> <span class="ident">TargetEntry</span> {
-    <span class="doccomment">/// Makes a new [`TargetEntry`][crate::TargetEntry].</span>
-    <span class="doccomment">/// ## `target`</span>
-    <span class="doccomment">/// String identifier for target</span>
-    <span class="doccomment">/// ## `flags`</span>
-    <span class="doccomment">/// Set of flags, see [`TargetFlags`][crate::TargetFlags]</span>
-    <span class="doccomment">/// ## `info`</span>
-    <span class="doccomment">/// an ID that will be passed back to the application</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a pointer to a new [`TargetEntry`][crate::TargetEntry].</span>
-    <span class="doccomment">///  Free with `gtk_target_entry_free()`</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">flags</span>: <span class="ident">TargetFlags</span>, <span class="ident">info</span>: <span class="ident">u32</span>) -&gt; <span class="ident">TargetEntry</span> {
+<span class="kw">impl </span>TargetEntry {
+    <span class="doccomment">/// Makes a new [`TargetEntry`][crate::TargetEntry].
+    /// ## `target`
+    /// String identifier for target
+    /// ## `flags`
+    /// Set of flags, see [`TargetFlags`][crate::TargetFlags]
+    /// ## `info`
+    /// an ID that will be passed back to the application
+    ///
+    /// # Returns
+    ///
+    /// a pointer to a new [`TargetEntry`][crate::TargetEntry].
+    ///  Free with `gtk_target_entry_free()`
+    </span><span class="kw">pub fn </span>new(target: <span class="kw-2">&amp;</span>str, flags: TargetFlags, info: u32) -&gt; TargetEntry {
         <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="self">Self</span> {
-            <span class="ident">target</span>: <span class="ident">target</span>.<span class="ident">to_owned</span>(),
-            <span class="ident">flags</span>,
-            <span class="ident">info</span>,
+        <span class="self">Self </span>{
+            target: target.to_owned(),
+            flags,
+            info,
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_target&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">target</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident">str</span> {
-        <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">target</span>
+    <span class="attribute">#[doc(alias = <span class="string">&quot;get_target&quot;</span>)]
+    </span><span class="kw">pub fn </span>target(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>str {
+        <span class="kw-2">&amp;</span><span class="self">self</span>.target
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_flags&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">flags</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">TargetFlags</span> {
-        <span class="self">self</span>.<span class="ident">flags</span>
+    <span class="attribute">#[doc(alias = <span class="string">&quot;get_flags&quot;</span>)]
+    </span><span class="kw">pub fn </span>flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; TargetFlags {
+        <span class="self">self</span>.flags
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_info&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">info</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u32</span> {
-        <span class="self">self</span>.<span class="ident">info</span>
+    <span class="attribute">#[doc(alias = <span class="string">&quot;get_info&quot;</span>)]
+    </span><span class="kw">pub fn </span>info(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32 {
+        <span class="self">self</span>.info
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ToGlibPtr</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*const</span> <span class="ident">ffi::GtkTargetEntry</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TargetEntry</span> {
-    <span class="kw">type</span> <span class="ident">Storage</span> <span class="op">=</span> (<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">ffi::GtkTargetEntry</span><span class="op">&gt;</span>, <span class="ident">Stash</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*mut</span> <span class="ident">c_char</span>, <span class="ident">String</span><span class="op">&gt;</span>);
+<span class="attribute">#[doc(hidden)]
+</span><span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>ffi::GtkTargetEntry&gt; <span class="kw">for </span>TargetEntry {
+    <span class="kw">type </span>Storage = (Box&lt;ffi::GtkTargetEntry&gt;, Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char, String&gt;);
 
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">to_glib_none</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>) -&gt; <span class="ident">Stash</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*const</span> <span class="ident">ffi::GtkTargetEntry</span>, <span class="self">Self</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">target</span>.<span class="ident">to_glib_none</span>();
+    <span class="attribute">#[inline]
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>ffi::GtkTargetEntry, <span class="self">Self</span>&gt; {
+        <span class="kw">let </span>target = <span class="self">self</span>.target.to_glib_none();
 
-        <span class="kw">let</span> <span class="ident">target_entry</span> <span class="op">=</span> <span class="ident">Box::new</span>(<span class="ident">ffi::GtkTargetEntry</span> {
-            <span class="ident">target</span>: <span class="ident">target</span>.<span class="number">0</span>,
-            <span class="ident">flags</span>: <span class="self">self</span>.<span class="ident">flags</span>.<span class="ident">bits</span>(),
-            <span class="ident">info</span>: <span class="self">self</span>.<span class="ident">info</span>,
+        <span class="kw">let </span>target_entry = Box::new(ffi::GtkTargetEntry {
+            target: target.<span class="number">0</span>,
+            flags: <span class="self">self</span>.flags.bits(),
+            info: <span class="self">self</span>.info,
         });
-        <span class="ident">Stash</span>(<span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">target_entry</span>, (<span class="ident">target_entry</span>, <span class="ident">target</span>))
+        Stash(<span class="kw-2">&amp;*</span>target_entry, (target_entry, target))
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ToGlibPtrMut</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*mut</span> <span class="ident">ffi::GtkTargetEntry</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TargetEntry</span> {
-    <span class="kw">type</span> <span class="ident">Storage</span> <span class="op">=</span> (<span class="ident">Box</span><span class="op">&lt;</span><span class="ident">ffi::GtkTargetEntry</span><span class="op">&gt;</span>, <span class="ident">Stash</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*mut</span> <span class="ident">c_char</span>, <span class="ident">String</span><span class="op">&gt;</span>);
+<span class="attribute">#[doc(hidden)]
+</span><span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtrMut&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GtkTargetEntry&gt; <span class="kw">for </span>TargetEntry {
+    <span class="kw">type </span>Storage = (Box&lt;ffi::GtkTargetEntry&gt;, Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char, String&gt;);
 
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">to_glib_none_mut</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="ident">StashMut</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="kw-2">*mut</span> <span class="ident">ffi::GtkTargetEntry</span>, <span class="self">Self</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">target</span>.<span class="ident">to_glib_none</span>();
+    <span class="attribute">#[inline]
+    </span><span class="kw">fn </span>to_glib_none_mut(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span><span class="self">self</span>) -&gt; StashMut&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GtkTargetEntry, <span class="self">Self</span>&gt; {
+        <span class="kw">let </span>target = <span class="self">self</span>.target.to_glib_none();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">target_entry</span> <span class="op">=</span> <span class="ident">Box::new</span>(<span class="ident">ffi::GtkTargetEntry</span> {
-            <span class="ident">target</span>: <span class="ident">target</span>.<span class="number">0</span>,
-            <span class="ident">flags</span>: <span class="self">self</span>.<span class="ident">flags</span>.<span class="ident">bits</span>(),
-            <span class="ident">info</span>: <span class="self">self</span>.<span class="ident">info</span>,
+        <span class="kw">let </span><span class="kw-2">mut </span>target_entry = Box::new(ffi::GtkTargetEntry {
+            target: target.<span class="number">0</span>,
+            flags: <span class="self">self</span>.flags.bits(),
+            info: <span class="self">self</span>.info,
         });
-        <span class="ident">StashMut</span>(<span class="kw-2">&amp;mut</span> <span class="kw-2">*</span><span class="ident">target_entry</span>, (<span class="ident">target_entry</span>, <span class="ident">target</span>))
+        StashMut(<span class="kw-2">&amp;mut *</span>target_entry, (target_entry, target))
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span> <span class="ident">FromGlibPtrNone</span><span class="op">&lt;</span><span class="kw-2">*const</span> <span class="ident">ffi::GtkTargetEntry</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TargetEntry</span> {
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_none</span>(<span class="ident">ptr</span>: <span class="kw-2">*const</span> <span class="ident">ffi::GtkTargetEntry</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">target</span>: <span class="ident">CStr::from_ptr</span>((<span class="kw-2">*</span><span class="ident">ptr</span>).<span class="ident">target</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>(),
-            <span class="ident">flags</span>: <span class="ident">TargetFlags::from_bits</span>((<span class="kw-2">*</span><span class="ident">ptr</span>).<span class="ident">flags</span>).<span class="ident">unwrap</span>(),
-            <span class="ident">info</span>: (<span class="kw-2">*</span><span class="ident">ptr</span>).<span class="ident">info</span>,
+<span class="attribute">#[doc(hidden)]
+</span><span class="kw">impl </span>FromGlibPtrNone&lt;<span class="kw-2">*const </span>ffi::GtkTargetEntry&gt; <span class="kw">for </span>TargetEntry {
+    <span class="kw">unsafe fn </span>from_glib_none(ptr: <span class="kw-2">*const </span>ffi::GtkTargetEntry) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            target: CStr::from_ptr((<span class="kw-2">*</span>ptr).target).to_string_lossy().into_owned(),
+            flags: TargetFlags::from_bits((<span class="kw-2">*</span>ptr).flags).unwrap(),
+            info: (<span class="kw-2">*</span>ptr).info,
         }
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span> <span class="ident">FromGlibPtrNone</span><span class="op">&lt;</span><span class="kw-2">*mut</span> <span class="ident">ffi::GtkTargetEntry</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TargetEntry</span> {
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_none</span>(<span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkTargetEntry</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">target</span>: <span class="ident">CStr::from_ptr</span>((<span class="kw-2">*</span><span class="ident">ptr</span>).<span class="ident">target</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>(),
-            <span class="ident">flags</span>: <span class="ident">TargetFlags::from_bits</span>((<span class="kw-2">*</span><span class="ident">ptr</span>).<span class="ident">flags</span>).<span class="ident">unwrap</span>(),
-            <span class="ident">info</span>: (<span class="kw-2">*</span><span class="ident">ptr</span>).<span class="ident">info</span>,
+<span class="attribute">#[doc(hidden)]
+</span><span class="kw">impl </span>FromGlibPtrNone&lt;<span class="kw-2">*mut </span>ffi::GtkTargetEntry&gt; <span class="kw">for </span>TargetEntry {
+    <span class="kw">unsafe fn </span>from_glib_none(ptr: <span class="kw-2">*mut </span>ffi::GtkTargetEntry) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            target: CStr::from_ptr((<span class="kw-2">*</span>ptr).target).to_string_lossy().into_owned(),
+            flags: TargetFlags::from_bits((<span class="kw-2">*</span>ptr).flags).unwrap(),
+            info: (<span class="kw-2">*</span>ptr).info,
         }
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span> <span class="ident">FromGlibPtrFull</span><span class="op">&lt;</span><span class="kw-2">*mut</span> <span class="ident">ffi::GtkTargetEntry</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TargetEntry</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_full</span>(<span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkTargetEntry</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">target_entry</span> <span class="op">=</span> <span class="self">Self</span> {
-            <span class="ident">target</span>: <span class="ident">CStr::from_ptr</span>((<span class="kw-2">*</span><span class="ident">ptr</span>).<span class="ident">target</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>(),
-            <span class="ident">flags</span>: <span class="ident">TargetFlags::from_bits</span>((<span class="kw-2">*</span><span class="ident">ptr</span>).<span class="ident">flags</span>).<span class="ident">unwrap</span>(),
-            <span class="ident">info</span>: (<span class="kw-2">*</span><span class="ident">ptr</span>).<span class="ident">info</span>,
+<span class="attribute">#[doc(hidden)]
+</span><span class="kw">impl </span>FromGlibPtrFull&lt;<span class="kw-2">*mut </span>ffi::GtkTargetEntry&gt; <span class="kw">for </span>TargetEntry {
+    <span class="attribute">#[inline]
+    </span><span class="kw">unsafe fn </span>from_glib_full(ptr: <span class="kw-2">*mut </span>ffi::GtkTargetEntry) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>target_entry = <span class="self">Self </span>{
+            target: CStr::from_ptr((<span class="kw-2">*</span>ptr).target).to_string_lossy().into_owned(),
+            flags: TargetFlags::from_bits((<span class="kw-2">*</span>ptr).flags).unwrap(),
+            info: (<span class="kw-2">*</span>ptr).info,
         };
-        <span class="ident">ffi::gtk_target_entry_free</span>(<span class="ident">ptr</span>);
-        <span class="ident">target_entry</span>
+        ffi::gtk_target_entry_free(ptr);
+        target_entry
     }
 }
 
-<span class="kw">impl</span> <span class="ident">glib::StaticType</span> <span class="kw">for</span> <span class="ident">TargetEntry</span> {
-    <span class="kw">fn</span> <span class="ident">static_type</span>() -&gt; <span class="ident">glib::types::Type</span> {
+<span class="kw">impl </span>glib::StaticType <span class="kw">for </span>TargetEntry {
+    <span class="kw">fn </span>static_type() -&gt; glib::types::Type {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_target_entry_get_type</span>()) }
+        <span class="kw">unsafe </span>{ from_glib(ffi::gtk_target_entry_get_type()) }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

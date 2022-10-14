@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/menu_shell.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>menu_shell.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/menu_shell.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>menu_shell.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -787,716 +781,715 @@
 <span id="708">708</span>
 <span id="709">709</span>
 <span id="710">710</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Buildable</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Container</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::DirectionType</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::MenuDirectionType</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::MenuItem</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Widget</span>;
-<span class="kw">use</span> <span class="ident">glib::object::Cast</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::object::ObjectExt</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::connect_raw</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::SignalHandlerId</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::Buildable;
+<span class="kw">use </span><span class="kw">crate</span>::Container;
+<span class="kw">use </span><span class="kw">crate</span>::DirectionType;
+<span class="kw">use </span><span class="kw">crate</span>::MenuDirectionType;
+<span class="kw">use </span><span class="kw">crate</span>::MenuItem;
+<span class="kw">use </span><span class="kw">crate</span>::Widget;
+<span class="kw">use </span>glib::object::Cast;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::object::ObjectExt;
+<span class="kw">use </span>glib::signal::connect_raw;
+<span class="kw">use </span>glib::signal::SignalHandlerId;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem::transmute;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// A [`MenuShell`][crate::MenuShell] is the abstract base class used to derive the</span>
-    <span class="doccomment">/// [`Menu`][crate::Menu] and [`MenuBar`][crate::MenuBar] subclasses.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A [`MenuShell`][crate::MenuShell] is a container of [`MenuItem`][crate::MenuItem] objects arranged</span>
-    <span class="doccomment">/// in a list which can be navigated, selected, and activated by the</span>
-    <span class="doccomment">/// user to perform application functions. A [`MenuItem`][crate::MenuItem] can have a</span>
-    <span class="doccomment">/// submenu associated with it, allowing for nested hierarchical menus.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Terminology</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A menu item can be “selected”, this means that it is displayed</span>
-    <span class="doccomment">/// in the prelight state, and if it has a submenu, that submenu</span>
-    <span class="doccomment">/// will be popped up.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A menu is “active” when it is visible onscreen and the user</span>
-    <span class="doccomment">/// is selecting from it. A menubar is not active until the user</span>
-    <span class="doccomment">/// clicks on one of its menuitems. When a menu is active,</span>
-    <span class="doccomment">/// passing the mouse over a submenu will pop it up.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// There is also is a concept of the current menu and a current</span>
-    <span class="doccomment">/// menu item. The current menu item is the selected menu item</span>
-    <span class="doccomment">/// that is furthest down in the hierarchy. (Every active menu shell</span>
-    <span class="doccomment">/// does not necessarily contain a selected menu item, but if</span>
-    <span class="doccomment">/// it does, then the parent menu shell must also contain</span>
-    <span class="doccomment">/// a selected menu item.) The current menu is the menu that</span>
-    <span class="doccomment">/// contains the current menu item. It will always have a GTK</span>
-    <span class="doccomment">/// grab and receive all key presses.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This is an Abstract Base Class, you cannot instantiate it.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`MenuShellExt`][trait@crate::prelude::MenuShellExt], [`ContainerExt`][trait@crate::prelude::ContainerExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ContainerExtManual`][trait@crate::prelude::ContainerExtManual], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`BuildableExtManual`][trait@crate::prelude::BuildableExtManual]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GtkMenuShell&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">MenuShell</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GtkMenuShell</span>, <span class="ident">ffi::GtkMenuShellClass</span><span class="op">&gt;</span>) @<span class="ident">extends</span> <span class="ident">Container</span>, <span class="ident">Widget</span>, @<span class="ident">implements</span> <span class="ident">Buildable</span>;
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// A [`MenuShell`][crate::MenuShell] is the abstract base class used to derive the
+    /// [`Menu`][crate::Menu] and [`MenuBar`][crate::MenuBar] subclasses.
+    ///
+    /// A [`MenuShell`][crate::MenuShell] is a container of [`MenuItem`][crate::MenuItem] objects arranged
+    /// in a list which can be navigated, selected, and activated by the
+    /// user to perform application functions. A [`MenuItem`][crate::MenuItem] can have a
+    /// submenu associated with it, allowing for nested hierarchical menus.
+    ///
+    /// # Terminology
+    ///
+    /// A menu item can be “selected”, this means that it is displayed
+    /// in the prelight state, and if it has a submenu, that submenu
+    /// will be popped up.
+    ///
+    /// A menu is “active” when it is visible onscreen and the user
+    /// is selecting from it. A menubar is not active until the user
+    /// clicks on one of its menuitems. When a menu is active,
+    /// passing the mouse over a submenu will pop it up.
+    ///
+    /// There is also is a concept of the current menu and a current
+    /// menu item. The current menu item is the selected menu item
+    /// that is furthest down in the hierarchy. (Every active menu shell
+    /// does not necessarily contain a selected menu item, but if
+    /// it does, then the parent menu shell must also contain
+    /// a selected menu item.) The current menu is the menu that
+    /// contains the current menu item. It will always have a GTK
+    /// grab and receive all key presses.
+    ///
+    /// This is an Abstract Base Class, you cannot instantiate it.
+    ///
+    /// # Implements
+    ///
+    /// [`MenuShellExt`][trait@crate::prelude::MenuShellExt], [`ContainerExt`][trait@crate::prelude::ContainerExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ContainerExtManual`][trait@crate::prelude::ContainerExtManual], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`BuildableExtManual`][trait@crate::prelude::BuildableExtManual]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkMenuShell&quot;</span>)]
+    </span><span class="kw">pub struct </span>MenuShell(Object&lt;ffi::GtkMenuShell, ffi::GtkMenuShellClass&gt;) @extends Container, Widget, @implements Buildable;
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_menu_shell_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gtk_menu_shell_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">MenuShell</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">MenuShell</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+<span class="kw">impl </span>MenuShell {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>MenuShell&gt; = <span class="prelude-val">None</span>;
 }
 
-<span class="doccomment">/// Trait containing all [`struct@MenuShell`] methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementors</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`MenuBar`][struct@crate::MenuBar], [`MenuShell`][struct@crate::MenuShell], [`Menu`][struct@crate::Menu]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">MenuShellExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Activates the menu item within the menu shell.</span>
-    <span class="doccomment">/// ## `menu_item`</span>
-    <span class="doccomment">/// the [`MenuItem`][crate::MenuItem] to activate</span>
-    <span class="doccomment">/// ## `force_deactivate`</span>
-    <span class="doccomment">/// if [`true`], force the deactivation of the</span>
-    <span class="doccomment">///  menu shell after the menu item is activated</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_activate_item&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">activate_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">menu_item</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>, <span class="ident">force_deactivate</span>: <span class="ident">bool</span>);
+<span class="doccomment">/// Trait containing all [`struct@MenuShell`] methods.
+///
+/// # Implementors
+///
+/// [`MenuBar`][struct@crate::MenuBar], [`MenuShell`][struct@crate::MenuShell], [`Menu`][struct@crate::Menu]
+</span><span class="kw">pub trait </span>MenuShellExt: <span class="lifetime">&#39;static </span>{
+    <span class="doccomment">/// Activates the menu item within the menu shell.
+    /// ## `menu_item`
+    /// the [`MenuItem`][crate::MenuItem] to activate
+    /// ## `force_deactivate`
+    /// if [`true`], force the deactivation of the
+    ///  menu shell after the menu item is activated
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_activate_item&quot;</span>)]
+    </span><span class="kw">fn </span>activate_item(<span class="kw-2">&amp;</span><span class="self">self</span>, menu_item: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;, force_deactivate: bool);
 
-    <span class="doccomment">/// Adds a new [`MenuItem`][crate::MenuItem] to the end of the menu shell&#39;s</span>
-    <span class="doccomment">/// item list.</span>
-    <span class="doccomment">/// ## `child`</span>
-    <span class="doccomment">/// The [`MenuItem`][crate::MenuItem] to add</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_append&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">child</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuItem</span><span class="op">&gt;</span>);
+    <span class="doccomment">/// Adds a new [`MenuItem`][crate::MenuItem] to the end of the menu shell&#39;s
+    /// item list.
+    /// ## `child`
+    /// The [`MenuItem`][crate::MenuItem] to add
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_append&quot;</span>)]
+    </span><span class="kw">fn </span>append(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;MenuItem&gt;);
 
-    <span class="doccomment">/// Establishes a binding between a [`MenuShell`][crate::MenuShell] and a [`gio::MenuModel`][crate::gio::MenuModel].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The contents of `shell` are removed and then refilled with menu items</span>
-    <span class="doccomment">/// according to `model`. When `model` changes, `shell` is updated.</span>
-    <span class="doccomment">/// Calling this function twice on `shell` with different `model` will</span>
-    <span class="doccomment">/// cause the first binding to be replaced with a binding to the new</span>
-    <span class="doccomment">/// model. If `model` is [`None`] then any previous binding is undone and</span>
-    <span class="doccomment">/// all children are removed.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// `with_separators` determines if toplevel items (eg: sections) have</span>
-    <span class="doccomment">/// separators inserted between them. This is typically desired for</span>
-    <span class="doccomment">/// menus but doesn’t make sense for menubars.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If `action_namespace` is non-[`None`] then the effect is as if all</span>
-    <span class="doccomment">/// actions mentioned in the `model` have their names prefixed with the</span>
-    <span class="doccomment">/// namespace, plus a dot. For example, if the action “quit” is</span>
-    <span class="doccomment">/// mentioned and `action_namespace` is “app” then the effective action</span>
-    <span class="doccomment">/// name is “app.quit”.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function uses [`Actionable`][crate::Actionable] to define the action name and</span>
-    <span class="doccomment">/// target values on the created menu items. If you want to use an</span>
-    <span class="doccomment">/// action group other than “app” and “win”, or if you want to use a</span>
-    <span class="doccomment">/// [`MenuShell`][crate::MenuShell] outside of a [`ApplicationWindow`][crate::ApplicationWindow], then you will need</span>
-    <span class="doccomment">/// to attach your own action group to the widget hierarchy using</span>
-    <span class="doccomment">/// [`WidgetExt::insert_action_group()`][crate::prelude::WidgetExt::insert_action_group()]. As an example, if you created a</span>
-    <span class="doccomment">/// group with a “quit” action and inserted it with the name “mygroup”</span>
-    <span class="doccomment">/// then you would use the action name “mygroup.quit” in your</span>
-    <span class="doccomment">/// [`gio::MenuModel`][crate::gio::MenuModel].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// For most cases you are probably better off using</span>
-    <span class="doccomment">/// [`Menu::from_model()`][crate::Menu::from_model()] or [`MenuBar::from_model()`][crate::MenuBar::from_model()] or just</span>
-    <span class="doccomment">/// directly passing the [`gio::MenuModel`][crate::gio::MenuModel] to [`GtkApplicationExt::set_app_menu()`][crate::prelude::GtkApplicationExt::set_app_menu()] or</span>
-    <span class="doccomment">/// [`GtkApplicationExt::set_menubar()`][crate::prelude::GtkApplicationExt::set_menubar()].</span>
-    <span class="doccomment">/// ## `model`</span>
-    <span class="doccomment">/// the [`gio::MenuModel`][crate::gio::MenuModel] to bind to or [`None`] to remove</span>
-    <span class="doccomment">///  binding</span>
-    <span class="doccomment">/// ## `action_namespace`</span>
-    <span class="doccomment">/// the namespace for actions in `model`</span>
-    <span class="doccomment">/// ## `with_separators`</span>
-    <span class="doccomment">/// [`true`] if toplevel items in `shell` should have</span>
-    <span class="doccomment">///  separators between them</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_bind_model&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">bind_model</span>(
+    <span class="doccomment">/// Establishes a binding between a [`MenuShell`][crate::MenuShell] and a [`gio::MenuModel`][crate::gio::MenuModel].
+    ///
+    /// The contents of `shell` are removed and then refilled with menu items
+    /// according to `model`. When `model` changes, `shell` is updated.
+    /// Calling this function twice on `shell` with different `model` will
+    /// cause the first binding to be replaced with a binding to the new
+    /// model. If `model` is [`None`] then any previous binding is undone and
+    /// all children are removed.
+    ///
+    /// `with_separators` determines if toplevel items (eg: sections) have
+    /// separators inserted between them. This is typically desired for
+    /// menus but doesn’t make sense for menubars.
+    ///
+    /// If `action_namespace` is non-[`None`] then the effect is as if all
+    /// actions mentioned in the `model` have their names prefixed with the
+    /// namespace, plus a dot. For example, if the action “quit” is
+    /// mentioned and `action_namespace` is “app” then the effective action
+    /// name is “app.quit”.
+    ///
+    /// This function uses [`Actionable`][crate::Actionable] to define the action name and
+    /// target values on the created menu items. If you want to use an
+    /// action group other than “app” and “win”, or if you want to use a
+    /// [`MenuShell`][crate::MenuShell] outside of a [`ApplicationWindow`][crate::ApplicationWindow], then you will need
+    /// to attach your own action group to the widget hierarchy using
+    /// [`WidgetExt::insert_action_group()`][crate::prelude::WidgetExt::insert_action_group()]. As an example, if you created a
+    /// group with a “quit” action and inserted it with the name “mygroup”
+    /// then you would use the action name “mygroup.quit” in your
+    /// [`gio::MenuModel`][crate::gio::MenuModel].
+    ///
+    /// For most cases you are probably better off using
+    /// [`Menu::from_model()`][crate::Menu::from_model()] or [`MenuBar::from_model()`][crate::MenuBar::from_model()] or just
+    /// directly passing the [`gio::MenuModel`][crate::gio::MenuModel] to [`GtkApplicationExt::set_app_menu()`][crate::prelude::GtkApplicationExt::set_app_menu()] or
+    /// [`GtkApplicationExt::set_menubar()`][crate::prelude::GtkApplicationExt::set_menubar()].
+    /// ## `model`
+    /// the [`gio::MenuModel`][crate::gio::MenuModel] to bind to or [`None`] to remove
+    ///  binding
+    /// ## `action_namespace`
+    /// the namespace for actions in `model`
+    /// ## `with_separators`
+    /// [`true`] if toplevel items in `shell` should have
+    ///  separators between them
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_bind_model&quot;</span>)]
+    </span><span class="kw">fn </span>bind_model(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">model</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::MenuModel</span><span class="op">&gt;</span><span class="op">&gt;</span>,
-        <span class="ident">action_namespace</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-        <span class="ident">with_separators</span>: <span class="ident">bool</span>,
+        model: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::MenuModel&gt;&gt;,
+        action_namespace: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
+        with_separators: bool,
     );
 
-    <span class="doccomment">/// Cancels the selection within the menu shell.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_cancel&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">cancel</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="doccomment">/// Cancels the selection within the menu shell.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_cancel&quot;</span>)]
+    </span><span class="kw">fn </span>cancel(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="doccomment">/// Deactivates the menu shell.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Typically this results in the menu shell being erased</span>
-    <span class="doccomment">/// from the screen.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_deactivate&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">deactivate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="doccomment">/// Deactivates the menu shell.
+    ///
+    /// Typically this results in the menu shell being erased
+    /// from the screen.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_deactivate&quot;</span>)]
+    </span><span class="kw">fn </span>deactivate(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="doccomment">/// Deselects the currently selected item from the menu shell,</span>
-    <span class="doccomment">/// if any.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_deselect&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">deselect</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="doccomment">/// Deselects the currently selected item from the menu shell,
+    /// if any.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_deselect&quot;</span>)]
+    </span><span class="kw">fn </span>deselect(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="doccomment">/// Gets the parent menu shell.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The parent menu shell of a submenu is the [`Menu`][crate::Menu] or [`MenuBar`][crate::MenuBar]</span>
-    <span class="doccomment">/// from which it was opened up.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the parent [`MenuShell`][crate::MenuShell]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_get_parent_shell&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_parent_shell&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">parent_shell</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets the parent menu shell.
+    ///
+    /// The parent menu shell of a submenu is the [`Menu`][crate::Menu] or [`MenuBar`][crate::MenuBar]
+    /// from which it was opened up.
+    ///
+    /// # Returns
+    ///
+    /// the parent [`MenuShell`][crate::MenuShell]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_get_parent_shell&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_parent_shell&quot;</span>)]
+    </span><span class="kw">fn </span>parent_shell(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt;;
 
-    <span class="doccomment">/// Gets the currently selected item.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the currently selected item</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_get_selected_item&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_selected_item&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">selected_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets the currently selected item.
+    ///
+    /// # Returns
+    ///
+    /// the currently selected item
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_get_selected_item&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_selected_item&quot;</span>)]
+    </span><span class="kw">fn </span>selected_item(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt;;
 
-    <span class="doccomment">/// Returns [`true`] if the menu shell will take the keyboard focus on popup.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if the menu shell will take the keyboard focus on popup.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_get_take_focus&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_take_focus&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">takes_focus</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Returns [`true`] if the menu shell will take the keyboard focus on popup.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if the menu shell will take the keyboard focus on popup.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_get_take_focus&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_take_focus&quot;</span>)]
+    </span><span class="kw">fn </span>takes_focus(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="doccomment">/// Adds a new [`MenuItem`][crate::MenuItem] to the menu shell’s item list</span>
-    <span class="doccomment">/// at the position indicated by `position`.</span>
-    <span class="doccomment">/// ## `child`</span>
-    <span class="doccomment">/// The [`MenuItem`][crate::MenuItem] to add</span>
-    <span class="doccomment">/// ## `position`</span>
-    <span class="doccomment">/// The position in the item list where `child`</span>
-    <span class="doccomment">///  is added. Positions are numbered from 0 to n-1</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_insert&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">insert</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">child</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>, <span class="ident">position</span>: <span class="ident">i32</span>);
+    <span class="doccomment">/// Adds a new [`MenuItem`][crate::MenuItem] to the menu shell’s item list
+    /// at the position indicated by `position`.
+    /// ## `child`
+    /// The [`MenuItem`][crate::MenuItem] to add
+    /// ## `position`
+    /// The position in the item list where `child`
+    ///  is added. Positions are numbered from 0 to n-1
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_insert&quot;</span>)]
+    </span><span class="kw">fn </span>insert(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;, position: i32);
 
-    <span class="doccomment">/// Adds a new [`MenuItem`][crate::MenuItem] to the beginning of the menu shell&#39;s</span>
-    <span class="doccomment">/// item list.</span>
-    <span class="doccomment">/// ## `child`</span>
-    <span class="doccomment">/// The [`MenuItem`][crate::MenuItem] to add</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_prepend&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">prepend</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">child</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>);
+    <span class="doccomment">/// Adds a new [`MenuItem`][crate::MenuItem] to the beginning of the menu shell&#39;s
+    /// item list.
+    /// ## `child`
+    /// The [`MenuItem`][crate::MenuItem] to add
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_prepend&quot;</span>)]
+    </span><span class="kw">fn </span>prepend(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;);
 
-    <span class="doccomment">/// Select the first visible or selectable child of the menu shell;</span>
-    <span class="doccomment">/// don’t select tearoff items unless the only item is a tearoff</span>
-    <span class="doccomment">/// item.</span>
-    <span class="doccomment">/// ## `search_sensitive`</span>
-    <span class="doccomment">/// if [`true`], search for the first selectable</span>
-    <span class="doccomment">///  menu item, otherwise select nothing if</span>
-    <span class="doccomment">///  the first item isn’t sensitive. This</span>
-    <span class="doccomment">///  should be [`false`] if the menu is being</span>
-    <span class="doccomment">///  popped up initially.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_select_first&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">select_first</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">search_sensitive</span>: <span class="ident">bool</span>);
+    <span class="doccomment">/// Select the first visible or selectable child of the menu shell;
+    /// don’t select tearoff items unless the only item is a tearoff
+    /// item.
+    /// ## `search_sensitive`
+    /// if [`true`], search for the first selectable
+    ///  menu item, otherwise select nothing if
+    ///  the first item isn’t sensitive. This
+    ///  should be [`false`] if the menu is being
+    ///  popped up initially.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_select_first&quot;</span>)]
+    </span><span class="kw">fn </span>select_first(<span class="kw-2">&amp;</span><span class="self">self</span>, search_sensitive: bool);
 
-    <span class="doccomment">/// Selects the menu item from the menu shell.</span>
-    <span class="doccomment">/// ## `menu_item`</span>
-    <span class="doccomment">/// The [`MenuItem`][crate::MenuItem] to select</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_select_item&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">select_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">menu_item</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>);
+    <span class="doccomment">/// Selects the menu item from the menu shell.
+    /// ## `menu_item`
+    /// The [`MenuItem`][crate::MenuItem] to select
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_select_item&quot;</span>)]
+    </span><span class="kw">fn </span>select_item(<span class="kw-2">&amp;</span><span class="self">self</span>, menu_item: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;);
 
-    <span class="doccomment">/// If `take_focus` is [`true`] (the default) the menu shell will take</span>
-    <span class="doccomment">/// the keyboard focus so that it will receive all keyboard events</span>
-    <span class="doccomment">/// which is needed to enable keyboard navigation in menus.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Setting `take_focus` to [`false`] is useful only for special applications</span>
-    <span class="doccomment">/// like virtual keyboard implementations which should not take keyboard</span>
-    <span class="doccomment">/// focus.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The `take_focus` state of a menu or menu bar is automatically</span>
-    <span class="doccomment">/// propagated to submenus whenever a submenu is popped up, so you</span>
-    <span class="doccomment">/// don’t have to worry about recursively setting it for your entire</span>
-    <span class="doccomment">/// menu hierarchy. Only when programmatically picking a submenu and</span>
-    <span class="doccomment">/// popping it up manually, the `take_focus` property of the submenu</span>
-    <span class="doccomment">/// needs to be set explicitly.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that setting it to [`false`] has side-effects:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the focus is in some other app, it keeps the focus and keynav in</span>
-    <span class="doccomment">/// the menu doesn’t work. Consequently, keynav on the menu will only</span>
-    <span class="doccomment">/// work if the focus is on some toplevel owned by the onscreen keyboard.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// To avoid confusing the user, menus with `take_focus` set to [`false`]</span>
-    <span class="doccomment">/// should not display mnemonics or accelerators, since it cannot be</span>
-    <span class="doccomment">/// guaranteed that they will work.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// See also `gdk_keyboard_grab()`</span>
-    <span class="doccomment">/// ## `take_focus`</span>
-    <span class="doccomment">/// [`true`] if the menu shell should take the keyboard</span>
-    <span class="doccomment">///  focus on popup</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_shell_set_take_focus&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_take_focus</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">take_focus</span>: <span class="ident">bool</span>);
+    <span class="doccomment">/// If `take_focus` is [`true`] (the default) the menu shell will take
+    /// the keyboard focus so that it will receive all keyboard events
+    /// which is needed to enable keyboard navigation in menus.
+    ///
+    /// Setting `take_focus` to [`false`] is useful only for special applications
+    /// like virtual keyboard implementations which should not take keyboard
+    /// focus.
+    ///
+    /// The `take_focus` state of a menu or menu bar is automatically
+    /// propagated to submenus whenever a submenu is popped up, so you
+    /// don’t have to worry about recursively setting it for your entire
+    /// menu hierarchy. Only when programmatically picking a submenu and
+    /// popping it up manually, the `take_focus` property of the submenu
+    /// needs to be set explicitly.
+    ///
+    /// Note that setting it to [`false`] has side-effects:
+    ///
+    /// If the focus is in some other app, it keeps the focus and keynav in
+    /// the menu doesn’t work. Consequently, keynav on the menu will only
+    /// work if the focus is on some toplevel owned by the onscreen keyboard.
+    ///
+    /// To avoid confusing the user, menus with `take_focus` set to [`false`]
+    /// should not display mnemonics or accelerators, since it cannot be
+    /// guaranteed that they will work.
+    ///
+    /// See also `gdk_keyboard_grab()`
+    /// ## `take_focus`
+    /// [`true`] if the menu shell should take the keyboard
+    ///  focus on popup
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_menu_shell_set_take_focus&quot;</span>)]
+    </span><span class="kw">fn </span>set_take_focus(<span class="kw-2">&amp;</span><span class="self">self</span>, take_focus: bool);
 
-    <span class="doccomment">/// An action signal that activates the current menu item within</span>
-    <span class="doccomment">/// the menu shell.</span>
-    <span class="doccomment">/// ## `force_hide`</span>
-    <span class="doccomment">/// if [`true`], hide the menu after activating the menu item</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;activate-current&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_activate_current</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">bool</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// An action signal that activates the current menu item within
+    /// the menu shell.
+    /// ## `force_hide`
+    /// if [`true`], hide the menu after activating the menu item
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;activate-current&quot;</span>)]
+    </span><span class="kw">fn </span>connect_activate_current&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, bool) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="kw">fn</span> <span class="ident">emit_activate_current</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">force_hide</span>: <span class="ident">bool</span>);
+    <span class="kw">fn </span>emit_activate_current(<span class="kw-2">&amp;</span><span class="self">self</span>, force_hide: bool);
 
-    <span class="doccomment">/// An action signal which cancels the selection within the menu shell.</span>
-    <span class="doccomment">/// Causes the `signal::MenuShell::selection-done` signal to be emitted.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;cancel&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_cancel</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// An action signal which cancels the selection within the menu shell.
+    /// Causes the `signal::MenuShell::selection-done` signal to be emitted.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;cancel&quot;</span>)]
+    </span><span class="kw">fn </span>connect_cancel&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="kw">fn</span> <span class="ident">emit_cancel</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>emit_cancel(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="doccomment">/// A keybinding signal which moves the focus in the</span>
-    <span class="doccomment">/// given `direction`.</span>
-    <span class="doccomment">/// ## `direction`</span>
-    <span class="doccomment">/// the direction to cycle in</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;cycle-focus&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_cycle_focus</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">DirectionType</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// A keybinding signal which moves the focus in the
+    /// given `direction`.
+    /// ## `direction`
+    /// the direction to cycle in
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;cycle-focus&quot;</span>)]
+    </span><span class="kw">fn </span>connect_cycle_focus&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, DirectionType) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="kw">fn</span> <span class="ident">emit_cycle_focus</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">direction</span>: <span class="ident">DirectionType</span>);
+    <span class="kw">fn </span>emit_cycle_focus(<span class="kw-2">&amp;</span><span class="self">self</span>, direction: DirectionType);
 
-    <span class="doccomment">/// This signal is emitted when a menu shell is deactivated.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;deactivate&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_deactivate</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// This signal is emitted when a menu shell is deactivated.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;deactivate&quot;</span>)]
+    </span><span class="kw">fn </span>connect_deactivate&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// The ::insert signal is emitted when a new [`MenuItem`][crate::MenuItem] is added to</span>
-    <span class="doccomment">/// a [`MenuShell`][crate::MenuShell]. A separate signal is used instead of</span>
-    <span class="doccomment">/// GtkContainer::add because of the need for an additional position</span>
-    <span class="doccomment">/// parameter.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The inverse of this signal is the GtkContainer::removed signal.</span>
-    <span class="doccomment">/// ## `child`</span>
-    <span class="doccomment">/// the [`MenuItem`][crate::MenuItem] that is being inserted</span>
-    <span class="doccomment">/// ## `position`</span>
-    <span class="doccomment">/// the position at which the insert occurs</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;insert&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_insert</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><span class="ident">Widget</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The ::insert signal is emitted when a new [`MenuItem`][crate::MenuItem] is added to
+    /// a [`MenuShell`][crate::MenuShell]. A separate signal is used instead of
+    /// GtkContainer::add because of the need for an additional position
+    /// parameter.
+    ///
+    /// The inverse of this signal is the GtkContainer::removed signal.
+    /// ## `child`
+    /// the [`MenuItem`][crate::MenuItem] that is being inserted
+    /// ## `position`
+    /// the position at which the insert occurs
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;insert&quot;</span>)]
+    </span><span class="kw">fn </span>connect_insert&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>Widget, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// An keybinding signal which moves the current menu item</span>
-    <span class="doccomment">/// in the direction specified by `direction`.</span>
-    <span class="doccomment">/// ## `direction`</span>
-    <span class="doccomment">/// the direction to move</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;move-current&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_move_current</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">MenuDirectionType</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="doccomment">/// An keybinding signal which moves the current menu item
+    /// in the direction specified by `direction`.
+    /// ## `direction`
+    /// the direction to move
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;move-current&quot;</span>)]
+    </span><span class="kw">fn </span>connect_move_current&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, MenuDirectionType) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="ident">SignalHandlerId</span>;
+        f: F,
+    ) -&gt; SignalHandlerId;
 
-    <span class="kw">fn</span> <span class="ident">emit_move_current</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">direction</span>: <span class="ident">MenuDirectionType</span>);
+    <span class="kw">fn </span>emit_move_current(<span class="kw-2">&amp;</span><span class="self">self</span>, direction: MenuDirectionType);
 
-    <span class="doccomment">/// The ::move-selected signal is emitted to move the selection to</span>
-    <span class="doccomment">/// another item.</span>
-    <span class="doccomment">/// ## `distance`</span>
-    <span class="doccomment">/// +1 to move to the next item, -1 to move to the previous</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] to stop the signal emission, [`false`] to continue</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;move-selected&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_move_selected</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>) -&gt; <span class="ident">glib::signal::Inhibit</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="doccomment">/// The ::move-selected signal is emitted to move the selection to
+    /// another item.
+    /// ## `distance`
+    /// +1 to move to the next item, -1 to move to the previous
+    ///
+    /// # Returns
+    ///
+    /// [`true`] to stop the signal emission, [`false`] to continue
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;move-selected&quot;</span>)]
+    </span><span class="kw">fn </span>connect_move_selected&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32) -&gt; glib::signal::Inhibit + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="ident">SignalHandlerId</span>;
+        f: F,
+    ) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// This signal is emitted when a selection has been</span>
-    <span class="doccomment">/// completed within a menu shell.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;selection-done&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_selection_done</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// This signal is emitted when a selection has been
+    /// completed within a menu shell.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;selection-done&quot;</span>)]
+    </span><span class="kw">fn </span>connect_selection_done&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;take-focus&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_take_focus_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;take-focus&quot;</span>)]
+    </span><span class="kw">fn </span>connect_take_focus_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuShell</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">MenuShellExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">activate_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">menu_item</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>, <span class="ident">force_deactivate</span>: <span class="ident">bool</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_shell_activate_item</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">menu_item</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">force_deactivate</span>.<span class="ident">into_glib</span>(),
+<span class="kw">impl</span>&lt;O: IsA&lt;MenuShell&gt;&gt; MenuShellExt <span class="kw">for </span>O {
+    <span class="kw">fn </span>activate_item(<span class="kw-2">&amp;</span><span class="self">self</span>, menu_item: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;, force_deactivate: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_menu_shell_activate_item(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                menu_item.as_ref().to_glib_none().<span class="number">0</span>,
+                force_deactivate.into_glib(),
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">child</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuItem</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_shell_append</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">child</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>append(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;MenuItem&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_menu_shell_append(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                child.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">bind_model</span>(
+    <span class="kw">fn </span>bind_model(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">model</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::MenuModel</span><span class="op">&gt;</span><span class="op">&gt;</span>,
-        <span class="ident">action_namespace</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-        <span class="ident">with_separators</span>: <span class="ident">bool</span>,
+        model: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::MenuModel&gt;&gt;,
+        action_namespace: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
+        with_separators: bool,
     ) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_shell_bind_model</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">model</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">action_namespace</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">with_separators</span>.<span class="ident">into_glib</span>(),
+        <span class="kw">unsafe </span>{
+            ffi::gtk_menu_shell_bind_model(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                model.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
+                action_namespace.to_glib_none().<span class="number">0</span>,
+                with_separators.into_glib(),
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">cancel</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_shell_cancel</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="kw">fn </span>cancel(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_menu_shell_cancel(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">deactivate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_shell_deactivate</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="kw">fn </span>deactivate(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_menu_shell_deactivate(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">deselect</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_shell_deselect</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="kw">fn </span>deselect(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_menu_shell_deselect(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_shell</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_menu_shell_get_parent_shell</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>parent_shell(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_menu_shell_get_parent_shell(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">selected_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_menu_shell_get_selected_item</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>selected_item(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_menu_shell_get_selected_item(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">takes_focus</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_menu_shell_get_take_focus</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>takes_focus(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_menu_shell_get_take_focus(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">insert</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">child</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>, <span class="ident">position</span>: <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_shell_insert</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">child</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">position</span>,
+    <span class="kw">fn </span>insert(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;, position: i32) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_menu_shell_insert(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                child.as_ref().to_glib_none().<span class="number">0</span>,
+                position,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">prepend</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">child</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_shell_prepend</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">child</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>prepend(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_menu_shell_prepend(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                child.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">select_first</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">search_sensitive</span>: <span class="ident">bool</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_shell_select_first</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">search_sensitive</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>select_first(<span class="kw-2">&amp;</span><span class="self">self</span>, search_sensitive: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_menu_shell_select_first(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                search_sensitive.into_glib(),
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">select_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">menu_item</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_shell_select_item</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">menu_item</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>select_item(<span class="kw-2">&amp;</span><span class="self">self</span>, menu_item: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_menu_shell_select_item(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                menu_item.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_take_focus</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">take_focus</span>: <span class="ident">bool</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_shell_set_take_focus</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">take_focus</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>set_take_focus(<span class="kw-2">&amp;</span><span class="self">self</span>, take_focus: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_menu_shell_set_take_focus(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                take_focus.into_glib(),
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_activate_current</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">bool</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">activate_current_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuShell</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">bool</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkMenuShell</span>,
-            <span class="ident">force_hide</span>: <span class="ident">glib::ffi::gboolean</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_activate_current&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, bool) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>activate_current_trampoline&lt;
+            P: IsA&lt;MenuShell&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, bool) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkMenuShell,
+            force_hide: glib::ffi::gboolean,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(
-                <span class="ident">MenuShell::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
-                <span class="ident">from_glib</span>(<span class="ident">force_hide</span>),
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(
+                MenuShell::from_glib_borrow(this).unsafe_cast_ref(),
+                from_glib(force_hide),
             )
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;activate-current\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">activate_current_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;activate-current\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    activate_current_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">emit_activate_current</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">force_hide</span>: <span class="ident">bool</span>) {
-        <span class="self">self</span>.<span class="ident">emit_by_name</span>::<span class="op">&lt;</span>()<span class="op">&gt;</span>(<span class="string">&quot;activate-current&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">force_hide</span>]);
+    <span class="kw">fn </span>emit_activate_current(<span class="kw-2">&amp;</span><span class="self">self</span>, force_hide: bool) {
+        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;activate-current&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>force_hide]);
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_cancel</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">cancel_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuShell</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkMenuShell</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_cancel&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cancel_trampoline&lt;P: IsA&lt;MenuShell&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkMenuShell,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">MenuShell::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(MenuShell::from_glib_borrow(this).unsafe_cast_ref())
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;cancel\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">cancel_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;cancel\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    cancel_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">emit_cancel</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.<span class="ident">emit_by_name</span>::<span class="op">&lt;</span>()<span class="op">&gt;</span>(<span class="string">&quot;cancel&quot;</span>, <span class="kw-2">&amp;</span>[]);
+    <span class="kw">fn </span>emit_cancel(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;cancel&quot;</span>, <span class="kw-2">&amp;</span>[]);
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_cycle_focus</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">DirectionType</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">cycle_focus_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuShell</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">DirectionType</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkMenuShell</span>,
-            <span class="ident">direction</span>: <span class="ident">ffi::GtkDirectionType</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_cycle_focus&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, DirectionType) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cycle_focus_trampoline&lt;
+            P: IsA&lt;MenuShell&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, DirectionType) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkMenuShell,
+            direction: ffi::GtkDirectionType,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(
-                <span class="ident">MenuShell::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
-                <span class="ident">from_glib</span>(<span class="ident">direction</span>),
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(
+                MenuShell::from_glib_borrow(this).unsafe_cast_ref(),
+                from_glib(direction),
             )
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;cycle-focus\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">cycle_focus_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;cycle-focus\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    cycle_focus_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">emit_cycle_focus</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">direction</span>: <span class="ident">DirectionType</span>) {
-        <span class="self">self</span>.<span class="ident">emit_by_name</span>::<span class="op">&lt;</span>()<span class="op">&gt;</span>(<span class="string">&quot;cycle-focus&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">direction</span>]);
+    <span class="kw">fn </span>emit_cycle_focus(<span class="kw-2">&amp;</span><span class="self">self</span>, direction: DirectionType) {
+        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;cycle-focus&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>direction]);
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_deactivate</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">deactivate_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuShell</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkMenuShell</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_deactivate&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>deactivate_trampoline&lt;P: IsA&lt;MenuShell&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkMenuShell,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">MenuShell::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(MenuShell::from_glib_borrow(this).unsafe_cast_ref())
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;deactivate\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">deactivate_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;deactivate\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    deactivate_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_insert</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><span class="ident">Widget</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">insert_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuShell</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="kw-2">&amp;</span><span class="ident">Widget</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkMenuShell</span>,
-            <span class="ident">child</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkWidget</span>,
-            <span class="ident">position</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_insert&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>Widget, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>insert_trampoline&lt;
+            P: IsA&lt;MenuShell&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span>Widget, i32) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkMenuShell,
+            child: <span class="kw-2">*mut </span>ffi::GtkWidget,
+            position: libc::c_int,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(
-                <span class="ident">MenuShell::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
-                <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">child</span>),
-                <span class="ident">position</span>,
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(
+                MenuShell::from_glib_borrow(this).unsafe_cast_ref(),
+                <span class="kw-2">&amp;</span>from_glib_borrow(child),
+                position,
             )
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;insert\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">insert_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;insert\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    insert_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_move_current</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">MenuDirectionType</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>connect_move_current&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, MenuDirectionType) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">move_current_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuShell</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">MenuDirectionType</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkMenuShell</span>,
-            <span class="ident">direction</span>: <span class="ident">ffi::GtkMenuDirectionType</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+        f: F,
+    ) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>move_current_trampoline&lt;
+            P: IsA&lt;MenuShell&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, MenuDirectionType) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkMenuShell,
+            direction: ffi::GtkMenuDirectionType,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(
-                <span class="ident">MenuShell::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
-                <span class="ident">from_glib</span>(<span class="ident">direction</span>),
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(
+                MenuShell::from_glib_borrow(this).unsafe_cast_ref(),
+                from_glib(direction),
             )
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;move-current\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">move_current_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;move-current\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    move_current_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">emit_move_current</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">direction</span>: <span class="ident">MenuDirectionType</span>) {
-        <span class="self">self</span>.<span class="ident">emit_by_name</span>::<span class="op">&lt;</span>()<span class="op">&gt;</span>(<span class="string">&quot;move-current&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">direction</span>]);
+    <span class="kw">fn </span>emit_move_current(<span class="kw-2">&amp;</span><span class="self">self</span>, direction: MenuDirectionType) {
+        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;move-current&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>direction]);
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_move_selected</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>) -&gt; <span class="ident">glib::signal::Inhibit</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>connect_move_selected&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32) -&gt; glib::signal::Inhibit + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">move_selected_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuShell</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">i32</span>) -&gt; <span class="ident">glib::signal::Inhibit</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkMenuShell</span>,
-            <span class="ident">distance</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
-        ) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(
-                <span class="ident">MenuShell::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
-                <span class="ident">distance</span>,
+        f: F,
+    ) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>move_selected_trampoline&lt;
+            P: IsA&lt;MenuShell&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, i32) -&gt; glib::signal::Inhibit + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkMenuShell,
+            distance: libc::c_int,
+            f: glib::ffi::gpointer,
+        ) -&gt; glib::ffi::gboolean {
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(
+                MenuShell::from_glib_borrow(this).unsafe_cast_ref(),
+                distance,
             )
-            .<span class="ident">into_glib</span>()
+            .into_glib()
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;move-selected\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">move_selected_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;move-selected\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    move_selected_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
-            )
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">connect_selection_done</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">selection_done_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuShell</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkMenuShell</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
-        ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">MenuShell::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
-        }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;selection-done\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">selection_done_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
-                )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_take_focus_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_take_focus_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">MenuShell</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkMenuShell</span>,
-            <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_selection_done&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>selection_done_trampoline&lt;P: IsA&lt;MenuShell&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkMenuShell,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">MenuShell::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(MenuShell::from_glib_borrow(this).unsafe_cast_ref())
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;notify::take-focus\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">notify_take_focus_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;selection-done\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    selection_done_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
+            )
+        }
+    }
+
+    <span class="kw">fn </span>connect_take_focus_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_take_focus_trampoline&lt;
+            P: IsA&lt;MenuShell&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkMenuShell,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
+        ) {
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(MenuShell::from_glib_borrow(this).unsafe_cast_ref())
+        }
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;notify::take-focus\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    notify_take_focus_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
+                )),
+                Box_::into_raw(f),
             )
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">MenuShell</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;MenuShell&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>MenuShell {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;MenuShell&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

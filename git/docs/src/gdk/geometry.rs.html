@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk/src/geometry.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>geometry.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk/src/geometry.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>geometry.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gdk/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gdk/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -232,161 +226,160 @@
 <span id="153">153</span>
 <span id="154">154</span>
 <span id="155">155</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Gravity</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::Gravity;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::fmt;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// The [`Geometry`][crate::Geometry] struct gives the window manager information about</span>
-    <span class="doccomment">/// a window’s geometry constraints. Normally you would set these on</span>
-    <span class="doccomment">/// the GTK+ level using `gtk_window_set_geometry_hints()`. `GtkWindow`</span>
-    <span class="doccomment">/// then sets the hints on the [`Window`][crate::Window] it creates.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`Window::set_geometry_hints()`][crate::Window::set_geometry_hints()] expects the hints to be fully valid already</span>
-    <span class="doccomment">/// and simply passes them to the window manager; in contrast,</span>
-    <span class="doccomment">/// `gtk_window_set_geometry_hints()` performs some interpretation. For example,</span>
-    <span class="doccomment">/// `GtkWindow` will apply the hints to the geometry widget instead of the</span>
-    <span class="doccomment">/// toplevel window, if you set a geometry widget. Also, the</span>
-    <span class="doccomment">/// `min_width`/`min_height`/`max_width`/`max_height` fields may be set to -1, and</span>
-    <span class="doccomment">/// `GtkWindow` will substitute the size request of the window or geometry widget.</span>
-    <span class="doccomment">/// If the minimum size hint is not provided, `GtkWindow` will use its requisition</span>
-    <span class="doccomment">/// as the minimum size. If the minimum size is provided and a geometry widget is</span>
-    <span class="doccomment">/// set, `GtkWindow` will take the minimum size as the minimum size of the</span>
-    <span class="doccomment">/// geometry widget rather than the entire window. The base size is treated</span>
-    <span class="doccomment">/// similarly.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The canonical use-case for `gtk_window_set_geometry_hints()` is to get a</span>
-    <span class="doccomment">/// terminal widget to resize properly. Here, the terminal text area should be</span>
-    <span class="doccomment">/// the geometry widget; `GtkWindow` will then automatically set the base size to</span>
-    <span class="doccomment">/// the size of other widgets in the terminal window, such as the menubar and</span>
-    <span class="doccomment">/// scrollbar. Then, the `width_inc` and `height_inc` fields should be set to the</span>
-    <span class="doccomment">/// size of one character in the terminal. Finally, the base size should be set</span>
-    <span class="doccomment">/// to the size of one character. The net effect is that the minimum size of the</span>
-    <span class="doccomment">/// terminal will have a 1x1 character terminal area, and only terminal sizes on</span>
-    <span class="doccomment">/// the “character grid” will be allowed.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Here’s an example of how the terminal example would be implemented, assuming</span>
-    <span class="doccomment">/// a terminal area widget called “terminal” and a toplevel window “toplevel”:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// **⚠️ The following code is in C ⚠️**</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```C</span>
-    <span class="doccomment">///     GdkGeometry hints;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     hints.base_width = terminal-&gt;char_width;</span>
-    <span class="doccomment">///         hints.base_height = terminal-&gt;char_height;</span>
-    <span class="doccomment">///         hints.min_width = terminal-&gt;char_width;</span>
-    <span class="doccomment">///         hints.min_height = terminal-&gt;char_height;</span>
-    <span class="doccomment">///         hints.width_inc = terminal-&gt;char_width;</span>
-    <span class="doccomment">///         hints.height_inc = terminal-&gt;char_height;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  gtk_window_set_geometry_hints (GTK_WINDOW (toplevel),</span>
-    <span class="doccomment">///                                 GTK_WIDGET (terminal),</span>
-    <span class="doccomment">///                                 &amp;hints,</span>
-    <span class="doccomment">///                                 GDK_HINT_RESIZE_INC |</span>
-    <span class="doccomment">///                                 GDK_HINT_MIN_SIZE |</span>
-    <span class="doccomment">///                                 GDK_HINT_BASE_SIZE);</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The other useful fields are the `min_aspect` and `max_aspect` fields; these</span>
-    <span class="doccomment">/// contain a width/height ratio as a floating point number. If a geometry widget</span>
-    <span class="doccomment">/// is set, the aspect applies to the geometry widget rather than the entire</span>
-    <span class="doccomment">/// window. The most common use of these hints is probably to set `min_aspect` and</span>
-    <span class="doccomment">/// `max_aspect` to the same value, thus forcing the window to keep a constant</span>
-    <span class="doccomment">/// aspect ratio.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GdkGeometry&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Geometry</span>(<span class="ident">BoxedInline</span><span class="op">&lt;</span><span class="ident">ffi::GdkGeometry</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// The [`Geometry`][crate::Geometry] struct gives the window manager information about
+    /// a window’s geometry constraints. Normally you would set these on
+    /// the GTK+ level using `gtk_window_set_geometry_hints()`. `GtkWindow`
+    /// then sets the hints on the [`Window`][crate::Window] it creates.
+    ///
+    /// [`Window::set_geometry_hints()`][crate::Window::set_geometry_hints()] expects the hints to be fully valid already
+    /// and simply passes them to the window manager; in contrast,
+    /// `gtk_window_set_geometry_hints()` performs some interpretation. For example,
+    /// `GtkWindow` will apply the hints to the geometry widget instead of the
+    /// toplevel window, if you set a geometry widget. Also, the
+    /// `min_width`/`min_height`/`max_width`/`max_height` fields may be set to -1, and
+    /// `GtkWindow` will substitute the size request of the window or geometry widget.
+    /// If the minimum size hint is not provided, `GtkWindow` will use its requisition
+    /// as the minimum size. If the minimum size is provided and a geometry widget is
+    /// set, `GtkWindow` will take the minimum size as the minimum size of the
+    /// geometry widget rather than the entire window. The base size is treated
+    /// similarly.
+    ///
+    /// The canonical use-case for `gtk_window_set_geometry_hints()` is to get a
+    /// terminal widget to resize properly. Here, the terminal text area should be
+    /// the geometry widget; `GtkWindow` will then automatically set the base size to
+    /// the size of other widgets in the terminal window, such as the menubar and
+    /// scrollbar. Then, the `width_inc` and `height_inc` fields should be set to the
+    /// size of one character in the terminal. Finally, the base size should be set
+    /// to the size of one character. The net effect is that the minimum size of the
+    /// terminal will have a 1x1 character terminal area, and only terminal sizes on
+    /// the “character grid” will be allowed.
+    ///
+    /// Here’s an example of how the terminal example would be implemented, assuming
+    /// a terminal area widget called “terminal” and a toplevel window “toplevel”:
+    ///
+    ///
+    ///
+    /// **⚠️ The following code is in C ⚠️**
+    ///
+    /// ```C
+    ///     GdkGeometry hints;
+    ///
+    ///     hints.base_width = terminal-&gt;char_width;
+    ///         hints.base_height = terminal-&gt;char_height;
+    ///         hints.min_width = terminal-&gt;char_width;
+    ///         hints.min_height = terminal-&gt;char_height;
+    ///         hints.width_inc = terminal-&gt;char_width;
+    ///         hints.height_inc = terminal-&gt;char_height;
+    ///
+    ///  gtk_window_set_geometry_hints (GTK_WINDOW (toplevel),
+    ///                                 GTK_WIDGET (terminal),
+    ///                                 &amp;hints,
+    ///                                 GDK_HINT_RESIZE_INC |
+    ///                                 GDK_HINT_MIN_SIZE |
+    ///                                 GDK_HINT_BASE_SIZE);
+    /// ```
+    ///
+    /// The other useful fields are the `min_aspect` and `max_aspect` fields; these
+    /// contain a width/height ratio as a floating point number. If a geometry widget
+    /// is set, the aspect applies to the geometry widget rather than the entire
+    /// window. The most common use of these hints is probably to set `min_aspect` and
+    /// `max_aspect` to the same value, thus forcing the window to keep a constant
+    /// aspect ratio.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GdkGeometry&quot;</span>)]
+    </span><span class="kw">pub struct </span>Geometry(BoxedInline&lt;ffi::GdkGeometry&gt;);
 }
 
-<span class="kw">impl</span> <span class="ident">Geometry</span> {
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::too_many_arguments</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(
-        <span class="ident">min_width</span>: <span class="ident">i32</span>,
-        <span class="ident">min_height</span>: <span class="ident">i32</span>,
-        <span class="ident">max_width</span>: <span class="ident">i32</span>,
-        <span class="ident">max_height</span>: <span class="ident">i32</span>,
-        <span class="ident">base_width</span>: <span class="ident">i32</span>,
-        <span class="ident">base_height</span>: <span class="ident">i32</span>,
-        <span class="ident">width_inc</span>: <span class="ident">i32</span>,
-        <span class="ident">height_inc</span>: <span class="ident">i32</span>,
-        <span class="ident">min_aspect</span>: <span class="ident">f64</span>,
-        <span class="ident">max_aspect</span>: <span class="ident">f64</span>,
-        <span class="ident">win_gravity</span>: <span class="ident">Gravity</span>,
-    ) -&gt; <span class="self">Self</span> {
+<span class="kw">impl </span>Geometry {
+    <span class="attribute">#[allow(clippy::too_many_arguments)]
+    </span><span class="kw">pub fn </span>new(
+        min_width: i32,
+        min_height: i32,
+        max_width: i32,
+        max_height: i32,
+        base_width: i32,
+        base_height: i32,
+        width_inc: i32,
+        height_inc: i32,
+        min_aspect: f64,
+        max_aspect: f64,
+        win_gravity: Gravity,
+    ) -&gt; <span class="self">Self </span>{
         <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">unsafe</span> {
-            <span class="ident">Geometry::unsafe_from</span>(<span class="ident">ffi::GdkGeometry</span> {
-                <span class="ident">min_width</span>,
-                <span class="ident">min_height</span>,
-                <span class="ident">max_width</span>,
-                <span class="ident">max_height</span>,
-                <span class="ident">base_width</span>,
-                <span class="ident">base_height</span>,
-                <span class="ident">width_inc</span>,
-                <span class="ident">height_inc</span>,
-                <span class="ident">min_aspect</span>,
-                <span class="ident">max_aspect</span>,
-                <span class="ident">win_gravity</span>: <span class="ident">win_gravity</span>.<span class="ident">into_glib</span>(),
+        <span class="kw">unsafe </span>{
+            Geometry::unsafe_from(ffi::GdkGeometry {
+                min_width,
+                min_height,
+                max_width,
+                max_height,
+                base_width,
+                base_height,
+                width_inc,
+                height_inc,
+                min_aspect,
+                max_aspect,
+                win_gravity: win_gravity.into_glib(),
             })
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">min_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">min_width</span>
+    <span class="kw">pub fn </span>min_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="self">self</span>.inner.min_width
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">min_height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">min_height</span>
+    <span class="kw">pub fn </span>min_height(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="self">self</span>.inner.min_height
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">max_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">max_width</span>
+    <span class="kw">pub fn </span>max_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="self">self</span>.inner.max_width
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">max_height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">max_height</span>
+    <span class="kw">pub fn </span>max_height(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="self">self</span>.inner.max_height
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">base_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">base_width</span>
+    <span class="kw">pub fn </span>base_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="self">self</span>.inner.base_width
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">base_height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">base_height</span>
+    <span class="kw">pub fn </span>base_height(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="self">self</span>.inner.base_height
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">width_inc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">width_inc</span>
+    <span class="kw">pub fn </span>width_inc(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="self">self</span>.inner.width_inc
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">height_inc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">height_inc</span>
+    <span class="kw">pub fn </span>height_inc(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="self">self</span>.inner.height_inc
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">min_aspect</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">f64</span> {
-        <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">min_aspect</span>
+    <span class="kw">pub fn </span>min_aspect(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f64 {
+        <span class="self">self</span>.inner.min_aspect
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">max_aspect</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">f64</span> {
-        <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">max_aspect</span>
+    <span class="kw">pub fn </span>max_aspect(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f64 {
+        <span class="self">self</span>.inner.max_aspect
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">win_gravity</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Gravity</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">win_gravity</span>) }
+    <span class="kw">pub fn </span>win_gravity(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Gravity {
+        <span class="kw">unsafe </span>{ from_glib(<span class="self">self</span>.inner.win_gravity) }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Debug</span> <span class="kw">for</span> <span class="ident">Geometry</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">debug_struct</span>(<span class="string">&quot;Geometry&quot;</span>)
-            .<span class="ident">field</span>(<span class="string">&quot;min_width&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">min_width</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;min_height&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">min_height</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;max_width&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">max_width</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;max_height&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">max_height</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;base_width&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">base_width</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;base_height&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">base_height</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;width_inc&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">width_inc</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;height_inc&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">height_inc</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;min_aspect&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">min_aspect</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;max_aspect&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">max_aspect</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;win_gravity&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">win_gravity</span>())
-            .<span class="ident">finish</span>()
+<span class="kw">impl </span>fmt::Debug <span class="kw">for </span>Geometry {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.debug_struct(<span class="string">&quot;Geometry&quot;</span>)
+            .field(<span class="string">&quot;min_width&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.min_width())
+            .field(<span class="string">&quot;min_height&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.min_height())
+            .field(<span class="string">&quot;max_width&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.max_width())
+            .field(<span class="string">&quot;max_height&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.max_height())
+            .field(<span class="string">&quot;base_width&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.base_width())
+            .field(<span class="string">&quot;base_height&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.base_height())
+            .field(<span class="string">&quot;width_inc&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.width_inc())
+            .field(<span class="string">&quot;height_inc&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.height_inc())
+            .field(<span class="string">&quot;min_aspect&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.min_aspect())
+            .field(<span class="string">&quot;max_aspect&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.max_aspect())
+            .field(<span class="string">&quot;win_gravity&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.win_gravity())
+            .finish()
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gdk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gdk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

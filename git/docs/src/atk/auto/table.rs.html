@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/table.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>table.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/table.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>table.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -891,820 +885,819 @@
 <span id="812">812</span>
 <span id="813">813</span>
 <span id="814">814</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Object</span>;
-<span class="kw">use</span> <span class="ident">glib::object::Cast</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::connect_raw</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::SignalHandlerId</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::Object;
+<span class="kw">use </span>glib::object::Cast;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::signal::connect_raw;
+<span class="kw">use </span>glib::signal::SignalHandlerId;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem::transmute;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// [`Table`][crate::Table] should be implemented by components which present</span>
-    <span class="doccomment">/// elements ordered via rows and columns. It may also be used to</span>
-    <span class="doccomment">/// present tree-structured information if the nodes of the trees can</span>
-    <span class="doccomment">/// be said to contain multiple &quot;columns&quot;. Individual elements of an</span>
-    <span class="doccomment">/// [`Table`][crate::Table] are typically referred to as &quot;cells&quot;. Those cells should</span>
-    <span class="doccomment">/// implement the interface [`TableCell`][crate::TableCell], but `Atk` doesn&#39;t require</span>
-    <span class="doccomment">/// them to be direct children of the current [`Table`][crate::Table]. They can be</span>
-    <span class="doccomment">/// grand-children, grand-grand-children etc. [`Table`][crate::Table] provides the</span>
-    <span class="doccomment">/// API needed to get a individual cell based on the row and column</span>
-    <span class="doccomment">/// numbers.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Children of [`Table`][crate::Table] are frequently &quot;lightweight&quot; objects, that</span>
-    <span class="doccomment">/// is, they may not have backing widgets in the host UI toolkit. They</span>
-    <span class="doccomment">/// are therefore often transient.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Since tables are often very complex, [`Table`][crate::Table] includes provision</span>
-    <span class="doccomment">/// for offering simplified summary information, as well as row and</span>
-    <span class="doccomment">/// column headers and captions. Headers and captions are `AtkObjects`</span>
-    <span class="doccomment">/// which may implement other interfaces ([`Text`][crate::Text], [`Image`][crate::Image], etc.) as</span>
-    <span class="doccomment">/// appropriate. [`Table`][crate::Table] summaries may themselves be (simplified)</span>
-    <span class="doccomment">/// `AtkTables`, etc.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note for implementors: in the past, [`Table`][crate::Table] required that all the</span>
-    <span class="doccomment">/// cells should be direct children of [`Table`][crate::Table], and provided some</span>
-    <span class="doccomment">/// index based methods to request the cells. The practice showed that</span>
-    <span class="doccomment">/// that forcing made [`Table`][crate::Table] implementation complex, and hard to</span>
-    <span class="doccomment">/// expose other kind of children, like rows or captions. Right now,</span>
-    <span class="doccomment">/// index-based methods are deprecated.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`TableExt`][trait@crate::prelude::TableExt], [`TableExtManual`][trait@crate::prelude::TableExtManual]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;AtkTable&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Table</span>(<span class="ident">Interface</span><span class="op">&lt;</span><span class="ident">ffi::AtkTable</span>, <span class="ident">ffi::AtkTableIface</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// [`Table`][crate::Table] should be implemented by components which present
+    /// elements ordered via rows and columns. It may also be used to
+    /// present tree-structured information if the nodes of the trees can
+    /// be said to contain multiple &quot;columns&quot;. Individual elements of an
+    /// [`Table`][crate::Table] are typically referred to as &quot;cells&quot;. Those cells should
+    /// implement the interface [`TableCell`][crate::TableCell], but `Atk` doesn&#39;t require
+    /// them to be direct children of the current [`Table`][crate::Table]. They can be
+    /// grand-children, grand-grand-children etc. [`Table`][crate::Table] provides the
+    /// API needed to get a individual cell based on the row and column
+    /// numbers.
+    ///
+    /// Children of [`Table`][crate::Table] are frequently &quot;lightweight&quot; objects, that
+    /// is, they may not have backing widgets in the host UI toolkit. They
+    /// are therefore often transient.
+    ///
+    /// Since tables are often very complex, [`Table`][crate::Table] includes provision
+    /// for offering simplified summary information, as well as row and
+    /// column headers and captions. Headers and captions are `AtkObjects`
+    /// which may implement other interfaces ([`Text`][crate::Text], [`Image`][crate::Image], etc.) as
+    /// appropriate. [`Table`][crate::Table] summaries may themselves be (simplified)
+    /// `AtkTables`, etc.
+    ///
+    /// Note for implementors: in the past, [`Table`][crate::Table] required that all the
+    /// cells should be direct children of [`Table`][crate::Table], and provided some
+    /// index based methods to request the cells. The practice showed that
+    /// that forcing made [`Table`][crate::Table] implementation complex, and hard to
+    /// expose other kind of children, like rows or captions. Right now,
+    /// index-based methods are deprecated.
+    ///
+    /// # Implements
+    ///
+    /// [`TableExt`][trait@crate::prelude::TableExt], [`TableExtManual`][trait@crate::prelude::TableExtManual]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;AtkTable&quot;</span>)]
+    </span><span class="kw">pub struct </span>Table(Interface&lt;ffi::AtkTable, ffi::AtkTableIface&gt;);
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::atk_table_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::atk_table_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Table</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">Table</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+<span class="kw">impl </span>Table {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>Table&gt; = <span class="prelude-val">None</span>;
 }
 
-<span class="doccomment">/// Trait containing all [`struct@Table`] methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementors</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`NoOpObject`][struct@crate::NoOpObject], [`Table`][struct@crate::Table]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">TableExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Adds the specified `column` to the selection.</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gboolean representing if the column was successfully added to</span>
-    <span class="doccomment">/// the selection, or 0 if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_add_column_selection&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">add_column_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+<span class="doccomment">/// Trait containing all [`struct@Table`] methods.
+///
+/// # Implementors
+///
+/// [`NoOpObject`][struct@crate::NoOpObject], [`Table`][struct@crate::Table]
+</span><span class="kw">pub trait </span>TableExt: <span class="lifetime">&#39;static </span>{
+    <span class="doccomment">/// Adds the specified `column` to the selection.
+    /// ## `column`
+    /// a `gint` representing a column in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gboolean representing if the column was successfully added to
+    /// the selection, or 0 if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_add_column_selection&quot;</span>)]
+    </span><span class="kw">fn </span>add_column_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32) -&gt; bool;
 
-    <span class="doccomment">/// Adds the specified `row` to the selection.</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gboolean representing if row was successfully added to selection,</span>
-    <span class="doccomment">/// or 0 if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_add_row_selection&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">add_row_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Adds the specified `row` to the selection.
+    /// ## `row`
+    /// a `gint` representing a row in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gboolean representing if row was successfully added to selection,
+    /// or 0 if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_add_row_selection&quot;</span>)]
+    </span><span class="kw">fn </span>add_row_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32) -&gt; bool;
 
-    <span class="doccomment">/// Gets the caption for the `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a AtkObject* representing the</span>
-    <span class="doccomment">/// table caption, or [`None`] if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_caption&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_caption&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">caption</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets the caption for the `self`.
+    ///
+    /// # Returns
+    ///
+    /// a AtkObject* representing the
+    /// table caption, or [`None`] if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_caption&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_caption&quot;</span>)]
+    </span><span class="kw">fn </span>caption(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt;;
 
-    <span class="doccomment">/// Gets a `gint` representing the column at the specified `index_`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Deprecated</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Since 2.12.</span>
-    <span class="doccomment">/// ## `index_`</span>
-    <span class="doccomment">/// a `gint` representing an index in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gint representing the column at the specified index,</span>
-    <span class="doccomment">/// or -1 if the table does not implement this method.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_column_at_index&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_column_at_index&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">column_at_index</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">index_</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Gets a `gint` representing the column at the specified `index_`.
+    ///
+    /// # Deprecated
+    ///
+    /// Since 2.12.
+    /// ## `index_`
+    /// a `gint` representing an index in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gint representing the column at the specified index,
+    /// or -1 if the table does not implement this method.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_column_at_index&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_column_at_index&quot;</span>)]
+    </span><span class="kw">fn </span>column_at_index(<span class="kw-2">&amp;</span><span class="self">self</span>, index_: i32) -&gt; i32;
 
-    <span class="doccomment">/// Gets the description text of the specified `column` in the table</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gchar* representing the column description, or [`None`]</span>
-    <span class="doccomment">/// if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_column_description&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_column_description&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">column_description</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets the description text of the specified `column` in the table
+    /// ## `column`
+    /// a `gint` representing a column in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gchar* representing the column description, or [`None`]
+    /// if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_column_description&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_column_description&quot;</span>)]
+    </span><span class="kw">fn </span>column_description(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
-    <span class="doccomment">/// Gets the number of columns occupied by the accessible object</span>
-    <span class="doccomment">/// at the specified `row` and `column` in the `self`.</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in `self`</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gint representing the column extent at specified position, or 0</span>
-    <span class="doccomment">/// if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_column_extent_at&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_column_extent_at&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">column_extent_at</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Gets the number of columns occupied by the accessible object
+    /// at the specified `row` and `column` in the `self`.
+    /// ## `row`
+    /// a `gint` representing a row in `self`
+    /// ## `column`
+    /// a `gint` representing a column in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gint representing the column extent at specified position, or 0
+    /// if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_column_extent_at&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_column_extent_at&quot;</span>)]
+    </span><span class="kw">fn </span>column_extent_at(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, column: i32) -&gt; i32;
 
-    <span class="doccomment">/// Gets the column header of a specified column in an accessible table.</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in the table</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a AtkObject* representing the</span>
-    <span class="doccomment">/// specified column header, or [`None`] if value does not implement this</span>
-    <span class="doccomment">/// interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_column_header&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_column_header&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">column_header</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets the column header of a specified column in an accessible table.
+    /// ## `column`
+    /// a `gint` representing a column in the table
+    ///
+    /// # Returns
+    ///
+    /// a AtkObject* representing the
+    /// specified column header, or [`None`] if value does not implement this
+    /// interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_column_header&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_column_header&quot;</span>)]
+    </span><span class="kw">fn </span>column_header(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt;;
 
-    <span class="doccomment">/// Gets a `gint` representing the index at the specified `row` and</span>
-    <span class="doccomment">/// `column`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Deprecated</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Since 2.12. Use [`ref_at()`][Self::ref_at()] in order to get the</span>
-    <span class="doccomment">/// accessible that represents the cell at (`row`, `column`)</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in `self`</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a `gint` representing the index at specified position.</span>
-    <span class="doccomment">/// The value -1 is returned if the object at row,column is not a child</span>
-    <span class="doccomment">/// of table or table does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_index_at&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_index_at&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">index_at</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Gets a `gint` representing the index at the specified `row` and
+    /// `column`.
+    ///
+    /// # Deprecated
+    ///
+    /// Since 2.12. Use [`ref_at()`][Self::ref_at()] in order to get the
+    /// accessible that represents the cell at (`row`, `column`)
+    /// ## `row`
+    /// a `gint` representing a row in `self`
+    /// ## `column`
+    /// a `gint` representing a column in `self`
+    ///
+    /// # Returns
+    ///
+    /// a `gint` representing the index at specified position.
+    /// The value -1 is returned if the object at row,column is not a child
+    /// of table or table does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_index_at&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_index_at&quot;</span>)]
+    </span><span class="kw">fn </span>index_at(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, column: i32) -&gt; i32;
 
-    <span class="doccomment">/// Gets the number of columns in the table.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gint representing the number of columns, or 0</span>
-    <span class="doccomment">/// if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_n_columns&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_n_columns&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">n_columns</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Gets the number of columns in the table.
+    ///
+    /// # Returns
+    ///
+    /// a gint representing the number of columns, or 0
+    /// if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_n_columns&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_n_columns&quot;</span>)]
+    </span><span class="kw">fn </span>n_columns(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
-    <span class="doccomment">/// Gets the number of rows in the table.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gint representing the number of rows, or 0</span>
-    <span class="doccomment">/// if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_n_rows&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_n_rows&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">n_rows</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Gets the number of rows in the table.
+    ///
+    /// # Returns
+    ///
+    /// a gint representing the number of rows, or 0
+    /// if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_n_rows&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_n_rows&quot;</span>)]
+    </span><span class="kw">fn </span>n_rows(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
-    <span class="doccomment">/// Gets a `gint` representing the row at the specified `index_`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Deprecated</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// since 2.12.</span>
-    <span class="doccomment">/// ## `index_`</span>
-    <span class="doccomment">/// a `gint` representing an index in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gint representing the row at the specified index,</span>
-    <span class="doccomment">/// or -1 if the table does not implement this method.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_row_at_index&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_row_at_index&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">row_at_index</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">index_</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Gets a `gint` representing the row at the specified `index_`.
+    ///
+    /// # Deprecated
+    ///
+    /// since 2.12.
+    /// ## `index_`
+    /// a `gint` representing an index in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gint representing the row at the specified index,
+    /// or -1 if the table does not implement this method.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_row_at_index&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_row_at_index&quot;</span>)]
+    </span><span class="kw">fn </span>row_at_index(<span class="kw-2">&amp;</span><span class="self">self</span>, index_: i32) -&gt; i32;
 
-    <span class="doccomment">/// Gets the description text of the specified row in the table</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gchar* representing the row description, or</span>
-    <span class="doccomment">/// [`None`] if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_row_description&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_row_description&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">row_description</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets the description text of the specified row in the table
+    /// ## `row`
+    /// a `gint` representing a row in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gchar* representing the row description, or
+    /// [`None`] if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_row_description&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_row_description&quot;</span>)]
+    </span><span class="kw">fn </span>row_description(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
-    <span class="doccomment">/// Gets the number of rows occupied by the accessible object</span>
-    <span class="doccomment">/// at a specified `row` and `column` in the `self`.</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in `self`</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gint representing the row extent at specified position, or 0</span>
-    <span class="doccomment">/// if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_row_extent_at&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_row_extent_at&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">row_extent_at</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Gets the number of rows occupied by the accessible object
+    /// at a specified `row` and `column` in the `self`.
+    /// ## `row`
+    /// a `gint` representing a row in `self`
+    /// ## `column`
+    /// a `gint` representing a column in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gint representing the row extent at specified position, or 0
+    /// if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_row_extent_at&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_row_extent_at&quot;</span>)]
+    </span><span class="kw">fn </span>row_extent_at(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, column: i32) -&gt; i32;
 
-    <span class="doccomment">/// Gets the row header of a specified row in an accessible table.</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in the table</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a AtkObject* representing the</span>
-    <span class="doccomment">/// specified row header, or [`None`] if value does not implement this</span>
-    <span class="doccomment">/// interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_row_header&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_row_header&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">row_header</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets the row header of a specified row in an accessible table.
+    /// ## `row`
+    /// a `gint` representing a row in the table
+    ///
+    /// # Returns
+    ///
+    /// a AtkObject* representing the
+    /// specified row header, or [`None`] if value does not implement this
+    /// interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_row_header&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_row_header&quot;</span>)]
+    </span><span class="kw">fn </span>row_header(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt;;
 
-    <span class="doccomment">/// Gets the summary description of the table.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a AtkObject* representing a summary description</span>
-    <span class="doccomment">/// of the table, or zero if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_get_summary&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_summary&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">summary</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets the summary description of the table.
+    ///
+    /// # Returns
+    ///
+    /// a AtkObject* representing a summary description
+    /// of the table, or zero if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_get_summary&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_summary&quot;</span>)]
+    </span><span class="kw">fn </span>summary(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt;;
 
-    <span class="doccomment">/// Gets a boolean value indicating whether the specified `column`</span>
-    <span class="doccomment">/// is selected</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gboolean representing if the column is selected, or 0</span>
-    <span class="doccomment">/// if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_is_column_selected&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">is_column_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Gets a boolean value indicating whether the specified `column`
+    /// is selected
+    /// ## `column`
+    /// a `gint` representing a column in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gboolean representing if the column is selected, or 0
+    /// if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_is_column_selected&quot;</span>)]
+    </span><span class="kw">fn </span>is_column_selected(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32) -&gt; bool;
 
-    <span class="doccomment">/// Gets a boolean value indicating whether the specified `row`</span>
-    <span class="doccomment">/// is selected</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gboolean representing if the row is selected, or 0</span>
-    <span class="doccomment">/// if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_is_row_selected&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">is_row_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Gets a boolean value indicating whether the specified `row`
+    /// is selected
+    /// ## `row`
+    /// a `gint` representing a row in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gboolean representing if the row is selected, or 0
+    /// if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_is_row_selected&quot;</span>)]
+    </span><span class="kw">fn </span>is_row_selected(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32) -&gt; bool;
 
-    <span class="doccomment">/// Gets a boolean value indicating whether the accessible object</span>
-    <span class="doccomment">/// at the specified `row` and `column` is selected</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in `self`</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gboolean representing if the cell is selected, or 0</span>
-    <span class="doccomment">/// if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_is_selected&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">is_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Gets a boolean value indicating whether the accessible object
+    /// at the specified `row` and `column` is selected
+    /// ## `row`
+    /// a `gint` representing a row in `self`
+    /// ## `column`
+    /// a `gint` representing a column in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gboolean representing if the cell is selected, or 0
+    /// if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_is_selected&quot;</span>)]
+    </span><span class="kw">fn </span>is_selected(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, column: i32) -&gt; bool;
 
-    <span class="doccomment">/// Get a reference to the table cell at `row`, `column`. This cell</span>
-    <span class="doccomment">/// should implement the interface [`TableCell`][crate::TableCell]</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in `self`</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// an [`Object`][crate::Object] representing the referred</span>
-    <span class="doccomment">/// to accessible</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_ref_at&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">ref_at</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Get a reference to the table cell at `row`, `column`. This cell
+    /// should implement the interface [`TableCell`][crate::TableCell]
+    /// ## `row`
+    /// a `gint` representing a row in `self`
+    /// ## `column`
+    /// a `gint` representing a column in `self`
+    ///
+    /// # Returns
+    ///
+    /// an [`Object`][crate::Object] representing the referred
+    /// to accessible
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_ref_at&quot;</span>)]
+    </span><span class="kw">fn </span>ref_at(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, column: i32) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt;;
 
-    <span class="doccomment">/// Adds the specified `column` to the selection.</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gboolean representing if the column was successfully removed from</span>
-    <span class="doccomment">/// the selection, or 0 if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_remove_column_selection&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">remove_column_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Adds the specified `column` to the selection.
+    /// ## `column`
+    /// a `gint` representing a column in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gboolean representing if the column was successfully removed from
+    /// the selection, or 0 if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_remove_column_selection&quot;</span>)]
+    </span><span class="kw">fn </span>remove_column_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32) -&gt; bool;
 
-    <span class="doccomment">/// Removes the specified `row` from the selection.</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gboolean representing if the row was successfully removed from</span>
-    <span class="doccomment">/// the selection, or 0 if value does not implement this interface.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_remove_row_selection&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">remove_row_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Removes the specified `row` from the selection.
+    /// ## `row`
+    /// a `gint` representing a row in `self`
+    ///
+    /// # Returns
+    ///
+    /// a gboolean representing if the row was successfully removed from
+    /// the selection, or 0 if value does not implement this interface.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_remove_row_selection&quot;</span>)]
+    </span><span class="kw">fn </span>remove_row_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32) -&gt; bool;
 
-    <span class="doccomment">/// Sets the caption for the table.</span>
-    <span class="doccomment">/// ## `caption`</span>
-    <span class="doccomment">/// a [`Object`][crate::Object] representing the caption to set for `self`</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_set_caption&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_caption</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">caption</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>);
+    <span class="doccomment">/// Sets the caption for the table.
+    /// ## `caption`
+    /// a [`Object`][crate::Object] representing the caption to set for `self`
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_set_caption&quot;</span>)]
+    </span><span class="kw">fn </span>set_caption(<span class="kw-2">&amp;</span><span class="self">self</span>, caption: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;);
 
-    <span class="doccomment">/// Sets the description text for the specified `column` of the `self`.</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in `self`</span>
-    <span class="doccomment">/// ## `description`</span>
-    <span class="doccomment">/// a `gchar` representing the description text</span>
-    <span class="doccomment">/// to set for the specified `column` of the `self`</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_set_column_description&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_column_description</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>, <span class="ident">description</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>);
+    <span class="doccomment">/// Sets the description text for the specified `column` of the `self`.
+    /// ## `column`
+    /// a `gint` representing a column in `self`
+    /// ## `description`
+    /// a `gchar` representing the description text
+    /// to set for the specified `column` of the `self`
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_set_column_description&quot;</span>)]
+    </span><span class="kw">fn </span>set_column_description(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32, description: <span class="kw-2">&amp;</span>str);
 
-    <span class="doccomment">/// Sets the specified column header to `header`.</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// a `gint` representing a column in `self`</span>
-    <span class="doccomment">/// ## `header`</span>
-    <span class="doccomment">/// an [`Table`][crate::Table]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_set_column_header&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_column_header</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>, <span class="ident">header</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>);
+    <span class="doccomment">/// Sets the specified column header to `header`.
+    /// ## `column`
+    /// a `gint` representing a column in `self`
+    /// ## `header`
+    /// an [`Table`][crate::Table]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_set_column_header&quot;</span>)]
+    </span><span class="kw">fn </span>set_column_header(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32, header: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;);
 
-    <span class="doccomment">/// Sets the description text for the specified `row` of `self`.</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in `self`</span>
-    <span class="doccomment">/// ## `description`</span>
-    <span class="doccomment">/// a `gchar` representing the description text</span>
-    <span class="doccomment">/// to set for the specified `row` of `self`</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_set_row_description&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_row_description</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">description</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>);
+    <span class="doccomment">/// Sets the description text for the specified `row` of `self`.
+    /// ## `row`
+    /// a `gint` representing a row in `self`
+    /// ## `description`
+    /// a `gchar` representing the description text
+    /// to set for the specified `row` of `self`
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_set_row_description&quot;</span>)]
+    </span><span class="kw">fn </span>set_row_description(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, description: <span class="kw-2">&amp;</span>str);
 
-    <span class="doccomment">/// Sets the specified row header to `header`.</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// a `gint` representing a row in `self`</span>
-    <span class="doccomment">/// ## `header`</span>
-    <span class="doccomment">/// an [`Table`][crate::Table]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_set_row_header&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_row_header</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">header</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>);
+    <span class="doccomment">/// Sets the specified row header to `header`.
+    /// ## `row`
+    /// a `gint` representing a row in `self`
+    /// ## `header`
+    /// an [`Table`][crate::Table]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_set_row_header&quot;</span>)]
+    </span><span class="kw">fn </span>set_row_header(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, header: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;);
 
-    <span class="doccomment">/// Sets the summary description of the table.</span>
-    <span class="doccomment">/// ## `accessible`</span>
-    <span class="doccomment">/// an [`Object`][crate::Object] representing the summary description</span>
-    <span class="doccomment">/// to set for `self`</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_set_summary&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_summary</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">accessible</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>);
+    <span class="doccomment">/// Sets the summary description of the table.
+    /// ## `accessible`
+    /// an [`Object`][crate::Object] representing the summary description
+    /// to set for `self`
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_set_summary&quot;</span>)]
+    </span><span class="kw">fn </span>set_summary(<span class="kw-2">&amp;</span><span class="self">self</span>, accessible: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;);
 
-    <span class="doccomment">/// The &quot;column-deleted&quot; signal is emitted by an object which</span>
-    <span class="doccomment">/// implements the AtkTable interface when a column is deleted.</span>
-    <span class="doccomment">/// ## `arg1`</span>
-    <span class="doccomment">/// The index of the first column deleted.</span>
-    <span class="doccomment">/// ## `arg2`</span>
-    <span class="doccomment">/// The number of columns deleted.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;column-deleted&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_column_deleted</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The &quot;column-deleted&quot; signal is emitted by an object which
+    /// implements the AtkTable interface when a column is deleted.
+    /// ## `arg1`
+    /// The index of the first column deleted.
+    /// ## `arg2`
+    /// The number of columns deleted.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;column-deleted&quot;</span>)]
+    </span><span class="kw">fn </span>connect_column_deleted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// The &quot;column-inserted&quot; signal is emitted by an object which</span>
-    <span class="doccomment">/// implements the AtkTable interface when a column is inserted.</span>
-    <span class="doccomment">/// ## `arg1`</span>
-    <span class="doccomment">/// The index of the column inserted.</span>
-    <span class="doccomment">/// ## `arg2`</span>
-    <span class="doccomment">/// The number of colums inserted.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;column-inserted&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_column_inserted</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The &quot;column-inserted&quot; signal is emitted by an object which
+    /// implements the AtkTable interface when a column is inserted.
+    /// ## `arg1`
+    /// The index of the column inserted.
+    /// ## `arg2`
+    /// The number of colums inserted.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;column-inserted&quot;</span>)]
+    </span><span class="kw">fn </span>connect_column_inserted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// The &quot;column-reordered&quot; signal is emitted by an object which</span>
-    <span class="doccomment">/// implements the AtkTable interface when the columns are</span>
-    <span class="doccomment">/// reordered.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;column-reordered&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_column_reordered</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The &quot;column-reordered&quot; signal is emitted by an object which
+    /// implements the AtkTable interface when the columns are
+    /// reordered.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;column-reordered&quot;</span>)]
+    </span><span class="kw">fn </span>connect_column_reordered&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// The &quot;model-changed&quot; signal is emitted by an object which</span>
-    <span class="doccomment">/// implements the AtkTable interface when the model displayed by</span>
-    <span class="doccomment">/// the table changes.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;model-changed&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_model_changed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The &quot;model-changed&quot; signal is emitted by an object which
+    /// implements the AtkTable interface when the model displayed by
+    /// the table changes.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;model-changed&quot;</span>)]
+    </span><span class="kw">fn </span>connect_model_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// The &quot;row-deleted&quot; signal is emitted by an object which</span>
-    <span class="doccomment">/// implements the AtkTable interface when a row is deleted.</span>
-    <span class="doccomment">/// ## `arg1`</span>
-    <span class="doccomment">/// The index of the first row deleted.</span>
-    <span class="doccomment">/// ## `arg2`</span>
-    <span class="doccomment">/// The number of rows deleted.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;row-deleted&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_row_deleted</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The &quot;row-deleted&quot; signal is emitted by an object which
+    /// implements the AtkTable interface when a row is deleted.
+    /// ## `arg1`
+    /// The index of the first row deleted.
+    /// ## `arg2`
+    /// The number of rows deleted.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;row-deleted&quot;</span>)]
+    </span><span class="kw">fn </span>connect_row_deleted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// The &quot;row-inserted&quot; signal is emitted by an object which</span>
-    <span class="doccomment">/// implements the AtkTable interface when a row is inserted.</span>
-    <span class="doccomment">/// ## `arg1`</span>
-    <span class="doccomment">/// The index of the first row inserted.</span>
-    <span class="doccomment">/// ## `arg2`</span>
-    <span class="doccomment">/// The number of rows inserted.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;row-inserted&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_row_inserted</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The &quot;row-inserted&quot; signal is emitted by an object which
+    /// implements the AtkTable interface when a row is inserted.
+    /// ## `arg1`
+    /// The index of the first row inserted.
+    /// ## `arg2`
+    /// The number of rows inserted.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;row-inserted&quot;</span>)]
+    </span><span class="kw">fn </span>connect_row_inserted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// The &quot;row-reordered&quot; signal is emitted by an object which</span>
-    <span class="doccomment">/// implements the AtkTable interface when the rows are</span>
-    <span class="doccomment">/// reordered.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;row-reordered&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_row_reordered</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The &quot;row-reordered&quot; signal is emitted by an object which
+    /// implements the AtkTable interface when the rows are
+    /// reordered.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;row-reordered&quot;</span>)]
+    </span><span class="kw">fn </span>connect_row_reordered&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Table</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">TableExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">add_column_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_table_add_column_selection</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">column</span>,
+<span class="kw">impl</span>&lt;O: IsA&lt;Table&gt;&gt; TableExt <span class="kw">for </span>O {
+    <span class="kw">fn </span>add_column_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_table_add_column_selection(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                column,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">add_row_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_table_add_row_selection</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">row</span>,
+    <span class="kw">fn </span>add_row_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_table_add_row_selection(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                row,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">caption</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::atk_table_get_caption</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="kw">fn </span>caption(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt; {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::atk_table_get_caption(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="kw">fn</span> <span class="ident">column_at_index</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">index_</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_table_get_column_at_index</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">index_</span>) }
+    <span class="kw">fn </span>column_at_index(<span class="kw-2">&amp;</span><span class="self">self</span>, index_: i32) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_table_get_column_at_index(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, index_) }
     }
 
-    <span class="kw">fn</span> <span class="ident">column_description</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::atk_table_get_column_description</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">column</span>,
+    <span class="kw">fn </span>column_description(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::atk_table_get_column_description(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                column,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">column_extent_at</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_table_get_column_extent_at</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">row</span>, <span class="ident">column</span>) }
+    <span class="kw">fn </span>column_extent_at(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, column: i32) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_table_get_column_extent_at(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, row, column) }
     }
 
-    <span class="kw">fn</span> <span class="ident">column_header</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::atk_table_get_column_header</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">column</span>,
+    <span class="kw">fn </span>column_header(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::atk_table_get_column_header(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                column,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">index_at</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_table_get_index_at</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">row</span>, <span class="ident">column</span>) }
+    <span class="kw">fn </span>index_at(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, column: i32) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_table_get_index_at(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, row, column) }
     }
 
-    <span class="kw">fn</span> <span class="ident">n_columns</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_table_get_n_columns</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">fn </span>n_columns(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_table_get_n_columns(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">n_rows</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_table_get_n_rows</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">fn </span>n_rows(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_table_get_n_rows(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">row_at_index</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">index_</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_table_get_row_at_index</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">index_</span>) }
+    <span class="kw">fn </span>row_at_index(<span class="kw-2">&amp;</span><span class="self">self</span>, index_: i32) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_table_get_row_at_index(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, index_) }
     }
 
-    <span class="kw">fn</span> <span class="ident">row_description</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::atk_table_get_row_description</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">row</span>,
+    <span class="kw">fn </span>row_description(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::atk_table_get_row_description(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                row,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">row_extent_at</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_table_get_row_extent_at</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">row</span>, <span class="ident">column</span>) }
+    <span class="kw">fn </span>row_extent_at(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, column: i32) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_table_get_row_extent_at(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, row, column) }
     }
 
-    <span class="kw">fn</span> <span class="ident">row_header</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::atk_table_get_row_header</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">row</span>,
+    <span class="kw">fn </span>row_header(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::atk_table_get_row_header(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                row,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">summary</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::atk_table_get_summary</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="kw">fn </span>summary(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt; {
+        <span class="kw">unsafe </span>{ from_glib_full(ffi::atk_table_get_summary(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="kw">fn</span> <span class="ident">is_column_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_table_is_column_selected</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">column</span>,
+    <span class="kw">fn </span>is_column_selected(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_table_is_column_selected(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                column,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">is_row_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_table_is_row_selected</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">row</span>,
+    <span class="kw">fn </span>is_row_selected(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_table_is_row_selected(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                row,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">is_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_table_is_selected</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">row</span>,
-                <span class="ident">column</span>,
+    <span class="kw">fn </span>is_selected(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, column: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_table_is_selected(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                row,
+                column,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">ref_at</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::atk_table_ref_at</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">row</span>,
-                <span class="ident">column</span>,
+    <span class="kw">fn </span>ref_at(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, column: i32) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::atk_table_ref_at(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                row,
+                column,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">remove_column_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_table_remove_column_selection</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">column</span>,
+    <span class="kw">fn </span>remove_column_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_table_remove_column_selection(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                column,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">remove_row_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_table_remove_row_selection</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">row</span>,
+    <span class="kw">fn </span>remove_row_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_table_remove_row_selection(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                row,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_caption</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">caption</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_table_set_caption</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">caption</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>set_caption(<span class="kw-2">&amp;</span><span class="self">self</span>, caption: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::atk_table_set_caption(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                caption.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_column_description</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>, <span class="ident">description</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_table_set_column_description</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">column</span>,
-                <span class="ident">description</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>set_column_description(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32, description: <span class="kw-2">&amp;</span>str) {
+        <span class="kw">unsafe </span>{
+            ffi::atk_table_set_column_description(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                column,
+                description.to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_column_header</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>, <span class="ident">header</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_table_set_column_header</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">column</span>,
-                <span class="ident">header</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>set_column_header(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32, header: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::atk_table_set_column_header(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                column,
+                header.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_row_description</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">description</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_table_set_row_description</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">row</span>,
-                <span class="ident">description</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>set_row_description(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, description: <span class="kw-2">&amp;</span>str) {
+        <span class="kw">unsafe </span>{
+            ffi::atk_table_set_row_description(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                row,
+                description.to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_row_header</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">row</span>: <span class="ident">i32</span>, <span class="ident">header</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_table_set_row_header</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">row</span>,
-                <span class="ident">header</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>set_row_header(<span class="kw-2">&amp;</span><span class="self">self</span>, row: i32, header: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::atk_table_set_row_header(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                row,
+                header.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_summary</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">accessible</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_table_set_summary</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">accessible</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>set_summary(<span class="kw-2">&amp;</span><span class="self">self</span>, accessible: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Object&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::atk_table_set_summary(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                accessible.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_column_deleted</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">column_deleted_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Table</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkTable</span>,
-            <span class="ident">arg1</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">arg2</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_column_deleted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>column_deleted_trampoline&lt;
+            P: IsA&lt;Table&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, i32, i32) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkTable,
+            arg1: libc::c_int,
+            arg2: libc::c_int,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Table::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(), <span class="ident">arg1</span>, <span class="ident">arg2</span>)
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Table::from_glib_borrow(this).unsafe_cast_ref(), arg1, arg2)
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;column-deleted\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">column_deleted_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;column-deleted\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    column_deleted_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_column_inserted</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">column_inserted_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Table</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkTable</span>,
-            <span class="ident">arg1</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">arg2</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_column_inserted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>column_inserted_trampoline&lt;
+            P: IsA&lt;Table&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, i32, i32) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkTable,
+            arg1: libc::c_int,
+            arg2: libc::c_int,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Table::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(), <span class="ident">arg1</span>, <span class="ident">arg2</span>)
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Table::from_glib_borrow(this).unsafe_cast_ref(), arg1, arg2)
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;column-inserted\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">column_inserted_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;column-inserted\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    column_inserted_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_column_reordered</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">column_reordered_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Table</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkTable</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_column_reordered&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>column_reordered_trampoline&lt;P: IsA&lt;Table&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkTable,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Table::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Table::from_glib_borrow(this).unsafe_cast_ref())
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;column-reordered\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">column_reordered_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;column-reordered\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    column_reordered_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_model_changed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">model_changed_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Table</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkTable</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_model_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>model_changed_trampoline&lt;P: IsA&lt;Table&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkTable,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Table::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Table::from_glib_borrow(this).unsafe_cast_ref())
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;model-changed\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">model_changed_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;model-changed\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    model_changed_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_row_deleted</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">row_deleted_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Table</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkTable</span>,
-            <span class="ident">arg1</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">arg2</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_row_deleted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>row_deleted_trampoline&lt;
+            P: IsA&lt;Table&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, i32, i32) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkTable,
+            arg1: libc::c_int,
+            arg2: libc::c_int,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Table::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(), <span class="ident">arg1</span>, <span class="ident">arg2</span>)
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Table::from_glib_borrow(this).unsafe_cast_ref(), arg1, arg2)
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;row-deleted\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">row_deleted_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;row-deleted\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    row_deleted_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_row_inserted</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">row_inserted_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Table</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkTable</span>,
-            <span class="ident">arg1</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">arg2</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_row_inserted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>row_inserted_trampoline&lt;
+            P: IsA&lt;Table&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, i32, i32) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkTable,
+            arg1: libc::c_int,
+            arg2: libc::c_int,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Table::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(), <span class="ident">arg1</span>, <span class="ident">arg2</span>)
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Table::from_glib_borrow(this).unsafe_cast_ref(), arg1, arg2)
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;row-inserted\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">row_inserted_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;row-inserted\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    row_inserted_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_row_reordered</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">row_reordered_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Table</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkTable</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_row_reordered&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>row_reordered_trampoline&lt;P: IsA&lt;Table&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkTable,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Table::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Table::from_glib_borrow(this).unsafe_cast_ref())
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;row-reordered\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">row_reordered_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;row-reordered\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    row_reordered_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Table</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Table&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>Table {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;Table&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

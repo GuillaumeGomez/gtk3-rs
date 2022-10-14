@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/text.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/text.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -999,928 +993,927 @@
 <span id="920">920</span>
 <span id="921">921</span>
 <span id="922">922</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::CoordType</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_32&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_32&quot;</span>)))]</span>
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ScrollType</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::TextBoundary</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::TextClipType</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::TextGranularity</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::TextRange</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::TextRectangle</span>;
-<span class="kw">use</span> <span class="ident">glib::object::Cast</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::connect_raw</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::SignalHandlerId</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem</span>;
-<span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::CoordType;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_32&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_32&quot;</span>)))]
+</span><span class="kw">use </span><span class="kw">crate</span>::ScrollType;
+<span class="kw">use </span><span class="kw">crate</span>::TextBoundary;
+<span class="kw">use </span><span class="kw">crate</span>::TextClipType;
+<span class="kw">use </span><span class="kw">crate</span>::TextGranularity;
+<span class="kw">use </span><span class="kw">crate</span>::TextRange;
+<span class="kw">use </span><span class="kw">crate</span>::TextRectangle;
+<span class="kw">use </span>glib::object::Cast;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::signal::connect_raw;
+<span class="kw">use </span>glib::signal::SignalHandlerId;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem;
+<span class="kw">use </span>std::mem::transmute;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// [`Text`][crate::Text] should be implemented by `AtkObjects` on behalf of widgets</span>
-    <span class="doccomment">/// that have text content which is either attributed or otherwise</span>
-    <span class="doccomment">/// non-trivial. `AtkObjects` whose text content is simple,</span>
-    <span class="doccomment">/// unattributed, and very brief may expose that content via</span>
-    <span class="doccomment">/// `atk_object_get_name` instead; however if the text is editable,</span>
-    <span class="doccomment">/// multi-line, typically longer than three or four words, attributed,</span>
-    <span class="doccomment">/// selectable, or if the object already uses the &#39;name&#39; ATK property</span>
-    <span class="doccomment">/// for other information, the [`Text`][crate::Text] interface should be used to</span>
-    <span class="doccomment">/// expose the text content. In the case of editable text content,</span>
-    <span class="doccomment">/// [`EditableText`][crate::EditableText] (a subtype of the [`Text`][crate::Text] interface) should be</span>
-    <span class="doccomment">/// implemented instead.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  [`Text`][crate::Text] provides not only traversal facilities and change</span>
-    <span class="doccomment">/// notification for text content, but also caret tracking and glyph</span>
-    <span class="doccomment">/// bounding box calculations. Note that the text strings are exposed</span>
-    <span class="doccomment">/// as UTF-8, and are therefore potentially multi-byte, and</span>
-    <span class="doccomment">/// caret-to-byte offset mapping makes no assumptions about the</span>
-    <span class="doccomment">/// character length; also bounding box glyph-to-offset mapping may be</span>
-    <span class="doccomment">/// complex for languages which use ligatures.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`TextExt`][trait@crate::prelude::TextExt]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;AtkText&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Text</span>(<span class="ident">Interface</span><span class="op">&lt;</span><span class="ident">ffi::AtkText</span>, <span class="ident">ffi::AtkTextIface</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// [`Text`][crate::Text] should be implemented by `AtkObjects` on behalf of widgets
+    /// that have text content which is either attributed or otherwise
+    /// non-trivial. `AtkObjects` whose text content is simple,
+    /// unattributed, and very brief may expose that content via
+    /// `atk_object_get_name` instead; however if the text is editable,
+    /// multi-line, typically longer than three or four words, attributed,
+    /// selectable, or if the object already uses the &#39;name&#39; ATK property
+    /// for other information, the [`Text`][crate::Text] interface should be used to
+    /// expose the text content. In the case of editable text content,
+    /// [`EditableText`][crate::EditableText] (a subtype of the [`Text`][crate::Text] interface) should be
+    /// implemented instead.
+    ///
+    ///  [`Text`][crate::Text] provides not only traversal facilities and change
+    /// notification for text content, but also caret tracking and glyph
+    /// bounding box calculations. Note that the text strings are exposed
+    /// as UTF-8, and are therefore potentially multi-byte, and
+    /// caret-to-byte offset mapping makes no assumptions about the
+    /// character length; also bounding box glyph-to-offset mapping may be
+    /// complex for languages which use ligatures.
+    ///
+    /// # Implements
+    ///
+    /// [`TextExt`][trait@crate::prelude::TextExt]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;AtkText&quot;</span>)]
+    </span><span class="kw">pub struct </span>Text(Interface&lt;ffi::AtkText, ffi::AtkTextIface&gt;);
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::atk_text_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::atk_text_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Text</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">Text</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+<span class="kw">impl </span>Text {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>Text&gt; = <span class="prelude-val">None</span>;
 }
 
-<span class="doccomment">/// Trait containing all [`struct@Text`] methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementors</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`NoOpObject`][struct@crate::NoOpObject], [`Text`][struct@crate::Text]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">TextExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Adds a selection bounded by the specified offsets.</span>
-    <span class="doccomment">/// ## `start_offset`</span>
-    <span class="doccomment">/// the starting character offset of the selected region</span>
-    <span class="doccomment">/// ## `end_offset`</span>
-    <span class="doccomment">/// the offset of the first character after the selected region.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if successful, [`false`] otherwise</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_add_selection&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">add_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_offset</span>: <span class="ident">i32</span>, <span class="ident">end_offset</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+<span class="doccomment">/// Trait containing all [`struct@Text`] methods.
+///
+/// # Implementors
+///
+/// [`NoOpObject`][struct@crate::NoOpObject], [`Text`][struct@crate::Text]
+</span><span class="kw">pub trait </span>TextExt: <span class="lifetime">&#39;static </span>{
+    <span class="doccomment">/// Adds a selection bounded by the specified offsets.
+    /// ## `start_offset`
+    /// the starting character offset of the selected region
+    /// ## `end_offset`
+    /// the offset of the first character after the selected region.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if successful, [`false`] otherwise
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_add_selection&quot;</span>)]
+    </span><span class="kw">fn </span>add_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, start_offset: i32, end_offset: i32) -&gt; bool;
 
-    <span class="doccomment">/// Get the ranges of text in the specified bounding box.</span>
-    <span class="doccomment">/// ## `rect`</span>
-    <span class="doccomment">/// An AtkTextRectangle giving the dimensions of the bounding box.</span>
-    <span class="doccomment">/// ## `coord_type`</span>
-    <span class="doccomment">/// Specify whether coordinates are relative to the screen or widget window.</span>
-    <span class="doccomment">/// ## `x_clip_type`</span>
-    <span class="doccomment">/// Specify the horizontal clip type.</span>
-    <span class="doccomment">/// ## `y_clip_type`</span>
-    <span class="doccomment">/// Specify the vertical clip type.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Array of AtkTextRange. The last</span>
-    <span class="doccomment">///  element of the array returned by this function will be NULL.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_bounded_ranges&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_bounded_ranges&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">bounded_ranges</span>(
+    <span class="doccomment">/// Get the ranges of text in the specified bounding box.
+    /// ## `rect`
+    /// An AtkTextRectangle giving the dimensions of the bounding box.
+    /// ## `coord_type`
+    /// Specify whether coordinates are relative to the screen or widget window.
+    /// ## `x_clip_type`
+    /// Specify the horizontal clip type.
+    /// ## `y_clip_type`
+    /// Specify the vertical clip type.
+    ///
+    /// # Returns
+    ///
+    /// Array of AtkTextRange. The last
+    ///  element of the array returned by this function will be NULL.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_bounded_ranges&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_bounded_ranges&quot;</span>)]
+    </span><span class="kw">fn </span>bounded_ranges(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">rect</span>: <span class="kw-2">&amp;mut</span> <span class="ident">TextRectangle</span>,
-        <span class="ident">coord_type</span>: <span class="ident">CoordType</span>,
-        <span class="ident">x_clip_type</span>: <span class="ident">TextClipType</span>,
-        <span class="ident">y_clip_type</span>: <span class="ident">TextClipType</span>,
-    ) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">TextRange</span><span class="op">&gt;</span>;
+        rect: <span class="kw-2">&amp;mut </span>TextRectangle,
+        coord_type: CoordType,
+        x_clip_type: TextClipType,
+        y_clip_type: TextClipType,
+    ) -&gt; Vec&lt;TextRange&gt;;
 
-    <span class="doccomment">/// Gets the offset of the position of the caret (cursor).</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the character offset of the position of the caret or -1 if</span>
-    <span class="doccomment">///  the caret is not located inside the element or in the case of</span>
-    <span class="doccomment">///  any other failure.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_caret_offset&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_caret_offset&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">caret_offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Gets the offset of the position of the caret (cursor).
+    ///
+    /// # Returns
+    ///
+    /// the character offset of the position of the caret or -1 if
+    ///  the caret is not located inside the element or in the case of
+    ///  any other failure.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_caret_offset&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_caret_offset&quot;</span>)]
+    </span><span class="kw">fn </span>caret_offset(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
-    <span class="doccomment">/// Gets the specified text.</span>
-    <span class="doccomment">/// ## `offset`</span>
-    <span class="doccomment">/// a character offset within `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the character at `offset` or 0 in the case of failure.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_character_at_offset&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_character_at_offset&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">character_at_offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>) -&gt; <span class="ident">char</span>;
+    <span class="doccomment">/// Gets the specified text.
+    /// ## `offset`
+    /// a character offset within `self`
+    ///
+    /// # Returns
+    ///
+    /// the character at `offset` or 0 in the case of failure.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_character_at_offset&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_character_at_offset&quot;</span>)]
+    </span><span class="kw">fn </span>character_at_offset(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32) -&gt; char;
 
-    <span class="doccomment">/// Gets the character count.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the number of characters or -1 in case of failure.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_character_count&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_character_count&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">character_count</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Gets the character count.
+    ///
+    /// # Returns
+    ///
+    /// the number of characters or -1 in case of failure.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_character_count&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_character_count&quot;</span>)]
+    </span><span class="kw">fn </span>character_count(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
-    <span class="doccomment">/// If the extent can not be obtained (e.g. missing support), all of x, y, width,</span>
-    <span class="doccomment">/// height are set to -1.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Get the bounding box containing the glyph representing the character at</span>
-    <span class="doccomment">///  a particular text offset.</span>
-    <span class="doccomment">/// ## `offset`</span>
-    <span class="doccomment">/// The offset of the text character for which bounding information is required.</span>
-    <span class="doccomment">/// ## `coords`</span>
-    <span class="doccomment">/// specify whether coordinates are relative to the screen or widget window</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// Pointer for the x coordinate of the bounding box</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// Pointer for the y coordinate of the bounding box</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `width`</span>
-    <span class="doccomment">/// Pointer for the width of the bounding box</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `height`</span>
-    <span class="doccomment">/// Pointer for the height of the bounding box</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_character_extents&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_character_extents&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">character_extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>, <span class="ident">coords</span>: <span class="ident">CoordType</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>);
+    <span class="doccomment">/// If the extent can not be obtained (e.g. missing support), all of x, y, width,
+    /// height are set to -1.
+    ///
+    /// Get the bounding box containing the glyph representing the character at
+    ///  a particular text offset.
+    /// ## `offset`
+    /// The offset of the text character for which bounding information is required.
+    /// ## `coords`
+    /// specify whether coordinates are relative to the screen or widget window
+    ///
+    /// # Returns
+    ///
+    ///
+    /// ## `x`
+    /// Pointer for the x coordinate of the bounding box
+    ///
+    /// ## `y`
+    /// Pointer for the y coordinate of the bounding box
+    ///
+    /// ## `width`
+    /// Pointer for the width of the bounding box
+    ///
+    /// ## `height`
+    /// Pointer for the height of the bounding box
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_character_extents&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_character_extents&quot;</span>)]
+    </span><span class="kw">fn </span>character_extents(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32, coords: CoordType) -&gt; (i32, i32, i32, i32);
 
-    <span class="comment">//#[doc(alias = &quot;atk_text_get_default_attributes&quot;)]</span>
-    <span class="comment">//#[doc(alias = &quot;get_default_attributes&quot;)]</span>
-    <span class="comment">//fn default_attributes(&amp;self) -&gt; /*Ignored*/Option&lt;AttributeSet&gt;;</span>
+    <span class="comment">//#[doc(alias = &quot;atk_text_get_default_attributes&quot;)]
+    //#[doc(alias = &quot;get_default_attributes&quot;)]
+    //fn default_attributes(&amp;self) -&gt; /*Ignored*/Option&lt;AttributeSet&gt;;
 
-    <span class="doccomment">/// Gets the number of selected regions.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The number of selected regions, or -1 in the case of failure.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_n_selections&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_n_selections&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">n_selections</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
+    </span><span class="doccomment">/// Gets the number of selected regions.
+    ///
+    /// # Returns
+    ///
+    /// The number of selected regions, or -1 in the case of failure.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_n_selections&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_n_selections&quot;</span>)]
+    </span><span class="kw">fn </span>n_selections(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
-    <span class="doccomment">/// Gets the offset of the character located at coordinates `x` and `y`. `x` and `y`</span>
-    <span class="doccomment">/// are interpreted as being relative to the screen or this widget&#39;s window</span>
-    <span class="doccomment">/// depending on `coords`.</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// screen x-position of character</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// screen y-position of character</span>
-    <span class="doccomment">/// ## `coords`</span>
-    <span class="doccomment">/// specify whether coordinates are relative to the screen or</span>
-    <span class="doccomment">/// widget window</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the offset to the character which is located at the specified</span>
-    <span class="doccomment">///  `x` and `y` coordinates of -1 in case of failure.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_offset_at_point&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_offset_at_point&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">offset_at_point</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">coords</span>: <span class="ident">CoordType</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Gets the offset of the character located at coordinates `x` and `y`. `x` and `y`
+    /// are interpreted as being relative to the screen or this widget&#39;s window
+    /// depending on `coords`.
+    /// ## `x`
+    /// screen x-position of character
+    /// ## `y`
+    /// screen y-position of character
+    /// ## `coords`
+    /// specify whether coordinates are relative to the screen or
+    /// widget window
+    ///
+    /// # Returns
+    ///
+    /// the offset to the character which is located at the specified
+    ///  `x` and `y` coordinates of -1 in case of failure.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_offset_at_point&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_offset_at_point&quot;</span>)]
+    </span><span class="kw">fn </span>offset_at_point(<span class="kw-2">&amp;</span><span class="self">self</span>, x: i32, y: i32, coords: CoordType) -&gt; i32;
 
-    <span class="doccomment">/// Get the bounding box for text within the specified range.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the extents can not be obtained (e.g. or missing support), the rectangle</span>
-    <span class="doccomment">/// fields are set to -1.</span>
-    <span class="doccomment">/// ## `start_offset`</span>
-    <span class="doccomment">/// The offset of the first text character for which boundary</span>
-    <span class="doccomment">///  information is required.</span>
-    <span class="doccomment">/// ## `end_offset`</span>
-    <span class="doccomment">/// The offset of the text character after the last character</span>
-    <span class="doccomment">///  for which boundary information is required.</span>
-    <span class="doccomment">/// ## `coord_type`</span>
-    <span class="doccomment">/// Specify whether coordinates are relative to the screen or widget window.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `rect`</span>
-    <span class="doccomment">/// A pointer to a AtkTextRectangle which is filled in by this function.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_range_extents&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_range_extents&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">range_extents</span>(
+    <span class="doccomment">/// Get the bounding box for text within the specified range.
+    ///
+    /// If the extents can not be obtained (e.g. or missing support), the rectangle
+    /// fields are set to -1.
+    /// ## `start_offset`
+    /// The offset of the first text character for which boundary
+    ///  information is required.
+    /// ## `end_offset`
+    /// The offset of the text character after the last character
+    ///  for which boundary information is required.
+    /// ## `coord_type`
+    /// Specify whether coordinates are relative to the screen or widget window.
+    ///
+    /// # Returns
+    ///
+    ///
+    /// ## `rect`
+    /// A pointer to a AtkTextRectangle which is filled in by this function.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_range_extents&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_range_extents&quot;</span>)]
+    </span><span class="kw">fn </span>range_extents(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">start_offset</span>: <span class="ident">i32</span>,
-        <span class="ident">end_offset</span>: <span class="ident">i32</span>,
-        <span class="ident">coord_type</span>: <span class="ident">CoordType</span>,
-    ) -&gt; <span class="ident">TextRectangle</span>;
+        start_offset: i32,
+        end_offset: i32,
+        coord_type: CoordType,
+    ) -&gt; TextRectangle;
 
-    <span class="comment">//#[doc(alias = &quot;atk_text_get_run_attributes&quot;)]</span>
-    <span class="comment">//#[doc(alias = &quot;get_run_attributes&quot;)]</span>
-    <span class="comment">//fn run_attributes(&amp;self, offset: i32) -&gt; (/*Ignored*/AttributeSet, i32, i32);</span>
+    <span class="comment">//#[doc(alias = &quot;atk_text_get_run_attributes&quot;)]
+    //#[doc(alias = &quot;get_run_attributes&quot;)]
+    //fn run_attributes(&amp;self, offset: i32) -&gt; (/*Ignored*/AttributeSet, i32, i32);
 
-    <span class="doccomment">/// Gets the text from the specified selection.</span>
-    <span class="doccomment">/// ## `selection_num`</span>
-    <span class="doccomment">/// The selection number. The selected regions are</span>
-    <span class="doccomment">/// assigned numbers that correspond to how far the region is from the</span>
-    <span class="doccomment">/// start of the text. The selected region closest to the beginning</span>
-    <span class="doccomment">/// of the text region is assigned the number 0, etc. Note that adding,</span>
-    <span class="doccomment">/// moving or deleting a selected region can change the numbering.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a newly allocated string containing the selected text. Use `g_free()`</span>
-    <span class="doccomment">///  to free the returned string.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `start_offset`</span>
-    <span class="doccomment">/// passes back the starting character offset of the selected region</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `end_offset`</span>
-    <span class="doccomment">/// passes back the ending character offset (offset immediately past)</span>
-    <span class="doccomment">/// of the selected region</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_selection&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_selection&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">selection_num</span>: <span class="ident">i32</span>) -&gt; (<span class="ident">glib::GString</span>, <span class="ident">i32</span>, <span class="ident">i32</span>);
+    </span><span class="doccomment">/// Gets the text from the specified selection.
+    /// ## `selection_num`
+    /// The selection number. The selected regions are
+    /// assigned numbers that correspond to how far the region is from the
+    /// start of the text. The selected region closest to the beginning
+    /// of the text region is assigned the number 0, etc. Note that adding,
+    /// moving or deleting a selected region can change the numbering.
+    ///
+    /// # Returns
+    ///
+    /// a newly allocated string containing the selected text. Use `g_free()`
+    ///  to free the returned string.
+    ///
+    /// ## `start_offset`
+    /// passes back the starting character offset of the selected region
+    ///
+    /// ## `end_offset`
+    /// passes back the ending character offset (offset immediately past)
+    /// of the selected region
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_selection&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_selection&quot;</span>)]
+    </span><span class="kw">fn </span>selection(<span class="kw-2">&amp;</span><span class="self">self</span>, selection_num: i32) -&gt; (glib::GString, i32, i32);
 
-    <span class="doccomment">/// Gets a portion of the text exposed through an [`Text`][crate::Text] according to a given `offset`</span>
-    <span class="doccomment">/// and a specific `granularity`, along with the start and end offsets defining the</span>
-    <span class="doccomment">/// boundaries of such a portion of text.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If `granularity` is ATK_TEXT_GRANULARITY_CHAR the character at the</span>
-    <span class="doccomment">/// offset is returned.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If `granularity` is ATK_TEXT_GRANULARITY_WORD the returned string</span>
-    <span class="doccomment">/// is from the word start at or before the offset to the word start after</span>
-    <span class="doccomment">/// the offset.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The returned string will contain the word at the offset if the offset</span>
-    <span class="doccomment">/// is inside a word and will contain the word before the offset if the</span>
-    <span class="doccomment">/// offset is not inside a word.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If `granularity` is ATK_TEXT_GRANULARITY_SENTENCE the returned string</span>
-    <span class="doccomment">/// is from the sentence start at or before the offset to the sentence</span>
-    <span class="doccomment">/// start after the offset.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The returned string will contain the sentence at the offset if the offset</span>
-    <span class="doccomment">/// is inside a sentence and will contain the sentence before the offset</span>
-    <span class="doccomment">/// if the offset is not inside a sentence.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If `granularity` is ATK_TEXT_GRANULARITY_LINE the returned string</span>
-    <span class="doccomment">/// is from the line start at or before the offset to the line</span>
-    <span class="doccomment">/// start after the offset.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If `granularity` is ATK_TEXT_GRANULARITY_PARAGRAPH the returned string</span>
-    <span class="doccomment">/// is from the start of the paragraph at or before the offset to the start</span>
-    <span class="doccomment">/// of the following paragraph after the offset.</span>
-    <span class="doccomment">/// ## `offset`</span>
-    <span class="doccomment">/// position</span>
-    <span class="doccomment">/// ## `granularity`</span>
-    <span class="doccomment">/// An [`TextGranularity`][crate::TextGranularity]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a newly allocated string containing the text at</span>
-    <span class="doccomment">///  the `offset` bounded by the specified `granularity`. Use `g_free()`</span>
-    <span class="doccomment">///  to free the returned string. Returns [`None`] if the offset is invalid</span>
-    <span class="doccomment">///  or no implementation is available.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `start_offset`</span>
-    <span class="doccomment">/// the starting character offset of the returned string, or -1</span>
-    <span class="doccomment">///  in the case of error (e.g. invalid offset, not implemented)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `end_offset`</span>
-    <span class="doccomment">/// the offset of the first character after the returned string,</span>
-    <span class="doccomment">///  or -1 in the case of error (e.g. invalid offset, not implemented)</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_string_at_offset&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_string_at_offset&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">string_at_offset</span>(
+    <span class="doccomment">/// Gets a portion of the text exposed through an [`Text`][crate::Text] according to a given `offset`
+    /// and a specific `granularity`, along with the start and end offsets defining the
+    /// boundaries of such a portion of text.
+    ///
+    /// If `granularity` is ATK_TEXT_GRANULARITY_CHAR the character at the
+    /// offset is returned.
+    ///
+    /// If `granularity` is ATK_TEXT_GRANULARITY_WORD the returned string
+    /// is from the word start at or before the offset to the word start after
+    /// the offset.
+    ///
+    /// The returned string will contain the word at the offset if the offset
+    /// is inside a word and will contain the word before the offset if the
+    /// offset is not inside a word.
+    ///
+    /// If `granularity` is ATK_TEXT_GRANULARITY_SENTENCE the returned string
+    /// is from the sentence start at or before the offset to the sentence
+    /// start after the offset.
+    ///
+    /// The returned string will contain the sentence at the offset if the offset
+    /// is inside a sentence and will contain the sentence before the offset
+    /// if the offset is not inside a sentence.
+    ///
+    /// If `granularity` is ATK_TEXT_GRANULARITY_LINE the returned string
+    /// is from the line start at or before the offset to the line
+    /// start after the offset.
+    ///
+    /// If `granularity` is ATK_TEXT_GRANULARITY_PARAGRAPH the returned string
+    /// is from the start of the paragraph at or before the offset to the start
+    /// of the following paragraph after the offset.
+    /// ## `offset`
+    /// position
+    /// ## `granularity`
+    /// An [`TextGranularity`][crate::TextGranularity]
+    ///
+    /// # Returns
+    ///
+    /// a newly allocated string containing the text at
+    ///  the `offset` bounded by the specified `granularity`. Use `g_free()`
+    ///  to free the returned string. Returns [`None`] if the offset is invalid
+    ///  or no implementation is available.
+    ///
+    /// ## `start_offset`
+    /// the starting character offset of the returned string, or -1
+    ///  in the case of error (e.g. invalid offset, not implemented)
+    ///
+    /// ## `end_offset`
+    /// the offset of the first character after the returned string,
+    ///  or -1 in the case of error (e.g. invalid offset, not implemented)
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_string_at_offset&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_string_at_offset&quot;</span>)]
+    </span><span class="kw">fn </span>string_at_offset(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">offset</span>: <span class="ident">i32</span>,
-        <span class="ident">granularity</span>: <span class="ident">TextGranularity</span>,
-    ) -&gt; (<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>, <span class="ident">i32</span>, <span class="ident">i32</span>);
+        offset: i32,
+        granularity: TextGranularity,
+    ) -&gt; (<span class="prelude-ty">Option</span>&lt;glib::GString&gt;, i32, i32);
 
-    <span class="doccomment">/// Gets the specified text.</span>
-    <span class="doccomment">/// ## `start_offset`</span>
-    <span class="doccomment">/// a starting character offset within `self`</span>
-    <span class="doccomment">/// ## `end_offset`</span>
-    <span class="doccomment">/// an ending character offset within `self`, or -1 for the end of the string.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a newly allocated string containing the text from `start_offset` up</span>
-    <span class="doccomment">///  to, but not including `end_offset`. Use `g_free()` to free the returned</span>
-    <span class="doccomment">///  string.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_text&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_text&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_offset</span>: <span class="ident">i32</span>, <span class="ident">end_offset</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets the specified text.
+    /// ## `start_offset`
+    /// a starting character offset within `self`
+    /// ## `end_offset`
+    /// an ending character offset within `self`, or -1 for the end of the string.
+    ///
+    /// # Returns
+    ///
+    /// a newly allocated string containing the text from `start_offset` up
+    ///  to, but not including `end_offset`. Use `g_free()` to free the returned
+    ///  string.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_text&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_text&quot;</span>)]
+    </span><span class="kw">fn </span>text(<span class="kw-2">&amp;</span><span class="self">self</span>, start_offset: i32, end_offset: i32) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
-    <span class="doccomment">/// Gets the specified text.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the boundary_type if ATK_TEXT_BOUNDARY_CHAR the character at the</span>
-    <span class="doccomment">/// offset is returned.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the boundary_type is ATK_TEXT_BOUNDARY_WORD_START the returned string</span>
-    <span class="doccomment">/// is from the word start at or before the offset to the word start after</span>
-    <span class="doccomment">/// the offset.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The returned string will contain the word at the offset if the offset</span>
-    <span class="doccomment">/// is inside a word and will contain the word before the offset if the</span>
-    <span class="doccomment">/// offset is not inside a word.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the boundary type is ATK_TEXT_BOUNDARY_SENTENCE_START the returned</span>
-    <span class="doccomment">/// string is from the sentence start at or before the offset to the sentence</span>
-    <span class="doccomment">/// start after the offset.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The returned string will contain the sentence at the offset if the offset</span>
-    <span class="doccomment">/// is inside a sentence and will contain the sentence before the offset</span>
-    <span class="doccomment">/// if the offset is not inside a sentence.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the boundary type is ATK_TEXT_BOUNDARY_LINE_START the returned</span>
-    <span class="doccomment">/// string is from the line start at or before the offset to the line</span>
-    <span class="doccomment">/// start after the offset.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Deprecated</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method is deprecated since ATK version</span>
-    <span class="doccomment">/// 2.9.4. Please use [`string_at_offset()`][Self::string_at_offset()] instead.</span>
-    <span class="doccomment">/// ## `offset`</span>
-    <span class="doccomment">/// position</span>
-    <span class="doccomment">/// ## `boundary_type`</span>
-    <span class="doccomment">/// An [`TextBoundary`][crate::TextBoundary]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a newly allocated string containing the text at `offset` bounded</span>
-    <span class="doccomment">///  by the specified `boundary_type`. Use `g_free()` to free the returned</span>
-    <span class="doccomment">///  string.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `start_offset`</span>
-    <span class="doccomment">/// the starting character offset of the returned string</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `end_offset`</span>
-    <span class="doccomment">/// the offset of the first character after the</span>
-    <span class="doccomment">///  returned substring</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_get_text_at_offset&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_text_at_offset&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">text_at_offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>, <span class="ident">boundary_type</span>: <span class="ident">TextBoundary</span>)
-        -&gt; (<span class="ident">glib::GString</span>, <span class="ident">i32</span>, <span class="ident">i32</span>);
+    <span class="doccomment">/// Gets the specified text.
+    ///
+    /// If the boundary_type if ATK_TEXT_BOUNDARY_CHAR the character at the
+    /// offset is returned.
+    ///
+    /// If the boundary_type is ATK_TEXT_BOUNDARY_WORD_START the returned string
+    /// is from the word start at or before the offset to the word start after
+    /// the offset.
+    ///
+    /// The returned string will contain the word at the offset if the offset
+    /// is inside a word and will contain the word before the offset if the
+    /// offset is not inside a word.
+    ///
+    /// If the boundary type is ATK_TEXT_BOUNDARY_SENTENCE_START the returned
+    /// string is from the sentence start at or before the offset to the sentence
+    /// start after the offset.
+    ///
+    /// The returned string will contain the sentence at the offset if the offset
+    /// is inside a sentence and will contain the sentence before the offset
+    /// if the offset is not inside a sentence.
+    ///
+    /// If the boundary type is ATK_TEXT_BOUNDARY_LINE_START the returned
+    /// string is from the line start at or before the offset to the line
+    /// start after the offset.
+    ///
+    /// # Deprecated
+    ///
+    /// This method is deprecated since ATK version
+    /// 2.9.4. Please use [`string_at_offset()`][Self::string_at_offset()] instead.
+    /// ## `offset`
+    /// position
+    /// ## `boundary_type`
+    /// An [`TextBoundary`][crate::TextBoundary]
+    ///
+    /// # Returns
+    ///
+    /// a newly allocated string containing the text at `offset` bounded
+    ///  by the specified `boundary_type`. Use `g_free()` to free the returned
+    ///  string.
+    ///
+    /// ## `start_offset`
+    /// the starting character offset of the returned string
+    ///
+    /// ## `end_offset`
+    /// the offset of the first character after the
+    ///  returned substring
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_get_text_at_offset&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_text_at_offset&quot;</span>)]
+    </span><span class="kw">fn </span>text_at_offset(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32, boundary_type: TextBoundary)
+        -&gt; (glib::GString, i32, i32);
 
-    <span class="doccomment">/// Removes the specified selection.</span>
-    <span class="doccomment">/// ## `selection_num`</span>
-    <span class="doccomment">/// The selection number. The selected regions are</span>
-    <span class="doccomment">/// assigned numbers that correspond to how far the region is from the</span>
-    <span class="doccomment">/// start of the text. The selected region closest to the beginning</span>
-    <span class="doccomment">/// of the text region is assigned the number 0, etc. Note that adding,</span>
-    <span class="doccomment">/// moving or deleting a selected region can change the numbering.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if successful, [`false`] otherwise</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_remove_selection&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">remove_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">selection_num</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Removes the specified selection.
+    /// ## `selection_num`
+    /// The selection number. The selected regions are
+    /// assigned numbers that correspond to how far the region is from the
+    /// start of the text. The selected region closest to the beginning
+    /// of the text region is assigned the number 0, etc. Note that adding,
+    /// moving or deleting a selected region can change the numbering.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if successful, [`false`] otherwise
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_remove_selection&quot;</span>)]
+    </span><span class="kw">fn </span>remove_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, selection_num: i32) -&gt; bool;
 
-    <span class="doccomment">/// Makes a substring of `self` visible on the screen by scrolling all necessary parents.</span>
-    <span class="doccomment">/// ## `start_offset`</span>
-    <span class="doccomment">/// start offset in the `self`</span>
-    <span class="doccomment">/// ## `end_offset`</span>
-    <span class="doccomment">/// end offset in the `self`, or -1 for the end of the text.</span>
-    <span class="doccomment">/// ## `type_`</span>
-    <span class="doccomment">/// specify where the object should be made visible.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// whether scrolling was successful.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_32&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_32&quot;</span>)))]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_scroll_substring_to&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">scroll_substring_to</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_offset</span>: <span class="ident">i32</span>, <span class="ident">end_offset</span>: <span class="ident">i32</span>, <span class="ident">type_</span>: <span class="ident">ScrollType</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Makes a substring of `self` visible on the screen by scrolling all necessary parents.
+    /// ## `start_offset`
+    /// start offset in the `self`
+    /// ## `end_offset`
+    /// end offset in the `self`, or -1 for the end of the text.
+    /// ## `type_`
+    /// specify where the object should be made visible.
+    ///
+    /// # Returns
+    ///
+    /// whether scrolling was successful.
+    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_32&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_32&quot;</span>)))]
+    #[doc(alias = <span class="string">&quot;atk_text_scroll_substring_to&quot;</span>)]
+    </span><span class="kw">fn </span>scroll_substring_to(<span class="kw-2">&amp;</span><span class="self">self</span>, start_offset: i32, end_offset: i32, type_: ScrollType) -&gt; bool;
 
-    <span class="doccomment">/// Move the top-left of a substring of `self` to a given position of the screen</span>
-    <span class="doccomment">/// by scrolling all necessary parents.</span>
-    <span class="doccomment">/// ## `start_offset`</span>
-    <span class="doccomment">/// start offset in the `self`</span>
-    <span class="doccomment">/// ## `end_offset`</span>
-    <span class="doccomment">/// end offset in the `self`, or -1 for the end of the text.</span>
-    <span class="doccomment">/// ## `coords`</span>
-    <span class="doccomment">/// specify whether coordinates are relative to the screen or to the</span>
-    <span class="doccomment">/// parent object.</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// x-position where to scroll to</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// y-position where to scroll to</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// whether scrolling was successful.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_32&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_32&quot;</span>)))]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_scroll_substring_to_point&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">scroll_substring_to_point</span>(
+    <span class="doccomment">/// Move the top-left of a substring of `self` to a given position of the screen
+    /// by scrolling all necessary parents.
+    /// ## `start_offset`
+    /// start offset in the `self`
+    /// ## `end_offset`
+    /// end offset in the `self`, or -1 for the end of the text.
+    /// ## `coords`
+    /// specify whether coordinates are relative to the screen or to the
+    /// parent object.
+    /// ## `x`
+    /// x-position where to scroll to
+    /// ## `y`
+    /// y-position where to scroll to
+    ///
+    /// # Returns
+    ///
+    /// whether scrolling was successful.
+    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_32&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_32&quot;</span>)))]
+    #[doc(alias = <span class="string">&quot;atk_text_scroll_substring_to_point&quot;</span>)]
+    </span><span class="kw">fn </span>scroll_substring_to_point(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">start_offset</span>: <span class="ident">i32</span>,
-        <span class="ident">end_offset</span>: <span class="ident">i32</span>,
-        <span class="ident">coords</span>: <span class="ident">CoordType</span>,
-        <span class="ident">x</span>: <span class="ident">i32</span>,
-        <span class="ident">y</span>: <span class="ident">i32</span>,
-    ) -&gt; <span class="ident">bool</span>;
+        start_offset: i32,
+        end_offset: i32,
+        coords: CoordType,
+        x: i32,
+        y: i32,
+    ) -&gt; bool;
 
-    <span class="doccomment">/// Sets the caret (cursor) position to the specified `offset`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// In the case of rich-text content, this method should either grab focus</span>
-    <span class="doccomment">/// or move the sequential focus navigation starting point (if the application</span>
-    <span class="doccomment">/// supports this concept) as if the user had clicked on the new caret position.</span>
-    <span class="doccomment">/// Typically, this means that the target of this operation is the node containing</span>
-    <span class="doccomment">/// the new caret position or one of its ancestors. In other words, after this</span>
-    <span class="doccomment">/// method is called, if the user advances focus, it should move to the first</span>
-    <span class="doccomment">/// focusable node following the new caret position.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Calling this method should also scroll the application viewport in a way</span>
-    <span class="doccomment">/// that matches the behavior of the application&#39;s typical caret motion or tab</span>
-    <span class="doccomment">/// navigation as closely as possible. This also means that if the application&#39;s</span>
-    <span class="doccomment">/// caret motion or focus navigation does not trigger a scroll operation, this</span>
-    <span class="doccomment">/// method should not trigger one either. If the application does not have a caret</span>
-    <span class="doccomment">/// motion or focus navigation operation, this method should try to scroll the new</span>
-    <span class="doccomment">/// caret position into view while minimizing unnecessary scroll motion.</span>
-    <span class="doccomment">/// ## `offset`</span>
-    <span class="doccomment">/// the character offset of the new caret position</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if successful, [`false`] otherwise.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_set_caret_offset&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_caret_offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Sets the caret (cursor) position to the specified `offset`.
+    ///
+    /// In the case of rich-text content, this method should either grab focus
+    /// or move the sequential focus navigation starting point (if the application
+    /// supports this concept) as if the user had clicked on the new caret position.
+    /// Typically, this means that the target of this operation is the node containing
+    /// the new caret position or one of its ancestors. In other words, after this
+    /// method is called, if the user advances focus, it should move to the first
+    /// focusable node following the new caret position.
+    ///
+    /// Calling this method should also scroll the application viewport in a way
+    /// that matches the behavior of the application&#39;s typical caret motion or tab
+    /// navigation as closely as possible. This also means that if the application&#39;s
+    /// caret motion or focus navigation does not trigger a scroll operation, this
+    /// method should not trigger one either. If the application does not have a caret
+    /// motion or focus navigation operation, this method should try to scroll the new
+    /// caret position into view while minimizing unnecessary scroll motion.
+    /// ## `offset`
+    /// the character offset of the new caret position
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if successful, [`false`] otherwise.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_set_caret_offset&quot;</span>)]
+    </span><span class="kw">fn </span>set_caret_offset(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32) -&gt; bool;
 
-    <span class="doccomment">/// Changes the start and end offset of the specified selection.</span>
-    <span class="doccomment">/// ## `selection_num`</span>
-    <span class="doccomment">/// The selection number. The selected regions are</span>
-    <span class="doccomment">/// assigned numbers that correspond to how far the region is from the</span>
-    <span class="doccomment">/// start of the text. The selected region closest to the beginning</span>
-    <span class="doccomment">/// of the text region is assigned the number 0, etc. Note that adding,</span>
-    <span class="doccomment">/// moving or deleting a selected region can change the numbering.</span>
-    <span class="doccomment">/// ## `start_offset`</span>
-    <span class="doccomment">/// the new starting character offset of the selection</span>
-    <span class="doccomment">/// ## `end_offset`</span>
-    <span class="doccomment">/// the new end position of (e.g. offset immediately past)</span>
-    <span class="doccomment">/// the selection</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if successful, [`false`] otherwise</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_text_set_selection&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">selection_num</span>: <span class="ident">i32</span>, <span class="ident">start_offset</span>: <span class="ident">i32</span>, <span class="ident">end_offset</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Changes the start and end offset of the specified selection.
+    /// ## `selection_num`
+    /// The selection number. The selected regions are
+    /// assigned numbers that correspond to how far the region is from the
+    /// start of the text. The selected region closest to the beginning
+    /// of the text region is assigned the number 0, etc. Note that adding,
+    /// moving or deleting a selected region can change the numbering.
+    /// ## `start_offset`
+    /// the new starting character offset of the selection
+    /// ## `end_offset`
+    /// the new end position of (e.g. offset immediately past)
+    /// the selection
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if successful, [`false`] otherwise
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_text_set_selection&quot;</span>)]
+    </span><span class="kw">fn </span>set_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, selection_num: i32, start_offset: i32, end_offset: i32) -&gt; bool;
 
-    <span class="doccomment">/// The &quot;text-attributes-changed&quot; signal is emitted when the text</span>
-    <span class="doccomment">/// attributes of the text of an object which implements AtkText</span>
-    <span class="doccomment">/// changes.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;text-attributes-changed&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_text_attributes_changed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The &quot;text-attributes-changed&quot; signal is emitted when the text
+    /// attributes of the text of an object which implements AtkText
+    /// changes.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;text-attributes-changed&quot;</span>)]
+    </span><span class="kw">fn </span>connect_text_attributes_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// The &quot;text-caret-moved&quot; signal is emitted when the caret</span>
-    <span class="doccomment">/// position of the text of an object which implements AtkText</span>
-    <span class="doccomment">/// changes.</span>
-    <span class="doccomment">/// ## `arg1`</span>
-    <span class="doccomment">/// The new position of the text caret.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;text-caret-moved&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_text_caret_moved</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The &quot;text-caret-moved&quot; signal is emitted when the caret
+    /// position of the text of an object which implements AtkText
+    /// changes.
+    /// ## `arg1`
+    /// The new position of the text caret.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;text-caret-moved&quot;</span>)]
+    </span><span class="kw">fn </span>connect_text_caret_moved&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// The &quot;text-insert&quot; signal is emitted when a new text is</span>
-    <span class="doccomment">/// inserted. If the signal was not triggered by the user</span>
-    <span class="doccomment">/// (e.g. typing or pasting text), the &quot;system&quot; detail should be</span>
-    <span class="doccomment">/// included.</span>
-    <span class="doccomment">/// ## `arg1`</span>
-    <span class="doccomment">/// The position (character offset) of the insertion.</span>
-    <span class="doccomment">/// ## `arg2`</span>
-    <span class="doccomment">/// The length (in characters) of text inserted.</span>
-    <span class="doccomment">/// ## `arg3`</span>
-    <span class="doccomment">/// The new text inserted</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;text-insert&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_text_insert</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="doccomment">/// The &quot;text-insert&quot; signal is emitted when a new text is
+    /// inserted. If the signal was not triggered by the user
+    /// (e.g. typing or pasting text), the &quot;system&quot; detail should be
+    /// included.
+    /// ## `arg1`
+    /// The position (character offset) of the insertion.
+    /// ## `arg2`
+    /// The length (in characters) of text inserted.
+    /// ## `arg3`
+    /// The new text inserted
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;text-insert&quot;</span>)]
+    </span><span class="kw">fn </span>connect_text_insert&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32, <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">detail</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="ident">SignalHandlerId</span>;
+        detail: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
+        f: F,
+    ) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// The &quot;text-remove&quot; signal is emitted when a new text is</span>
-    <span class="doccomment">/// removed. If the signal was not triggered by the user</span>
-    <span class="doccomment">/// (e.g. typing or pasting text), the &quot;system&quot; detail should be</span>
-    <span class="doccomment">/// included.</span>
-    <span class="doccomment">/// ## `arg1`</span>
-    <span class="doccomment">/// The position (character offset) of the removal.</span>
-    <span class="doccomment">/// ## `arg2`</span>
-    <span class="doccomment">/// The length (in characters) of text removed.</span>
-    <span class="doccomment">/// ## `arg3`</span>
-    <span class="doccomment">/// The old text removed</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;text-remove&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_text_remove</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="doccomment">/// The &quot;text-remove&quot; signal is emitted when a new text is
+    /// removed. If the signal was not triggered by the user
+    /// (e.g. typing or pasting text), the &quot;system&quot; detail should be
+    /// included.
+    /// ## `arg1`
+    /// The position (character offset) of the removal.
+    /// ## `arg2`
+    /// The length (in characters) of text removed.
+    /// ## `arg3`
+    /// The old text removed
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;text-remove&quot;</span>)]
+    </span><span class="kw">fn </span>connect_text_remove&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32, <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">detail</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="ident">SignalHandlerId</span>;
+        detail: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
+        f: F,
+    ) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// The &quot;text-selection-changed&quot; signal is emitted when the</span>
-    <span class="doccomment">/// selected text of an object which implements AtkText changes.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;text-selection-changed&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_text_selection_changed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The &quot;text-selection-changed&quot; signal is emitted when the
+    /// selected text of an object which implements AtkText changes.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;text-selection-changed&quot;</span>)]
+    </span><span class="kw">fn </span>connect_text_selection_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Text</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">TextExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">add_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_offset</span>: <span class="ident">i32</span>, <span class="ident">end_offset</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_text_add_selection</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">start_offset</span>,
-                <span class="ident">end_offset</span>,
+<span class="kw">impl</span>&lt;O: IsA&lt;Text&gt;&gt; TextExt <span class="kw">for </span>O {
+    <span class="kw">fn </span>add_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, start_offset: i32, end_offset: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_text_add_selection(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                start_offset,
+                end_offset,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">bounded_ranges</span>(
+    <span class="kw">fn </span>bounded_ranges(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">rect</span>: <span class="kw-2">&amp;mut</span> <span class="ident">TextRectangle</span>,
-        <span class="ident">coord_type</span>: <span class="ident">CoordType</span>,
-        <span class="ident">x_clip_type</span>: <span class="ident">TextClipType</span>,
-        <span class="ident">y_clip_type</span>: <span class="ident">TextClipType</span>,
-    ) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">TextRange</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">FromGlibPtrContainer::from_glib_full</span>(<span class="ident">ffi::atk_text_get_bounded_ranges</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">rect</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
-                <span class="ident">coord_type</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">x_clip_type</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">y_clip_type</span>.<span class="ident">into_glib</span>(),
+        rect: <span class="kw-2">&amp;mut </span>TextRectangle,
+        coord_type: CoordType,
+        x_clip_type: TextClipType,
+        y_clip_type: TextClipType,
+    ) -&gt; Vec&lt;TextRange&gt; {
+        <span class="kw">unsafe </span>{
+            FromGlibPtrContainer::from_glib_full(ffi::atk_text_get_bounded_ranges(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                rect.to_glib_none_mut().<span class="number">0</span>,
+                coord_type.into_glib(),
+                x_clip_type.into_glib(),
+                y_clip_type.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">caret_offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_text_get_caret_offset</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">fn </span>caret_offset(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_text_get_caret_offset(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">character_at_offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>) -&gt; <span class="ident">char</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">std::convert::TryFrom::try_from</span>(<span class="ident">ffi::atk_text_get_character_at_offset</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">offset</span>,
+    <span class="kw">fn </span>character_at_offset(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32) -&gt; char {
+        <span class="kw">unsafe </span>{
+            std::convert::TryFrom::try_from(ffi::atk_text_get_character_at_offset(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                offset,
             ))
-            .<span class="ident">expect</span>(<span class="string">&quot;conversion from an invalid Unicode value attempted&quot;</span>)
+            .expect(<span class="string">&quot;conversion from an invalid Unicode value attempted&quot;</span>)
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">character_count</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_text_get_character_count</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">fn </span>character_count(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_text_get_character_count(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">character_extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>, <span class="ident">coords</span>: <span class="ident">CoordType</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">width</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">height</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="ident">ffi::atk_text_get_character_extents</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">offset</span>,
-                <span class="ident">x</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">y</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">width</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">height</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">coords</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>character_extents(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32, coords: CoordType) -&gt; (i32, i32, i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>x = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>y = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>width = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>height = mem::MaybeUninit::uninit();
+            ffi::atk_text_get_character_extents(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                offset,
+                x.as_mut_ptr(),
+                y.as_mut_ptr(),
+                width.as_mut_ptr(),
+                height.as_mut_ptr(),
+                coords.into_glib(),
             );
             (
-                <span class="ident">x</span>.<span class="ident">assume_init</span>(),
-                <span class="ident">y</span>.<span class="ident">assume_init</span>(),
-                <span class="ident">width</span>.<span class="ident">assume_init</span>(),
-                <span class="ident">height</span>.<span class="ident">assume_init</span>(),
+                x.assume_init(),
+                y.assume_init(),
+                width.assume_init(),
+                height.assume_init(),
             )
         }
     }
 
-    <span class="comment">//fn default_attributes(&amp;self) -&gt; /*Ignored*/Option&lt;AttributeSet&gt; {</span>
-    <span class="comment">//    unsafe { TODO: call ffi:atk_text_get_default_attributes() }</span>
-    <span class="comment">//}</span>
+    <span class="comment">//fn default_attributes(&amp;self) -&gt; /*Ignored*/Option&lt;AttributeSet&gt; {
+    //    unsafe { TODO: call ffi:atk_text_get_default_attributes() }
+    //}
 
-    <span class="kw">fn</span> <span class="ident">n_selections</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_text_get_n_selections</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    </span><span class="kw">fn </span>n_selections(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_text_get_n_selections(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">offset_at_point</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">coords</span>: <span class="ident">CoordType</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_text_get_offset_at_point</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">x</span>,
-                <span class="ident">y</span>,
-                <span class="ident">coords</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>offset_at_point(<span class="kw-2">&amp;</span><span class="self">self</span>, x: i32, y: i32, coords: CoordType) -&gt; i32 {
+        <span class="kw">unsafe </span>{
+            ffi::atk_text_get_offset_at_point(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                x,
+                y,
+                coords.into_glib(),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">range_extents</span>(
+    <span class="kw">fn </span>range_extents(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">start_offset</span>: <span class="ident">i32</span>,
-        <span class="ident">end_offset</span>: <span class="ident">i32</span>,
-        <span class="ident">coord_type</span>: <span class="ident">CoordType</span>,
-    ) -&gt; <span class="ident">TextRectangle</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">TextRectangle::uninitialized</span>();
-            <span class="ident">ffi::atk_text_get_range_extents</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">start_offset</span>,
-                <span class="ident">end_offset</span>,
-                <span class="ident">coord_type</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">rect</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
+        start_offset: i32,
+        end_offset: i32,
+        coord_type: CoordType,
+    ) -&gt; TextRectangle {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>rect = TextRectangle::uninitialized();
+            ffi::atk_text_get_range_extents(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                start_offset,
+                end_offset,
+                coord_type.into_glib(),
+                rect.to_glib_none_mut().<span class="number">0</span>,
             );
-            <span class="ident">rect</span>
+            rect
         }
     }
 
-    <span class="comment">//fn run_attributes(&amp;self, offset: i32) -&gt; (/*Ignored*/AttributeSet, i32, i32) {</span>
-    <span class="comment">//    unsafe { TODO: call ffi:atk_text_get_run_attributes() }</span>
-    <span class="comment">//}</span>
+    <span class="comment">//fn run_attributes(&amp;self, offset: i32) -&gt; (/*Ignored*/AttributeSet, i32, i32) {
+    //    unsafe { TODO: call ffi:atk_text_get_run_attributes() }
+    //}
 
-    <span class="kw">fn</span> <span class="ident">selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">selection_num</span>: <span class="ident">i32</span>) -&gt; (<span class="ident">glib::GString</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">start_offset</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">end_offset</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">from_glib_full</span>(<span class="ident">ffi::atk_text_get_selection</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">selection_num</span>,
-                <span class="ident">start_offset</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">end_offset</span>.<span class="ident">as_mut_ptr</span>(),
+    </span><span class="kw">fn </span>selection(<span class="kw-2">&amp;</span><span class="self">self</span>, selection_num: i32) -&gt; (glib::GString, i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>start_offset = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>end_offset = mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = from_glib_full(ffi::atk_text_get_selection(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                selection_num,
+                start_offset.as_mut_ptr(),
+                end_offset.as_mut_ptr(),
             ));
-            (<span class="ident">ret</span>, <span class="ident">start_offset</span>.<span class="ident">assume_init</span>(), <span class="ident">end_offset</span>.<span class="ident">assume_init</span>())
+            (ret, start_offset.assume_init(), end_offset.assume_init())
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">string_at_offset</span>(
+    <span class="kw">fn </span>string_at_offset(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">offset</span>: <span class="ident">i32</span>,
-        <span class="ident">granularity</span>: <span class="ident">TextGranularity</span>,
-    ) -&gt; (<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">start_offset</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">end_offset</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">from_glib_full</span>(<span class="ident">ffi::atk_text_get_string_at_offset</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">offset</span>,
-                <span class="ident">granularity</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">start_offset</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">end_offset</span>.<span class="ident">as_mut_ptr</span>(),
+        offset: i32,
+        granularity: TextGranularity,
+    ) -&gt; (<span class="prelude-ty">Option</span>&lt;glib::GString&gt;, i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>start_offset = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>end_offset = mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = from_glib_full(ffi::atk_text_get_string_at_offset(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                offset,
+                granularity.into_glib(),
+                start_offset.as_mut_ptr(),
+                end_offset.as_mut_ptr(),
             ));
-            (<span class="ident">ret</span>, <span class="ident">start_offset</span>.<span class="ident">assume_init</span>(), <span class="ident">end_offset</span>.<span class="ident">assume_init</span>())
+            (ret, start_offset.assume_init(), end_offset.assume_init())
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_offset</span>: <span class="ident">i32</span>, <span class="ident">end_offset</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::atk_text_get_text</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">start_offset</span>,
-                <span class="ident">end_offset</span>,
+    <span class="kw">fn </span>text(<span class="kw-2">&amp;</span><span class="self">self</span>, start_offset: i32, end_offset: i32) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::atk_text_get_text(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                start_offset,
+                end_offset,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">text_at_offset</span>(
+    <span class="kw">fn </span>text_at_offset(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">offset</span>: <span class="ident">i32</span>,
-        <span class="ident">boundary_type</span>: <span class="ident">TextBoundary</span>,
-    ) -&gt; (<span class="ident">glib::GString</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">start_offset</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">end_offset</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">from_glib_full</span>(<span class="ident">ffi::atk_text_get_text_at_offset</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">offset</span>,
-                <span class="ident">boundary_type</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">start_offset</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">end_offset</span>.<span class="ident">as_mut_ptr</span>(),
+        offset: i32,
+        boundary_type: TextBoundary,
+    ) -&gt; (glib::GString, i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>start_offset = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>end_offset = mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = from_glib_full(ffi::atk_text_get_text_at_offset(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                offset,
+                boundary_type.into_glib(),
+                start_offset.as_mut_ptr(),
+                end_offset.as_mut_ptr(),
             ));
-            (<span class="ident">ret</span>, <span class="ident">start_offset</span>.<span class="ident">assume_init</span>(), <span class="ident">end_offset</span>.<span class="ident">assume_init</span>())
+            (ret, start_offset.assume_init(), end_offset.assume_init())
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">remove_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">selection_num</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_text_remove_selection</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">selection_num</span>,
+    <span class="kw">fn </span>remove_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, selection_num: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_text_remove_selection(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                selection_num,
             ))
         }
     }
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_32&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_32&quot;</span>)))]</span>
-    <span class="kw">fn</span> <span class="ident">scroll_substring_to</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_offset</span>: <span class="ident">i32</span>, <span class="ident">end_offset</span>: <span class="ident">i32</span>, <span class="ident">type_</span>: <span class="ident">ScrollType</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_text_scroll_substring_to</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">start_offset</span>,
-                <span class="ident">end_offset</span>,
-                <span class="ident">type_</span>.<span class="ident">into_glib</span>(),
+    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_32&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_32&quot;</span>)))]
+    </span><span class="kw">fn </span>scroll_substring_to(<span class="kw-2">&amp;</span><span class="self">self</span>, start_offset: i32, end_offset: i32, type_: ScrollType) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_text_scroll_substring_to(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                start_offset,
+                end_offset,
+                type_.into_glib(),
             ))
         }
     }
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_32&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_32&quot;</span>)))]</span>
-    <span class="kw">fn</span> <span class="ident">scroll_substring_to_point</span>(
+    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_32&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_32&quot;</span>)))]
+    </span><span class="kw">fn </span>scroll_substring_to_point(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">start_offset</span>: <span class="ident">i32</span>,
-        <span class="ident">end_offset</span>: <span class="ident">i32</span>,
-        <span class="ident">coords</span>: <span class="ident">CoordType</span>,
-        <span class="ident">x</span>: <span class="ident">i32</span>,
-        <span class="ident">y</span>: <span class="ident">i32</span>,
-    ) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_text_scroll_substring_to_point</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">start_offset</span>,
-                <span class="ident">end_offset</span>,
-                <span class="ident">coords</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">x</span>,
-                <span class="ident">y</span>,
+        start_offset: i32,
+        end_offset: i32,
+        coords: CoordType,
+        x: i32,
+        y: i32,
+    ) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_text_scroll_substring_to_point(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                start_offset,
+                end_offset,
+                coords.into_glib(),
+                x,
+                y,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_caret_offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_text_set_caret_offset</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">offset</span>,
+    <span class="kw">fn </span>set_caret_offset(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_text_set_caret_offset(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                offset,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">selection_num</span>: <span class="ident">i32</span>, <span class="ident">start_offset</span>: <span class="ident">i32</span>, <span class="ident">end_offset</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_text_set_selection</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">selection_num</span>,
-                <span class="ident">start_offset</span>,
-                <span class="ident">end_offset</span>,
+    <span class="kw">fn </span>set_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, selection_num: i32, start_offset: i32, end_offset: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_text_set_selection(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                selection_num,
+                start_offset,
+                end_offset,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_text_attributes_changed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">text_attributes_changed_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Text</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkText</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_text_attributes_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_attributes_changed_trampoline&lt;
+            P: IsA&lt;Text&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkText,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Text::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Text::from_glib_borrow(this).unsafe_cast_ref())
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;text-attributes-changed\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">text_attributes_changed_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;text-attributes-changed\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    text_attributes_changed_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_text_caret_moved</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">text_caret_moved_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Text</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">i32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkText</span>,
-            <span class="ident">arg1</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_text_caret_moved&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_caret_moved_trampoline&lt;P: IsA&lt;Text&gt;, F: Fn(<span class="kw-2">&amp;</span>P, i32) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkText,
+            arg1: libc::c_int,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Text::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(), <span class="ident">arg1</span>)
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Text::from_glib_borrow(this).unsafe_cast_ref(), arg1)
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;text-caret-moved\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">text_caret_moved_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;text-caret-moved\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    text_caret_moved_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_text_insert</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>connect_text_insert&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32, <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">detail</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">text_insert_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Text</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkText</span>,
-            <span class="ident">arg1</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">arg2</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">arg3</span>: <span class="kw-2">*mut</span> <span class="ident">libc::c_char</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+        detail: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
+        f: F,
+    ) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_insert_trampoline&lt;
+            P: IsA&lt;Text&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, i32, i32, <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkText,
+            arg1: libc::c_int,
+            arg2: libc::c_int,
+            arg3: <span class="kw-2">*mut </span>libc::c_char,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(
-                <span class="ident">Text::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
-                <span class="ident">arg1</span>,
-                <span class="ident">arg2</span>,
-                <span class="kw-2">&amp;</span><span class="ident">glib::GString::from_glib_borrow</span>(<span class="ident">arg3</span>),
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(
+                Text::from_glib_borrow(this).unsafe_cast_ref(),
+                arg1,
+                arg2,
+                <span class="kw-2">&amp;</span>glib::GString::from_glib_borrow(arg3),
             )
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="kw">let</span> <span class="ident">detailed_signal_name</span> <span class="op">=</span> <span class="ident">detail</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">name</span><span class="op">|</span> <span class="macro">format!</span>(<span class="string">&quot;text-insert::{}\0&quot;</span>, <span class="ident">name</span>));
-            <span class="kw">let</span> <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>] <span class="op">=</span> <span class="ident">detailed_signal_name</span>
-                .<span class="ident">as_ref</span>()
-                .<span class="ident">map_or</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;text-insert\0&quot;</span>[..], <span class="op">|</span><span class="ident">n</span><span class="op">|</span> <span class="ident">n</span>.<span class="ident">as_bytes</span>());
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="ident">signal_name</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">text_insert_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            <span class="kw">let </span>detailed_signal_name = detail.map(|name| <span class="macro">format!</span>(<span class="string">&quot;text-insert::{}\0&quot;</span>, name));
+            <span class="kw">let </span>signal_name: <span class="kw-2">&amp;</span>[u8] = detailed_signal_name
+                .as_ref()
+                .map_or(<span class="kw-2">&amp;</span><span class="string">b&quot;text-insert\0&quot;</span>[..], |n| n.as_bytes());
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                signal_name.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    text_insert_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_text_remove</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>connect_text_remove&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32, <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">detail</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">text_remove_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Text</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkText</span>,
-            <span class="ident">arg1</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">arg2</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">arg3</span>: <span class="kw-2">*mut</span> <span class="ident">libc::c_char</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+        detail: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
+        f: F,
+    ) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_remove_trampoline&lt;
+            P: IsA&lt;Text&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, i32, i32, <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkText,
+            arg1: libc::c_int,
+            arg2: libc::c_int,
+            arg3: <span class="kw-2">*mut </span>libc::c_char,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(
-                <span class="ident">Text::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
-                <span class="ident">arg1</span>,
-                <span class="ident">arg2</span>,
-                <span class="kw-2">&amp;</span><span class="ident">glib::GString::from_glib_borrow</span>(<span class="ident">arg3</span>),
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(
+                Text::from_glib_borrow(this).unsafe_cast_ref(),
+                arg1,
+                arg2,
+                <span class="kw-2">&amp;</span>glib::GString::from_glib_borrow(arg3),
             )
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="kw">let</span> <span class="ident">detailed_signal_name</span> <span class="op">=</span> <span class="ident">detail</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">name</span><span class="op">|</span> <span class="macro">format!</span>(<span class="string">&quot;text-remove::{}\0&quot;</span>, <span class="ident">name</span>));
-            <span class="kw">let</span> <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>] <span class="op">=</span> <span class="ident">detailed_signal_name</span>
-                .<span class="ident">as_ref</span>()
-                .<span class="ident">map_or</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;text-remove\0&quot;</span>[..], <span class="op">|</span><span class="ident">n</span><span class="op">|</span> <span class="ident">n</span>.<span class="ident">as_bytes</span>());
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="ident">signal_name</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">text_remove_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            <span class="kw">let </span>detailed_signal_name = detail.map(|name| <span class="macro">format!</span>(<span class="string">&quot;text-remove::{}\0&quot;</span>, name));
+            <span class="kw">let </span>signal_name: <span class="kw-2">&amp;</span>[u8] = detailed_signal_name
+                .as_ref()
+                .map_or(<span class="kw-2">&amp;</span><span class="string">b&quot;text-remove\0&quot;</span>[..], |n| n.as_bytes());
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                signal_name.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    text_remove_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_text_selection_changed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">text_selection_changed_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Text</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkText</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_text_selection_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_selection_changed_trampoline&lt;
+            P: IsA&lt;Text&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkText,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Text::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Text::from_glib_borrow(this).unsafe_cast_ref())
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;text-selection-changed\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">text_selection_changed_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;text-selection-changed\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    text_selection_changed_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Text</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Text&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>Text {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;Text&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

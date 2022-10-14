@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/table_cell.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>table_cell.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/table_cell.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>table_cell.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -287,216 +281,215 @@
 <span id="208">208</span>
 <span id="209">209</span>
 <span id="210">210</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Object</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::Object;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// Being [`Table`][crate::Table] a component which present elements ordered via rows</span>
-    <span class="doccomment">/// and columns, an [`TableCell`][crate::TableCell] is the interface which each of those</span>
-    <span class="doccomment">/// elements, so &quot;cells&quot; should implement.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// See also [`Table`][crate::Table].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`TableCellExt`][trait@crate::prelude::TableCellExt], [`AtkObjectExt`][trait@crate::prelude::AtkObjectExt], [`trait@glib::ObjectExt`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;AtkTableCell&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TableCell</span>(<span class="ident">Interface</span><span class="op">&lt;</span><span class="ident">ffi::AtkTableCell</span>, <span class="ident">ffi::AtkTableCellIface</span><span class="op">&gt;</span>) @<span class="ident">requires</span> <span class="ident">Object</span>;
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// Being [`Table`][crate::Table] a component which present elements ordered via rows
+    /// and columns, an [`TableCell`][crate::TableCell] is the interface which each of those
+    /// elements, so &quot;cells&quot; should implement.
+    ///
+    /// See also [`Table`][crate::Table].
+    ///
+    /// # Implements
+    ///
+    /// [`TableCellExt`][trait@crate::prelude::TableCellExt], [`AtkObjectExt`][trait@crate::prelude::AtkObjectExt], [`trait@glib::ObjectExt`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;AtkTableCell&quot;</span>)]
+    </span><span class="kw">pub struct </span>TableCell(Interface&lt;ffi::AtkTableCell, ffi::AtkTableCellIface&gt;) @requires Object;
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::atk_table_cell_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::atk_table_cell_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">TableCell</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">TableCell</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+<span class="kw">impl </span>TableCell {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>TableCell&gt; = <span class="prelude-val">None</span>;
 }
 
-<span class="doccomment">/// Trait containing all [`struct@TableCell`] methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementors</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`NoOpObject`][struct@crate::NoOpObject], [`TableCell`][struct@crate::TableCell]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">TableCellExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Returns the column headers as an array of cell accessibles.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a GPtrArray of AtkObjects</span>
-    <span class="doccomment">/// representing the column header cells.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_cell_get_column_header_cells&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_column_header_cells&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">column_header_cells</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>;
+<span class="doccomment">/// Trait containing all [`struct@TableCell`] methods.
+///
+/// # Implementors
+///
+/// [`NoOpObject`][struct@crate::NoOpObject], [`TableCell`][struct@crate::TableCell]
+</span><span class="kw">pub trait </span>TableCellExt: <span class="lifetime">&#39;static </span>{
+    <span class="doccomment">/// Returns the column headers as an array of cell accessibles.
+    ///
+    /// # Returns
+    ///
+    /// a GPtrArray of AtkObjects
+    /// representing the column header cells.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_cell_get_column_header_cells&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_column_header_cells&quot;</span>)]
+    </span><span class="kw">fn </span>column_header_cells(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;Object&gt;;
 
-    <span class="doccomment">/// Returns the number of columns occupied by this cell accessible.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gint representing the number of columns occupied by this cell,</span>
-    <span class="doccomment">/// or 0 if the cell does not implement this method.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_cell_get_column_span&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_column_span&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">column_span</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Returns the number of columns occupied by this cell accessible.
+    ///
+    /// # Returns
+    ///
+    /// a gint representing the number of columns occupied by this cell,
+    /// or 0 if the cell does not implement this method.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_cell_get_column_span&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_column_span&quot;</span>)]
+    </span><span class="kw">fn </span>column_span(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
-    <span class="doccomment">/// Retrieves the tabular position of this cell.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// TRUE if successful; FALSE otherwise.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// the row of the given cell.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// the column of the given cell.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_cell_get_position&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_position&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">position</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">i32</span>, <span class="ident">i32</span>)<span class="op">&gt;</span>;
+    <span class="doccomment">/// Retrieves the tabular position of this cell.
+    ///
+    /// # Returns
+    ///
+    /// TRUE if successful; FALSE otherwise.
+    ///
+    /// ## `row`
+    /// the row of the given cell.
+    ///
+    /// ## `column`
+    /// the column of the given cell.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_cell_get_position&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_position&quot;</span>)]
+    </span><span class="kw">fn </span>position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(i32, i32)&gt;;
 
-    <span class="doccomment">/// Gets the row and column indexes and span of this cell accessible.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note: If the object does not implement this function, then, by default, atk</span>
-    <span class="doccomment">/// will implement this function by calling get_row_span and get_column_span</span>
-    <span class="doccomment">/// on the object.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// TRUE if successful; FALSE otherwise.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `row`</span>
-    <span class="doccomment">/// the row index of the given cell.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// the column index of the given cell.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `row_span`</span>
-    <span class="doccomment">/// the number of rows occupied by this cell.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `column_span`</span>
-    <span class="doccomment">/// the number of columns occupied by this cell.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_cell_get_row_column_span&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_row_column_span&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">row_column_span</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>)<span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets the row and column indexes and span of this cell accessible.
+    ///
+    /// Note: If the object does not implement this function, then, by default, atk
+    /// will implement this function by calling get_row_span and get_column_span
+    /// on the object.
+    ///
+    /// # Returns
+    ///
+    /// TRUE if successful; FALSE otherwise.
+    ///
+    /// ## `row`
+    /// the row index of the given cell.
+    ///
+    /// ## `column`
+    /// the column index of the given cell.
+    ///
+    /// ## `row_span`
+    /// the number of rows occupied by this cell.
+    ///
+    /// ## `column_span`
+    /// the number of columns occupied by this cell.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_cell_get_row_column_span&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_row_column_span&quot;</span>)]
+    </span><span class="kw">fn </span>row_column_span(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(i32, i32, i32, i32)&gt;;
 
-    <span class="doccomment">/// Returns the row headers as an array of cell accessibles.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a GPtrArray of AtkObjects</span>
-    <span class="doccomment">/// representing the row header cells.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_cell_get_row_header_cells&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_row_header_cells&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">row_header_cells</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Returns the row headers as an array of cell accessibles.
+    ///
+    /// # Returns
+    ///
+    /// a GPtrArray of AtkObjects
+    /// representing the row header cells.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_cell_get_row_header_cells&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_row_header_cells&quot;</span>)]
+    </span><span class="kw">fn </span>row_header_cells(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;Object&gt;;
 
-    <span class="doccomment">/// Returns the number of rows occupied by this cell accessible.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gint representing the number of rows occupied by this cell,</span>
-    <span class="doccomment">/// or 0 if the cell does not implement this method.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_cell_get_row_span&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_row_span&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">row_span</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Returns the number of rows occupied by this cell accessible.
+    ///
+    /// # Returns
+    ///
+    /// a gint representing the number of rows occupied by this cell,
+    /// or 0 if the cell does not implement this method.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_cell_get_row_span&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_row_span&quot;</span>)]
+    </span><span class="kw">fn </span>row_span(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
-    <span class="doccomment">/// Returns a reference to the accessible of the containing table.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the atk object for the containing table.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_table_cell_get_table&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_table&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">table</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Returns a reference to the accessible of the containing table.
+    ///
+    /// # Returns
+    ///
+    /// the atk object for the containing table.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_table_cell_get_table&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_table&quot;</span>)]
+    </span><span class="kw">fn </span>table(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">TableCell</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">TableCellExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">column_header_cells</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">FromGlibPtrContainer::from_glib_full</span>(<span class="ident">ffi::atk_table_cell_get_column_header_cells</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+<span class="kw">impl</span>&lt;O: IsA&lt;TableCell&gt;&gt; TableCellExt <span class="kw">for </span>O {
+    <span class="kw">fn </span>column_header_cells(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;Object&gt; {
+        <span class="kw">unsafe </span>{
+            FromGlibPtrContainer::from_glib_full(ffi::atk_table_cell_get_column_header_cells(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">column_span</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_table_cell_get_column_span</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">fn </span>column_span(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_table_cell_get_column_span(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">position</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">i32</span>, <span class="ident">i32</span>)<span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">row</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">column</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">from_glib</span>(<span class="ident">ffi::atk_table_cell_get_position</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">row</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">column</span>.<span class="ident">as_mut_ptr</span>(),
+    <span class="kw">fn </span>position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(i32, i32)&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>row = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>column = mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = from_glib(ffi::atk_table_cell_get_position(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                row.as_mut_ptr(),
+                column.as_mut_ptr(),
             ));
-            <span class="kw">if</span> <span class="ident">ret</span> {
-                <span class="prelude-val">Some</span>((<span class="ident">row</span>.<span class="ident">assume_init</span>(), <span class="ident">column</span>.<span class="ident">assume_init</span>()))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">None</span>
-            }
+            <span class="kw">if </span>ret {
+                <span class="prelude-val">Some</span>((row.assume_init(), column.assume_init()))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">None
+            </span>}
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">row_column_span</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>)<span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">row</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">column</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">row_span</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">column_span</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">from_glib</span>(<span class="ident">ffi::atk_table_cell_get_row_column_span</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">row</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">column</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">row_span</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">column_span</span>.<span class="ident">as_mut_ptr</span>(),
+    <span class="kw">fn </span>row_column_span(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(i32, i32, i32, i32)&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>row = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>column = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>row_span = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>column_span = mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = from_glib(ffi::atk_table_cell_get_row_column_span(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                row.as_mut_ptr(),
+                column.as_mut_ptr(),
+                row_span.as_mut_ptr(),
+                column_span.as_mut_ptr(),
             ));
-            <span class="kw">if</span> <span class="ident">ret</span> {
+            <span class="kw">if </span>ret {
                 <span class="prelude-val">Some</span>((
-                    <span class="ident">row</span>.<span class="ident">assume_init</span>(),
-                    <span class="ident">column</span>.<span class="ident">assume_init</span>(),
-                    <span class="ident">row_span</span>.<span class="ident">assume_init</span>(),
-                    <span class="ident">column_span</span>.<span class="ident">assume_init</span>(),
+                    row.assume_init(),
+                    column.assume_init(),
+                    row_span.assume_init(),
+                    column_span.assume_init(),
                 ))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">None</span>
-            }
+            } <span class="kw">else </span>{
+                <span class="prelude-val">None
+            </span>}
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">row_header_cells</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">FromGlibPtrContainer::from_glib_full</span>(<span class="ident">ffi::atk_table_cell_get_row_header_cells</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>row_header_cells(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;Object&gt; {
+        <span class="kw">unsafe </span>{
+            FromGlibPtrContainer::from_glib_full(ffi::atk_table_cell_get_row_header_cells(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">row_span</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_table_cell_get_row_span</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">fn </span>row_span(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_table_cell_get_row_span(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">table</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::atk_table_cell_get_table</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>table(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::atk_table_cell_get_table(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">TableCell</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;TableCell&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>TableCell {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;TableCell&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/misc.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>misc.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/misc.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>misc.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -173,102 +167,101 @@
 <span id="94">94</span>
 <span id="95">95</span>
 <span id="96">96</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
+</span><span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::fmt;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// A set of utility functions for thread locking. This interface and</span>
-    <span class="doccomment">/// all his related methods are deprecated since 2.12.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`AtkMiscExt`][trait@crate::prelude::AtkMiscExt], [`trait@glib::ObjectExt`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;AtkMisc&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Misc</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::AtkMisc</span>, <span class="ident">ffi::AtkMiscClass</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// A set of utility functions for thread locking. This interface and
+    /// all his related methods are deprecated since 2.12.
+    ///
+    /// # Implements
+    ///
+    /// [`AtkMiscExt`][trait@crate::prelude::AtkMiscExt], [`trait@glib::ObjectExt`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;AtkMisc&quot;</span>)]
+    </span><span class="kw">pub struct </span>Misc(Object&lt;ffi::AtkMisc, ffi::AtkMiscClass&gt;);
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::atk_misc_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::atk_misc_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Misc</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">Misc</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+<span class="kw">impl </span>Misc {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>Misc&gt; = <span class="prelude-val">None</span>;
 
-    <span class="doccomment">/// Obtain the singleton instance of AtkMisc for this application.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Deprecated</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Since 2.12.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The singleton instance of AtkMisc for this application.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_misc_get_instance&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_instance&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">instance</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Misc</span><span class="op">&gt;</span> {
+    <span class="doccomment">/// Obtain the singleton instance of AtkMisc for this application.
+    ///
+    /// # Deprecated
+    ///
+    /// Since 2.12.
+    ///
+    /// # Returns
+    ///
+    /// The singleton instance of AtkMisc for this application.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_misc_get_instance&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_instance&quot;</span>)]
+    </span><span class="kw">pub fn </span>instance() -&gt; <span class="prelude-ty">Option</span>&lt;Misc&gt; {
         <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::atk_misc_get_instance</span>()) }
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::atk_misc_get_instance()) }
     }
 }
 
-<span class="doccomment">/// Trait containing all [`struct@Misc`] methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementors</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`Misc`][struct@crate::Misc]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">AtkMiscExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Take the thread mutex for the GUI toolkit,</span>
-    <span class="doccomment">/// if one exists.</span>
-    <span class="doccomment">/// (This method is implemented by the toolkit ATK implementation layer;</span>
-    <span class="doccomment">///  for instance, for GTK+, GAIL implements this via GDK_THREADS_ENTER).</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Deprecated</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Since 2.12.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_misc_threads_enter&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">threads_enter</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
+<span class="doccomment">/// Trait containing all [`struct@Misc`] methods.
+///
+/// # Implementors
+///
+/// [`Misc`][struct@crate::Misc]
+</span><span class="kw">pub trait </span>AtkMiscExt: <span class="lifetime">&#39;static </span>{
+    <span class="doccomment">/// Take the thread mutex for the GUI toolkit,
+    /// if one exists.
+    /// (This method is implemented by the toolkit ATK implementation layer;
+    ///  for instance, for GTK+, GAIL implements this via GDK_THREADS_ENTER).
+    ///
+    /// # Deprecated
+    ///
+    /// Since 2.12.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_misc_threads_enter&quot;</span>)]
+    </span><span class="kw">fn </span>threads_enter(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="doccomment">/// Release the thread mutex for the GUI toolkit,</span>
-    <span class="doccomment">/// if one exists. This method, and atk_misc_threads_enter,</span>
-    <span class="doccomment">/// are needed in some situations by threaded application code which</span>
-    <span class="doccomment">/// services ATK requests, since fulfilling ATK requests often</span>
-    <span class="doccomment">/// requires calling into the GUI toolkit. If a long-running or</span>
-    <span class="doccomment">/// potentially blocking call takes place inside such a block, it should</span>
-    <span class="doccomment">/// be bracketed by atk_misc_threads_leave/atk_misc_threads_enter calls.</span>
-    <span class="doccomment">/// (This method is implemented by the toolkit ATK implementation layer;</span>
-    <span class="doccomment">///  for instance, for GTK+, GAIL implements this via GDK_THREADS_LEAVE).</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Deprecated</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Since 2.12.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_misc_threads_leave&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">threads_leave</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="doccomment">/// Release the thread mutex for the GUI toolkit,
+    /// if one exists. This method, and atk_misc_threads_enter,
+    /// are needed in some situations by threaded application code which
+    /// services ATK requests, since fulfilling ATK requests often
+    /// requires calling into the GUI toolkit. If a long-running or
+    /// potentially blocking call takes place inside such a block, it should
+    /// be bracketed by atk_misc_threads_leave/atk_misc_threads_enter calls.
+    /// (This method is implemented by the toolkit ATK implementation layer;
+    ///  for instance, for GTK+, GAIL implements this via GDK_THREADS_LEAVE).
+    ///
+    /// # Deprecated
+    ///
+    /// Since 2.12.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_misc_threads_leave&quot;</span>)]
+    </span><span class="kw">fn </span>threads_leave(<span class="kw-2">&amp;</span><span class="self">self</span>);
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Misc</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">AtkMiscExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">threads_enter</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_misc_threads_enter</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+<span class="kw">impl</span>&lt;O: IsA&lt;Misc&gt;&gt; AtkMiscExt <span class="kw">for </span>O {
+    <span class="kw">fn </span>threads_enter(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::atk_misc_threads_enter(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">threads_leave</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::atk_misc_threads_leave</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="kw">fn </span>threads_leave(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::atk_misc_threads_leave(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Misc</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Misc&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>Misc {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;Misc&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

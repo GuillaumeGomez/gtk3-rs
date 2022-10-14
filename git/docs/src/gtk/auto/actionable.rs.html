@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/actionable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>actionable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/actionable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>actionable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -319,248 +313,247 @@
 <span id="240">240</span>
 <span id="241">241</span>
 <span id="242">242</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Buildable</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Widget</span>;
-<span class="kw">use</span> <span class="ident">glib::object::Cast</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::connect_raw</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::SignalHandlerId</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::Buildable;
+<span class="kw">use </span><span class="kw">crate</span>::Widget;
+<span class="kw">use </span>glib::object::Cast;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::signal::connect_raw;
+<span class="kw">use </span>glib::signal::SignalHandlerId;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem::transmute;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// This interface provides a convenient way of associating widgets with</span>
-    <span class="doccomment">/// actions on a [`ApplicationWindow`][crate::ApplicationWindow] or [`Application`][crate::Application].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// It primarily consists of two properties: `property::Actionable::action-name`</span>
-    <span class="doccomment">/// and `property::Actionable::action-target`. There are also some convenience APIs</span>
-    <span class="doccomment">/// for setting these properties.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The action will be looked up in action groups that are found among</span>
-    <span class="doccomment">/// the widgets ancestors. Most commonly, these will be the actions with</span>
-    <span class="doccomment">/// the “win.” or “app.” prefix that are associated with the [`ApplicationWindow`][crate::ApplicationWindow]</span>
-    <span class="doccomment">/// or [`Application`][crate::Application], but other action groups that are added with</span>
-    <span class="doccomment">/// [`WidgetExt::insert_action_group()`][crate::prelude::WidgetExt::insert_action_group()] will be consulted as well.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ActionableExt`][trait@crate::prelude::ActionableExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`BuildableExtManual`][trait@crate::prelude::BuildableExtManual]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GtkActionable&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Actionable</span>(<span class="ident">Interface</span><span class="op">&lt;</span><span class="ident">ffi::GtkActionable</span>, <span class="ident">ffi::GtkActionableInterface</span><span class="op">&gt;</span>) @<span class="ident">requires</span> <span class="ident">Widget</span>, <span class="ident">Buildable</span>;
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// This interface provides a convenient way of associating widgets with
+    /// actions on a [`ApplicationWindow`][crate::ApplicationWindow] or [`Application`][crate::Application].
+    ///
+    /// It primarily consists of two properties: `property::Actionable::action-name`
+    /// and `property::Actionable::action-target`. There are also some convenience APIs
+    /// for setting these properties.
+    ///
+    /// The action will be looked up in action groups that are found among
+    /// the widgets ancestors. Most commonly, these will be the actions with
+    /// the “win.” or “app.” prefix that are associated with the [`ApplicationWindow`][crate::ApplicationWindow]
+    /// or [`Application`][crate::Application], but other action groups that are added with
+    /// [`WidgetExt::insert_action_group()`][crate::prelude::WidgetExt::insert_action_group()] will be consulted as well.
+    ///
+    /// # Implements
+    ///
+    /// [`ActionableExt`][trait@crate::prelude::ActionableExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`BuildableExtManual`][trait@crate::prelude::BuildableExtManual]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkActionable&quot;</span>)]
+    </span><span class="kw">pub struct </span>Actionable(Interface&lt;ffi::GtkActionable, ffi::GtkActionableInterface&gt;) @requires Widget, Buildable;
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_actionable_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gtk_actionable_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Actionable</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">Actionable</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+<span class="kw">impl </span>Actionable {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>Actionable&gt; = <span class="prelude-val">None</span>;
 }
 
-<span class="doccomment">/// Trait containing all [`struct@Actionable`] methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementors</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`Actionable`][struct@crate::Actionable], [`Button`][struct@crate::Button], [`CheckButton`][struct@crate::CheckButton], [`CheckMenuItem`][struct@crate::CheckMenuItem], [`ColorButton`][struct@crate::ColorButton], [`FontButton`][struct@crate::FontButton], [`LinkButton`][struct@crate::LinkButton], [`ListBoxRow`][struct@crate::ListBoxRow], [`LockButton`][struct@crate::LockButton], [`MenuButton`][struct@crate::MenuButton], [`MenuItem`][struct@crate::MenuItem], [`MenuToolButton`][struct@crate::MenuToolButton], [`ModelButton`][struct@crate::ModelButton], [`RadioButton`][struct@crate::RadioButton], [`RadioMenuItem`][struct@crate::RadioMenuItem], [`RadioToolButton`][struct@crate::RadioToolButton], [`ScaleButton`][struct@crate::ScaleButton], [`SeparatorMenuItem`][struct@crate::SeparatorMenuItem], [`Switch`][struct@crate::Switch], [`ToggleButton`][struct@crate::ToggleButton], [`ToggleToolButton`][struct@crate::ToggleToolButton], [`ToolButton`][struct@crate::ToolButton], [`VolumeButton`][struct@crate::VolumeButton]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ActionableExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Gets the action name for `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// See [`set_action_name()`][Self::set_action_name()] for more information.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the action name, or [`None`] if none is set</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_actionable_get_action_name&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_action_name&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">action_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
+<span class="doccomment">/// Trait containing all [`struct@Actionable`] methods.
+///
+/// # Implementors
+///
+/// [`Actionable`][struct@crate::Actionable], [`Button`][struct@crate::Button], [`CheckButton`][struct@crate::CheckButton], [`CheckMenuItem`][struct@crate::CheckMenuItem], [`ColorButton`][struct@crate::ColorButton], [`FontButton`][struct@crate::FontButton], [`LinkButton`][struct@crate::LinkButton], [`ListBoxRow`][struct@crate::ListBoxRow], [`LockButton`][struct@crate::LockButton], [`MenuButton`][struct@crate::MenuButton], [`MenuItem`][struct@crate::MenuItem], [`MenuToolButton`][struct@crate::MenuToolButton], [`ModelButton`][struct@crate::ModelButton], [`RadioButton`][struct@crate::RadioButton], [`RadioMenuItem`][struct@crate::RadioMenuItem], [`RadioToolButton`][struct@crate::RadioToolButton], [`ScaleButton`][struct@crate::ScaleButton], [`SeparatorMenuItem`][struct@crate::SeparatorMenuItem], [`Switch`][struct@crate::Switch], [`ToggleButton`][struct@crate::ToggleButton], [`ToggleToolButton`][struct@crate::ToggleToolButton], [`ToolButton`][struct@crate::ToolButton], [`VolumeButton`][struct@crate::VolumeButton]
+</span><span class="kw">pub trait </span>ActionableExt: <span class="lifetime">&#39;static </span>{
+    <span class="doccomment">/// Gets the action name for `self`.
+    ///
+    /// See [`set_action_name()`][Self::set_action_name()] for more information.
+    ///
+    /// # Returns
+    ///
+    /// the action name, or [`None`] if none is set
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_actionable_get_action_name&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_action_name&quot;</span>)]
+    </span><span class="kw">fn </span>action_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
-    <span class="doccomment">/// Gets the current target value of `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// See [`set_action_target_value()`][Self::set_action_target_value()] for more information.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the current target value</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_actionable_get_action_target_value&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_action_target_value&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">action_target_value</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Variant</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets the current target value of `self`.
+    ///
+    /// See [`set_action_target_value()`][Self::set_action_target_value()] for more information.
+    ///
+    /// # Returns
+    ///
+    /// the current target value
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_actionable_get_action_target_value&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_action_target_value&quot;</span>)]
+    </span><span class="kw">fn </span>action_target_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::Variant&gt;;
 
-    <span class="doccomment">/// Specifies the name of the action with which this widget should be</span>
-    <span class="doccomment">/// associated. If `action_name` is [`None`] then the widget will be</span>
-    <span class="doccomment">/// unassociated from any previous action.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Usually this function is used when the widget is located (or will be</span>
-    <span class="doccomment">/// located) within the hierarchy of a [`ApplicationWindow`][crate::ApplicationWindow].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Names are of the form “win.save” or “app.quit” for actions on the</span>
-    <span class="doccomment">/// containing [`ApplicationWindow`][crate::ApplicationWindow] or its associated [`Application`][crate::Application],</span>
-    <span class="doccomment">/// respectively. This is the same form used for actions in the [`gio::Menu`][crate::gio::Menu]</span>
-    <span class="doccomment">/// associated with the window.</span>
-    <span class="doccomment">/// ## `action_name`</span>
-    <span class="doccomment">/// an action name, or [`None`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_actionable_set_action_name&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_action_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">action_name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>);
+    <span class="doccomment">/// Specifies the name of the action with which this widget should be
+    /// associated. If `action_name` is [`None`] then the widget will be
+    /// unassociated from any previous action.
+    ///
+    /// Usually this function is used when the widget is located (or will be
+    /// located) within the hierarchy of a [`ApplicationWindow`][crate::ApplicationWindow].
+    ///
+    /// Names are of the form “win.save” or “app.quit” for actions on the
+    /// containing [`ApplicationWindow`][crate::ApplicationWindow] or its associated [`Application`][crate::Application],
+    /// respectively. This is the same form used for actions in the [`gio::Menu`][crate::gio::Menu]
+    /// associated with the window.
+    /// ## `action_name`
+    /// an action name, or [`None`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_actionable_set_action_name&quot;</span>)]
+    </span><span class="kw">fn </span>set_action_name(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
 
-    <span class="comment">//#[doc(alias = &quot;gtk_actionable_set_action_target&quot;)]</span>
-    <span class="comment">//fn set_action_target(&amp;self, format_string: &amp;str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs);</span>
+    <span class="comment">//#[doc(alias = &quot;gtk_actionable_set_action_target&quot;)]
+    //fn set_action_target(&amp;self, format_string: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs);
 
-    <span class="doccomment">/// Sets the target value of an actionable widget.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If `target_value` is [`None`] then the target value is unset.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The target value has two purposes. First, it is used as the</span>
-    <span class="doccomment">/// parameter to activation of the action associated with the</span>
-    <span class="doccomment">/// [`Actionable`][crate::Actionable] widget. Second, it is used to determine if the widget</span>
-    <span class="doccomment">/// should be rendered as “active” — the widget is active if the state</span>
-    <span class="doccomment">/// is equal to the given target.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Consider the example of associating a set of buttons with a `GAction`</span>
-    <span class="doccomment">/// with string state in a typical “radio button” situation. Each button</span>
-    <span class="doccomment">/// will be associated with the same action, but with a different target</span>
-    <span class="doccomment">/// value for that action. Clicking on a particular button will activate</span>
-    <span class="doccomment">/// the action with the target of that button, which will typically cause</span>
-    <span class="doccomment">/// the action’s state to change to that value. Since the action’s state</span>
-    <span class="doccomment">/// is now equal to the target value of the button, the button will now</span>
-    <span class="doccomment">/// be rendered as active (and the other buttons, with different targets,</span>
-    <span class="doccomment">/// rendered inactive).</span>
-    <span class="doccomment">/// ## `target_value`</span>
-    <span class="doccomment">/// a [`glib::Variant`][struct@crate::glib::Variant] to set as the target value, or [`None`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_actionable_set_action_target_value&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_action_target_value</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">target_value</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">glib::Variant</span><span class="op">&gt;</span>);
+    </span><span class="doccomment">/// Sets the target value of an actionable widget.
+    ///
+    /// If `target_value` is [`None`] then the target value is unset.
+    ///
+    /// The target value has two purposes. First, it is used as the
+    /// parameter to activation of the action associated with the
+    /// [`Actionable`][crate::Actionable] widget. Second, it is used to determine if the widget
+    /// should be rendered as “active” — the widget is active if the state
+    /// is equal to the given target.
+    ///
+    /// Consider the example of associating a set of buttons with a `GAction`
+    /// with string state in a typical “radio button” situation. Each button
+    /// will be associated with the same action, but with a different target
+    /// value for that action. Clicking on a particular button will activate
+    /// the action with the target of that button, which will typically cause
+    /// the action’s state to change to that value. Since the action’s state
+    /// is now equal to the target value of the button, the button will now
+    /// be rendered as active (and the other buttons, with different targets,
+    /// rendered inactive).
+    /// ## `target_value`
+    /// a [`glib::Variant`][struct@crate::glib::Variant] to set as the target value, or [`None`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_actionable_set_action_target_value&quot;</span>)]
+    </span><span class="kw">fn </span>set_action_target_value(<span class="kw-2">&amp;</span><span class="self">self</span>, target_value: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>glib::Variant&gt;);
 
-    <span class="doccomment">/// Sets the action-name and associated string target value of an</span>
-    <span class="doccomment">/// actionable widget.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// `detailed_action_name` is a string in the format accepted by</span>
-    <span class="doccomment">/// `g_action_parse_detailed_name()`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// (Note that prior to version 3.22.25,</span>
-    <span class="doccomment">/// this function is only usable for actions with a simple &quot;s&quot; target, and</span>
-    <span class="doccomment">/// `detailed_action_name` must be of the form `&quot;action::target&quot;` where</span>
-    <span class="doccomment">/// `action` is the action name and `target` is the string to use</span>
-    <span class="doccomment">/// as the target.)</span>
-    <span class="doccomment">/// ## `detailed_action_name`</span>
-    <span class="doccomment">/// the detailed action name</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_actionable_set_detailed_action_name&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_detailed_action_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">detailed_action_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>);
+    <span class="doccomment">/// Sets the action-name and associated string target value of an
+    /// actionable widget.
+    ///
+    /// `detailed_action_name` is a string in the format accepted by
+    /// `g_action_parse_detailed_name()`.
+    ///
+    /// (Note that prior to version 3.22.25,
+    /// this function is only usable for actions with a simple &quot;s&quot; target, and
+    /// `detailed_action_name` must be of the form `&quot;action::target&quot;` where
+    /// `action` is the action name and `target` is the string to use
+    /// as the target.)
+    /// ## `detailed_action_name`
+    /// the detailed action name
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_actionable_set_detailed_action_name&quot;</span>)]
+    </span><span class="kw">fn </span>set_detailed_action_name(<span class="kw-2">&amp;</span><span class="self">self</span>, detailed_action_name: <span class="kw-2">&amp;</span>str);
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;action-name&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_action_name_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;action-name&quot;</span>)]
+    </span><span class="kw">fn </span>connect_action_name_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;action-target&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_action_target_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;action-target&quot;</span>)]
+    </span><span class="kw">fn </span>connect_action_target_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Actionable</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">ActionableExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">action_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_actionable_get_action_name</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+<span class="kw">impl</span>&lt;O: IsA&lt;Actionable&gt;&gt; ActionableExt <span class="kw">for </span>O {
+    <span class="kw">fn </span>action_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_actionable_get_action_name(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">action_target_value</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Variant</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_actionable_get_action_target_value</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>action_target_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::Variant&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_actionable_get_action_target_value(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_action_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">action_name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_actionable_set_action_name</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">action_name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>set_action_name(<span class="kw-2">&amp;</span><span class="self">self</span>, action_name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_actionable_set_action_name(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                action_name.to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="comment">//fn set_action_target(&amp;self, format_string: &amp;str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {</span>
-    <span class="comment">//    unsafe { TODO: call ffi:gtk_actionable_set_action_target() }</span>
-    <span class="comment">//}</span>
+    <span class="comment">//fn set_action_target(&amp;self, format_string: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) {
+    //    unsafe { TODO: call ffi:gtk_actionable_set_action_target() }
+    //}
 
-    <span class="kw">fn</span> <span class="ident">set_action_target_value</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">target_value</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">glib::Variant</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_actionable_set_action_target_value</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">target_value</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    </span><span class="kw">fn </span>set_action_target_value(<span class="kw-2">&amp;</span><span class="self">self</span>, target_value: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>glib::Variant&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_actionable_set_action_target_value(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                target_value.to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_detailed_action_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">detailed_action_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_actionable_set_detailed_action_name</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">detailed_action_name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>set_detailed_action_name(<span class="kw-2">&amp;</span><span class="self">self</span>, detailed_action_name: <span class="kw-2">&amp;</span>str) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_actionable_set_detailed_action_name(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                detailed_action_name.to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_action_name_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_action_name_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Actionable</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkActionable</span>,
-            <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_action_name_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_action_name_trampoline&lt;
+            P: IsA&lt;Actionable&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkActionable,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Actionable::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Actionable::from_glib_borrow(this).unsafe_cast_ref())
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;notify::action-name\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">notify_action_name_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;notify::action-name\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    notify_action_name_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_action_target_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_action_target_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Actionable</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkActionable</span>,
-            <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_action_target_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_action_target_trampoline&lt;
+            P: IsA&lt;Actionable&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::GtkActionable,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="ident">Actionable::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(Actionable::from_glib_borrow(this).unsafe_cast_ref())
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;notify::action-target\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">notify_action_target_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;notify::action-target\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    notify_action_target_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Actionable</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Actionable&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>Actionable {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;Actionable&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

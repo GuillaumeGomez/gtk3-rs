@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/component.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>component.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `atk/src/auto/component.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>component.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../atk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../atk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -556,485 +550,484 @@
 <span id="477">477</span>
 <span id="478">478</span>
 <span id="479">479</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::CoordType</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Layer</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Object</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Rectangle</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>)))]</span>
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ScrollType</span>;
-<span class="kw">use</span> <span class="ident">glib::object::Cast</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::connect_raw</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::SignalHandlerId</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem</span>;
-<span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::CoordType;
+<span class="kw">use </span><span class="kw">crate</span>::Layer;
+<span class="kw">use </span><span class="kw">crate</span>::Object;
+<span class="kw">use </span><span class="kw">crate</span>::Rectangle;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_30&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_30&quot;</span>)))]
+</span><span class="kw">use </span><span class="kw">crate</span>::ScrollType;
+<span class="kw">use </span>glib::object::Cast;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::signal::connect_raw;
+<span class="kw">use </span>glib::signal::SignalHandlerId;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem;
+<span class="kw">use </span>std::mem::transmute;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// [`Component`][crate::Component] should be implemented by most if not all UI elements</span>
-    <span class="doccomment">/// with an actual on-screen presence, i.e. components which can be</span>
-    <span class="doccomment">/// said to have a screen-coordinate bounding box. Virtually all</span>
-    <span class="doccomment">/// widgets will need to have [`Component`][crate::Component] implementations provided</span>
-    <span class="doccomment">/// for their corresponding [`Object`][crate::Object] class. In short, only UI</span>
-    <span class="doccomment">/// elements which are *not* GUI elements will omit this ATK interface.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A possible exception might be textual information with a</span>
-    <span class="doccomment">/// transparent background, in which case text glyph bounding box</span>
-    <span class="doccomment">/// information is provided by [`Text`][crate::Text].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ComponentExt`][trait@crate::prelude::ComponentExt]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;AtkComponent&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Component</span>(<span class="ident">Interface</span><span class="op">&lt;</span><span class="ident">ffi::AtkComponent</span>, <span class="ident">ffi::AtkComponentIface</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// [`Component`][crate::Component] should be implemented by most if not all UI elements
+    /// with an actual on-screen presence, i.e. components which can be
+    /// said to have a screen-coordinate bounding box. Virtually all
+    /// widgets will need to have [`Component`][crate::Component] implementations provided
+    /// for their corresponding [`Object`][crate::Object] class. In short, only UI
+    /// elements which are *not* GUI elements will omit this ATK interface.
+    ///
+    /// A possible exception might be textual information with a
+    /// transparent background, in which case text glyph bounding box
+    /// information is provided by [`Text`][crate::Text].
+    ///
+    /// # Implements
+    ///
+    /// [`ComponentExt`][trait@crate::prelude::ComponentExt]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;AtkComponent&quot;</span>)]
+    </span><span class="kw">pub struct </span>Component(Interface&lt;ffi::AtkComponent, ffi::AtkComponentIface&gt;);
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::atk_component_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::atk_component_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Component</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">Component</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+<span class="kw">impl </span>Component {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>Component&gt; = <span class="prelude-val">None</span>;
 }
 
-<span class="doccomment">/// Trait containing all [`struct@Component`] methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementors</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`Component`][struct@crate::Component], [`NoOpObject`][struct@crate::NoOpObject], [`Plug`][struct@crate::Plug], [`Socket`][struct@crate::Socket]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ComponentExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Checks whether the specified point is within the extent of the `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Toolkit implementor note: ATK provides a default implementation for</span>
-    <span class="doccomment">/// this virtual method. In general there are little reason to</span>
-    <span class="doccomment">/// re-implement it.</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// x coordinate</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// y coordinate</span>
-    <span class="doccomment">/// ## `coord_type`</span>
-    <span class="doccomment">/// specifies whether the coordinates are relative to the screen</span>
-    <span class="doccomment">/// or to the components top level window</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] or [`false`] indicating whether the specified point is within</span>
-    <span class="doccomment">/// the extent of the `self` or not</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_contains&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; <span class="ident">bool</span>;
+<span class="doccomment">/// Trait containing all [`struct@Component`] methods.
+///
+/// # Implementors
+///
+/// [`Component`][struct@crate::Component], [`NoOpObject`][struct@crate::NoOpObject], [`Plug`][struct@crate::Plug], [`Socket`][struct@crate::Socket]
+</span><span class="kw">pub trait </span>ComponentExt: <span class="lifetime">&#39;static </span>{
+    <span class="doccomment">/// Checks whether the specified point is within the extent of the `self`.
+    ///
+    /// Toolkit implementor note: ATK provides a default implementation for
+    /// this virtual method. In general there are little reason to
+    /// re-implement it.
+    /// ## `x`
+    /// x coordinate
+    /// ## `y`
+    /// y coordinate
+    /// ## `coord_type`
+    /// specifies whether the coordinates are relative to the screen
+    /// or to the components top level window
+    ///
+    /// # Returns
+    ///
+    /// [`true`] or [`false`] indicating whether the specified point is within
+    /// the extent of the `self` or not
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_contains&quot;</span>)]
+    </span><span class="kw">fn </span>contains(<span class="kw-2">&amp;</span><span class="self">self</span>, x: i32, y: i32, coord_type: CoordType) -&gt; bool;
 
-    <span class="doccomment">/// Returns the alpha value (i.e. the opacity) for this</span>
-    <span class="doccomment">/// `self`, on a scale from 0 (fully transparent) to 1.0</span>
-    <span class="doccomment">/// (fully opaque).</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// An alpha value from 0 to 1.0, inclusive.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_get_alpha&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_alpha&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">alpha</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">f64</span>;
+    <span class="doccomment">/// Returns the alpha value (i.e. the opacity) for this
+    /// `self`, on a scale from 0 (fully transparent) to 1.0
+    /// (fully opaque).
+    ///
+    /// # Returns
+    ///
+    /// An alpha value from 0 to 1.0, inclusive.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_get_alpha&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_alpha&quot;</span>)]
+    </span><span class="kw">fn </span>alpha(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f64;
 
-    <span class="doccomment">/// Gets the rectangle which gives the extent of the `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the extent can not be obtained (e.g. a non-embedded plug or missing</span>
-    <span class="doccomment">/// support), all of x, y, width, height are set to -1.</span>
-    <span class="doccomment">/// ## `coord_type`</span>
-    <span class="doccomment">/// specifies whether the coordinates are relative to the screen</span>
-    <span class="doccomment">/// or to the components top level window</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// address of `gint` to put x coordinate</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// address of `gint` to put y coordinate</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `width`</span>
-    <span class="doccomment">/// address of `gint` to put width</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `height`</span>
-    <span class="doccomment">/// address of `gint` to put height</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_get_extents&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_extents&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>);
+    <span class="doccomment">/// Gets the rectangle which gives the extent of the `self`.
+    ///
+    /// If the extent can not be obtained (e.g. a non-embedded plug or missing
+    /// support), all of x, y, width, height are set to -1.
+    /// ## `coord_type`
+    /// specifies whether the coordinates are relative to the screen
+    /// or to the components top level window
+    ///
+    /// # Returns
+    ///
+    ///
+    /// ## `x`
+    /// address of `gint` to put x coordinate
+    ///
+    /// ## `y`
+    /// address of `gint` to put y coordinate
+    ///
+    /// ## `width`
+    /// address of `gint` to put width
+    ///
+    /// ## `height`
+    /// address of `gint` to put height
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_get_extents&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_extents&quot;</span>)]
+    </span><span class="kw">fn </span>extents(<span class="kw-2">&amp;</span><span class="self">self</span>, coord_type: CoordType) -&gt; (i32, i32, i32, i32);
 
-    <span class="doccomment">/// Gets the layer of the component.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// an [`Layer`][crate::Layer] which is the layer of the component</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_get_layer&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_layer&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">layer</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Layer</span>;
+    <span class="doccomment">/// Gets the layer of the component.
+    ///
+    /// # Returns
+    ///
+    /// an [`Layer`][crate::Layer] which is the layer of the component
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_get_layer&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_layer&quot;</span>)]
+    </span><span class="kw">fn </span>layer(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Layer;
 
-    <span class="doccomment">/// Gets the zorder of the component. The value G_MININT will be returned</span>
-    <span class="doccomment">/// if the layer of the component is not ATK_LAYER_MDI or ATK_LAYER_WINDOW.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a gint which is the zorder of the component, i.e. the depth at</span>
-    <span class="doccomment">/// which the component is shown in relation to other components in the same</span>
-    <span class="doccomment">/// container.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_get_mdi_zorder&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_mdi_zorder&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">mdi_zorder</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Gets the zorder of the component. The value G_MININT will be returned
+    /// if the layer of the component is not ATK_LAYER_MDI or ATK_LAYER_WINDOW.
+    ///
+    /// # Returns
+    ///
+    /// a gint which is the zorder of the component, i.e. the depth at
+    /// which the component is shown in relation to other components in the same
+    /// container.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_get_mdi_zorder&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_mdi_zorder&quot;</span>)]
+    </span><span class="kw">fn </span>mdi_zorder(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
-    <span class="doccomment">/// Gets the position of `self` in the form of</span>
-    <span class="doccomment">/// a point specifying `self`&#39;s top-left corner.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the position can not be obtained (e.g. a non-embedded plug or missing</span>
-    <span class="doccomment">/// support), x and y are set to -1.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Deprecated</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Since 2.12. Use [`extents()`][Self::extents()] instead.</span>
-    <span class="doccomment">/// ## `coord_type`</span>
-    <span class="doccomment">/// specifies whether the coordinates are relative to the screen</span>
-    <span class="doccomment">/// or to the components top level window</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// address of `gint` to put x coordinate position</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// address of `gint` to put y coordinate position</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_get_position&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_position&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">position</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>);
+    <span class="doccomment">/// Gets the position of `self` in the form of
+    /// a point specifying `self`&#39;s top-left corner.
+    ///
+    /// If the position can not be obtained (e.g. a non-embedded plug or missing
+    /// support), x and y are set to -1.
+    ///
+    /// # Deprecated
+    ///
+    /// Since 2.12. Use [`extents()`][Self::extents()] instead.
+    /// ## `coord_type`
+    /// specifies whether the coordinates are relative to the screen
+    /// or to the components top level window
+    ///
+    /// # Returns
+    ///
+    ///
+    /// ## `x`
+    /// address of `gint` to put x coordinate position
+    ///
+    /// ## `y`
+    /// address of `gint` to put y coordinate position
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_get_position&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_position&quot;</span>)]
+    </span><span class="kw">fn </span>position(<span class="kw-2">&amp;</span><span class="self">self</span>, coord_type: CoordType) -&gt; (i32, i32);
 
-    <span class="doccomment">/// Gets the size of the `self` in terms of width and height.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the size can not be obtained (e.g. a non-embedded plug or missing</span>
-    <span class="doccomment">/// support), width and height are set to -1.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Deprecated</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Since 2.12. Use [`extents()`][Self::extents()] instead.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `width`</span>
-    <span class="doccomment">/// address of `gint` to put width of `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `height`</span>
-    <span class="doccomment">/// address of `gint` to put height of `self`</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_get_size&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_size&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>);
+    <span class="doccomment">/// Gets the size of the `self` in terms of width and height.
+    ///
+    /// If the size can not be obtained (e.g. a non-embedded plug or missing
+    /// support), width and height are set to -1.
+    ///
+    /// # Deprecated
+    ///
+    /// Since 2.12. Use [`extents()`][Self::extents()] instead.
+    ///
+    /// # Returns
+    ///
+    ///
+    /// ## `width`
+    /// address of `gint` to put width of `self`
+    ///
+    /// ## `height`
+    /// address of `gint` to put height of `self`
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_get_size&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_size&quot;</span>)]
+    </span><span class="kw">fn </span>size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (i32, i32);
 
-    <span class="doccomment">/// Grabs focus for this `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if successful, [`false`] otherwise.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_grab_focus&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">grab_focus</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Grabs focus for this `self`.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if successful, [`false`] otherwise.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_grab_focus&quot;</span>)]
+    </span><span class="kw">fn </span>grab_focus(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="doccomment">/// Gets a reference to the accessible child, if one exists, at the</span>
-    <span class="doccomment">/// coordinate point specified by `x` and `y`.</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// x coordinate</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// y coordinate</span>
-    <span class="doccomment">/// ## `coord_type`</span>
-    <span class="doccomment">/// specifies whether the coordinates are relative to the screen</span>
-    <span class="doccomment">/// or to the components top level window</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a reference to the accessible</span>
-    <span class="doccomment">/// child, if one exists</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_ref_accessible_at_point&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">ref_accessible_at_point</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Gets a reference to the accessible child, if one exists, at the
+    /// coordinate point specified by `x` and `y`.
+    /// ## `x`
+    /// x coordinate
+    /// ## `y`
+    /// y coordinate
+    /// ## `coord_type`
+    /// specifies whether the coordinates are relative to the screen
+    /// or to the components top level window
+    ///
+    /// # Returns
+    ///
+    /// a reference to the accessible
+    /// child, if one exists
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_ref_accessible_at_point&quot;</span>)]
+    </span><span class="kw">fn </span>ref_accessible_at_point(<span class="kw-2">&amp;</span><span class="self">self</span>, x: i32, y: i32, coord_type: CoordType) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt;;
 
-    <span class="doccomment">/// Makes `self` visible on the screen by scrolling all necessary parents.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Contrary to atk_component_set_position, this does not actually move</span>
-    <span class="doccomment">/// `self` in its parent, this only makes the parents scroll so that the</span>
-    <span class="doccomment">/// object shows up on the screen, given its current position within the parents.</span>
-    <span class="doccomment">/// ## `type_`</span>
-    <span class="doccomment">/// specify where the object should be made visible.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// whether scrolling was successful.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>)))]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_scroll_to&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">scroll_to</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">type_</span>: <span class="ident">ScrollType</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Makes `self` visible on the screen by scrolling all necessary parents.
+    ///
+    /// Contrary to atk_component_set_position, this does not actually move
+    /// `self` in its parent, this only makes the parents scroll so that the
+    /// object shows up on the screen, given its current position within the parents.
+    /// ## `type_`
+    /// specify where the object should be made visible.
+    ///
+    /// # Returns
+    ///
+    /// whether scrolling was successful.
+    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_30&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_30&quot;</span>)))]
+    #[doc(alias = <span class="string">&quot;atk_component_scroll_to&quot;</span>)]
+    </span><span class="kw">fn </span>scroll_to(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: ScrollType) -&gt; bool;
 
-    <span class="doccomment">/// Move the top-left of `self` to a given position of the screen by</span>
-    <span class="doccomment">/// scrolling all necessary parents.</span>
-    <span class="doccomment">/// ## `coords`</span>
-    <span class="doccomment">/// specify whether coordinates are relative to the screen or to the</span>
-    <span class="doccomment">/// parent object.</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// x-position where to scroll to</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// y-position where to scroll to</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// whether scrolling was successful.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>)))]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_scroll_to_point&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">scroll_to_point</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">coords</span>: <span class="ident">CoordType</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Move the top-left of `self` to a given position of the screen by
+    /// scrolling all necessary parents.
+    /// ## `coords`
+    /// specify whether coordinates are relative to the screen or to the
+    /// parent object.
+    /// ## `x`
+    /// x-position where to scroll to
+    /// ## `y`
+    /// y-position where to scroll to
+    ///
+    /// # Returns
+    ///
+    /// whether scrolling was successful.
+    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_30&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_30&quot;</span>)))]
+    #[doc(alias = <span class="string">&quot;atk_component_scroll_to_point&quot;</span>)]
+    </span><span class="kw">fn </span>scroll_to_point(<span class="kw-2">&amp;</span><span class="self">self</span>, coords: CoordType, x: i32, y: i32) -&gt; bool;
 
-    <span class="doccomment">/// Sets the extents of `self`.</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// x coordinate</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// y coordinate</span>
-    <span class="doccomment">/// ## `width`</span>
-    <span class="doccomment">/// width to set for `self`</span>
-    <span class="doccomment">/// ## `height`</span>
-    <span class="doccomment">/// height to set for `self`</span>
-    <span class="doccomment">/// ## `coord_type`</span>
-    <span class="doccomment">/// specifies whether the coordinates are relative to the screen</span>
-    <span class="doccomment">/// or to the components top level window</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] or [`false`] whether the extents were set or not</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_set_extents&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">width</span>: <span class="ident">i32</span>, <span class="ident">height</span>: <span class="ident">i32</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Sets the extents of `self`.
+    /// ## `x`
+    /// x coordinate
+    /// ## `y`
+    /// y coordinate
+    /// ## `width`
+    /// width to set for `self`
+    /// ## `height`
+    /// height to set for `self`
+    /// ## `coord_type`
+    /// specifies whether the coordinates are relative to the screen
+    /// or to the components top level window
+    ///
+    /// # Returns
+    ///
+    /// [`true`] or [`false`] whether the extents were set or not
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_set_extents&quot;</span>)]
+    </span><span class="kw">fn </span>set_extents(<span class="kw-2">&amp;</span><span class="self">self</span>, x: i32, y: i32, width: i32, height: i32, coord_type: CoordType) -&gt; bool;
 
-    <span class="doccomment">/// Sets the position of `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Contrary to atk_component_scroll_to, this does not trigger any scrolling,</span>
-    <span class="doccomment">/// this just moves `self` in its parent.</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// x coordinate</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// y coordinate</span>
-    <span class="doccomment">/// ## `coord_type`</span>
-    <span class="doccomment">/// specifies whether the coordinates are relative to the screen</span>
-    <span class="doccomment">/// or to the component&#39;s top level window</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] or [`false`] whether or not the position was set or not</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_set_position&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_position</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Sets the position of `self`.
+    ///
+    /// Contrary to atk_component_scroll_to, this does not trigger any scrolling,
+    /// this just moves `self` in its parent.
+    /// ## `x`
+    /// x coordinate
+    /// ## `y`
+    /// y coordinate
+    /// ## `coord_type`
+    /// specifies whether the coordinates are relative to the screen
+    /// or to the component&#39;s top level window
+    ///
+    /// # Returns
+    ///
+    /// [`true`] or [`false`] whether or not the position was set or not
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_set_position&quot;</span>)]
+    </span><span class="kw">fn </span>set_position(<span class="kw-2">&amp;</span><span class="self">self</span>, x: i32, y: i32, coord_type: CoordType) -&gt; bool;
 
-    <span class="doccomment">/// Set the size of the `self` in terms of width and height.</span>
-    <span class="doccomment">/// ## `width`</span>
-    <span class="doccomment">/// width to set for `self`</span>
-    <span class="doccomment">/// ## `height`</span>
-    <span class="doccomment">/// height to set for `self`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] or [`false`] whether the size was set or not</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;atk_component_set_size&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">width</span>: <span class="ident">i32</span>, <span class="ident">height</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Set the size of the `self` in terms of width and height.
+    /// ## `width`
+    /// width to set for `self`
+    /// ## `height`
+    /// height to set for `self`
+    ///
+    /// # Returns
+    ///
+    /// [`true`] or [`false`] whether the size was set or not
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;atk_component_set_size&quot;</span>)]
+    </span><span class="kw">fn </span>set_size(<span class="kw-2">&amp;</span><span class="self">self</span>, width: i32, height: i32) -&gt; bool;
 
-    <span class="doccomment">/// The &#39;bounds-changed&quot; signal is emitted when the bposition or</span>
-    <span class="doccomment">/// size of the component changes.</span>
-    <span class="doccomment">/// ## `arg1`</span>
-    <span class="doccomment">/// The AtkRectangle giving the new position and size.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;bounds-changed&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">connect_bounds_changed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+    <span class="doccomment">/// The &#39;bounds-changed&quot; signal is emitted when the bposition or
+    /// size of the component changes.
+    /// ## `arg1`
+    /// The AtkRectangle giving the new position and size.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;bounds-changed&quot;</span>)]
+    </span><span class="kw">fn </span>connect_bounds_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>Rectangle) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Component</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">ComponentExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_component_contains</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">x</span>,
-                <span class="ident">y</span>,
-                <span class="ident">coord_type</span>.<span class="ident">into_glib</span>(),
+<span class="kw">impl</span>&lt;O: IsA&lt;Component&gt;&gt; ComponentExt <span class="kw">for </span>O {
+    <span class="kw">fn </span>contains(<span class="kw-2">&amp;</span><span class="self">self</span>, x: i32, y: i32, coord_type: CoordType) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_component_contains(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                x,
+                y,
+                coord_type.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">alpha</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">f64</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_component_get_alpha</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">fn </span>alpha(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f64 {
+        <span class="kw">unsafe </span>{ ffi::atk_component_get_alpha(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">width</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">height</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="ident">ffi::atk_component_get_extents</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">x</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">y</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">width</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">height</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">coord_type</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>extents(<span class="kw-2">&amp;</span><span class="self">self</span>, coord_type: CoordType) -&gt; (i32, i32, i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>x = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>y = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>width = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>height = mem::MaybeUninit::uninit();
+            ffi::atk_component_get_extents(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                x.as_mut_ptr(),
+                y.as_mut_ptr(),
+                width.as_mut_ptr(),
+                height.as_mut_ptr(),
+                coord_type.into_glib(),
             );
             (
-                <span class="ident">x</span>.<span class="ident">assume_init</span>(),
-                <span class="ident">y</span>.<span class="ident">assume_init</span>(),
-                <span class="ident">width</span>.<span class="ident">assume_init</span>(),
-                <span class="ident">height</span>.<span class="ident">assume_init</span>(),
+                x.assume_init(),
+                y.assume_init(),
+                width.assume_init(),
+                height.assume_init(),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">layer</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Layer</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::atk_component_get_layer</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="kw">fn </span>layer(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Layer {
+        <span class="kw">unsafe </span>{ from_glib(ffi::atk_component_get_layer(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="kw">fn</span> <span class="ident">mdi_zorder</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::atk_component_get_mdi_zorder</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">fn </span>mdi_zorder(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::atk_component_get_mdi_zorder(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">position</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="ident">ffi::atk_component_get_position</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">x</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">y</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">coord_type</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>position(<span class="kw-2">&amp;</span><span class="self">self</span>, coord_type: CoordType) -&gt; (i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>x = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>y = mem::MaybeUninit::uninit();
+            ffi::atk_component_get_position(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                x.as_mut_ptr(),
+                y.as_mut_ptr(),
+                coord_type.into_glib(),
             );
-            (<span class="ident">x</span>.<span class="ident">assume_init</span>(), <span class="ident">y</span>.<span class="ident">assume_init</span>())
+            (x.assume_init(), y.assume_init())
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">width</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">height</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="ident">ffi::atk_component_get_size</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">width</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">height</span>.<span class="ident">as_mut_ptr</span>(),
+    <span class="kw">fn </span>size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>width = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>height = mem::MaybeUninit::uninit();
+            ffi::atk_component_get_size(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                width.as_mut_ptr(),
+                height.as_mut_ptr(),
             );
-            (<span class="ident">width</span>.<span class="ident">assume_init</span>(), <span class="ident">height</span>.<span class="ident">assume_init</span>())
+            (width.assume_init(), height.assume_init())
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">grab_focus</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_component_grab_focus</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>grab_focus(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_component_grab_focus(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">ref_accessible_at_point</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::atk_component_ref_accessible_at_point</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">x</span>,
-                <span class="ident">y</span>,
-                <span class="ident">coord_type</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>ref_accessible_at_point(<span class="kw-2">&amp;</span><span class="self">self</span>, x: i32, y: i32, coord_type: CoordType) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::atk_component_ref_accessible_at_point(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                x,
+                y,
+                coord_type.into_glib(),
             ))
         }
     }
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>)))]</span>
-    <span class="kw">fn</span> <span class="ident">scroll_to</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">type_</span>: <span class="ident">ScrollType</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_component_scroll_to</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">type_</span>.<span class="ident">into_glib</span>(),
+    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_30&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_30&quot;</span>)))]
+    </span><span class="kw">fn </span>scroll_to(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: ScrollType) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_component_scroll_to(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                type_.into_glib(),
             ))
         }
     }
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_30&quot;</span>)))]</span>
-    <span class="kw">fn</span> <span class="ident">scroll_to_point</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">coords</span>: <span class="ident">CoordType</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_component_scroll_to_point</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">coords</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">x</span>,
-                <span class="ident">y</span>,
+    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_30&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_30&quot;</span>)))]
+    </span><span class="kw">fn </span>scroll_to_point(<span class="kw-2">&amp;</span><span class="self">self</span>, coords: CoordType, x: i32, y: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_component_scroll_to_point(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                coords.into_glib(),
+                x,
+                y,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">width</span>: <span class="ident">i32</span>, <span class="ident">height</span>: <span class="ident">i32</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_component_set_extents</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">x</span>,
-                <span class="ident">y</span>,
-                <span class="ident">width</span>,
-                <span class="ident">height</span>,
-                <span class="ident">coord_type</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>set_extents(<span class="kw-2">&amp;</span><span class="self">self</span>, x: i32, y: i32, width: i32, height: i32, coord_type: CoordType) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_component_set_extents(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                x,
+                y,
+                width,
+                height,
+                coord_type.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_position</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">coord_type</span>: <span class="ident">CoordType</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_component_set_position</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">x</span>,
-                <span class="ident">y</span>,
-                <span class="ident">coord_type</span>.<span class="ident">into_glib</span>(),
+    <span class="kw">fn </span>set_position(<span class="kw-2">&amp;</span><span class="self">self</span>, x: i32, y: i32, coord_type: CoordType) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_component_set_position(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                x,
+                y,
+                coord_type.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">width</span>: <span class="ident">i32</span>, <span class="ident">height</span>: <span class="ident">i32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::atk_component_set_size</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">width</span>,
-                <span class="ident">height</span>,
+    <span class="kw">fn </span>set_size(<span class="kw-2">&amp;</span><span class="self">self</span>, width: i32, height: i32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::atk_component_set_size(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                width,
+                height,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_bounds_changed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">bounds_changed_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Component</span><span class="op">&gt;</span>,
-            <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkComponent</span>,
-            <span class="ident">arg1</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AtkRectangle</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="kw">fn </span>connect_bounds_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>Rectangle) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>bounds_changed_trampoline&lt;
+            P: IsA&lt;Component&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span>Rectangle) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            this: <span class="kw-2">*mut </span>ffi::AtkComponent,
+            arg1: <span class="kw-2">*mut </span>ffi::AtkRectangle,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(
-                <span class="ident">Component::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
-                <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">arg1</span>),
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(
+                Component::from_glib_borrow(this).unsafe_cast_ref(),
+                <span class="kw-2">&amp;</span>from_glib_borrow(arg1),
             )
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;bounds-changed\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">bounds_changed_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;bounds-changed\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    bounds_changed_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Component</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Component&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>Component {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;Component&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="atk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

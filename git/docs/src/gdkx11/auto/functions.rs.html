@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdkx11/src/auto/functions.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>functions.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdkx11/src/auto/functions.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>functions.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gdkx11/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gdkx11/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdkx11/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../gdkx11/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdkx11/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -395,324 +389,323 @@
 <span id="316">316</span>
 <span id="317">317</span>
 <span id="318">318</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::X11DeviceCore</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::X11DeviceManagerCore</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::X11Display</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::X11Window</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">x11::xlib</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::X11DeviceCore;
+<span class="kw">use </span><span class="kw">crate</span>::X11DeviceManagerCore;
+<span class="kw">use </span><span class="kw">crate</span>::X11Display;
+<span class="kw">use </span><span class="kw">crate</span>::X11Window;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>x11::xlib;
 
-<span class="doccomment">/// Converts from a [`gdk::Atom`][crate::gdk::Atom] to the X atom for the default GDK display</span>
-<span class="doccomment">/// with the same string value.</span>
-<span class="doccomment">/// ## `atom`</span>
-<span class="doccomment">/// A [`gdk::Atom`][crate::gdk::Atom]</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the X atom corresponding to `atom`.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_atom_to_xatom&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_atom_to_xatom</span>(<span class="ident">atom</span>: <span class="kw-2">&amp;</span><span class="ident">gdk::Atom</span>) -&gt; <span class="ident">xlib::Atom</span> {
+<span class="doccomment">/// Converts from a [`gdk::Atom`][crate::gdk::Atom] to the X atom for the default GDK display
+/// with the same string value.
+/// ## `atom`
+/// A [`gdk::Atom`][crate::gdk::Atom]
+///
+/// # Returns
+///
+/// the X atom corresponding to `atom`.
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_atom_to_xatom&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_atom_to_xatom(atom: <span class="kw-2">&amp;</span>gdk::Atom) -&gt; xlib::Atom {
     <span class="macro">assert_initialized_main_thread!</span>();
-    <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_x11_atom_to_xatom</span>(<span class="ident">atom</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">unsafe </span>{ ffi::gdk_x11_atom_to_xatom(atom.to_glib_none().<span class="number">0</span>) }
 }
 
-<span class="doccomment">/// Converts from a [`gdk::Atom`][crate::gdk::Atom] to the X atom for a [`gdk::Display`][crate::gdk::Display]</span>
-<span class="doccomment">/// with the same string value. The special value `GDK_NONE`</span>
-<span class="doccomment">/// is converted to `None`.</span>
-<span class="doccomment">/// ## `display`</span>
-<span class="doccomment">/// A [`gdk::Display`][crate::gdk::Display]</span>
-<span class="doccomment">/// ## `atom`</span>
-<span class="doccomment">/// A [`gdk::Atom`][crate::gdk::Atom], or `GDK_NONE`</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the X atom corresponding to `atom`, or `None`</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_atom_to_xatom_for_display&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_atom_to_xatom_for_display</span>(<span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="ident">X11Display</span>, <span class="ident">atom</span>: <span class="kw-2">&amp;</span><span class="ident">gdk::Atom</span>) -&gt; <span class="ident">xlib::Atom</span> {
+<span class="doccomment">/// Converts from a [`gdk::Atom`][crate::gdk::Atom] to the X atom for a [`gdk::Display`][crate::gdk::Display]
+/// with the same string value. The special value `GDK_NONE`
+/// is converted to `None`.
+/// ## `display`
+/// A [`gdk::Display`][crate::gdk::Display]
+/// ## `atom`
+/// A [`gdk::Atom`][crate::gdk::Atom], or `GDK_NONE`
+///
+/// # Returns
+///
+/// the X atom corresponding to `atom`, or `None`
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_atom_to_xatom_for_display&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_atom_to_xatom_for_display(display: <span class="kw-2">&amp;</span>X11Display, atom: <span class="kw-2">&amp;</span>gdk::Atom) -&gt; xlib::Atom {
     <span class="macro">skip_assert_initialized!</span>();
-    <span class="kw">unsafe</span> {
-        <span class="ident">ffi::gdk_x11_atom_to_xatom_for_display</span>(<span class="ident">display</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">atom</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)
+    <span class="kw">unsafe </span>{
+        ffi::gdk_x11_atom_to_xatom_for_display(display.to_glib_none().<span class="number">0</span>, atom.to_glib_none().<span class="number">0</span>)
     }
 }
 
-<span class="doccomment">/// Returns the device ID as seen by XInput2.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// &gt; If `gdk_disable_multidevice()` has been called, this function</span>
-<span class="doccomment">/// &gt; will respectively return 2/3 for the core pointer and keyboard,</span>
-<span class="doccomment">/// &gt; (matching the IDs for the Virtual Core Pointer and Keyboard in</span>
-<span class="doccomment">/// &gt; XInput 2), but calling this function on any slave devices (i.e.</span>
-<span class="doccomment">/// &gt; those managed via XInput 1.x), will return 0.</span>
-<span class="doccomment">/// ## `device`</span>
-<span class="doccomment">/// a [`gdk::Device`][crate::gdk::Device]</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the XInput2 device ID.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_device_get_id&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_device_get_id</span>(<span class="ident">device</span>: <span class="kw-2">&amp;</span><span class="ident">X11DeviceCore</span>) -&gt; <span class="ident">i32</span> {
+<span class="doccomment">/// Returns the device ID as seen by XInput2.
+///
+/// &gt; If `gdk_disable_multidevice()` has been called, this function
+/// &gt; will respectively return 2/3 for the core pointer and keyboard,
+/// &gt; (matching the IDs for the Virtual Core Pointer and Keyboard in
+/// &gt; XInput 2), but calling this function on any slave devices (i.e.
+/// &gt; those managed via XInput 1.x), will return 0.
+/// ## `device`
+/// a [`gdk::Device`][crate::gdk::Device]
+///
+/// # Returns
+///
+/// the XInput2 device ID.
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_device_get_id&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_device_get_id(device: <span class="kw-2">&amp;</span>X11DeviceCore) -&gt; i32 {
     <span class="macro">skip_assert_initialized!</span>();
-    <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_x11_device_get_id</span>(<span class="ident">device</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">unsafe </span>{ ffi::gdk_x11_device_get_id(device.to_glib_none().<span class="number">0</span>) }
 }
 
-<span class="doccomment">/// Returns the [`gdk::Device`][crate::gdk::Device] that wraps the given device ID.</span>
-<span class="doccomment">/// ## `device_manager`</span>
-<span class="doccomment">/// a [`gdk::DeviceManager`][crate::gdk::DeviceManager]</span>
-<span class="doccomment">/// ## `device_id`</span>
-<span class="doccomment">/// a device ID, as understood by the XInput2 protocol</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The [`gdk::Device`][crate::gdk::Device] wrapping the device ID,</span>
-<span class="doccomment">///  or [`None`] if the given ID doesn’t currently represent a device.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_device_manager_lookup&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_device_manager_lookup</span>(
-    <span class="ident">device_manager</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">X11DeviceManagerCore</span><span class="op">&gt;</span>,
-    <span class="ident">device_id</span>: <span class="ident">i32</span>,
-) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">X11DeviceCore</span><span class="op">&gt;</span> {
+<span class="doccomment">/// Returns the [`gdk::Device`][crate::gdk::Device] that wraps the given device ID.
+/// ## `device_manager`
+/// a [`gdk::DeviceManager`][crate::gdk::DeviceManager]
+/// ## `device_id`
+/// a device ID, as understood by the XInput2 protocol
+///
+/// # Returns
+///
+/// The [`gdk::Device`][crate::gdk::Device] wrapping the device ID,
+///  or [`None`] if the given ID doesn’t currently represent a device.
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_device_manager_lookup&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_device_manager_lookup(
+    device_manager: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;X11DeviceManagerCore&gt;,
+    device_id: i32,
+) -&gt; <span class="prelude-ty">Option</span>&lt;X11DeviceCore&gt; {
     <span class="macro">skip_assert_initialized!</span>();
-    <span class="kw">unsafe</span> {
-        <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_x11_device_manager_lookup</span>(
-            <span class="ident">device_manager</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            <span class="ident">device_id</span>,
+    <span class="kw">unsafe </span>{
+        from_glib_none(ffi::gdk_x11_device_manager_lookup(
+            device_manager.as_ref().to_glib_none().<span class="number">0</span>,
+            device_id,
         ))
     }
 }
 
-<span class="doccomment">/// Gets the root window of the default screen</span>
-<span class="doccomment">/// (see [`x11_get_default_screen()`][crate::x11_get_default_screen()]).</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// an Xlib Window.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_get_default_root_xwindow&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_get_default_root_xwindow</span>() -&gt; <span class="ident">xlib::Window</span> {
+<span class="doccomment">/// Gets the root window of the default screen
+/// (see [`x11_get_default_screen()`][crate::x11_get_default_screen()]).
+///
+/// # Returns
+///
+/// an Xlib Window.
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_get_default_root_xwindow&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_get_default_root_xwindow() -&gt; xlib::Window {
     <span class="macro">assert_initialized_main_thread!</span>();
-    <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_x11_get_default_root_xwindow</span>() }
+    <span class="kw">unsafe </span>{ ffi::gdk_x11_get_default_root_xwindow() }
 }
 
-<span class="doccomment">/// Gets the default GTK+ screen number.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// returns the screen number specified by</span>
-<span class="doccomment">///  the --display command line option or the DISPLAY environment</span>
-<span class="doccomment">///  variable when `gdk_init()` calls XOpenDisplay().</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_get_default_screen&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_get_default_screen</span>() -&gt; <span class="ident">i32</span> {
+<span class="doccomment">/// Gets the default GTK+ screen number.
+///
+/// # Returns
+///
+/// returns the screen number specified by
+///  the --display command line option or the DISPLAY environment
+///  variable when `gdk_init()` calls XOpenDisplay().
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_get_default_screen&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_get_default_screen() -&gt; i32 {
     <span class="macro">assert_initialized_main_thread!</span>();
-    <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_x11_get_default_screen</span>() }
+    <span class="kw">unsafe </span>{ ffi::gdk_x11_get_default_screen() }
 }
 
-<span class="comment">//#[cfg_attr(feature = &quot;v3_24&quot;, deprecated = &quot;Since 3.24&quot;)]</span>
-<span class="comment">//#[cfg(any(feature = &quot;v3_24_2&quot;, feature = &quot;dox&quot;))]</span>
-<span class="comment">//#[cfg_attr(feature = &quot;dox&quot;, doc(cfg(feature = &quot;v3_24_2&quot;)))]</span>
-<span class="comment">//#[doc(alias = &quot;gdk_x11_get_parent_relative_pattern&quot;)]</span>
-<span class="comment">//pub fn x11_get_parent_relative_pattern() -&gt; /*Ignored*/Option&lt;cairo::Pattern&gt; {</span>
-<span class="comment">//    unsafe { TODO: call ffi:gdk_x11_get_parent_relative_pattern() }</span>
-<span class="comment">//}</span>
+<span class="comment">//#[cfg_attr(feature = &quot;v3_24&quot;, deprecated = &quot;Since 3.24&quot;)]
+//#[cfg(any(feature = &quot;v3_24_2&quot;, feature = &quot;dox&quot;))]
+//#[cfg_attr(feature = &quot;dox&quot;, doc(cfg(feature = &quot;v3_24_2&quot;)))]
+//#[doc(alias = &quot;gdk_x11_get_parent_relative_pattern&quot;)]
+//pub fn x11_get_parent_relative_pattern() -&gt; /*Ignored*/Option&lt;cairo::Pattern&gt; {
+//    unsafe { TODO: call ffi:gdk_x11_get_parent_relative_pattern() }
+//}
 
-<span class="doccomment">/// Routine to get the current X server time stamp.</span>
-<span class="doccomment">/// ## `window`</span>
-<span class="doccomment">/// a [`gdk::Window`][crate::gdk::Window], used for communication</span>
-<span class="doccomment">///  with the server. The window must have</span>
-<span class="doccomment">///  GDK_PROPERTY_CHANGE_MASK in its events mask or a hang will</span>
-<span class="doccomment">///  result.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the time stamp.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_get_server_time&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_get_server_time</span>(<span class="ident">window</span>: <span class="kw-2">&amp;</span><span class="ident">X11Window</span>) -&gt; <span class="ident">u32</span> {
+</span><span class="doccomment">/// Routine to get the current X server time stamp.
+/// ## `window`
+/// a [`gdk::Window`][crate::gdk::Window], used for communication
+///  with the server. The window must have
+///  GDK_PROPERTY_CHANGE_MASK in its events mask or a hang will
+///  result.
+///
+/// # Returns
+///
+/// the time stamp.
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_get_server_time&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_get_server_time(window: <span class="kw-2">&amp;</span>X11Window) -&gt; u32 {
     <span class="macro">skip_assert_initialized!</span>();
-    <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_x11_get_server_time</span>(<span class="ident">window</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">unsafe </span>{ ffi::gdk_x11_get_server_time(window.to_glib_none().<span class="number">0</span>) }
 }
 
-<span class="doccomment">/// Returns the X atom for GDK’s default display corresponding to `atom_name`.</span>
-<span class="doccomment">/// This function caches the result, so if called repeatedly it is much</span>
-<span class="doccomment">/// faster than XInternAtom(), which is a round trip to the server each time.</span>
-<span class="doccomment">/// ## `atom_name`</span>
-<span class="doccomment">/// a string</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// a X atom for GDK’s default display.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_get_xatom_by_name&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_get_xatom_by_name</span>(<span class="ident">atom_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="ident">xlib::Atom</span> {
+<span class="doccomment">/// Returns the X atom for GDK’s default display corresponding to `atom_name`.
+/// This function caches the result, so if called repeatedly it is much
+/// faster than XInternAtom(), which is a round trip to the server each time.
+/// ## `atom_name`
+/// a string
+///
+/// # Returns
+///
+/// a X atom for GDK’s default display.
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_get_xatom_by_name&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_get_xatom_by_name(atom_name: <span class="kw-2">&amp;</span>str) -&gt; xlib::Atom {
     <span class="macro">assert_initialized_main_thread!</span>();
-    <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_x11_get_xatom_by_name</span>(<span class="ident">atom_name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">unsafe </span>{ ffi::gdk_x11_get_xatom_by_name(atom_name.to_glib_none().<span class="number">0</span>) }
 }
 
-<span class="doccomment">/// Returns the X atom for a [`gdk::Display`][crate::gdk::Display] corresponding to `atom_name`.</span>
-<span class="doccomment">/// This function caches the result, so if called repeatedly it is much</span>
-<span class="doccomment">/// faster than XInternAtom(), which is a round trip to the server each time.</span>
-<span class="doccomment">/// ## `display`</span>
-<span class="doccomment">/// a [`gdk::Display`][crate::gdk::Display]</span>
-<span class="doccomment">/// ## `atom_name`</span>
-<span class="doccomment">/// a string</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// a X atom for a [`gdk::Display`][crate::gdk::Display]</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_get_xatom_by_name_for_display&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_get_xatom_by_name_for_display</span>(<span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="ident">X11Display</span>, <span class="ident">atom_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="ident">xlib::Atom</span> {
+<span class="doccomment">/// Returns the X atom for a [`gdk::Display`][crate::gdk::Display] corresponding to `atom_name`.
+/// This function caches the result, so if called repeatedly it is much
+/// faster than XInternAtom(), which is a round trip to the server each time.
+/// ## `display`
+/// a [`gdk::Display`][crate::gdk::Display]
+/// ## `atom_name`
+/// a string
+///
+/// # Returns
+///
+/// a X atom for a [`gdk::Display`][crate::gdk::Display]
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_get_xatom_by_name_for_display&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_get_xatom_by_name_for_display(display: <span class="kw-2">&amp;</span>X11Display, atom_name: <span class="kw-2">&amp;</span>str) -&gt; xlib::Atom {
     <span class="macro">skip_assert_initialized!</span>();
-    <span class="kw">unsafe</span> {
-        <span class="ident">ffi::gdk_x11_get_xatom_by_name_for_display</span>(
-            <span class="ident">display</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            <span class="ident">atom_name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">unsafe </span>{
+        ffi::gdk_x11_get_xatom_by_name_for_display(
+            display.to_glib_none().<span class="number">0</span>,
+            atom_name.to_glib_none().<span class="number">0</span>,
         )
     }
 }
 
-<span class="doccomment">/// Returns the name of an X atom for GDK’s default display. This</span>
-<span class="doccomment">/// function is meant mainly for debugging, so for convenience, unlike</span>
-<span class="doccomment">/// XAtomName() and [`gdk::Atom::name()`][crate::gdk::Atom::name()], the result</span>
-<span class="doccomment">/// doesn’t need to be freed. Also, this function will never return [`None`],</span>
-<span class="doccomment">/// even if `xatom` is invalid.</span>
-<span class="doccomment">/// ## `xatom`</span>
-<span class="doccomment">/// an X atom for GDK’s default display</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// name of the X atom; this string is owned by GTK+,</span>
-<span class="doccomment">///  so it shouldn’t be modifed or freed.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_get_xatom_name&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_get_xatom_name</span>(<span class="ident">xatom</span>: <span class="ident">xlib::Atom</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
+<span class="doccomment">/// Returns the name of an X atom for GDK’s default display. This
+/// function is meant mainly for debugging, so for convenience, unlike
+/// XAtomName() and [`gdk::Atom::name()`][crate::gdk::Atom::name()], the result
+/// doesn’t need to be freed. Also, this function will never return [`None`],
+/// even if `xatom` is invalid.
+/// ## `xatom`
+/// an X atom for GDK’s default display
+///
+/// # Returns
+///
+/// name of the X atom; this string is owned by GTK+,
+///  so it shouldn’t be modifed or freed.
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_get_xatom_name&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_get_xatom_name(xatom: xlib::Atom) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
     <span class="macro">assert_initialized_main_thread!</span>();
-    <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_x11_get_xatom_name</span>(<span class="ident">xatom</span>)) }
+    <span class="kw">unsafe </span>{ from_glib_none(ffi::gdk_x11_get_xatom_name(xatom)) }
 }
 
-<span class="doccomment">/// Returns the name of an X atom for its display. This</span>
-<span class="doccomment">/// function is meant mainly for debugging, so for convenience, unlike</span>
-<span class="doccomment">/// XAtomName() and [`gdk::Atom::name()`][crate::gdk::Atom::name()], the result doesn’t need to</span>
-<span class="doccomment">/// be freed.</span>
-<span class="doccomment">/// ## `display`</span>
-<span class="doccomment">/// the [`gdk::Display`][crate::gdk::Display] where `xatom` is defined</span>
-<span class="doccomment">/// ## `xatom`</span>
-<span class="doccomment">/// an X atom</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// name of the X atom; this string is owned by GDK,</span>
-<span class="doccomment">///  so it shouldn’t be modifed or freed.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_get_xatom_name_for_display&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_get_xatom_name_for_display</span>(
-    <span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="ident">X11Display</span>,
-    <span class="ident">xatom</span>: <span class="ident">xlib::Atom</span>,
-) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
+<span class="doccomment">/// Returns the name of an X atom for its display. This
+/// function is meant mainly for debugging, so for convenience, unlike
+/// XAtomName() and [`gdk::Atom::name()`][crate::gdk::Atom::name()], the result doesn’t need to
+/// be freed.
+/// ## `display`
+/// the [`gdk::Display`][crate::gdk::Display] where `xatom` is defined
+/// ## `xatom`
+/// an X atom
+///
+/// # Returns
+///
+/// name of the X atom; this string is owned by GDK,
+///  so it shouldn’t be modifed or freed.
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_get_xatom_name_for_display&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_get_xatom_name_for_display(
+    display: <span class="kw-2">&amp;</span>X11Display,
+    xatom: xlib::Atom,
+) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
     <span class="macro">skip_assert_initialized!</span>();
-    <span class="kw">unsafe</span> {
-        <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_x11_get_xatom_name_for_display</span>(
-            <span class="ident">display</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            <span class="ident">xatom</span>,
+    <span class="kw">unsafe </span>{
+        from_glib_none(ffi::gdk_x11_get_xatom_name_for_display(
+            display.to_glib_none().<span class="number">0</span>,
+            xatom,
         ))
     }
 }
 
-<span class="doccomment">/// Call [`X11Display::grab()`][crate::X11Display::grab()] on the default display.</span>
-<span class="doccomment">/// To ungrab the server again, use [`x11_ungrab_server()`][crate::x11_ungrab_server()].</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`x11_grab_server()`][crate::x11_grab_server()]/[`x11_ungrab_server()`][crate::x11_ungrab_server()] calls can be nested.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_grab_server&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_grab_server</span>() {
+<span class="doccomment">/// Call [`X11Display::grab()`][crate::X11Display::grab()] on the default display.
+/// To ungrab the server again, use [`x11_ungrab_server()`][crate::x11_ungrab_server()].
+///
+/// [`x11_grab_server()`][crate::x11_grab_server()]/[`x11_ungrab_server()`][crate::x11_ungrab_server()] calls can be nested.
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_grab_server&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_grab_server() {
     <span class="macro">assert_initialized_main_thread!</span>();
-    <span class="kw">unsafe</span> {
-        <span class="ident">ffi::gdk_x11_grab_server</span>();
+    <span class="kw">unsafe </span>{
+        ffi::gdk_x11_grab_server();
     }
 }
 
-<span class="doccomment">/// Registers interest in receiving extension events with type codes</span>
-<span class="doccomment">/// between `event_base` and `event_base + n_events - 1`.</span>
-<span class="doccomment">/// The registered events must have the window field in the same place</span>
-<span class="doccomment">/// as core X events (this is not the case for e.g. XKB extension events).</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// If an event type is registered, events of this type will go through</span>
-<span class="doccomment">/// global and window-specific filters (see [`WindowExtManual::add_filter()`][crate::gdk::prelude::WindowExtManual::add_filter()]).</span>
-<span class="doccomment">/// Unregistered events will only go through global filters.</span>
-<span class="doccomment">/// GDK may register the events of some X extensions on its own.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This function should only be needed in unusual circumstances, e.g.</span>
-<span class="doccomment">/// when filtering XInput extension events on the root window.</span>
-<span class="doccomment">/// ## `display`</span>
-<span class="doccomment">/// a [`gdk::Display`][crate::gdk::Display]</span>
-<span class="doccomment">/// ## `event_base`</span>
-<span class="doccomment">/// first event type code to register</span>
-<span class="doccomment">/// ## `n_events`</span>
-<span class="doccomment">/// number of event type codes to register</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_register_standard_event_type&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_register_standard_event_type</span>(<span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="ident">X11Display</span>, <span class="ident">event_base</span>: <span class="ident">i32</span>, <span class="ident">n_events</span>: <span class="ident">i32</span>) {
+<span class="doccomment">/// Registers interest in receiving extension events with type codes
+/// between `event_base` and `event_base + n_events - 1`.
+/// The registered events must have the window field in the same place
+/// as core X events (this is not the case for e.g. XKB extension events).
+///
+/// If an event type is registered, events of this type will go through
+/// global and window-specific filters (see [`WindowExtManual::add_filter()`][crate::gdk::prelude::WindowExtManual::add_filter()]).
+/// Unregistered events will only go through global filters.
+/// GDK may register the events of some X extensions on its own.
+///
+/// This function should only be needed in unusual circumstances, e.g.
+/// when filtering XInput extension events on the root window.
+/// ## `display`
+/// a [`gdk::Display`][crate::gdk::Display]
+/// ## `event_base`
+/// first event type code to register
+/// ## `n_events`
+/// number of event type codes to register
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_register_standard_event_type&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_register_standard_event_type(display: <span class="kw-2">&amp;</span>X11Display, event_base: i32, n_events: i32) {
     <span class="macro">skip_assert_initialized!</span>();
-    <span class="kw">unsafe</span> {
-        <span class="ident">ffi::gdk_x11_register_standard_event_type</span>(<span class="ident">display</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">event_base</span>, <span class="ident">n_events</span>);
+    <span class="kw">unsafe </span>{
+        ffi::gdk_x11_register_standard_event_type(display.to_glib_none().<span class="number">0</span>, event_base, n_events);
     }
 }
 
-<span class="doccomment">/// Sets the `SM_CLIENT_ID` property on the application’s leader window so that</span>
-<span class="doccomment">/// the window manager can save the application’s state using the X11R6 ICCCM</span>
-<span class="doccomment">/// session management protocol.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// See the X Session Management Library documentation for more information on</span>
-<span class="doccomment">/// session management and the Inter-Client Communication Conventions Manual</span>
-<span class="doccomment">/// ## `sm_client_id`</span>
-<span class="doccomment">/// the client id assigned by the session manager</span>
-<span class="doccomment">///  when the connection was opened, or [`None`] to remove the property.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_set_sm_client_id&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_set_sm_client_id</span>(<span class="ident">sm_client_id</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
+<span class="doccomment">/// Sets the `SM_CLIENT_ID` property on the application’s leader window so that
+/// the window manager can save the application’s state using the X11R6 ICCCM
+/// session management protocol.
+///
+/// See the X Session Management Library documentation for more information on
+/// session management and the Inter-Client Communication Conventions Manual
+/// ## `sm_client_id`
+/// the client id assigned by the session manager
+///  when the connection was opened, or [`None`] to remove the property.
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_set_sm_client_id&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_set_sm_client_id(sm_client_id: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
     <span class="macro">assert_initialized_main_thread!</span>();
-    <span class="kw">unsafe</span> {
-        <span class="ident">ffi::gdk_x11_set_sm_client_id</span>(<span class="ident">sm_client_id</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="kw">unsafe </span>{
+        ffi::gdk_x11_set_sm_client_id(sm_client_id.to_glib_none().<span class="number">0</span>);
     }
 }
 
-<span class="doccomment">/// Ungrab the default display after it has been grabbed with</span>
-<span class="doccomment">/// [`x11_grab_server()`][crate::x11_grab_server()].</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_ungrab_server&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_ungrab_server</span>() {
+<span class="doccomment">/// Ungrab the default display after it has been grabbed with
+/// [`x11_grab_server()`][crate::x11_grab_server()].
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_ungrab_server&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_ungrab_server() {
     <span class="macro">assert_initialized_main_thread!</span>();
-    <span class="kw">unsafe</span> {
-        <span class="ident">ffi::gdk_x11_ungrab_server</span>();
+    <span class="kw">unsafe </span>{
+        ffi::gdk_x11_ungrab_server();
     }
 }
 
-<span class="doccomment">/// Convert from an X atom for the default display to the corresponding</span>
-<span class="doccomment">/// [`gdk::Atom`][crate::gdk::Atom].</span>
-<span class="doccomment">/// ## `xatom`</span>
-<span class="doccomment">/// an X atom for the default GDK display</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the corresponding G`dkAtom`.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_xatom_to_atom&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_xatom_to_atom</span>(<span class="ident">xatom</span>: <span class="ident">xlib::Atom</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk::Atom</span><span class="op">&gt;</span> {
+<span class="doccomment">/// Convert from an X atom for the default display to the corresponding
+/// [`gdk::Atom`][crate::gdk::Atom].
+/// ## `xatom`
+/// an X atom for the default GDK display
+///
+/// # Returns
+///
+/// the corresponding G`dkAtom`.
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_xatom_to_atom&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_xatom_to_atom(xatom: xlib::Atom) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::Atom&gt; {
     <span class="macro">assert_initialized_main_thread!</span>();
-    <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_x11_xatom_to_atom</span>(<span class="ident">xatom</span>)) }
+    <span class="kw">unsafe </span>{ from_glib_none(ffi::gdk_x11_xatom_to_atom(xatom)) }
 }
 
-<span class="doccomment">/// Convert from an X atom for a [`gdk::Display`][crate::gdk::Display] to the corresponding</span>
-<span class="doccomment">/// [`gdk::Atom`][crate::gdk::Atom].</span>
-<span class="doccomment">/// ## `display`</span>
-<span class="doccomment">/// A [`gdk::Display`][crate::gdk::Display]</span>
-<span class="doccomment">/// ## `xatom`</span>
-<span class="doccomment">/// an X atom</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// the corresponding [`gdk::Atom`][crate::gdk::Atom].</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_x11_xatom_to_atom_for_display&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x11_xatom_to_atom_for_display</span>(<span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="ident">X11Display</span>, <span class="ident">xatom</span>: <span class="ident">xlib::Atom</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk::Atom</span><span class="op">&gt;</span> {
+<span class="doccomment">/// Convert from an X atom for a [`gdk::Display`][crate::gdk::Display] to the corresponding
+/// [`gdk::Atom`][crate::gdk::Atom].
+/// ## `display`
+/// A [`gdk::Display`][crate::gdk::Display]
+/// ## `xatom`
+/// an X atom
+///
+/// # Returns
+///
+/// the corresponding [`gdk::Atom`][crate::gdk::Atom].
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_x11_xatom_to_atom_for_display&quot;</span>)]
+</span><span class="kw">pub fn </span>x11_xatom_to_atom_for_display(display: <span class="kw-2">&amp;</span>X11Display, xatom: xlib::Atom) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::Atom&gt; {
     <span class="macro">skip_assert_initialized!</span>();
-    <span class="kw">unsafe</span> {
-        <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_x11_xatom_to_atom_for_display</span>(
-            <span class="ident">display</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            <span class="ident">xatom</span>,
+    <span class="kw">unsafe </span>{
+        from_glib_none(ffi::gdk_x11_xatom_to_atom_for_display(
+            display.to_glib_none().<span class="number">0</span>,
+            xatom,
         ))
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdkx11" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdkx11" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

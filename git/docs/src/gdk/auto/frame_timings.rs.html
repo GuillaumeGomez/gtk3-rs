@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk/src/auto/frame_timings.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>frame_timings.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk/src/auto/frame_timings.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>frame_timings.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -147,76 +141,75 @@
 <span id="68">68</span>
 <span id="69">69</span>
 <span id="70">70</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
+</span><span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// A [`FrameTimings`][crate::FrameTimings] object holds timing information for a single frame</span>
-    <span class="doccomment">/// of the application’s displays. To retrieve [`FrameTimings`][crate::FrameTimings] objects,</span>
-    <span class="doccomment">/// use [`FrameClock::timings()`][crate::FrameClock::timings()] or [`FrameClock::current_timings()`][crate::FrameClock::current_timings()].</span>
-    <span class="doccomment">/// The information in [`FrameTimings`][crate::FrameTimings] is useful for precise synchronization</span>
-    <span class="doccomment">/// of video with the event or audio streams, and for measuring</span>
-    <span class="doccomment">/// quality metrics for the application’s display, such as latency and jitter.</span>
-    <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">FrameTimings</span>(<span class="ident">Shared</span><span class="op">&lt;</span><span class="ident">ffi::GdkFrameTimings</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// A [`FrameTimings`][crate::FrameTimings] object holds timing information for a single frame
+    /// of the application’s displays. To retrieve [`FrameTimings`][crate::FrameTimings] objects,
+    /// use [`FrameClock::timings()`][crate::FrameClock::timings()] or [`FrameClock::current_timings()`][crate::FrameClock::current_timings()].
+    /// The information in [`FrameTimings`][crate::FrameTimings] is useful for precise synchronization
+    /// of video with the event or audio streams, and for measuring
+    /// quality metrics for the application’s display, such as latency and jitter.
+    </span><span class="attribute">#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
+    </span><span class="kw">pub struct </span>FrameTimings(Shared&lt;ffi::GdkFrameTimings&gt;);
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="kw-2">ref</span> =&gt; <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::gdk_frame_timings_ref</span>(<span class="ident">ptr</span>),
-        <span class="ident">unref</span> =&gt; <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::gdk_frame_timings_unref</span>(<span class="ident">ptr</span>),
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gdk_frame_timings_get_type</span>(),
+    <span class="kw">match fn </span>{
+        <span class="kw-2">ref </span>=&gt; |ptr| ffi::gdk_frame_timings_ref(ptr),
+        unref =&gt; |ptr| ffi::gdk_frame_timings_unref(ptr),
+        type_ =&gt; || ffi::gdk_frame_timings_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">FrameTimings</span> {
-    <span class="doccomment">/// The timing information in a [`FrameTimings`][crate::FrameTimings] is filled in</span>
-    <span class="doccomment">/// incrementally as the frame as drawn and passed off to the</span>
-    <span class="doccomment">/// window system for processing and display to the user. The</span>
-    <span class="doccomment">/// accessor functions for [`FrameTimings`][crate::FrameTimings] can return 0 to</span>
-    <span class="doccomment">/// indicate an unavailable value for two reasons: either because</span>
-    <span class="doccomment">/// the information is not yet available, or because it isn&#39;t</span>
-    <span class="doccomment">/// available at all. Once [`is_complete()`][Self::is_complete()] returns</span>
-    <span class="doccomment">/// [`true`] for a frame, you can be certain that no further values</span>
-    <span class="doccomment">/// will become available and be stored in the [`FrameTimings`][crate::FrameTimings].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if all information that will be available</span>
-    <span class="doccomment">///  for the frame has been filled in.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_frame_timings_get_complete&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_complete&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_complete</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_frame_timings_get_complete</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+<span class="kw">impl </span>FrameTimings {
+    <span class="doccomment">/// The timing information in a [`FrameTimings`][crate::FrameTimings] is filled in
+    /// incrementally as the frame as drawn and passed off to the
+    /// window system for processing and display to the user. The
+    /// accessor functions for [`FrameTimings`][crate::FrameTimings] can return 0 to
+    /// indicate an unavailable value for two reasons: either because
+    /// the information is not yet available, or because it isn&#39;t
+    /// available at all. Once [`is_complete()`][Self::is_complete()] returns
+    /// [`true`] for a frame, you can be certain that no further values
+    /// will become available and be stored in the [`FrameTimings`][crate::FrameTimings].
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if all information that will be available
+    ///  for the frame has been filled in.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_frame_timings_get_complete&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_complete&quot;</span>)]
+    </span><span class="kw">pub fn </span>is_complete(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{ from_glib(ffi::gdk_frame_timings_get_complete(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the frame counter value of the [`FrameClock`][crate::FrameClock] when this</span>
-    <span class="doccomment">/// this frame was drawn.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the frame counter value for this frame</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_frame_timings_get_frame_counter&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_frame_counter&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">frame_counter</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i64</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_frame_timings_get_frame_counter</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="doccomment">/// Gets the frame counter value of the [`FrameClock`][crate::FrameClock] when this
+    /// this frame was drawn.
+    ///
+    /// # Returns
+    ///
+    /// the frame counter value for this frame
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_frame_timings_get_frame_counter&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_frame_counter&quot;</span>)]
+    </span><span class="kw">pub fn </span>frame_counter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i64 {
+        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_frame_counter(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Returns the frame time for the frame. This is the time value</span>
-    <span class="doccomment">/// that is typically used to time animations for the frame. See</span>
-    <span class="doccomment">/// [`FrameClock::frame_time()`][crate::FrameClock::frame_time()].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the frame time for the frame, in the timescale</span>
-    <span class="doccomment">///  of `g_get_monotonic_time()`</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_frame_timings_get_frame_time&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_frame_time&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">frame_time</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i64</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::gdk_frame_timings_get_frame_time</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="doccomment">/// Returns the frame time for the frame. This is the time value
+    /// that is typically used to time animations for the frame. See
+    /// [`FrameClock::frame_time()`][crate::FrameClock::frame_time()].
+    ///
+    /// # Returns
+    ///
+    /// the frame time for the frame, in the timescale
+    ///  of `g_get_monotonic_time()`
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_frame_timings_get_frame_time&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_frame_time&quot;</span>)]
+    </span><span class="kw">pub fn </span>frame_time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i64 {
+        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_frame_time(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

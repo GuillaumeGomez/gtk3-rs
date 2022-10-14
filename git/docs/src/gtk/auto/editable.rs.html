@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/editable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>editable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/editable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>editable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -397,326 +391,325 @@
 <span id="318">318</span>
 <span id="319">319</span>
 <span id="320">320</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem</span>;
+</span><span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// The [`Editable`][crate::Editable] interface is an interface which should be implemented by</span>
-    <span class="doccomment">/// text editing widgets, such as [`Entry`][crate::Entry] and [`SpinButton`][crate::SpinButton]. It contains functions</span>
-    <span class="doccomment">/// for generically manipulating an editable widget, a large number of action</span>
-    <span class="doccomment">/// signals used for key bindings, and several signals that an application can</span>
-    <span class="doccomment">/// connect to to modify the behavior of a widget.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// As an example of the latter usage, by connecting</span>
-    <span class="doccomment">/// the following handler to `signal::Editable::insert-text`, an application</span>
-    <span class="doccomment">/// can convert all entry into a widget into uppercase.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Forcing entry to uppercase.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// **⚠️ The following code is in C ⚠️**</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```C</span>
-    <span class="doccomment">/// #include &lt;ctype.h&gt;;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// void</span>
-    <span class="doccomment">/// insert_text_handler (GtkEditable *editable,</span>
-    <span class="doccomment">///                      const gchar *text,</span>
-    <span class="doccomment">///                      gint         length,</span>
-    <span class="doccomment">///                      gint        *position,</span>
-    <span class="doccomment">///                      gpointer     data)</span>
-    <span class="doccomment">/// {</span>
-    <span class="doccomment">///   gchar *result = g_utf8_strup (text, length);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///   g_signal_handlers_block_by_func (editable,</span>
-    <span class="doccomment">///                                (gpointer) insert_text_handler, data);</span>
-    <span class="doccomment">///   gtk_editable_insert_text (editable, result, length, position);</span>
-    <span class="doccomment">///   g_signal_handlers_unblock_by_func (editable,</span>
-    <span class="doccomment">///                                      (gpointer) insert_text_handler, data);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///   g_signal_stop_emission_by_name (editable, &quot;insert_text&quot;);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///   g_free (result);</span>
-    <span class="doccomment">/// }</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`EditableExt`][trait@crate::prelude::EditableExt], [`EditableSignals`][trait@crate::prelude::EditableSignals]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GtkEditable&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Editable</span>(<span class="ident">Interface</span><span class="op">&lt;</span><span class="ident">ffi::GtkEditable</span>, <span class="ident">ffi::GtkEditableInterface</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// The [`Editable`][crate::Editable] interface is an interface which should be implemented by
+    /// text editing widgets, such as [`Entry`][crate::Entry] and [`SpinButton`][crate::SpinButton]. It contains functions
+    /// for generically manipulating an editable widget, a large number of action
+    /// signals used for key bindings, and several signals that an application can
+    /// connect to to modify the behavior of a widget.
+    ///
+    /// As an example of the latter usage, by connecting
+    /// the following handler to `signal::Editable::insert-text`, an application
+    /// can convert all entry into a widget into uppercase.
+    ///
+    /// ## Forcing entry to uppercase.
+    ///
+    ///
+    ///
+    /// **⚠️ The following code is in C ⚠️**
+    ///
+    /// ```C
+    /// #include &lt;ctype.h&gt;;
+    ///
+    /// void
+    /// insert_text_handler (GtkEditable *editable,
+    ///                      const gchar *text,
+    ///                      gint         length,
+    ///                      gint        *position,
+    ///                      gpointer     data)
+    /// {
+    ///   gchar *result = g_utf8_strup (text, length);
+    ///
+    ///   g_signal_handlers_block_by_func (editable,
+    ///                                (gpointer) insert_text_handler, data);
+    ///   gtk_editable_insert_text (editable, result, length, position);
+    ///   g_signal_handlers_unblock_by_func (editable,
+    ///                                      (gpointer) insert_text_handler, data);
+    ///
+    ///   g_signal_stop_emission_by_name (editable, &quot;insert_text&quot;);
+    ///
+    ///   g_free (result);
+    /// }
+    /// ```
+    ///
+    /// # Implements
+    ///
+    /// [`EditableExt`][trait@crate::prelude::EditableExt], [`EditableSignals`][trait@crate::prelude::EditableSignals]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkEditable&quot;</span>)]
+    </span><span class="kw">pub struct </span>Editable(Interface&lt;ffi::GtkEditable, ffi::GtkEditableInterface&gt;);
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_editable_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gtk_editable_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Editable</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">Editable</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+<span class="kw">impl </span>Editable {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>Editable&gt; = <span class="prelude-val">None</span>;
 }
 
-<span class="doccomment">/// Trait containing all [`struct@Editable`] methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementors</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`Editable`][struct@crate::Editable], [`Entry`][struct@crate::Entry], [`SearchEntry`][struct@crate::SearchEntry], [`SpinButton`][struct@crate::SpinButton]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">EditableExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Copies the contents of the currently selected content in the editable and</span>
-    <span class="doccomment">/// puts it on the clipboard.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_copy_clipboard&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">copy_clipboard</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
+<span class="doccomment">/// Trait containing all [`struct@Editable`] methods.
+///
+/// # Implementors
+///
+/// [`Editable`][struct@crate::Editable], [`Entry`][struct@crate::Entry], [`SearchEntry`][struct@crate::SearchEntry], [`SpinButton`][struct@crate::SpinButton]
+</span><span class="kw">pub trait </span>EditableExt: <span class="lifetime">&#39;static </span>{
+    <span class="doccomment">/// Copies the contents of the currently selected content in the editable and
+    /// puts it on the clipboard.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_copy_clipboard&quot;</span>)]
+    </span><span class="kw">fn </span>copy_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="doccomment">/// Removes the contents of the currently selected content in the editable and</span>
-    <span class="doccomment">/// puts it on the clipboard.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_cut_clipboard&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">cut_clipboard</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="doccomment">/// Removes the contents of the currently selected content in the editable and
+    /// puts it on the clipboard.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_cut_clipboard&quot;</span>)]
+    </span><span class="kw">fn </span>cut_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="doccomment">/// Deletes the currently selected text of the editable.</span>
-    <span class="doccomment">/// This call doesn’t do anything if there is no selected text.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_delete_selection&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">delete_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="doccomment">/// Deletes the currently selected text of the editable.
+    /// This call doesn’t do anything if there is no selected text.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_delete_selection&quot;</span>)]
+    </span><span class="kw">fn </span>delete_selection(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="doccomment">/// Deletes a sequence of characters. The characters that are deleted are</span>
-    <span class="doccomment">/// those characters at positions from `start_pos` up to, but not including</span>
-    <span class="doccomment">/// `end_pos`. If `end_pos` is negative, then the characters deleted</span>
-    <span class="doccomment">/// are those from `start_pos` to the end of the text.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that the positions are specified in characters, not bytes.</span>
-    <span class="doccomment">/// ## `start_pos`</span>
-    <span class="doccomment">/// start position</span>
-    <span class="doccomment">/// ## `end_pos`</span>
-    <span class="doccomment">/// end position</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_delete_text&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">delete_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_pos</span>: <span class="ident">i32</span>, <span class="ident">end_pos</span>: <span class="ident">i32</span>);
+    <span class="doccomment">/// Deletes a sequence of characters. The characters that are deleted are
+    /// those characters at positions from `start_pos` up to, but not including
+    /// `end_pos`. If `end_pos` is negative, then the characters deleted
+    /// are those from `start_pos` to the end of the text.
+    ///
+    /// Note that the positions are specified in characters, not bytes.
+    /// ## `start_pos`
+    /// start position
+    /// ## `end_pos`
+    /// end position
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_delete_text&quot;</span>)]
+    </span><span class="kw">fn </span>delete_text(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32);
 
-    <span class="doccomment">/// Retrieves a sequence of characters. The characters that are retrieved</span>
-    <span class="doccomment">/// are those characters at positions from `start_pos` up to, but not</span>
-    <span class="doccomment">/// including `end_pos`. If `end_pos` is negative, then the characters</span>
-    <span class="doccomment">/// retrieved are those characters from `start_pos` to the end of the text.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that positions are specified in characters, not bytes.</span>
-    <span class="doccomment">/// ## `start_pos`</span>
-    <span class="doccomment">/// start of text</span>
-    <span class="doccomment">/// ## `end_pos`</span>
-    <span class="doccomment">/// end of text</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a pointer to the contents of the widget as a</span>
-    <span class="doccomment">///  string. This string is allocated by the [`Editable`][crate::Editable]</span>
-    <span class="doccomment">///  implementation and should be freed by the caller.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_get_chars&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_chars&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">chars</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_pos</span>: <span class="ident">i32</span>, <span class="ident">end_pos</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Retrieves a sequence of characters. The characters that are retrieved
+    /// are those characters at positions from `start_pos` up to, but not
+    /// including `end_pos`. If `end_pos` is negative, then the characters
+    /// retrieved are those characters from `start_pos` to the end of the text.
+    ///
+    /// Note that positions are specified in characters, not bytes.
+    /// ## `start_pos`
+    /// start of text
+    /// ## `end_pos`
+    /// end of text
+    ///
+    /// # Returns
+    ///
+    /// a pointer to the contents of the widget as a
+    ///  string. This string is allocated by the [`Editable`][crate::Editable]
+    ///  implementation and should be freed by the caller.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_chars&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_chars&quot;</span>)]
+    </span><span class="kw">fn </span>chars(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
-    <span class="doccomment">/// Retrieves whether `self` is editable. See</span>
-    <span class="doccomment">/// [`set_editable()`][Self::set_editable()].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if `self` is editable.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_get_editable&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_editable&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">is_editable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span>;
+    <span class="doccomment">/// Retrieves whether `self` is editable. See
+    /// [`set_editable()`][Self::set_editable()].
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if `self` is editable.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_editable&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_editable&quot;</span>)]
+    </span><span class="kw">fn </span>is_editable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="doccomment">/// Retrieves the current position of the cursor relative to the start</span>
-    <span class="doccomment">/// of the content of the editable.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that this position is in characters, not in bytes.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the cursor position</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_get_position&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_position&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">position</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
+    <span class="doccomment">/// Retrieves the current position of the cursor relative to the start
+    /// of the content of the editable.
+    ///
+    /// Note that this position is in characters, not in bytes.
+    ///
+    /// # Returns
+    ///
+    /// the cursor position
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_position&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_position&quot;</span>)]
+    </span><span class="kw">fn </span>position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
-    <span class="doccomment">/// Retrieves the selection bound of the editable. start_pos will be filled</span>
-    <span class="doccomment">/// with the start of the selection and `end_pos` with end. If no text was</span>
-    <span class="doccomment">/// selected both will be identical and [`false`] will be returned.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that positions are specified in characters, not bytes.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if an area is selected, [`false`] otherwise</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `start_pos`</span>
-    <span class="doccomment">/// location to store the starting position, or [`None`]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `end_pos`</span>
-    <span class="doccomment">/// location to store the end position, or [`None`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_get_selection_bounds&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_selection_bounds&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">selection_bounds</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">i32</span>, <span class="ident">i32</span>)<span class="op">&gt;</span>;
+    <span class="doccomment">/// Retrieves the selection bound of the editable. start_pos will be filled
+    /// with the start of the selection and `end_pos` with end. If no text was
+    /// selected both will be identical and [`false`] will be returned.
+    ///
+    /// Note that positions are specified in characters, not bytes.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if an area is selected, [`false`] otherwise
+    ///
+    /// ## `start_pos`
+    /// location to store the starting position, or [`None`]
+    ///
+    /// ## `end_pos`
+    /// location to store the end position, or [`None`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_selection_bounds&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_selection_bounds&quot;</span>)]
+    </span><span class="kw">fn </span>selection_bounds(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(i32, i32)&gt;;
 
-    <span class="doccomment">/// Inserts `new_text_length` bytes of `new_text` into the contents of the</span>
-    <span class="doccomment">/// widget, at position `position`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that the position is in characters, not in bytes.</span>
-    <span class="doccomment">/// The function updates `position` to point after the newly inserted text.</span>
-    <span class="doccomment">/// ## `new_text`</span>
-    <span class="doccomment">/// the text to append</span>
-    <span class="doccomment">/// ## `new_text_length`</span>
-    <span class="doccomment">/// the length of the text in bytes, or -1</span>
-    <span class="doccomment">/// ## `position`</span>
-    <span class="doccomment">/// location of the position text will be inserted at</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_insert_text&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">insert_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">new_text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">position</span>: <span class="kw-2">&amp;mut</span> <span class="ident">i32</span>);
+    <span class="doccomment">/// Inserts `new_text_length` bytes of `new_text` into the contents of the
+    /// widget, at position `position`.
+    ///
+    /// Note that the position is in characters, not in bytes.
+    /// The function updates `position` to point after the newly inserted text.
+    /// ## `new_text`
+    /// the text to append
+    /// ## `new_text_length`
+    /// the length of the text in bytes, or -1
+    /// ## `position`
+    /// location of the position text will be inserted at
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_insert_text&quot;</span>)]
+    </span><span class="kw">fn </span>insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, new_text: <span class="kw-2">&amp;</span>str, position: <span class="kw-2">&amp;mut </span>i32);
 
-    <span class="doccomment">/// Pastes the content of the clipboard to the current position of the</span>
-    <span class="doccomment">/// cursor in the editable.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_paste_clipboard&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">paste_clipboard</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="doccomment">/// Pastes the content of the clipboard to the current position of the
+    /// cursor in the editable.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_paste_clipboard&quot;</span>)]
+    </span><span class="kw">fn </span>paste_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="doccomment">/// Selects a region of text. The characters that are selected are</span>
-    <span class="doccomment">/// those characters at positions from `start_pos` up to, but not</span>
-    <span class="doccomment">/// including `end_pos`. If `end_pos` is negative, then the</span>
-    <span class="doccomment">/// characters selected are those characters from `start_pos` to</span>
-    <span class="doccomment">/// the end of the text.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that positions are specified in characters, not bytes.</span>
-    <span class="doccomment">/// ## `start_pos`</span>
-    <span class="doccomment">/// start of region</span>
-    <span class="doccomment">/// ## `end_pos`</span>
-    <span class="doccomment">/// end of region</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_select_region&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">select_region</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_pos</span>: <span class="ident">i32</span>, <span class="ident">end_pos</span>: <span class="ident">i32</span>);
+    <span class="doccomment">/// Selects a region of text. The characters that are selected are
+    /// those characters at positions from `start_pos` up to, but not
+    /// including `end_pos`. If `end_pos` is negative, then the
+    /// characters selected are those characters from `start_pos` to
+    /// the end of the text.
+    ///
+    /// Note that positions are specified in characters, not bytes.
+    /// ## `start_pos`
+    /// start of region
+    /// ## `end_pos`
+    /// end of region
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_select_region&quot;</span>)]
+    </span><span class="kw">fn </span>select_region(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32);
 
-    <span class="doccomment">/// Determines if the user can edit the text in the editable</span>
-    <span class="doccomment">/// widget or not.</span>
-    <span class="doccomment">/// ## `is_editable`</span>
-    <span class="doccomment">/// [`true`] if the user is allowed to edit the text</span>
-    <span class="doccomment">///  in the widget</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_set_editable&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_editable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">is_editable</span>: <span class="ident">bool</span>);
+    <span class="doccomment">/// Determines if the user can edit the text in the editable
+    /// widget or not.
+    /// ## `is_editable`
+    /// [`true`] if the user is allowed to edit the text
+    ///  in the widget
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_set_editable&quot;</span>)]
+    </span><span class="kw">fn </span>set_editable(<span class="kw-2">&amp;</span><span class="self">self</span>, is_editable: bool);
 
-    <span class="doccomment">/// Sets the cursor position in the editable to the given value.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The cursor is displayed before the character with the given (base 0)</span>
-    <span class="doccomment">/// index in the contents of the editable. The value must be less than or</span>
-    <span class="doccomment">/// equal to the number of characters in the editable. A value of -1</span>
-    <span class="doccomment">/// indicates that the position should be set after the last character</span>
-    <span class="doccomment">/// of the editable. Note that `position` is in characters, not in bytes.</span>
-    <span class="doccomment">/// ## `position`</span>
-    <span class="doccomment">/// the position of the cursor</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_editable_set_position&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_position</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">position</span>: <span class="ident">i32</span>);
+    <span class="doccomment">/// Sets the cursor position in the editable to the given value.
+    ///
+    /// The cursor is displayed before the character with the given (base 0)
+    /// index in the contents of the editable. The value must be less than or
+    /// equal to the number of characters in the editable. A value of -1
+    /// indicates that the position should be set after the last character
+    /// of the editable. Note that `position` is in characters, not in bytes.
+    /// ## `position`
+    /// the position of the cursor
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_set_position&quot;</span>)]
+    </span><span class="kw">fn </span>set_position(<span class="kw-2">&amp;</span><span class="self">self</span>, position: i32);
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Editable</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">EditableExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">copy_clipboard</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_editable_copy_clipboard</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+<span class="kw">impl</span>&lt;O: IsA&lt;Editable&gt;&gt; EditableExt <span class="kw">for </span>O {
+    <span class="kw">fn </span>copy_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_copy_clipboard(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">cut_clipboard</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_editable_cut_clipboard</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="kw">fn </span>cut_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_cut_clipboard(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">delete_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_editable_delete_selection</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="kw">fn </span>delete_selection(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_delete_selection(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">delete_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_pos</span>: <span class="ident">i32</span>, <span class="ident">end_pos</span>: <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_editable_delete_text</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">start_pos</span>, <span class="ident">end_pos</span>);
+    <span class="kw">fn </span>delete_text(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_delete_text(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, start_pos, end_pos);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">chars</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_pos</span>: <span class="ident">i32</span>, <span class="ident">end_pos</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::gtk_editable_get_chars</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">start_pos</span>,
-                <span class="ident">end_pos</span>,
+    <span class="kw">fn </span>chars(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gtk_editable_get_chars(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                start_pos,
+                end_pos,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">is_editable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_editable_get_editable</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="kw">fn </span>is_editable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_editable_get_editable(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">position</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">unsafe</span> { <span class="ident">ffi::gtk_editable_get_position</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+    <span class="kw">fn </span>position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::gtk_editable_get_position(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">selection_bounds</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">i32</span>, <span class="ident">i32</span>)<span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">start_pos</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">end_pos</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_editable_get_selection_bounds</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">start_pos</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">end_pos</span>.<span class="ident">as_mut_ptr</span>(),
+    <span class="kw">fn </span>selection_bounds(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(i32, i32)&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>start_pos = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>end_pos = mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = from_glib(ffi::gtk_editable_get_selection_bounds(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                start_pos.as_mut_ptr(),
+                end_pos.as_mut_ptr(),
             ));
-            <span class="kw">if</span> <span class="ident">ret</span> {
-                <span class="prelude-val">Some</span>((<span class="ident">start_pos</span>.<span class="ident">assume_init</span>(), <span class="ident">end_pos</span>.<span class="ident">assume_init</span>()))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">None</span>
-            }
+            <span class="kw">if </span>ret {
+                <span class="prelude-val">Some</span>((start_pos.assume_init(), end_pos.assume_init()))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">None
+            </span>}
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">insert_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">new_text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">position</span>: <span class="kw-2">&amp;mut</span> <span class="ident">i32</span>) {
-        <span class="kw">let</span> <span class="ident">new_text_length</span> <span class="op">=</span> <span class="ident">new_text</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">i32</span>;
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_editable_insert_text</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">new_text</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">new_text_length</span>,
-                <span class="ident">position</span>,
+    <span class="kw">fn </span>insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, new_text: <span class="kw-2">&amp;</span>str, position: <span class="kw-2">&amp;mut </span>i32) {
+        <span class="kw">let </span>new_text_length = new_text.len() <span class="kw">as </span>i32;
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_insert_text(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                new_text.to_glib_none().<span class="number">0</span>,
+                new_text_length,
+                position,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">paste_clipboard</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_editable_paste_clipboard</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="kw">fn </span>paste_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_paste_clipboard(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">select_region</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_pos</span>: <span class="ident">i32</span>, <span class="ident">end_pos</span>: <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_editable_select_region</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">start_pos</span>, <span class="ident">end_pos</span>);
+    <span class="kw">fn </span>select_region(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_select_region(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, start_pos, end_pos);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_editable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">is_editable</span>: <span class="ident">bool</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_editable_set_editable</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">is_editable</span>.<span class="ident">into_glib</span>());
+    <span class="kw">fn </span>set_editable(<span class="kw-2">&amp;</span><span class="self">self</span>, is_editable: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_set_editable(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, is_editable.into_glib());
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_position</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">position</span>: <span class="ident">i32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_editable_set_position</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">position</span>);
+    <span class="kw">fn </span>set_position(<span class="kw-2">&amp;</span><span class="self">self</span>, position: i32) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_set_position(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, position);
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Editable</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Editable&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>Editable {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;Editable&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

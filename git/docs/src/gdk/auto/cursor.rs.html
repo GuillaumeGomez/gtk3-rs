@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk/src/auto/cursor.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cursor.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk/src/auto/cursor.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cursor.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../gdk/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdk/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -342,271 +336,270 @@
 <span id="263">263</span>
 <span id="264">264</span>
 <span id="265">265</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::CursorType</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Display</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::CursorType;
+<span class="kw">use </span><span class="kw">crate</span>::Display;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// A [`Cursor`][crate::Cursor] represents a cursor. Its contents are private.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This is an Abstract Base Class, you cannot instantiate it.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GdkCursor&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Cursor</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GdkCursor</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// A [`Cursor`][crate::Cursor] represents a cursor. Its contents are private.
+    ///
+    /// This is an Abstract Base Class, you cannot instantiate it.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GdkCursor&quot;</span>)]
+    </span><span class="kw">pub struct </span>Cursor(Object&lt;ffi::GdkCursor&gt;);
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gdk_cursor_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gdk_cursor_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Cursor</span> {
-    <span class="doccomment">/// Creates a new cursor from the set of builtin cursors.</span>
-    <span class="doccomment">/// ## `display`</span>
-    <span class="doccomment">/// the [`Display`][crate::Display] for which the cursor will be created</span>
-    <span class="doccomment">/// ## `cursor_type`</span>
-    <span class="doccomment">/// cursor to create</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a new [`Cursor`][crate::Cursor], or [`None`] on failure</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_cursor_new_for_display&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_for_display&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">for_display</span>(<span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="ident">Display</span>, <span class="ident">cursor_type</span>: <span class="ident">CursorType</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Cursor</span><span class="op">&gt;</span> {
+<span class="kw">impl </span>Cursor {
+    <span class="doccomment">/// Creates a new cursor from the set of builtin cursors.
+    /// ## `display`
+    /// the [`Display`][crate::Display] for which the cursor will be created
+    /// ## `cursor_type`
+    /// cursor to create
+    ///
+    /// # Returns
+    ///
+    /// a new [`Cursor`][crate::Cursor], or [`None`] on failure
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_cursor_new_for_display&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;new_for_display&quot;</span>)]
+    </span><span class="kw">pub fn </span>for_display(display: <span class="kw-2">&amp;</span>Display, cursor_type: CursorType) -&gt; <span class="prelude-ty">Option</span>&lt;Cursor&gt; {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_cursor_new_for_display</span>(
-                <span class="ident">display</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">cursor_type</span>.<span class="ident">into_glib</span>(),
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gdk_cursor_new_for_display(
+                display.to_glib_none().<span class="number">0</span>,
+                cursor_type.into_glib(),
             ))
         }
     }
 
-    <span class="doccomment">/// Creates a new cursor by looking up `name` in the current cursor</span>
-    <span class="doccomment">/// theme.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A recommended set of cursor names that will work across different</span>
-    <span class="doccomment">/// platforms can be found in the CSS specification:</span>
-    <span class="doccomment">/// - &quot;none&quot;</span>
-    <span class="doccomment">/// - ![](default_cursor.png) &quot;default&quot;</span>
-    <span class="doccomment">/// - ![](help_cursor.png) &quot;help&quot;</span>
-    <span class="doccomment">/// - ![](pointer_cursor.png) &quot;pointer&quot;</span>
-    <span class="doccomment">/// - ![](context_menu_cursor.png) &quot;context-menu&quot;</span>
-    <span class="doccomment">/// - ![](progress_cursor.png) &quot;progress&quot;</span>
-    <span class="doccomment">/// - ![](wait_cursor.png) &quot;wait&quot;</span>
-    <span class="doccomment">/// - ![](cell_cursor.png) &quot;cell&quot;</span>
-    <span class="doccomment">/// - ![](crosshair_cursor.png) &quot;crosshair&quot;</span>
-    <span class="doccomment">/// - ![](text_cursor.png) &quot;text&quot;</span>
-    <span class="doccomment">/// - ![](vertical_text_cursor.png) &quot;vertical-text&quot;</span>
-    <span class="doccomment">/// - ![](alias_cursor.png) &quot;alias&quot;</span>
-    <span class="doccomment">/// - ![](copy_cursor.png) &quot;copy&quot;</span>
-    <span class="doccomment">/// - ![](no_drop_cursor.png) &quot;no-drop&quot;</span>
-    <span class="doccomment">/// - ![](move_cursor.png) &quot;move&quot;</span>
-    <span class="doccomment">/// - ![](not_allowed_cursor.png) &quot;not-allowed&quot;</span>
-    <span class="doccomment">/// - ![](grab_cursor.png) &quot;grab&quot;</span>
-    <span class="doccomment">/// - ![](grabbing_cursor.png) &quot;grabbing&quot;</span>
-    <span class="doccomment">/// - ![](all_scroll_cursor.png) &quot;all-scroll&quot;</span>
-    <span class="doccomment">/// - ![](col_resize_cursor.png) &quot;col-resize&quot;</span>
-    <span class="doccomment">/// - ![](row_resize_cursor.png) &quot;row-resize&quot;</span>
-    <span class="doccomment">/// - ![](n_resize_cursor.png) &quot;n-resize&quot;</span>
-    <span class="doccomment">/// - ![](e_resize_cursor.png) &quot;e-resize&quot;</span>
-    <span class="doccomment">/// - ![](s_resize_cursor.png) &quot;s-resize&quot;</span>
-    <span class="doccomment">/// - ![](w_resize_cursor.png) &quot;w-resize&quot;</span>
-    <span class="doccomment">/// - ![](ne_resize_cursor.png) &quot;ne-resize&quot;</span>
-    <span class="doccomment">/// - ![](nw_resize_cursor.png) &quot;nw-resize&quot;</span>
-    <span class="doccomment">/// - ![](sw_resize_cursor.png) &quot;sw-resize&quot;</span>
-    <span class="doccomment">/// - ![](se_resize_cursor.png) &quot;se-resize&quot;</span>
-    <span class="doccomment">/// - ![](ew_resize_cursor.png) &quot;ew-resize&quot;</span>
-    <span class="doccomment">/// - ![](ns_resize_cursor.png) &quot;ns-resize&quot;</span>
-    <span class="doccomment">/// - ![](nesw_resize_cursor.png) &quot;nesw-resize&quot;</span>
-    <span class="doccomment">/// - ![](nwse_resize_cursor.png) &quot;nwse-resize&quot;</span>
-    <span class="doccomment">/// - ![](zoom_in_cursor.png) &quot;zoom-in&quot;</span>
-    <span class="doccomment">/// - ![](zoom_out_cursor.png) &quot;zoom-out&quot;</span>
-    <span class="doccomment">/// ## `display`</span>
-    <span class="doccomment">/// the [`Display`][crate::Display] for which the cursor will be created</span>
-    <span class="doccomment">/// ## `name`</span>
-    <span class="doccomment">/// the name of the cursor</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a new [`Cursor`][crate::Cursor], or [`None`] if there is no</span>
-    <span class="doccomment">///  cursor with the given name</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_cursor_new_from_name&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_from_name&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_name</span>(<span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="ident">Display</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Cursor</span><span class="op">&gt;</span> {
+    <span class="doccomment">/// Creates a new cursor by looking up `name` in the current cursor
+    /// theme.
+    ///
+    /// A recommended set of cursor names that will work across different
+    /// platforms can be found in the CSS specification:
+    /// - &quot;none&quot;
+    /// - ![](default_cursor.png) &quot;default&quot;
+    /// - ![](help_cursor.png) &quot;help&quot;
+    /// - ![](pointer_cursor.png) &quot;pointer&quot;
+    /// - ![](context_menu_cursor.png) &quot;context-menu&quot;
+    /// - ![](progress_cursor.png) &quot;progress&quot;
+    /// - ![](wait_cursor.png) &quot;wait&quot;
+    /// - ![](cell_cursor.png) &quot;cell&quot;
+    /// - ![](crosshair_cursor.png) &quot;crosshair&quot;
+    /// - ![](text_cursor.png) &quot;text&quot;
+    /// - ![](vertical_text_cursor.png) &quot;vertical-text&quot;
+    /// - ![](alias_cursor.png) &quot;alias&quot;
+    /// - ![](copy_cursor.png) &quot;copy&quot;
+    /// - ![](no_drop_cursor.png) &quot;no-drop&quot;
+    /// - ![](move_cursor.png) &quot;move&quot;
+    /// - ![](not_allowed_cursor.png) &quot;not-allowed&quot;
+    /// - ![](grab_cursor.png) &quot;grab&quot;
+    /// - ![](grabbing_cursor.png) &quot;grabbing&quot;
+    /// - ![](all_scroll_cursor.png) &quot;all-scroll&quot;
+    /// - ![](col_resize_cursor.png) &quot;col-resize&quot;
+    /// - ![](row_resize_cursor.png) &quot;row-resize&quot;
+    /// - ![](n_resize_cursor.png) &quot;n-resize&quot;
+    /// - ![](e_resize_cursor.png) &quot;e-resize&quot;
+    /// - ![](s_resize_cursor.png) &quot;s-resize&quot;
+    /// - ![](w_resize_cursor.png) &quot;w-resize&quot;
+    /// - ![](ne_resize_cursor.png) &quot;ne-resize&quot;
+    /// - ![](nw_resize_cursor.png) &quot;nw-resize&quot;
+    /// - ![](sw_resize_cursor.png) &quot;sw-resize&quot;
+    /// - ![](se_resize_cursor.png) &quot;se-resize&quot;
+    /// - ![](ew_resize_cursor.png) &quot;ew-resize&quot;
+    /// - ![](ns_resize_cursor.png) &quot;ns-resize&quot;
+    /// - ![](nesw_resize_cursor.png) &quot;nesw-resize&quot;
+    /// - ![](nwse_resize_cursor.png) &quot;nwse-resize&quot;
+    /// - ![](zoom_in_cursor.png) &quot;zoom-in&quot;
+    /// - ![](zoom_out_cursor.png) &quot;zoom-out&quot;
+    /// ## `display`
+    /// the [`Display`][crate::Display] for which the cursor will be created
+    /// ## `name`
+    /// the name of the cursor
+    ///
+    /// # Returns
+    ///
+    /// a new [`Cursor`][crate::Cursor], or [`None`] if there is no
+    ///  cursor with the given name
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_cursor_new_from_name&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;new_from_name&quot;</span>)]
+    </span><span class="kw">pub fn </span>from_name(display: <span class="kw-2">&amp;</span>Display, name: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;Cursor&gt; {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_cursor_new_from_name</span>(
-                <span class="ident">display</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gdk_cursor_new_from_name(
+                display.to_glib_none().<span class="number">0</span>,
+                name.to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="doccomment">/// Creates a new cursor from a pixbuf.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Not all GDK backends support RGBA cursors. If they are not</span>
-    <span class="doccomment">/// supported, a monochrome approximation will be displayed.</span>
-    <span class="doccomment">/// The functions [`Display::supports_cursor_alpha()`][crate::Display::supports_cursor_alpha()] and</span>
-    <span class="doccomment">/// [`Display::supports_cursor_color()`][crate::Display::supports_cursor_color()] can be used to determine</span>
-    <span class="doccomment">/// whether RGBA cursors are supported;</span>
-    <span class="doccomment">/// [`Display::default_cursor_size()`][crate::Display::default_cursor_size()] and</span>
-    <span class="doccomment">/// [`Display::maximal_cursor_size()`][crate::Display::maximal_cursor_size()] give information about</span>
-    <span class="doccomment">/// cursor sizes.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If `x` or `y` are `-1`, the pixbuf must have</span>
-    <span class="doccomment">/// options named “x_hot” and “y_hot”, resp., containing</span>
-    <span class="doccomment">/// integer values between `0` and the width resp. height of</span>
-    <span class="doccomment">/// the pixbuf. (Since: 3.0)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// On the X backend, support for RGBA cursors requires a</span>
-    <span class="doccomment">/// sufficently new version of the X Render extension.</span>
-    <span class="doccomment">/// ## `display`</span>
-    <span class="doccomment">/// the [`Display`][crate::Display] for which the cursor will be created</span>
-    <span class="doccomment">/// ## `pixbuf`</span>
-    <span class="doccomment">/// the [`gdk_pixbuf::Pixbuf`][crate::gdk_pixbuf::Pixbuf] containing the cursor image</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// the horizontal offset of the “hotspot” of the cursor.</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// the vertical offset of the “hotspot” of the cursor.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a new [`Cursor`][crate::Cursor].</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_cursor_new_from_pixbuf&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_from_pixbuf&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_pixbuf</span>(<span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="ident">Display</span>, <span class="ident">pixbuf</span>: <span class="kw-2">&amp;</span><span class="ident">gdk_pixbuf::Pixbuf</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>) -&gt; <span class="ident">Cursor</span> {
+    <span class="doccomment">/// Creates a new cursor from a pixbuf.
+    ///
+    /// Not all GDK backends support RGBA cursors. If they are not
+    /// supported, a monochrome approximation will be displayed.
+    /// The functions [`Display::supports_cursor_alpha()`][crate::Display::supports_cursor_alpha()] and
+    /// [`Display::supports_cursor_color()`][crate::Display::supports_cursor_color()] can be used to determine
+    /// whether RGBA cursors are supported;
+    /// [`Display::default_cursor_size()`][crate::Display::default_cursor_size()] and
+    /// [`Display::maximal_cursor_size()`][crate::Display::maximal_cursor_size()] give information about
+    /// cursor sizes.
+    ///
+    /// If `x` or `y` are `-1`, the pixbuf must have
+    /// options named “x_hot” and “y_hot”, resp., containing
+    /// integer values between `0` and the width resp. height of
+    /// the pixbuf. (Since: 3.0)
+    ///
+    /// On the X backend, support for RGBA cursors requires a
+    /// sufficently new version of the X Render extension.
+    /// ## `display`
+    /// the [`Display`][crate::Display] for which the cursor will be created
+    /// ## `pixbuf`
+    /// the [`gdk_pixbuf::Pixbuf`][crate::gdk_pixbuf::Pixbuf] containing the cursor image
+    /// ## `x`
+    /// the horizontal offset of the “hotspot” of the cursor.
+    /// ## `y`
+    /// the vertical offset of the “hotspot” of the cursor.
+    ///
+    /// # Returns
+    ///
+    /// a new [`Cursor`][crate::Cursor].
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_cursor_new_from_pixbuf&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;new_from_pixbuf&quot;</span>)]
+    </span><span class="kw">pub fn </span>from_pixbuf(display: <span class="kw-2">&amp;</span>Display, pixbuf: <span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf, x: i32, y: i32) -&gt; Cursor {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_cursor_new_from_pixbuf</span>(
-                <span class="ident">display</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">pixbuf</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">x</span>,
-                <span class="ident">y</span>,
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gdk_cursor_new_from_pixbuf(
+                display.to_glib_none().<span class="number">0</span>,
+                pixbuf.to_glib_none().<span class="number">0</span>,
+                x,
+                y,
             ))
         }
     }
 
-    <span class="doccomment">/// Creates a new cursor from a cairo image surface.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Not all GDK backends support RGBA cursors. If they are not</span>
-    <span class="doccomment">/// supported, a monochrome approximation will be displayed.</span>
-    <span class="doccomment">/// The functions [`Display::supports_cursor_alpha()`][crate::Display::supports_cursor_alpha()] and</span>
-    <span class="doccomment">/// [`Display::supports_cursor_color()`][crate::Display::supports_cursor_color()] can be used to determine</span>
-    <span class="doccomment">/// whether RGBA cursors are supported;</span>
-    <span class="doccomment">/// [`Display::default_cursor_size()`][crate::Display::default_cursor_size()] and</span>
-    <span class="doccomment">/// [`Display::maximal_cursor_size()`][crate::Display::maximal_cursor_size()] give information about</span>
-    <span class="doccomment">/// cursor sizes.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// On the X backend, support for RGBA cursors requires a</span>
-    <span class="doccomment">/// sufficently new version of the X Render extension.</span>
-    <span class="doccomment">/// ## `display`</span>
-    <span class="doccomment">/// the [`Display`][crate::Display] for which the cursor will be created</span>
-    <span class="doccomment">/// ## `surface`</span>
-    <span class="doccomment">/// the cairo image surface containing the cursor pixel data</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// the horizontal offset of the “hotspot” of the cursor</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// the vertical offset of the “hotspot” of the cursor</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a new [`Cursor`][crate::Cursor].</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_cursor_new_from_surface&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_from_surface&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_surface</span>(<span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="ident">Display</span>, <span class="ident">surface</span>: <span class="kw-2">&amp;</span><span class="ident">cairo::Surface</span>, <span class="ident">x</span>: <span class="ident">f64</span>, <span class="ident">y</span>: <span class="ident">f64</span>) -&gt; <span class="ident">Cursor</span> {
+    <span class="doccomment">/// Creates a new cursor from a cairo image surface.
+    ///
+    /// Not all GDK backends support RGBA cursors. If they are not
+    /// supported, a monochrome approximation will be displayed.
+    /// The functions [`Display::supports_cursor_alpha()`][crate::Display::supports_cursor_alpha()] and
+    /// [`Display::supports_cursor_color()`][crate::Display::supports_cursor_color()] can be used to determine
+    /// whether RGBA cursors are supported;
+    /// [`Display::default_cursor_size()`][crate::Display::default_cursor_size()] and
+    /// [`Display::maximal_cursor_size()`][crate::Display::maximal_cursor_size()] give information about
+    /// cursor sizes.
+    ///
+    /// On the X backend, support for RGBA cursors requires a
+    /// sufficently new version of the X Render extension.
+    /// ## `display`
+    /// the [`Display`][crate::Display] for which the cursor will be created
+    /// ## `surface`
+    /// the cairo image surface containing the cursor pixel data
+    /// ## `x`
+    /// the horizontal offset of the “hotspot” of the cursor
+    /// ## `y`
+    /// the vertical offset of the “hotspot” of the cursor
+    ///
+    /// # Returns
+    ///
+    /// a new [`Cursor`][crate::Cursor].
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_cursor_new_from_surface&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;new_from_surface&quot;</span>)]
+    </span><span class="kw">pub fn </span>from_surface(display: <span class="kw-2">&amp;</span>Display, surface: <span class="kw-2">&amp;</span>cairo::Surface, x: f64, y: f64) -&gt; Cursor {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_cursor_new_from_surface</span>(
-                <span class="ident">display</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">mut_override</span>(<span class="ident">surface</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>),
-                <span class="ident">x</span>,
-                <span class="ident">y</span>,
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gdk_cursor_new_from_surface(
+                display.to_glib_none().<span class="number">0</span>,
+                mut_override(surface.to_glib_none().<span class="number">0</span>),
+                x,
+                y,
             ))
         }
     }
 
-    <span class="doccomment">/// Returns the cursor type for this cursor.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a [`CursorType`][crate::CursorType]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_cursor_get_cursor_type&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_cursor_type&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cursor_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">CursorType</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_cursor_get_cursor_type</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="doccomment">/// Returns the cursor type for this cursor.
+    ///
+    /// # Returns
+    ///
+    /// a [`CursorType`][crate::CursorType]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_cursor_get_cursor_type&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_cursor_type&quot;</span>)]
+    </span><span class="kw">pub fn </span>cursor_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; CursorType {
+        <span class="kw">unsafe </span>{ from_glib(ffi::gdk_cursor_get_cursor_type(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Returns the display on which the [`Cursor`][crate::Cursor] is defined.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the [`Display`][crate::Display] associated to `self`</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_cursor_get_display&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_display&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">display</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Display</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_cursor_get_display</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="doccomment">/// Returns the display on which the [`Cursor`][crate::Cursor] is defined.
+    ///
+    /// # Returns
+    ///
+    /// the [`Display`][crate::Display] associated to `self`
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_cursor_get_display&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_display&quot;</span>)]
+    </span><span class="kw">pub fn </span>display(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Display {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gdk_cursor_get_display(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Returns a [`gdk_pixbuf::Pixbuf`][crate::gdk_pixbuf::Pixbuf] with the image used to display the cursor.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that depending on the capabilities of the windowing system and</span>
-    <span class="doccomment">/// on the cursor, GDK may not be able to obtain the image data. In this</span>
-    <span class="doccomment">/// case, [`None`] is returned.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a [`gdk_pixbuf::Pixbuf`][crate::gdk_pixbuf::Pixbuf] representing</span>
-    <span class="doccomment">///  `self`, or [`None`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_cursor_get_image&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_image&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">image</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk_pixbuf::Pixbuf</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_cursor_get_image</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="doccomment">/// Returns a [`gdk_pixbuf::Pixbuf`][crate::gdk_pixbuf::Pixbuf] with the image used to display the cursor.
+    ///
+    /// Note that depending on the capabilities of the windowing system and
+    /// on the cursor, GDK may not be able to obtain the image data. In this
+    /// case, [`None`] is returned.
+    ///
+    /// # Returns
+    ///
+    /// a [`gdk_pixbuf::Pixbuf`][crate::gdk_pixbuf::Pixbuf] representing
+    ///  `self`, or [`None`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_cursor_get_image&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_image&quot;</span>)]
+    </span><span class="kw">pub fn </span>image(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt; {
+        <span class="kw">unsafe </span>{ from_glib_full(ffi::gdk_cursor_get_image(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Returns a cairo image surface with the image used to display the cursor.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that depending on the capabilities of the windowing system and</span>
-    <span class="doccomment">/// on the cursor, GDK may not be able to obtain the image data. In this</span>
-    <span class="doccomment">/// case, [`None`] is returned.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a [`cairo::Surface`][crate::cairo::Surface]</span>
-    <span class="doccomment">///  representing `self`, or [`None`]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `x_hot`</span>
-    <span class="doccomment">/// Location to store the hotspot x position,</span>
-    <span class="doccomment">///  or [`None`]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `y_hot`</span>
-    <span class="doccomment">/// Location to store the hotspot y position,</span>
-    <span class="doccomment">///  or [`None`]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_cursor_get_surface&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_surface&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">surface</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">cairo::Surface</span><span class="op">&gt;</span>, <span class="ident">f64</span>, <span class="ident">f64</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x_hot</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y_hot</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">from_glib_full</span>(<span class="ident">ffi::gdk_cursor_get_surface</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">x_hot</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">y_hot</span>.<span class="ident">as_mut_ptr</span>(),
+    <span class="doccomment">/// Returns a cairo image surface with the image used to display the cursor.
+    ///
+    /// Note that depending on the capabilities of the windowing system and
+    /// on the cursor, GDK may not be able to obtain the image data. In this
+    /// case, [`None`] is returned.
+    ///
+    /// # Returns
+    ///
+    /// a [`cairo::Surface`][crate::cairo::Surface]
+    ///  representing `self`, or [`None`]
+    ///
+    /// ## `x_hot`
+    /// Location to store the hotspot x position,
+    ///  or [`None`]
+    ///
+    /// ## `y_hot`
+    /// Location to store the hotspot y position,
+    ///  or [`None`]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_cursor_get_surface&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_surface&quot;</span>)]
+    </span><span class="kw">pub fn </span>surface(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="prelude-ty">Option</span>&lt;cairo::Surface&gt;, f64, f64) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>x_hot = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>y_hot = mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = from_glib_full(ffi::gdk_cursor_get_surface(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                x_hot.as_mut_ptr(),
+                y_hot.as_mut_ptr(),
             ));
-            (<span class="ident">ret</span>, <span class="ident">x_hot</span>.<span class="ident">assume_init</span>(), <span class="ident">y_hot</span>.<span class="ident">assume_init</span>())
+            (ret, x_hot.assume_init(), y_hot.assume_init())
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Cursor</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Cursor&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>Cursor {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;Cursor&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>

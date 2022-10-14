@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/fixed.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>fixed.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/fixed.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>fixed.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gtk/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../gtk/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gtk/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -177,106 +171,105 @@
 <span id="98">98</span>
 <span id="99">99</span>
 <span id="100">100</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Fixed</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Widget</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib::IsA</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::Fixed;
+<span class="kw">use </span><span class="kw">crate</span>::Widget;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::IsA;
 
-<span class="comment">// All this is in order to avoid the segfault. More info in :</span>
-<span class="comment">// https://github.com/gtk-rs/gtk/issues/565</span>
-<span class="kw">fn</span> <span class="ident">has_widget</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Fixed</span><span class="op">&gt;</span>, <span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">c</span>: <span class="kw-2">&amp;</span><span class="ident">O</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) -&gt; <span class="ident">bool</span> {
+<span class="comment">// All this is in order to avoid the segfault. More info in :
+// https://github.com/gtk-rs/gtk/issues/565
+</span><span class="kw">fn </span>has_widget&lt;O: IsA&lt;Fixed&gt;, T: IsA&lt;Widget&gt;&gt;(c: <span class="kw-2">&amp;</span>O, item: <span class="kw-2">&amp;</span>T) -&gt; bool {
     <span class="macro">skip_assert_initialized!</span>();
-    <span class="kw">unsafe</span> {
-        <span class="kw">let</span> <span class="ident">glist</span> <span class="op">=</span> <span class="ident">ffi::gtk_container_get_children</span>(<span class="ident">c</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
-        <span class="kw">let</span> <span class="ident">found</span> <span class="op">=</span> <span class="op">!</span><span class="ident">glib::ffi::g_list_find</span>(<span class="ident">glist</span>, <span class="ident">item</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw">_</span>).<span class="ident">is_null</span>();
-        <span class="ident">glib::ffi::g_list_free</span>(<span class="ident">glist</span>);
-        <span class="ident">found</span>
+    <span class="kw">unsafe </span>{
+        <span class="kw">let </span>glist = ffi::gtk_container_get_children(c.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+        <span class="kw">let </span>found = !glib::ffi::g_list_find(glist, item.to_glib_none().<span class="number">0 </span><span class="kw">as _</span>).is_null();
+        glib::ffi::g_list_free(glist);
+        found
     }
 }
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">FixedExtManual</span>: <span class="lifetime">&#39;static</span> {
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_child_x&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">child_x</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) -&gt; <span class="ident">i32</span>;
+<span class="kw">pub trait </span>FixedExtManual: <span class="lifetime">&#39;static </span>{
+    <span class="attribute">#[doc(alias = <span class="string">&quot;get_child_x&quot;</span>)]
+    </span><span class="kw">fn </span>child_x&lt;T: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span>T) -&gt; i32;
 
-    <span class="kw">fn</span> <span class="ident">set_child_x</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">x</span>: <span class="ident">i32</span>);
+    <span class="kw">fn </span>set_child_x&lt;T: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span>T, x: i32);
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_child_y&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">child_y</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) -&gt; <span class="ident">i32</span>;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;get_child_y&quot;</span>)]
+    </span><span class="kw">fn </span>child_y&lt;T: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span>T) -&gt; i32;
 
-    <span class="kw">fn</span> <span class="ident">set_child_y</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">y</span>: <span class="ident">i32</span>);
+    <span class="kw">fn </span>set_child_y&lt;T: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span>T, y: i32);
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Fixed</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">FixedExtManual</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">child_x</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) -&gt; <span class="ident">i32</span> {
+<span class="kw">impl</span>&lt;O: IsA&lt;Fixed&gt;&gt; FixedExtManual <span class="kw">for </span>O {
+    <span class="kw">fn </span>child_x&lt;T: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span>T) -&gt; i32 {
         <span class="macro">assert!</span>(
-            <span class="ident">has_widget</span>(<span class="self">self</span>, <span class="ident">item</span>),
-            <span class="string">&quot;this item isn&#39;t in the Fixed&#39;s widget list&quot;</span>
-        );
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::from</span>(<span class="kw-2">&amp;</span><span class="number">0</span>);
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_container_child_get_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="ident">item</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="string">&quot;x&quot;</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
+            has_widget(<span class="self">self</span>, item),
+            <span class="string">&quot;this item isn&#39;t in the Fixed&#39;s widget list&quot;
+        </span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::from(<span class="kw-2">&amp;</span><span class="number">0</span>);
+        <span class="kw">unsafe </span>{
+            ffi::gtk_container_child_get_property(
+                <span class="self">self</span>.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                item.as_ref().to_glib_none().<span class="number">0</span>,
+                <span class="string">&quot;x&quot;</span>.to_glib_none().<span class="number">0</span>,
+                value.to_glib_none_mut().<span class="number">0</span>,
             );
         }
-        <span class="ident">value</span>
-            .<span class="ident">get</span>()
-            .<span class="ident">expect</span>(<span class="string">&quot;Return Value for `FixedExtManual::get_child_x`&quot;</span>)
+        value
+            .get()
+            .expect(<span class="string">&quot;Return Value for `FixedExtManual::get_child_x`&quot;</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">set_child_x</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">x</span>: <span class="ident">i32</span>) {
+    <span class="kw">fn </span>set_child_x&lt;T: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span>T, x: i32) {
         <span class="macro">assert!</span>(
-            <span class="ident">has_widget</span>(<span class="self">self</span>, <span class="ident">item</span>),
-            <span class="string">&quot;this item isn&#39;t in the Fixed&#39;s widget list&quot;</span>
-        );
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_container_child_set_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="ident">item</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="string">&quot;x&quot;</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">glib::Value::from</span>(<span class="kw-2">&amp;</span><span class="ident">x</span>).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            has_widget(<span class="self">self</span>, item),
+            <span class="string">&quot;this item isn&#39;t in the Fixed&#39;s widget list&quot;
+        </span>);
+        <span class="kw">unsafe </span>{
+            ffi::gtk_container_child_set_property(
+                <span class="self">self</span>.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                item.as_ref().to_glib_none().<span class="number">0</span>,
+                <span class="string">&quot;x&quot;</span>.to_glib_none().<span class="number">0</span>,
+                glib::Value::from(<span class="kw-2">&amp;</span>x).to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">child_y</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>) -&gt; <span class="ident">i32</span> {
+    <span class="kw">fn </span>child_y&lt;T: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span>T) -&gt; i32 {
         <span class="macro">assert!</span>(
-            <span class="ident">has_widget</span>(<span class="self">self</span>, <span class="ident">item</span>),
-            <span class="string">&quot;this item isn&#39;t in the Fixed&#39;s widget list&quot;</span>
-        );
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::from</span>(<span class="kw-2">&amp;</span><span class="number">0</span>);
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_container_child_get_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="ident">item</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="string">&quot;y&quot;</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
+            has_widget(<span class="self">self</span>, item),
+            <span class="string">&quot;this item isn&#39;t in the Fixed&#39;s widget list&quot;
+        </span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::from(<span class="kw-2">&amp;</span><span class="number">0</span>);
+        <span class="kw">unsafe </span>{
+            ffi::gtk_container_child_get_property(
+                <span class="self">self</span>.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                item.as_ref().to_glib_none().<span class="number">0</span>,
+                <span class="string">&quot;y&quot;</span>.to_glib_none().<span class="number">0</span>,
+                value.to_glib_none_mut().<span class="number">0</span>,
             );
         }
-        <span class="ident">value</span>
-            .<span class="ident">get</span>()
-            .<span class="ident">expect</span>(<span class="string">&quot;Return Value for `FixedExtManual::get_child_y`&quot;</span>)
+        value
+            .get()
+            .expect(<span class="string">&quot;Return Value for `FixedExtManual::get_child_y`&quot;</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">set_child_y</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">T</span>, <span class="ident">y</span>: <span class="ident">i32</span>) {
+    <span class="kw">fn </span>set_child_y&lt;T: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span>T, y: i32) {
         <span class="macro">assert!</span>(
-            <span class="ident">has_widget</span>(<span class="self">self</span>, <span class="ident">item</span>),
-            <span class="string">&quot;this item isn&#39;t in the Fixed&#39;s widget list&quot;</span>
-        );
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_container_child_set_property</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="ident">item</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="string">&quot;y&quot;</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">glib::Value::from</span>(<span class="kw-2">&amp;</span><span class="ident">y</span>).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            has_widget(<span class="self">self</span>, item),
+            <span class="string">&quot;this item isn&#39;t in the Fixed&#39;s widget list&quot;
+        </span>);
+        <span class="kw">unsafe </span>{
+            ffi::gtk_container_child_set_property(
+                <span class="self">self</span>.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                item.as_ref().to_glib_none().<span class="number">0</span>,
+                <span class="string">&quot;y&quot;</span>.to_glib_none().<span class="number">0</span>,
+                glib::Value::from(<span class="kw-2">&amp;</span>y).to_glib_none().<span class="number">0</span>,
             );
         }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gtk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (6b3ede3f7 2022-10-13)" ></div></body></html>
