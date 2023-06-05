@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/text_mark.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text_mark.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-a6e10e60fb712b0f.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/text_mark.rs`."><title>text_mark.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-2fcac8296ac587d8.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0-nightly (101fa903b 2023-06-04)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-48600a9606eff342.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -326,28 +326,17 @@
 <a href="#253" id="253">253</a>
 <a href="#254" id="254">254</a>
 <a href="#255" id="255">255</a>
-<a href="#256" id="256">256</a>
-<a href="#257" id="257">257</a>
-<a href="#258" id="258">258</a>
-<a href="#259" id="259">259</a>
-<a href="#260" id="260">260</a>
-<a href="#261" id="261">261</a>
-<a href="#262" id="262">262</a>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
 </span><span class="kw">use </span><span class="kw">crate</span>::TextBuffer;
-<span class="kw">use </span>glib::object::Cast;
-<span class="kw">use </span>glib::object::IsA;
-<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
-<span class="kw">use </span>glib::StaticType;
-<span class="kw">use </span>glib::ToValue;
+<span class="kw">use </span>glib::{prelude::<span class="kw-2">*</span>, translate::<span class="kw-2">*</span>};
 <span class="kw">use </span>std::fmt;
 
 <span class="macro">glib::wrapper! </span>{
     <span class="doccomment">/// You may wish to begin by reading the
-    /// [text widget conceptual overview][TextWidget]
+    /// [text widget conceptual overview](TextWidget.html)
     /// which gives an overview of all the objects and data
     /// types related to the text widget and how they work together.
     ///
@@ -375,6 +364,22 @@
     /// [`TextMark`][crate::TextMark] object around.
     ///
     /// Marks are typically created using the [`TextBufferExt::create_mark()`][crate::prelude::TextBufferExt::create_mark()] function.
+    ///
+    /// ## Properties
+    ///
+    ///
+    /// #### `left-gravity`
+    ///  Whether the mark has left gravity. When text is inserted at the mark’s
+    /// current location, if the mark has left gravity it will be moved
+    /// to the left of the newly-inserted text, otherwise to the right.
+    ///
+    /// Readable | Writeable | Construct Only
+    ///
+    ///
+    /// #### `name`
+    ///  The name of the mark or [`None`] if the mark is anonymous.
+    ///
+    /// Readable | Writeable | Construct Only
     ///
     /// # Implements
     ///
@@ -423,61 +428,54 @@
     ///
     /// This method returns an instance of [`TextMarkBuilder`](crate::builders::TextMarkBuilder) which can be used to create [`TextMark`] objects.
     </span><span class="kw">pub fn </span>builder() -&gt; TextMarkBuilder {
-        TextMarkBuilder::default()
+        TextMarkBuilder::new()
     }
 }
 
 <span class="kw">impl </span>Default <span class="kw">for </span>TextMark {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        glib::object::Object::new::&lt;<span class="self">Self</span>&gt;(<span class="kw-2">&amp;</span>[])
+        glib::object::Object::new::&lt;<span class="self">Self</span>&gt;()
     }
 }
 
-<span class="attr">#[derive(Clone, Default)]
-</span><span class="comment">// rustdoc-stripper-ignore-next
+<span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`TextMark`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
 </span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>TextMarkBuilder {
-    left_gravity: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    name: <span class="prelude-ty">Option</span>&lt;String&gt;,
+    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">&#39;static</span>, TextMark&gt;,
 }
 
 <span class="kw">impl </span>TextMarkBuilder {
-    <span class="comment">// rustdoc-stripper-ignore-next
-    </span><span class="doccomment">/// Create a new [`TextMarkBuilder`].
-    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::default()
+    <span class="kw">fn </span>new() -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: glib::object::Object::builder(),
+        }
+    }
+
+    <span class="doccomment">/// Whether the mark has left gravity. When text is inserted at the mark’s
+    /// current location, if the mark has left gravity it will be moved
+    /// to the left of the newly-inserted text, otherwise to the right.
+    </span><span class="kw">pub fn </span>left_gravity(<span class="self">self</span>, left_gravity: bool) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;left-gravity&quot;</span>, left_gravity),
+        }
+    }
+
+    <span class="doccomment">/// The name of the mark or [`None`] if the mark is anonymous.
+    </span><span class="kw">pub fn </span>name(<span class="self">self</span>, name: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;name&quot;</span>, name.into()),
+        }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`TextMark`].
     </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; TextMark {
-        <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>left_gravity) = <span class="self">self</span>.left_gravity {
-            properties.push((<span class="string">&quot;left-gravity&quot;</span>, left_gravity));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>name) = <span class="self">self</span>.name {
-            properties.push((<span class="string">&quot;name&quot;</span>, name));
-        }
-        glib::Object::new::&lt;TextMark&gt;(<span class="kw-2">&amp;</span>properties)
+        <span class="self">self</span>.builder.build()
     }
-
-    <span class="doccomment">/// Whether the mark has left gravity. When text is inserted at the mark’s
-    /// current location, if the mark has left gravity it will be moved
-    /// to the left of the newly-inserted text, otherwise to the right.
-    </span><span class="kw">pub fn </span>left_gravity(<span class="kw-2">mut </span><span class="self">self</span>, left_gravity: bool) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.left_gravity = <span class="prelude-val">Some</span>(left_gravity);
-        <span class="self">self
-    </span>}
-
-    <span class="doccomment">/// The name of the mark or [`None`] if the mark is anonymous.
-    </span><span class="kw">pub fn </span>name(<span class="kw-2">mut </span><span class="self">self</span>, name: <span class="kw-2">&amp;</span>str) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.name = <span class="prelude-val">Some</span>(name.to_string());
-        <span class="self">self
-    </span>}
 }
 
 <span class="doccomment">/// Trait containing all [`struct@TextMark`] methods.
@@ -485,7 +483,7 @@
 /// # Implementors
 ///
 /// [`TextMark`][struct@crate::TextMark]
-</span><span class="kw">pub trait </span>TextMarkExt: <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span>TextMarkExt: IsA&lt;TextMark&gt; + <span class="lifetime">&#39;static </span>{
     <span class="doccomment">/// Gets the buffer this mark is located inside,
     /// or [`None`] if the mark is deleted.
     ///
@@ -494,7 +492,13 @@
     /// the mark’s [`TextBuffer`][crate::TextBuffer]
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_mark_get_buffer&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_buffer&quot;</span>)]
-    </span><span class="kw">fn </span>buffer(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;TextBuffer&gt;;
+    </span><span class="kw">fn </span>buffer(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;TextBuffer&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_text_mark_get_buffer(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Returns [`true`] if the mark has been removed from its buffer
     /// with [`TextBufferExt::delete_mark()`][crate::prelude::TextBufferExt::delete_mark()]. See [`TextBufferExt::add_mark()`][crate::prelude::TextBufferExt::add_mark()]
@@ -505,7 +509,13 @@
     /// whether the mark is deleted
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_mark_get_deleted&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_deleted&quot;</span>)]
-    </span><span class="kw">fn </span>is_deleted(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="kw">fn </span>is_deleted(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_text_mark_get_deleted(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Determines whether the mark has left gravity.
     ///
@@ -514,7 +524,13 @@
     /// [`true`] if the mark has left gravity, [`false`] otherwise
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_mark_get_left_gravity&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_left_gravity&quot;</span>)]
-    </span><span class="kw">fn </span>is_left_gravity(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="kw">fn </span>is_left_gravity(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_text_mark_get_left_gravity(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Returns the mark name; returns NULL for anonymous marks.
     ///
@@ -523,7 +539,9 @@
     /// mark name
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_mark_get_name&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_name&quot;</span>)]
-    </span><span class="kw">fn </span>name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
+    </span><span class="kw">fn </span>name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_text_mark_get_name(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>)) }
+    }
 
     <span class="doccomment">/// Returns [`true`] if the mark is visible (i.e. a cursor is displayed
     /// for it).
@@ -533,7 +551,13 @@
     /// [`true`] if visible
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_mark_get_visible&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_visible&quot;</span>)]
-    </span><span class="kw">fn </span>is_visible(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="kw">fn </span>is_visible(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_text_mark_get_visible(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Sets the visibility of `self`; the insertion point is normally
     /// visible, i.e. you can see it as a vertical bar. Also, the text
@@ -543,57 +567,18 @@
     /// ## `setting`
     /// visibility of mark
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_mark_set_visible&quot;</span>)]
-    </span><span class="kw">fn </span>set_visible(<span class="kw-2">&amp;</span><span class="self">self</span>, setting: bool);
-}
-
-<span class="kw">impl</span>&lt;O: IsA&lt;TextMark&gt;&gt; TextMarkExt <span class="kw">for </span>O {
-    <span class="kw">fn </span>buffer(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;TextBuffer&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_none(ffi::gtk_text_mark_get_buffer(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>is_deleted(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_text_mark_get_deleted(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>is_left_gravity(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_text_mark_get_left_gravity(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_text_mark_get_name(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>)) }
-    }
-
-    <span class="kw">fn </span>is_visible(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_text_mark_get_visible(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>set_visible(<span class="kw-2">&amp;</span><span class="self">self</span>, setting: bool) {
+    </span><span class="kw">fn </span>set_visible(<span class="kw-2">&amp;</span><span class="self">self</span>, setting: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_text_mark_set_visible(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, setting.into_glib());
         }
     }
 }
 
+<span class="kw">impl</span>&lt;O: IsA&lt;TextMark&gt;&gt; TextMarkExt <span class="kw">for </span>O {}
+
 <span class="kw">impl </span>fmt::Display <span class="kw">for </span>TextMark {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
         f.write_str(<span class="string">&quot;TextMark&quot;</span>)
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (5e37043d6 2023-01-22)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/recent_chooser.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>recent_chooser.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-a6e10e60fb712b0f.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/recent_chooser.rs`."><title>recent_chooser.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-2fcac8296ac587d8.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0-nightly (101fa903b 2023-06-04)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-48600a9606eff342.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1011,26 +1011,17 @@
 <a href="#938" id="938">938</a>
 <a href="#939" id="939">939</a>
 <a href="#940" id="940">940</a>
-<a href="#941" id="941">941</a>
-<a href="#942" id="942">942</a>
-<a href="#943" id="943">943</a>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use </span><span class="kw">crate</span>::RecentFilter;
-<span class="kw">use </span><span class="kw">crate</span>::RecentInfo;
-<span class="kw">use </span><span class="kw">crate</span>::RecentSortType;
-<span class="kw">use </span>glib::object::Cast;
-<span class="kw">use </span>glib::object::IsA;
-<span class="kw">use </span>glib::signal::connect_raw;
-<span class="kw">use </span>glib::signal::SignalHandlerId;
-<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
-<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
-<span class="kw">use </span>std::fmt;
-<span class="kw">use </span>std::mem;
-<span class="kw">use </span>std::mem::transmute;
-<span class="kw">use </span>std::ptr;
+</span><span class="kw">use crate</span>::{RecentFilter, RecentInfo, RecentSortType};
+<span class="kw">use </span>glib::{
+    prelude::<span class="kw-2">*</span>,
+    signal::{connect_raw, SignalHandlerId},
+    translate::<span class="kw-2">*</span>,
+};
+<span class="kw">use </span>std::{boxed::Box <span class="kw">as </span>Box_, fmt, mem, mem::transmute, ptr};
 
 <span class="macro">glib::wrapper! </span>{
     <span class="doccomment">/// [`RecentChooser`][crate::RecentChooser] is an interface that can be implemented by widgets
@@ -1039,6 +1030,94 @@
     /// [`RecentChooserDialog`][crate::RecentChooserDialog] and [`RecentChooserMenu`][crate::RecentChooserMenu].
     ///
     /// Recently used files are supported since GTK+ 2.10.
+    ///
+    /// ## Properties
+    ///
+    ///
+    /// #### `filter`
+    ///  The [`RecentFilter`][crate::RecentFilter] object to be used when displaying
+    /// the recently used resources.
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `limit`
+    ///  The maximum number of recently used resources to be displayed,
+    /// or -1 to display all items.
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `local-only`
+    ///  Whether this [`RecentChooser`][crate::RecentChooser] should display only local (file:)
+    /// resources.
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `recent-manager`
+    ///  The [`RecentManager`][crate::RecentManager] instance used by the [`RecentChooser`][crate::RecentChooser] to
+    /// display the list of recently used resources.
+    ///
+    /// Writeable | Construct Only
+    ///
+    ///
+    /// #### `select-multiple`
+    ///  Allow the user to select multiple resources.
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `show-icons`
+    ///  Whether this [`RecentChooser`][crate::RecentChooser] should display an icon near the item.
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `show-not-found`
+    ///  Whether this [`RecentChooser`][crate::RecentChooser] should display the recently used resources
+    /// even if not present anymore. Setting this to [`false`] will perform a
+    /// potentially expensive check on every local resource (every remote
+    /// resource will always be displayed).
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `show-private`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `show-tips`
+    ///  Whether this [`RecentChooser`][crate::RecentChooser] should display a tooltip containing the
+    /// full path of the recently used resources.
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `sort-type`
+    ///  Sorting order to be used when displaying the recently used resources.
+    ///
+    /// Readable | Writeable
+    ///
+    /// ## Signals
+    ///
+    ///
+    /// #### `item-activated`
+    ///  This signal is emitted when the user &quot;activates&quot; a recent item
+    /// in the recent chooser. This can happen by double-clicking on an item
+    /// in the recently used resources list, or by pressing
+    /// `Enter`.
+    ///
+    ///
+    ///
+    ///
+    /// #### `selection-changed`
+    ///  This signal is emitted when there is a change in the set of
+    /// selected recently used resources. This can happen when a user
+    /// modifies the selection with the mouse or the keyboard, or when
+    /// explicitly calling functions to change the selection.
+    ///
+    ///
     ///
     /// # Implements
     ///
@@ -1060,7 +1139,7 @@
 /// # Implementors
 ///
 /// [`RecentChooserDialog`][struct@crate::RecentChooserDialog], [`RecentChooserMenu`][struct@crate::RecentChooserMenu], [`RecentChooserWidget`][struct@crate::RecentChooserWidget], [`RecentChooser`][struct@crate::RecentChooser]
-</span><span class="kw">pub trait </span>RecentChooserExt: <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span>RecentChooserExt: IsA&lt;RecentChooser&gt; + <span class="lifetime">&#39;static </span>{
     <span class="doccomment">/// Adds `filter` to the list of [`RecentFilter`][crate::RecentFilter] objects held by `self`.
     ///
     /// If no previous filter objects were defined, this function will call
@@ -1068,7 +1147,14 @@
     /// ## `filter`
     /// a [`RecentFilter`][crate::RecentFilter]
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_add_filter&quot;</span>)]
-    </span><span class="kw">fn </span>add_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="kw-2">&amp;</span>RecentFilter);
+    </span><span class="kw">fn </span>add_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="kw-2">&amp;</span>RecentFilter) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_recent_chooser_add_filter(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                filter.to_glib_none().<span class="number">0</span>,
+            );
+        }
+    }
 
     <span class="doccomment">/// Gets the [`RecentInfo`][crate::RecentInfo] currently selected by `self`.
     ///
@@ -1078,7 +1164,13 @@
     ///  when you have finished using it.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_current_item&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_current_item&quot;</span>)]
-    </span><span class="kw">fn </span>current_item(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;RecentInfo&gt;;
+    </span><span class="kw">fn </span>current_item(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;RecentInfo&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gtk_recent_chooser_get_current_item(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the URI currently selected by `self`.
     ///
@@ -1087,7 +1179,13 @@
     /// a newly allocated string holding a URI.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_current_uri&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_current_uri&quot;</span>)]
-    </span><span class="kw">fn </span>current_uri(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
+    </span><span class="kw">fn </span>current_uri(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gtk_recent_chooser_get_current_uri(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the [`RecentFilter`][crate::RecentFilter] object currently used by `self` to affect
     /// the display of the recently used resources.
@@ -1097,7 +1195,13 @@
     /// a [`RecentFilter`][crate::RecentFilter] object.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_filter&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_filter&quot;</span>)]
-    </span><span class="kw">fn </span>filter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;RecentFilter&gt;;
+    </span><span class="kw">fn </span>filter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;RecentFilter&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_recent_chooser_get_filter(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the list of recently used resources in form of [`RecentInfo`][crate::RecentInfo] objects.
     ///
@@ -1112,7 +1216,13 @@
     ///  the list itself using `g_list_free()`.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_items&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_items&quot;</span>)]
-    </span><span class="kw">fn </span>items(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;RecentInfo&gt;;
+    </span><span class="kw">fn </span>items(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;RecentInfo&gt; {
+        <span class="kw">unsafe </span>{
+            FromGlibPtrContainer::from_glib_full(ffi::gtk_recent_chooser_get_items(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the number of items returned by [`items()`][Self::items()]
     /// and [`uris()`][Self::uris()].
@@ -1123,7 +1233,9 @@
     ///  returned.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_limit&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_limit&quot;</span>)]
-    </span><span class="kw">fn </span>limit(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
+    </span><span class="kw">fn </span>limit(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">unsafe </span>{ ffi::gtk_recent_chooser_get_limit(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
+    }
 
     <span class="doccomment">/// Gets whether only local resources should be shown in the recently used
     /// resources selector. See [`set_local_only()`][Self::set_local_only()]
@@ -1133,7 +1245,13 @@
     /// [`true`] if only local resources should be shown.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_local_only&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_local_only&quot;</span>)]
-    </span><span class="kw">fn </span>is_local_only(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="kw">fn </span>is_local_only(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_recent_chooser_get_local_only(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets whether `self` can select multiple items.
     ///
@@ -1142,7 +1260,13 @@
     /// [`true`] if `self` can select more than one item.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_select_multiple&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_select_multiple&quot;</span>)]
-    </span><span class="kw">fn </span>selects_multiple(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="kw">fn </span>selects_multiple(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_recent_chooser_get_select_multiple(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Retrieves whether `self` should show an icon near the resource.
     ///
@@ -1151,7 +1275,13 @@
     /// [`true`] if the icons should be displayed, [`false`] otherwise.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_show_icons&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_show_icons&quot;</span>)]
-    </span><span class="kw">fn </span>shows_icons(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="kw">fn </span>shows_icons(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_recent_chooser_get_show_icons(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Retrieves whether `self` should show the recently used resources that
     /// were not found.
@@ -1162,7 +1292,13 @@
     ///  [`false`] otheriwse.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_show_not_found&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_show_not_found&quot;</span>)]
-    </span><span class="kw">fn </span>shows_not_found(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="kw">fn </span>shows_not_found(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_recent_chooser_get_show_not_found(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Returns whether `self` should display recently used resources
     /// registered as private.
@@ -1173,7 +1309,13 @@
     ///  [`false`] otherwise.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_show_private&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_show_private&quot;</span>)]
-    </span><span class="kw">fn </span>shows_private(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="kw">fn </span>shows_private(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_recent_chooser_get_show_private(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets whether `self` should display tooltips containing the full path
     /// of a recently user resource.
@@ -1184,7 +1326,13 @@
     ///  [`false`] otherwise.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_show_tips&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_show_tips&quot;</span>)]
-    </span><span class="kw">fn </span>shows_tips(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="kw">fn </span>shows_tips(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_recent_chooser_get_show_tips(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the value set by [`set_sort_type()`][Self::set_sort_type()].
     ///
@@ -1193,7 +1341,13 @@
     /// the sorting order of the `self`.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_sort_type&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_sort_type&quot;</span>)]
-    </span><span class="kw">fn </span>sort_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; RecentSortType;
+    </span><span class="kw">fn </span>sort_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; RecentSortType {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_recent_chooser_get_sort_type(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the URI of the recently used resources.
     ///
@@ -1209,7 +1363,19 @@
     ///  `g_strfreev()` to free it.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_get_uris&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_uris&quot;</span>)]
-    </span><span class="kw">fn </span>uris(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;glib::GString&gt;;
+    </span><span class="kw">fn </span>uris(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>length = mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = FromGlibContainer::from_glib_full_num(
+                ffi::gtk_recent_chooser_get_uris(
+                    <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                    length.as_mut_ptr(),
+                ),
+                length.assume_init() <span class="kw">as _</span>,
+            );
+            ret
+        }
+    }
 
     <span class="doccomment">/// Gets the [`RecentFilter`][crate::RecentFilter] objects held by `self`.
     ///
@@ -1219,18 +1385,35 @@
     ///  of [`RecentFilter`][crate::RecentFilter] objects. You
     ///  should just free the returned list using `g_slist_free()`.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_list_filters&quot;</span>)]
-    </span><span class="kw">fn </span>list_filters(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;RecentFilter&gt;;
+    </span><span class="kw">fn </span>list_filters(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;RecentFilter&gt; {
+        <span class="kw">unsafe </span>{
+            FromGlibPtrContainer::from_glib_container(ffi::gtk_recent_chooser_list_filters(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Removes `filter` from the list of [`RecentFilter`][crate::RecentFilter] objects held by `self`.
     /// ## `filter`
     /// a [`RecentFilter`][crate::RecentFilter]
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_remove_filter&quot;</span>)]
-    </span><span class="kw">fn </span>remove_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="kw-2">&amp;</span>RecentFilter);
+    </span><span class="kw">fn </span>remove_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="kw-2">&amp;</span>RecentFilter) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_recent_chooser_remove_filter(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                filter.to_glib_none().<span class="number">0</span>,
+            );
+        }
+    }
 
     <span class="doccomment">/// Selects all the items inside `self`, if the `self` supports
     /// multiple selection.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_select_all&quot;</span>)]
-    </span><span class="kw">fn </span>select_all(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    </span><span class="kw">fn </span>select_all(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_recent_chooser_select_all(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
+        }
+    }
 
     <span class="doccomment">/// Selects `uri` inside `self`.
     /// ## `uri`
@@ -1240,7 +1423,22 @@
     ///
     /// [`true`] if `uri` was found.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_select_uri&quot;</span>)]
-    </span><span class="kw">fn </span>select_uri(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;;
+    </span><span class="kw">fn </span>select_uri(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span>is_ok = ffi::gtk_recent_chooser_select_uri(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                uri.to_glib_none().<span class="number">0</span>,
+                <span class="kw-2">&amp;mut </span>error,
+            );
+            <span class="macro">debug_assert_eq!</span>(is_ok == glib::ffi::GFALSE, !error.is_null());
+            <span class="kw">if </span>error.is_null() {
+                <span class="prelude-val">Ok</span>(())
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(error))
+            }
+        }
+    }
 
     <span class="doccomment">/// Sets `uri` as the current URI for `self`.
     /// ## `uri`
@@ -1250,21 +1448,47 @@
     ///
     /// [`true`] if the URI was found.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_current_uri&quot;</span>)]
-    </span><span class="kw">fn </span>set_current_uri(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;;
+    </span><span class="kw">fn </span>set_current_uri(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span>is_ok = ffi::gtk_recent_chooser_set_current_uri(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                uri.to_glib_none().<span class="number">0</span>,
+                <span class="kw-2">&amp;mut </span>error,
+            );
+            <span class="macro">debug_assert_eq!</span>(is_ok == glib::ffi::GFALSE, !error.is_null());
+            <span class="kw">if </span>error.is_null() {
+                <span class="prelude-val">Ok</span>(())
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(error))
+            }
+        }
+    }
 
     <span class="doccomment">/// Sets `filter` as the current [`RecentFilter`][crate::RecentFilter] object used by `self`
     /// to affect the displayed recently used resources.
     /// ## `filter`
     /// a [`RecentFilter`][crate::RecentFilter]
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_filter&quot;</span>)]
-    </span><span class="kw">fn </span>set_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>RecentFilter&gt;);
+    </span><span class="kw">fn </span>set_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>RecentFilter&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_recent_chooser_set_filter(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                filter.to_glib_none().<span class="number">0</span>,
+            );
+        }
+    }
 
     <span class="doccomment">/// Sets the number of items that should be returned by
     /// [`items()`][Self::items()] and [`uris()`][Self::uris()].
     /// ## `limit`
     /// a positive integer, or -1 for all items
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_limit&quot;</span>)]
-    </span><span class="kw">fn </span>set_limit(<span class="kw-2">&amp;</span><span class="self">self</span>, limit: i32);
+    </span><span class="kw">fn </span>set_limit(<span class="kw-2">&amp;</span><span class="self">self</span>, limit: i32) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_recent_chooser_set_limit(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, limit);
+        }
+    }
 
     <span class="doccomment">/// Sets whether only local resources, that is resources using the file:// URI
     /// scheme, should be shown in the recently used resources selector. If
@@ -1273,40 +1497,82 @@
     /// ## `local_only`
     /// [`true`] if only local files can be shown
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_local_only&quot;</span>)]
-    </span><span class="kw">fn </span>set_local_only(<span class="kw-2">&amp;</span><span class="self">self</span>, local_only: bool);
+    </span><span class="kw">fn </span>set_local_only(<span class="kw-2">&amp;</span><span class="self">self</span>, local_only: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_recent_chooser_set_local_only(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                local_only.into_glib(),
+            );
+        }
+    }
 
     <span class="doccomment">/// Sets whether `self` can select multiple items.
     /// ## `select_multiple`
     /// [`true`] if `self` can select more than one item
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_select_multiple&quot;</span>)]
-    </span><span class="kw">fn </span>set_select_multiple(<span class="kw-2">&amp;</span><span class="self">self</span>, select_multiple: bool);
+    </span><span class="kw">fn </span>set_select_multiple(<span class="kw-2">&amp;</span><span class="self">self</span>, select_multiple: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_recent_chooser_set_select_multiple(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                select_multiple.into_glib(),
+            );
+        }
+    }
 
     <span class="doccomment">/// Sets whether `self` should show an icon near the resource when
     /// displaying it.
     /// ## `show_icons`
     /// whether to show an icon near the resource
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_show_icons&quot;</span>)]
-    </span><span class="kw">fn </span>set_show_icons(<span class="kw-2">&amp;</span><span class="self">self</span>, show_icons: bool);
+    </span><span class="kw">fn </span>set_show_icons(<span class="kw-2">&amp;</span><span class="self">self</span>, show_icons: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_recent_chooser_set_show_icons(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                show_icons.into_glib(),
+            );
+        }
+    }
 
     <span class="doccomment">/// Sets whether `self` should display the recently used resources that
     /// it didn’t find. This only applies to local resources.
     /// ## `show_not_found`
     /// whether to show the local items we didn’t find
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_show_not_found&quot;</span>)]
-    </span><span class="kw">fn </span>set_show_not_found(<span class="kw-2">&amp;</span><span class="self">self</span>, show_not_found: bool);
+    </span><span class="kw">fn </span>set_show_not_found(<span class="kw-2">&amp;</span><span class="self">self</span>, show_not_found: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_recent_chooser_set_show_not_found(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                show_not_found.into_glib(),
+            );
+        }
+    }
 
     <span class="doccomment">/// Whether to show recently used resources marked registered as private.
     /// ## `show_private`
     /// [`true`] to show private items, [`false`] otherwise
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_show_private&quot;</span>)]
-    </span><span class="kw">fn </span>set_show_private(<span class="kw-2">&amp;</span><span class="self">self</span>, show_private: bool);
+    </span><span class="kw">fn </span>set_show_private(<span class="kw-2">&amp;</span><span class="self">self</span>, show_private: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_recent_chooser_set_show_private(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                show_private.into_glib(),
+            );
+        }
+    }
 
     <span class="doccomment">/// Sets whether to show a tooltips containing the full path of each
     /// recently used resource in a [`RecentChooser`][crate::RecentChooser] widget.
     /// ## `show_tips`
     /// [`true`] if tooltips should be shown
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_show_tips&quot;</span>)]
-    </span><span class="kw">fn </span>set_show_tips(<span class="kw-2">&amp;</span><span class="self">self</span>, show_tips: bool);
+    </span><span class="kw">fn </span>set_show_tips(<span class="kw-2">&amp;</span><span class="self">self</span>, show_tips: bool) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_recent_chooser_set_show_tips(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                show_tips.into_glib(),
+            );
+        }
+    }
 
     <span class="doccomment">/// Sets the comparison function used when sorting to be `sort_func`. If
     /// the `self` has the sort type set to [`RecentSortType::Custom`][crate::RecentSortType::Custom] then
@@ -1323,310 +1589,7 @@
     /// ## `data_destroy`
     /// destroy notifier for `sort_data`, or [`None`]
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_sort_func&quot;</span>)]
-    </span><span class="kw">fn </span>set_sort_func&lt;P: Fn(<span class="kw-2">&amp;</span>RecentInfo, <span class="kw-2">&amp;</span>RecentInfo) -&gt; i32 + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, sort_func: P);
-
-    <span class="doccomment">/// Changes the sorting order of the recently used resources list displayed by
-    /// `self`.
-    /// ## `sort_type`
-    /// sort order that the chooser should use
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_sort_type&quot;</span>)]
-    </span><span class="kw">fn </span>set_sort_type(<span class="kw-2">&amp;</span><span class="self">self</span>, sort_type: RecentSortType);
-
-    <span class="doccomment">/// Unselects all the items inside `self`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_unselect_all&quot;</span>)]
-    </span><span class="kw">fn </span>unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>);
-
-    <span class="doccomment">/// Unselects `uri` inside `self`.
-    /// ## `uri`
-    /// a URI
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_unselect_uri&quot;</span>)]
-    </span><span class="kw">fn </span>unselect_uri(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str);
-
-    <span class="doccomment">/// This signal is emitted when the user &quot;activates&quot; a recent item
-    /// in the recent chooser. This can happen by double-clicking on an item
-    /// in the recently used resources list, or by pressing
-    /// `Enter`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;item-activated&quot;</span>)]
-    </span><span class="kw">fn </span>connect_item_activated&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="doccomment">/// This signal is emitted when there is a change in the set of
-    /// selected recently used resources. This can happen when a user
-    /// modifies the selection with the mouse or the keyboard, or when
-    /// explicitly calling functions to change the selection.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;selection-changed&quot;</span>)]
-    </span><span class="kw">fn </span>connect_selection_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;filter&quot;</span>)]
-    </span><span class="kw">fn </span>connect_filter_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;limit&quot;</span>)]
-    </span><span class="kw">fn </span>connect_limit_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;local-only&quot;</span>)]
-    </span><span class="kw">fn </span>connect_local_only_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;select-multiple&quot;</span>)]
-    </span><span class="kw">fn </span>connect_select_multiple_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;show-icons&quot;</span>)]
-    </span><span class="kw">fn </span>connect_show_icons_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;show-not-found&quot;</span>)]
-    </span><span class="kw">fn </span>connect_show_not_found_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;show-private&quot;</span>)]
-    </span><span class="kw">fn </span>connect_show_private_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;show-tips&quot;</span>)]
-    </span><span class="kw">fn </span>connect_show_tips_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;sort-type&quot;</span>)]
-    </span><span class="kw">fn </span>connect_sort_type_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-}
-
-<span class="kw">impl</span>&lt;O: IsA&lt;RecentChooser&gt;&gt; RecentChooserExt <span class="kw">for </span>O {
-    <span class="kw">fn </span>add_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="kw-2">&amp;</span>RecentFilter) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_recent_chooser_add_filter(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                filter.to_glib_none().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn </span>current_item(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;RecentInfo&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gtk_recent_chooser_get_current_item(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>current_uri(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gtk_recent_chooser_get_current_uri(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>filter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;RecentFilter&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_none(ffi::gtk_recent_chooser_get_filter(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>items(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;RecentInfo&gt; {
-        <span class="kw">unsafe </span>{
-            FromGlibPtrContainer::from_glib_full(ffi::gtk_recent_chooser_get_items(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>limit(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
-        <span class="kw">unsafe </span>{ ffi::gtk_recent_chooser_get_limit(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
-    }
-
-    <span class="kw">fn </span>is_local_only(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_recent_chooser_get_local_only(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>selects_multiple(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_recent_chooser_get_select_multiple(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>shows_icons(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_recent_chooser_get_show_icons(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>shows_not_found(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_recent_chooser_get_show_not_found(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>shows_private(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_recent_chooser_get_show_private(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>shows_tips(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_recent_chooser_get_show_tips(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>sort_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; RecentSortType {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_recent_chooser_get_sort_type(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>uris(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;glib::GString&gt; {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>length = mem::MaybeUninit::uninit();
-            <span class="kw">let </span>ret = FromGlibContainer::from_glib_full_num(
-                ffi::gtk_recent_chooser_get_uris(
-                    <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                    length.as_mut_ptr(),
-                ),
-                length.assume_init() <span class="kw">as _</span>,
-            );
-            ret
-        }
-    }
-
-    <span class="kw">fn </span>list_filters(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;RecentFilter&gt; {
-        <span class="kw">unsafe </span>{
-            FromGlibPtrContainer::from_glib_container(ffi::gtk_recent_chooser_list_filters(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>remove_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="kw-2">&amp;</span>RecentFilter) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_recent_chooser_remove_filter(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                filter.to_glib_none().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn </span>select_all(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_recent_chooser_select_all(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
-        }
-    }
-
-    <span class="kw">fn </span>select_uri(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt; {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
-            <span class="kw">let </span>is_ok = ffi::gtk_recent_chooser_select_uri(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                uri.to_glib_none().<span class="number">0</span>,
-                <span class="kw-2">&amp;mut </span>error,
-            );
-            <span class="macro">assert_eq!</span>(is_ok == glib::ffi::GFALSE, !error.is_null());
-            <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(())
-            } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(error))
-            }
-        }
-    }
-
-    <span class="kw">fn </span>set_current_uri(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt; {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
-            <span class="kw">let </span>is_ok = ffi::gtk_recent_chooser_set_current_uri(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                uri.to_glib_none().<span class="number">0</span>,
-                <span class="kw-2">&amp;mut </span>error,
-            );
-            <span class="macro">assert_eq!</span>(is_ok == glib::ffi::GFALSE, !error.is_null());
-            <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(())
-            } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(error))
-            }
-        }
-    }
-
-    <span class="kw">fn </span>set_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>RecentFilter&gt;) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_recent_chooser_set_filter(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                filter.to_glib_none().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn </span>set_limit(<span class="kw-2">&amp;</span><span class="self">self</span>, limit: i32) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_recent_chooser_set_limit(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, limit);
-        }
-    }
-
-    <span class="kw">fn </span>set_local_only(<span class="kw-2">&amp;</span><span class="self">self</span>, local_only: bool) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_recent_chooser_set_local_only(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                local_only.into_glib(),
-            );
-        }
-    }
-
-    <span class="kw">fn </span>set_select_multiple(<span class="kw-2">&amp;</span><span class="self">self</span>, select_multiple: bool) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_recent_chooser_set_select_multiple(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                select_multiple.into_glib(),
-            );
-        }
-    }
-
-    <span class="kw">fn </span>set_show_icons(<span class="kw-2">&amp;</span><span class="self">self</span>, show_icons: bool) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_recent_chooser_set_show_icons(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                show_icons.into_glib(),
-            );
-        }
-    }
-
-    <span class="kw">fn </span>set_show_not_found(<span class="kw-2">&amp;</span><span class="self">self</span>, show_not_found: bool) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_recent_chooser_set_show_not_found(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                show_not_found.into_glib(),
-            );
-        }
-    }
-
-    <span class="kw">fn </span>set_show_private(<span class="kw-2">&amp;</span><span class="self">self</span>, show_private: bool) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_recent_chooser_set_show_private(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                show_private.into_glib(),
-            );
-        }
-    }
-
-    <span class="kw">fn </span>set_show_tips(<span class="kw-2">&amp;</span><span class="self">self</span>, show_tips: bool) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_recent_chooser_set_show_tips(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                show_tips.into_glib(),
-            );
-        }
-    }
-
-    <span class="kw">fn </span>set_sort_func&lt;P: Fn(<span class="kw-2">&amp;</span>RecentInfo, <span class="kw-2">&amp;</span>RecentInfo) -&gt; i32 + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, sort_func: P) {
+    </span><span class="kw">fn </span>set_sort_func&lt;P: Fn(<span class="kw-2">&amp;</span>RecentInfo, <span class="kw-2">&amp;</span>RecentInfo) -&gt; i32 + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, sort_func: P) {
         <span class="kw">let </span>sort_func_data: Box_&lt;P&gt; = Box_::new(sort_func);
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>sort_func_func&lt;P: Fn(<span class="kw-2">&amp;</span>RecentInfo, <span class="kw-2">&amp;</span>RecentInfo) -&gt; i32 + <span class="lifetime">&#39;static</span>&gt;(
             a: <span class="kw-2">*mut </span>ffi::GtkRecentInfo,
@@ -1636,8 +1599,7 @@
             <span class="kw">let </span>a = from_glib_borrow(a);
             <span class="kw">let </span>b = from_glib_borrow(b);
             <span class="kw">let </span>callback: <span class="kw-2">&amp;</span>P = <span class="kw-2">&amp;*</span>(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-            <span class="kw">let </span>res = (<span class="kw-2">*</span>callback)(<span class="kw-2">&amp;</span>a, <span class="kw-2">&amp;</span>b);
-            res
+            (<span class="kw-2">*</span>callback)(<span class="kw-2">&amp;</span>a, <span class="kw-2">&amp;</span>b)
         }
         <span class="kw">let </span>sort_func = <span class="prelude-val">Some</span>(sort_func_func::&lt;P&gt; <span class="kw">as _</span>);
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>data_destroy_func&lt;P: Fn(<span class="kw-2">&amp;</span>RecentInfo, <span class="kw-2">&amp;</span>RecentInfo) -&gt; i32 + <span class="lifetime">&#39;static</span>&gt;(
@@ -1657,7 +1619,12 @@
         }
     }
 
-    <span class="kw">fn </span>set_sort_type(<span class="kw-2">&amp;</span><span class="self">self</span>, sort_type: RecentSortType) {
+    <span class="doccomment">/// Changes the sorting order of the recently used resources list displayed by
+    /// `self`.
+    /// ## `sort_type`
+    /// sort order that the chooser should use
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_set_sort_type&quot;</span>)]
+    </span><span class="kw">fn </span>set_sort_type(<span class="kw-2">&amp;</span><span class="self">self</span>, sort_type: RecentSortType) {
         <span class="kw">unsafe </span>{
             ffi::gtk_recent_chooser_set_sort_type(
                 <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
@@ -1666,13 +1633,19 @@
         }
     }
 
-    <span class="kw">fn </span>unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+    <span class="doccomment">/// Unselects all the items inside `self`.
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_unselect_all&quot;</span>)]
+    </span><span class="kw">fn </span>unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::gtk_recent_chooser_unselect_all(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="kw">fn </span>unselect_uri(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) {
+    <span class="doccomment">/// Unselects `uri` inside `self`.
+    /// ## `uri`
+    /// a URI
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_chooser_unselect_uri&quot;</span>)]
+    </span><span class="kw">fn </span>unselect_uri(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) {
         <span class="kw">unsafe </span>{
             ffi::gtk_recent_chooser_unselect_uri(
                 <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
@@ -1681,7 +1654,12 @@
         }
     }
 
-    <span class="kw">fn </span>connect_item_activated&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="doccomment">/// This signal is emitted when the user &quot;activates&quot; a recent item
+    /// in the recent chooser. This can happen by double-clicking on an item
+    /// in the recently used resources list, or by pressing
+    /// `Enter`.
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;item-activated&quot;</span>)]
+    </span><span class="kw">fn </span>connect_item_activated&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>item_activated_trampoline&lt;
             P: IsA&lt;RecentChooser&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1705,7 +1683,12 @@
         }
     }
 
-    <span class="kw">fn </span>connect_selection_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="doccomment">/// This signal is emitted when there is a change in the set of
+    /// selected recently used resources. This can happen when a user
+    /// modifies the selection with the mouse or the keyboard, or when
+    /// explicitly calling functions to change the selection.
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;selection-changed&quot;</span>)]
+    </span><span class="kw">fn </span>connect_selection_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>selection_changed_trampoline&lt;
             P: IsA&lt;RecentChooser&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1729,7 +1712,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_filter_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;filter&quot;</span>)]
+    </span><span class="kw">fn </span>connect_filter_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_filter_trampoline&lt;
             P: IsA&lt;RecentChooser&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1754,7 +1738,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_limit_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;limit&quot;</span>)]
+    </span><span class="kw">fn </span>connect_limit_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_limit_trampoline&lt;P: IsA&lt;RecentChooser&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkRecentChooser,
             _param_spec: glib::ffi::gpointer,
@@ -1776,7 +1761,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_local_only_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;local-only&quot;</span>)]
+    </span><span class="kw">fn </span>connect_local_only_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_local_only_trampoline&lt;
             P: IsA&lt;RecentChooser&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1801,7 +1787,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_select_multiple_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;select-multiple&quot;</span>)]
+    </span><span class="kw">fn </span>connect_select_multiple_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_select_multiple_trampoline&lt;
             P: IsA&lt;RecentChooser&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1826,7 +1813,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_show_icons_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;show-icons&quot;</span>)]
+    </span><span class="kw">fn </span>connect_show_icons_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_show_icons_trampoline&lt;
             P: IsA&lt;RecentChooser&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1851,7 +1839,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_show_not_found_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;show-not-found&quot;</span>)]
+    </span><span class="kw">fn </span>connect_show_not_found_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_show_not_found_trampoline&lt;
             P: IsA&lt;RecentChooser&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1876,7 +1865,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_show_private_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;show-private&quot;</span>)]
+    </span><span class="kw">fn </span>connect_show_private_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_show_private_trampoline&lt;
             P: IsA&lt;RecentChooser&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1901,7 +1891,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_show_tips_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;show-tips&quot;</span>)]
+    </span><span class="kw">fn </span>connect_show_tips_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_show_tips_trampoline&lt;
             P: IsA&lt;RecentChooser&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1926,7 +1917,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_sort_type_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;sort-type&quot;</span>)]
+    </span><span class="kw">fn </span>connect_sort_type_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_sort_type_trampoline&lt;
             P: IsA&lt;RecentChooser&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1952,10 +1944,11 @@
     }
 }
 
+<span class="kw">impl</span>&lt;O: IsA&lt;RecentChooser&gt;&gt; RecentChooserExt <span class="kw">for </span>O {}
+
 <span class="kw">impl </span>fmt::Display <span class="kw">for </span>RecentChooser {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
         f.write_str(<span class="string">&quot;RecentChooser&quot;</span>)
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (5e37043d6 2023-01-22)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

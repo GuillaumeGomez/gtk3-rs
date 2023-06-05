@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/recent_manager.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>recent_manager.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-a6e10e60fb712b0f.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/recent_manager.rs`."><title>recent_manager.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-2fcac8296ac587d8.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0-nightly (101fa903b 2023-06-04)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-48600a9606eff342.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -553,32 +553,17 @@
 <a href="#480" id="480">480</a>
 <a href="#481" id="481">481</a>
 <a href="#482" id="482">482</a>
-<a href="#483" id="483">483</a>
-<a href="#484" id="484">484</a>
-<a href="#485" id="485">485</a>
-<a href="#486" id="486">486</a>
-<a href="#487" id="487">487</a>
-<a href="#488" id="488">488</a>
-<a href="#489" id="489">489</a>
-<a href="#490" id="490">490</a>
-<a href="#491" id="491">491</a>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use </span><span class="kw">crate</span>::RecentData;
-<span class="kw">use </span><span class="kw">crate</span>::RecentInfo;
-<span class="kw">use </span>glib::object::Cast;
-<span class="kw">use </span>glib::object::IsA;
-<span class="kw">use </span>glib::signal::connect_raw;
-<span class="kw">use </span>glib::signal::SignalHandlerId;
-<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
-<span class="kw">use </span>glib::StaticType;
-<span class="kw">use </span>glib::ToValue;
-<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
-<span class="kw">use </span>std::fmt;
-<span class="kw">use </span>std::mem::transmute;
-<span class="kw">use </span>std::ptr;
+</span><span class="kw">use crate</span>::{RecentData, RecentInfo};
+<span class="kw">use </span>glib::{
+    prelude::<span class="kw-2">*</span>,
+    signal::{connect_raw, SignalHandlerId},
+    translate::<span class="kw-2">*</span>,
+};
+<span class="kw">use </span>std::{boxed::Box <span class="kw">as </span>Box_, fmt, mem::transmute, ptr};
 
 <span class="macro">glib::wrapper! </span>{
     <span class="doccomment">/// [`RecentManager`][crate::RecentManager] provides a facility for adding, removing and
@@ -645,10 +630,35 @@
     /// one, or more [`RecentChooser`][crate::RecentChooser] implementations.
     ///
     /// Note that the maximum age of the recently used files list is
-    /// controllable through the `property::Settings::gtk-recent-files-max-age`
+    /// controllable through the [`gtk-recent-files-max-age`][struct@crate::Settings#gtk-recent-files-max-age]
     /// property.
     ///
     /// Recently used files are supported since GTK+ 2.10.
+    ///
+    /// ## Properties
+    ///
+    ///
+    /// #### `filename`
+    ///  The full path to the file to be used to store and read the
+    /// recently used resources list
+    ///
+    /// Readable | Writeable | Construct Only
+    ///
+    ///
+    /// #### `size`
+    ///  The size of the recently used resources list.
+    ///
+    /// Readable
+    ///
+    /// ## Signals
+    ///
+    ///
+    /// #### `changed`
+    ///  Emitted when the current recently used resources manager changes
+    /// its contents, either by calling [`RecentManagerExt::add_item()`][crate::prelude::RecentManagerExt::add_item()] or
+    /// by another application.
+    ///
+    ///
     ///
     /// # Implements
     ///
@@ -686,7 +696,7 @@
     ///
     /// This method returns an instance of [`RecentManagerBuilder`](crate::builders::RecentManagerBuilder) which can be used to create [`RecentManager`] objects.
     </span><span class="kw">pub fn </span>builder() -&gt; RecentManagerBuilder {
-        RecentManagerBuilder::default()
+        RecentManagerBuilder::new()
     }
 
     <span class="doccomment">/// Gets a unique instance of [`RecentManager`][crate::RecentManager], that you can share
@@ -711,40 +721,36 @@
     }
 }
 
-<span class="attr">#[derive(Clone, Default)]
-</span><span class="comment">// rustdoc-stripper-ignore-next
+<span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`RecentManager`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
 </span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>RecentManagerBuilder {
-    filename: <span class="prelude-ty">Option</span>&lt;String&gt;,
+    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">&#39;static</span>, RecentManager&gt;,
 }
 
 <span class="kw">impl </span>RecentManagerBuilder {
-    <span class="comment">// rustdoc-stripper-ignore-next
-    </span><span class="doccomment">/// Create a new [`RecentManagerBuilder`].
-    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::default()
+    <span class="kw">fn </span>new() -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: glib::object::Object::builder(),
+        }
+    }
+
+    <span class="doccomment">/// The full path to the file to be used to store and read the
+    /// recently used resources list
+    </span><span class="kw">pub fn </span>filename(<span class="self">self</span>, filename: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;filename&quot;</span>, filename.into()),
+        }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`RecentManager`].
     </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; RecentManager {
-        <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>filename) = <span class="self">self</span>.filename {
-            properties.push((<span class="string">&quot;filename&quot;</span>, filename));
-        }
-        glib::Object::new::&lt;RecentManager&gt;(<span class="kw-2">&amp;</span>properties)
+        <span class="self">self</span>.builder.build()
     }
-
-    <span class="doccomment">/// The full path to the file to be used to store and read the
-    /// recently used resources list
-    </span><span class="kw">pub fn </span>filename(<span class="kw-2">mut </span><span class="self">self</span>, filename: <span class="kw-2">&amp;</span>str) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.filename = <span class="prelude-val">Some</span>(filename.to_string());
-        <span class="self">self
-    </span>}
 }
 
 <span class="doccomment">/// Trait containing all [`struct@RecentManager`] methods.
@@ -752,7 +758,7 @@
 /// # Implementors
 ///
 /// [`RecentManager`][struct@crate::RecentManager]
-</span><span class="kw">pub trait </span>RecentManagerExt: <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span>RecentManagerExt: IsA&lt;RecentManager&gt; + <span class="lifetime">&#39;static </span>{
     <span class="doccomment">/// Adds a new resource, pointed by `uri`, into the recently used
     /// resources list, using the metadata specified inside the
     /// [`RecentData`][crate::RecentData]-struct passed in `recent_data`.
@@ -782,7 +788,15 @@
     /// [`true`] if the new item was successfully added to the
     ///  recently used resources list, [`false`] otherwise
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_manager_add_full&quot;</span>)]
-    </span><span class="kw">fn </span>add_full(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str, recent_data: <span class="kw-2">&amp;</span>RecentData) -&gt; bool;
+    </span><span class="kw">fn </span>add_full(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str, recent_data: <span class="kw-2">&amp;</span>RecentData) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_recent_manager_add_full(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                uri.to_glib_none().<span class="number">0</span>,
+                recent_data.to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Adds a new resource, pointed by `uri`, into the recently used
     /// resources list.
@@ -801,7 +815,14 @@
     /// [`true`] if the new item was successfully added
     ///  to the recently used resources list
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_manager_add_item&quot;</span>)]
-    </span><span class="kw">fn </span>add_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; bool;
+    </span><span class="kw">fn </span>add_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_recent_manager_add_item(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                uri.to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the list of recently used resources.
     ///
@@ -813,7 +834,13 @@
     ///  free the list itself using `g_list_free()`.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_manager_get_items&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_items&quot;</span>)]
-    </span><span class="kw">fn </span>items(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;RecentInfo&gt;;
+    </span><span class="kw">fn </span>items(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;RecentInfo&gt; {
+        <span class="kw">unsafe </span>{
+            FromGlibPtrContainer::from_glib_full(ffi::gtk_recent_manager_get_items(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Checks whether there is a recently used resource registered
     /// with `uri` inside the recent manager.
@@ -824,7 +851,14 @@
     ///
     /// [`true`] if the resource was found, [`false`] otherwise
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_manager_has_item&quot;</span>)]
-    </span><span class="kw">fn </span>has_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; bool;
+    </span><span class="kw">fn </span>has_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_recent_manager_has_item(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                uri.to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Searches for a URI inside the recently used resources list, and
     /// returns a [`RecentInfo`][crate::RecentInfo]-struct containing informations about the resource
@@ -839,100 +873,7 @@
     ///  not registered in the recently used resources list. Free with
     ///  `gtk_recent_info_unref()`.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_manager_lookup_item&quot;</span>)]
-    </span><span class="kw">fn </span>lookup_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;RecentInfo&gt;, glib::Error&gt;;
-
-    <span class="doccomment">/// Changes the location of a recently used resource from `uri` to `new_uri`.
-    ///
-    /// Please note that this function will not affect the resource pointed
-    /// by the URIs, but only the URI used in the recently used resources list.
-    /// ## `uri`
-    /// the URI of a recently used resource
-    /// ## `new_uri`
-    /// the new URI of the recently used resource, or
-    ///  [`None`] to remove the item pointed by `uri` in the list
-    ///
-    /// # Returns
-    ///
-    /// [`true`] on success
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_manager_move_item&quot;</span>)]
-    </span><span class="kw">fn </span>move_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str, new_uri: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;;
-
-    <span class="doccomment">/// Purges every item from the recently used resources list.
-    ///
-    /// # Returns
-    ///
-    /// the number of items that have been removed from the
-    ///  recently used resources list
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_manager_purge_items&quot;</span>)]
-    </span><span class="kw">fn </span>purge_items(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;i32, glib::Error&gt;;
-
-    <span class="doccomment">/// Removes a resource pointed by `uri` from the recently used resources
-    /// list handled by a recent manager.
-    /// ## `uri`
-    /// the URI of the item you wish to remove
-    ///
-    /// # Returns
-    ///
-    /// [`true`] if the item pointed by `uri` has been successfully
-    ///  removed by the recently used resources list, and [`false`] otherwise
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_manager_remove_item&quot;</span>)]
-    </span><span class="kw">fn </span>remove_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;;
-
-    <span class="doccomment">/// The full path to the file to be used to store and read the
-    /// recently used resources list
-    </span><span class="kw">fn </span>filename(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
-
-    <span class="doccomment">/// The size of the recently used resources list.
-    </span><span class="kw">fn </span>size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
-
-    <span class="doccomment">/// Emitted when the current recently used resources manager changes
-    /// its contents, either by calling [`add_item()`][Self::add_item()] or
-    /// by another application.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;changed&quot;</span>)]
-    </span><span class="kw">fn </span>connect_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;size&quot;</span>)]
-    </span><span class="kw">fn </span>connect_size_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-}
-
-<span class="kw">impl</span>&lt;O: IsA&lt;RecentManager&gt;&gt; RecentManagerExt <span class="kw">for </span>O {
-    <span class="kw">fn </span>add_full(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str, recent_data: <span class="kw-2">&amp;</span>RecentData) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_recent_manager_add_full(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                uri.to_glib_none().<span class="number">0</span>,
-                recent_data.to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>add_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_recent_manager_add_item(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                uri.to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>items(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;RecentInfo&gt; {
-        <span class="kw">unsafe </span>{
-            FromGlibPtrContainer::from_glib_full(ffi::gtk_recent_manager_get_items(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>has_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_recent_manager_has_item(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                uri.to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>lookup_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;RecentInfo&gt;, glib::Error&gt; {
+    </span><span class="kw">fn </span>lookup_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;RecentInfo&gt;, glib::Error&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
             <span class="kw">let </span>ret = ffi::gtk_recent_manager_lookup_item(
@@ -948,7 +889,21 @@
         }
     }
 
-    <span class="kw">fn </span>move_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str, new_uri: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt; {
+    <span class="doccomment">/// Changes the location of a recently used resource from `uri` to `new_uri`.
+    ///
+    /// Please note that this function will not affect the resource pointed
+    /// by the URIs, but only the URI used in the recently used resources list.
+    /// ## `uri`
+    /// the URI of a recently used resource
+    /// ## `new_uri`
+    /// the new URI of the recently used resource, or
+    ///  [`None`] to remove the item pointed by `uri` in the list
+    ///
+    /// # Returns
+    ///
+    /// [`true`] on success
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_manager_move_item&quot;</span>)]
+    </span><span class="kw">fn </span>move_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str, new_uri: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
             <span class="kw">let </span>is_ok = ffi::gtk_recent_manager_move_item(
@@ -957,7 +912,7 @@
                 new_uri.to_glib_none().<span class="number">0</span>,
                 <span class="kw-2">&amp;mut </span>error,
             );
-            <span class="macro">assert_eq!</span>(is_ok == glib::ffi::GFALSE, !error.is_null());
+            <span class="macro">debug_assert_eq!</span>(is_ok == glib::ffi::GFALSE, !error.is_null());
             <span class="kw">if </span>error.is_null() {
                 <span class="prelude-val">Ok</span>(())
             } <span class="kw">else </span>{
@@ -966,7 +921,14 @@
         }
     }
 
-    <span class="kw">fn </span>purge_items(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;i32, glib::Error&gt; {
+    <span class="doccomment">/// Purges every item from the recently used resources list.
+    ///
+    /// # Returns
+    ///
+    /// the number of items that have been removed from the
+    ///  recently used resources list
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_manager_purge_items&quot;</span>)]
+    </span><span class="kw">fn </span>purge_items(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;i32, glib::Error&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
             <span class="kw">let </span>ret =
@@ -979,7 +941,17 @@
         }
     }
 
-    <span class="kw">fn </span>remove_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt; {
+    <span class="doccomment">/// Removes a resource pointed by `uri` from the recently used resources
+    /// list handled by a recent manager.
+    /// ## `uri`
+    /// the URI of the item you wish to remove
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if the item pointed by `uri` has been successfully
+    ///  removed by the recently used resources list, and [`false`] otherwise
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_recent_manager_remove_item&quot;</span>)]
+    </span><span class="kw">fn </span>remove_item(<span class="kw-2">&amp;</span><span class="self">self</span>, uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
             <span class="kw">let </span>is_ok = ffi::gtk_recent_manager_remove_item(
@@ -987,7 +959,7 @@
                 uri.to_glib_none().<span class="number">0</span>,
                 <span class="kw-2">&amp;mut </span>error,
             );
-            <span class="macro">assert_eq!</span>(is_ok == glib::ffi::GFALSE, !error.is_null());
+            <span class="macro">debug_assert_eq!</span>(is_ok == glib::ffi::GFALSE, !error.is_null());
             <span class="kw">if </span>error.is_null() {
                 <span class="prelude-val">Ok</span>(())
             } <span class="kw">else </span>{
@@ -996,15 +968,22 @@
         }
     }
 
-    <span class="kw">fn </span>filename(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+    <span class="doccomment">/// The full path to the file to be used to store and read the
+    /// recently used resources list
+    </span><span class="kw">fn </span>filename(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;filename&quot;</span>)
     }
 
-    <span class="kw">fn </span>size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+    <span class="doccomment">/// The size of the recently used resources list.
+    </span><span class="kw">fn </span>size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;size&quot;</span>)
     }
 
-    <span class="kw">fn </span>connect_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="doccomment">/// Emitted when the current recently used resources manager changes
+    /// its contents, either by calling [`add_item()`][Self::add_item()] or
+    /// by another application.
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;changed&quot;</span>)]
+    </span><span class="kw">fn </span>connect_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>changed_trampoline&lt;P: IsA&lt;RecentManager&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkRecentManager,
             f: glib::ffi::gpointer,
@@ -1025,7 +1004,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_size_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;size&quot;</span>)]
+    </span><span class="kw">fn </span>connect_size_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_size_trampoline&lt;P: IsA&lt;RecentManager&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkRecentManager,
             _param_spec: glib::ffi::gpointer,
@@ -1048,10 +1028,11 @@
     }
 }
 
+<span class="kw">impl</span>&lt;O: IsA&lt;RecentManager&gt;&gt; RecentManagerExt <span class="kw">for </span>O {}
+
 <span class="kw">impl </span>fmt::Display <span class="kw">for </span>RecentManager {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
         f.write_str(<span class="string">&quot;RecentManager&quot;</span>)
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (5e37043d6 2023-01-22)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

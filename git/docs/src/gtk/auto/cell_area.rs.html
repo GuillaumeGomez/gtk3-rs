@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/cell_area.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cell_area.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-a6e10e60fb712b0f.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/cell_area.rs`."><title>cell_area.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-2fcac8296ac587d8.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0-nightly (101fa903b 2023-06-04)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-48600a9606eff342.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1889,206 +1889,20 @@
 <a href="#1816" id="1816">1816</a>
 <a href="#1817" id="1817">1817</a>
 <a href="#1818" id="1818">1818</a>
-<a href="#1819" id="1819">1819</a>
-<a href="#1820" id="1820">1820</a>
-<a href="#1821" id="1821">1821</a>
-<a href="#1822" id="1822">1822</a>
-<a href="#1823" id="1823">1823</a>
-<a href="#1824" id="1824">1824</a>
-<a href="#1825" id="1825">1825</a>
-<a href="#1826" id="1826">1826</a>
-<a href="#1827" id="1827">1827</a>
-<a href="#1828" id="1828">1828</a>
-<a href="#1829" id="1829">1829</a>
-<a href="#1830" id="1830">1830</a>
-<a href="#1831" id="1831">1831</a>
-<a href="#1832" id="1832">1832</a>
-<a href="#1833" id="1833">1833</a>
-<a href="#1834" id="1834">1834</a>
-<a href="#1835" id="1835">1835</a>
-<a href="#1836" id="1836">1836</a>
-<a href="#1837" id="1837">1837</a>
-<a href="#1838" id="1838">1838</a>
-<a href="#1839" id="1839">1839</a>
-<a href="#1840" id="1840">1840</a>
-<a href="#1841" id="1841">1841</a>
-<a href="#1842" id="1842">1842</a>
-<a href="#1843" id="1843">1843</a>
-<a href="#1844" id="1844">1844</a>
-<a href="#1845" id="1845">1845</a>
-<a href="#1846" id="1846">1846</a>
-<a href="#1847" id="1847">1847</a>
-<a href="#1848" id="1848">1848</a>
-<a href="#1849" id="1849">1849</a>
-<a href="#1850" id="1850">1850</a>
-<a href="#1851" id="1851">1851</a>
-<a href="#1852" id="1852">1852</a>
-<a href="#1853" id="1853">1853</a>
-<a href="#1854" id="1854">1854</a>
-<a href="#1855" id="1855">1855</a>
-<a href="#1856" id="1856">1856</a>
-<a href="#1857" id="1857">1857</a>
-<a href="#1858" id="1858">1858</a>
-<a href="#1859" id="1859">1859</a>
-<a href="#1860" id="1860">1860</a>
-<a href="#1861" id="1861">1861</a>
-<a href="#1862" id="1862">1862</a>
-<a href="#1863" id="1863">1863</a>
-<a href="#1864" id="1864">1864</a>
-<a href="#1865" id="1865">1865</a>
-<a href="#1866" id="1866">1866</a>
-<a href="#1867" id="1867">1867</a>
-<a href="#1868" id="1868">1868</a>
-<a href="#1869" id="1869">1869</a>
-<a href="#1870" id="1870">1870</a>
-<a href="#1871" id="1871">1871</a>
-<a href="#1872" id="1872">1872</a>
-<a href="#1873" id="1873">1873</a>
-<a href="#1874" id="1874">1874</a>
-<a href="#1875" id="1875">1875</a>
-<a href="#1876" id="1876">1876</a>
-<a href="#1877" id="1877">1877</a>
-<a href="#1878" id="1878">1878</a>
-<a href="#1879" id="1879">1879</a>
-<a href="#1880" id="1880">1880</a>
-<a href="#1881" id="1881">1881</a>
-<a href="#1882" id="1882">1882</a>
-<a href="#1883" id="1883">1883</a>
-<a href="#1884" id="1884">1884</a>
-<a href="#1885" id="1885">1885</a>
-<a href="#1886" id="1886">1886</a>
-<a href="#1887" id="1887">1887</a>
-<a href="#1888" id="1888">1888</a>
-<a href="#1889" id="1889">1889</a>
-<a href="#1890" id="1890">1890</a>
-<a href="#1891" id="1891">1891</a>
-<a href="#1892" id="1892">1892</a>
-<a href="#1893" id="1893">1893</a>
-<a href="#1894" id="1894">1894</a>
-<a href="#1895" id="1895">1895</a>
-<a href="#1896" id="1896">1896</a>
-<a href="#1897" id="1897">1897</a>
-<a href="#1898" id="1898">1898</a>
-<a href="#1899" id="1899">1899</a>
-<a href="#1900" id="1900">1900</a>
-<a href="#1901" id="1901">1901</a>
-<a href="#1902" id="1902">1902</a>
-<a href="#1903" id="1903">1903</a>
-<a href="#1904" id="1904">1904</a>
-<a href="#1905" id="1905">1905</a>
-<a href="#1906" id="1906">1906</a>
-<a href="#1907" id="1907">1907</a>
-<a href="#1908" id="1908">1908</a>
-<a href="#1909" id="1909">1909</a>
-<a href="#1910" id="1910">1910</a>
-<a href="#1911" id="1911">1911</a>
-<a href="#1912" id="1912">1912</a>
-<a href="#1913" id="1913">1913</a>
-<a href="#1914" id="1914">1914</a>
-<a href="#1915" id="1915">1915</a>
-<a href="#1916" id="1916">1916</a>
-<a href="#1917" id="1917">1917</a>
-<a href="#1918" id="1918">1918</a>
-<a href="#1919" id="1919">1919</a>
-<a href="#1920" id="1920">1920</a>
-<a href="#1921" id="1921">1921</a>
-<a href="#1922" id="1922">1922</a>
-<a href="#1923" id="1923">1923</a>
-<a href="#1924" id="1924">1924</a>
-<a href="#1925" id="1925">1925</a>
-<a href="#1926" id="1926">1926</a>
-<a href="#1927" id="1927">1927</a>
-<a href="#1928" id="1928">1928</a>
-<a href="#1929" id="1929">1929</a>
-<a href="#1930" id="1930">1930</a>
-<a href="#1931" id="1931">1931</a>
-<a href="#1932" id="1932">1932</a>
-<a href="#1933" id="1933">1933</a>
-<a href="#1934" id="1934">1934</a>
-<a href="#1935" id="1935">1935</a>
-<a href="#1936" id="1936">1936</a>
-<a href="#1937" id="1937">1937</a>
-<a href="#1938" id="1938">1938</a>
-<a href="#1939" id="1939">1939</a>
-<a href="#1940" id="1940">1940</a>
-<a href="#1941" id="1941">1941</a>
-<a href="#1942" id="1942">1942</a>
-<a href="#1943" id="1943">1943</a>
-<a href="#1944" id="1944">1944</a>
-<a href="#1945" id="1945">1945</a>
-<a href="#1946" id="1946">1946</a>
-<a href="#1947" id="1947">1947</a>
-<a href="#1948" id="1948">1948</a>
-<a href="#1949" id="1949">1949</a>
-<a href="#1950" id="1950">1950</a>
-<a href="#1951" id="1951">1951</a>
-<a href="#1952" id="1952">1952</a>
-<a href="#1953" id="1953">1953</a>
-<a href="#1954" id="1954">1954</a>
-<a href="#1955" id="1955">1955</a>
-<a href="#1956" id="1956">1956</a>
-<a href="#1957" id="1957">1957</a>
-<a href="#1958" id="1958">1958</a>
-<a href="#1959" id="1959">1959</a>
-<a href="#1960" id="1960">1960</a>
-<a href="#1961" id="1961">1961</a>
-<a href="#1962" id="1962">1962</a>
-<a href="#1963" id="1963">1963</a>
-<a href="#1964" id="1964">1964</a>
-<a href="#1965" id="1965">1965</a>
-<a href="#1966" id="1966">1966</a>
-<a href="#1967" id="1967">1967</a>
-<a href="#1968" id="1968">1968</a>
-<a href="#1969" id="1969">1969</a>
-<a href="#1970" id="1970">1970</a>
-<a href="#1971" id="1971">1971</a>
-<a href="#1972" id="1972">1972</a>
-<a href="#1973" id="1973">1973</a>
-<a href="#1974" id="1974">1974</a>
-<a href="#1975" id="1975">1975</a>
-<a href="#1976" id="1976">1976</a>
-<a href="#1977" id="1977">1977</a>
-<a href="#1978" id="1978">1978</a>
-<a href="#1979" id="1979">1979</a>
-<a href="#1980" id="1980">1980</a>
-<a href="#1981" id="1981">1981</a>
-<a href="#1982" id="1982">1982</a>
-<a href="#1983" id="1983">1983</a>
-<a href="#1984" id="1984">1984</a>
-<a href="#1985" id="1985">1985</a>
-<a href="#1986" id="1986">1986</a>
-<a href="#1987" id="1987">1987</a>
-<a href="#1988" id="1988">1988</a>
-<a href="#1989" id="1989">1989</a>
-<a href="#1990" id="1990">1990</a>
-<a href="#1991" id="1991">1991</a>
-<a href="#1992" id="1992">1992</a>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use </span><span class="kw">crate</span>::Buildable;
-<span class="kw">use </span><span class="kw">crate</span>::CellAreaContext;
-<span class="kw">use </span><span class="kw">crate</span>::CellEditable;
-<span class="kw">use </span><span class="kw">crate</span>::CellLayout;
-<span class="kw">use </span><span class="kw">crate</span>::CellRenderer;
-<span class="kw">use </span><span class="kw">crate</span>::CellRendererState;
-<span class="kw">use </span><span class="kw">crate</span>::DirectionType;
-<span class="kw">use </span><span class="kw">crate</span>::Orientation;
-<span class="kw">use </span><span class="kw">crate</span>::SizeRequestMode;
-<span class="kw">use </span><span class="kw">crate</span>::TreeIter;
-<span class="kw">use </span><span class="kw">crate</span>::TreeModel;
-<span class="kw">use </span><span class="kw">crate</span>::TreePath;
-<span class="kw">use </span><span class="kw">crate</span>::Widget;
-<span class="kw">use </span>glib::object::Cast;
-<span class="kw">use </span>glib::object::IsA;
-<span class="kw">use </span>glib::signal::connect_raw;
-<span class="kw">use </span>glib::signal::SignalHandlerId;
-<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
-<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
-<span class="kw">use </span>std::fmt;
-<span class="kw">use </span>std::mem;
-<span class="kw">use </span>std::mem::transmute;
+</span><span class="kw">use crate</span>::{
+    Buildable, CellAreaContext, CellEditable, CellLayout, CellRenderer, CellRendererState,
+    DirectionType, Orientation, SizeRequestMode, TreeIter, TreeModel, TreePath, Widget,
+};
+<span class="kw">use </span>glib::{
+    prelude::<span class="kw-2">*</span>,
+    signal::{connect_raw, SignalHandlerId},
+    translate::<span class="kw-2">*</span>,
+};
+<span class="kw">use </span>std::{boxed::Box <span class="kw">as </span>Box_, fmt, mem, mem::transmute};
 
 <span class="macro">glib::wrapper! </span>{
     <span class="doccomment">/// The [`CellArea`][crate::CellArea] is an abstract class for [`CellLayout`][crate::CellLayout] widgets
@@ -2306,7 +2120,7 @@
     /// give every row its minimum or natural height or, if the model content
     /// is expected to fit inside the layouting widget without scrolling, it
     /// would make sense to calculate the allocation for each row at
-    /// `signal::Widget::size-allocate` time using `gtk_distribute_natural_allocation()`.
+    /// [`size-allocate`][struct@crate::Widget#size-allocate] time using `gtk_distribute_natural_allocation()`.
     ///
     /// # Handling Events and Driving Keyboard Focus
     ///
@@ -2315,8 +2129,8 @@
     /// API as they come in. Usually [`CellArea`][crate::CellArea] is only interested in
     /// button events, however some customized derived areas can be implemented
     /// who are interested in handling other events. Handling an event can
-    /// trigger the `signal::CellArea::focus-changed` signal to fire; as well as
-    /// `signal::CellArea::add-editable` in the case that an editable cell was
+    /// trigger the [`focus-changed`][struct@crate::CellArea#focus-changed] signal to fire; as well as
+    /// [`add-editable`][struct@crate::CellArea#add-editable] in the case that an editable cell was
     /// clicked and needs to start editing. You can call
     /// [`CellAreaExt::stop_editing()`][crate::prelude::CellAreaExt::stop_editing()] at any time to cancel any cell editing
     /// that is currently in progress.
@@ -2427,6 +2241,67 @@
     ///
     /// This is an Abstract Base Class, you cannot instantiate it.
     ///
+    /// ## Properties
+    ///
+    ///
+    /// #### `edit-widget`
+    ///  The widget currently editing the edited cell
+    ///
+    /// This property is read-only and only changes as
+    /// a result of a call [`CellAreaExt::activate_cell()`][crate::prelude::CellAreaExt::activate_cell()].
+    ///
+    /// Readable
+    ///
+    ///
+    /// #### `edited-cell`
+    ///  The cell in the area that is currently edited
+    ///
+    /// This property is read-only and only changes as
+    /// a result of a call [`CellAreaExt::activate_cell()`][crate::prelude::CellAreaExt::activate_cell()].
+    ///
+    /// Readable
+    ///
+    ///
+    /// #### `focus-cell`
+    ///  The cell in the area that currently has focus
+    ///
+    /// Readable | Writeable
+    ///
+    /// ## Signals
+    ///
+    ///
+    /// #### `add-editable`
+    ///  Indicates that editing has started on `renderer` and that `editable`
+    /// should be added to the owning cell-layouting widget at `cell_area`.
+    ///
+    ///
+    ///
+    ///
+    /// #### `apply-attributes`
+    ///  This signal is emitted whenever applying attributes to `area` from `model`
+    ///
+    ///
+    ///
+    ///
+    /// #### `focus-changed`
+    ///  Indicates that focus changed on this `area`. This signal
+    /// is emitted either as a result of focus handling or event
+    /// handling.
+    ///
+    /// It&#39;s possible that the signal is emitted even if the
+    /// currently focused renderer did not change, this is
+    /// because focus may change to the same renderer in the
+    /// same cell area for a different row of data.
+    ///
+    ///
+    ///
+    ///
+    /// #### `remove-editable`
+    ///  Indicates that editing finished on `renderer` and that `editable`
+    /// should be removed from the owning cell-layouting widget.
+    ///
+    ///
+    ///
     /// # Implements
     ///
     /// [`CellAreaExt`][trait@crate::prelude::CellAreaExt], [`trait@glib::ObjectExt`], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`CellLayoutExt`][trait@crate::prelude::CellLayoutExt], [`BuildableExtManual`][trait@crate::prelude::BuildableExtManual]
@@ -2447,7 +2322,7 @@
 /// # Implementors
 ///
 /// [`CellAreaBox`][struct@crate::CellAreaBox], [`CellArea`][struct@crate::CellArea]
-</span><span class="kw">pub trait </span>CellAreaExt: <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span>CellAreaExt: IsA&lt;CellArea&gt; + <span class="lifetime">&#39;static </span>{
     <span class="doccomment">/// Activates `self`, usually by activating the currently focused
     /// cell, however some subclasses which embed widgets in the area
     /// can also activate a widget if it currently has the focus.
@@ -2474,7 +2349,18 @@
         cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
         flags: CellRendererState,
         edit_only: bool,
-    ) -&gt; bool;
+    ) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_cell_area_activate(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                cell_area.to_glib_none().<span class="number">0</span>,
+                flags.into_glib(),
+                edit_only.into_glib(),
+            ))
+        }
+    }
 
     <span class="doccomment">/// This is used by [`CellArea`][crate::CellArea] subclasses when handling events
     /// to activate cells, the base [`CellArea`][crate::CellArea] class activates cells
@@ -2503,13 +2389,31 @@
         event: <span class="kw-2">&amp;</span>gdk::Event,
         cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
         flags: CellRendererState,
-    ) -&gt; bool;
+    ) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_cell_area_activate_cell(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+                mut_override(event.to_glib_none().<span class="number">0</span>),
+                cell_area.to_glib_none().<span class="number">0</span>,
+                flags.into_glib(),
+            ))
+        }
+    }
 
     <span class="doccomment">/// Adds `renderer` to `self` with the default child cell properties.
     /// ## `renderer`
     /// the [`CellRenderer`][crate::CellRenderer] to add to `self`
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_add&quot;</span>)]
-    </span><span class="kw">fn </span>add(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;);
+    </span><span class="kw">fn </span>add(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_add(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+            );
+        }
+    }
 
     <span class="doccomment">/// Adds `sibling` to `renderer`’s focusable area, focus will be drawn
     /// around `renderer` and all of its siblings if `renderer` can
@@ -2526,10 +2430,20 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
         sibling: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-    );
+    ) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_add_focus_sibling(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+                sibling.as_ref().to_glib_none().<span class="number">0</span>,
+            );
+        }
+    }
 
     <span class="comment">//#[doc(alias = &quot;gtk_cell_area_add_with_properties&quot;)]
-    //fn add_with_properties(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_prop_name: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs);
+    //fn add_with_properties(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_prop_name: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) {
+    //    unsafe { TODO: call ffi:gtk_cell_area_add_with_properties() }
+    //}
 
     </span><span class="doccomment">/// Applies any connected attributes to the renderers in
     /// `self` by pulling the values from `tree_model`.
@@ -2549,7 +2463,17 @@
         iter: <span class="kw-2">&amp;</span>TreeIter,
         is_expander: bool,
         is_expanded: bool,
-    );
+    ) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_apply_attributes(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                tree_model.as_ref().to_glib_none().<span class="number">0</span>,
+                mut_override(iter.to_glib_none().<span class="number">0</span>),
+                is_expander.into_glib(),
+                is_expanded.into_glib(),
+            );
+        }
+    }
 
     <span class="doccomment">/// Connects an `attribute` to apply values from `column` for the
     /// [`TreeModel`][crate::TreeModel] in use.
@@ -2560,7 +2484,16 @@
     /// ## `column`
     /// the [`TreeModel`][crate::TreeModel] column to fetch attribute values from
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_attribute_connect&quot;</span>)]
-    </span><span class="kw">fn </span>attribute_connect(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;, attribute: <span class="kw-2">&amp;</span>str, column: i32);
+    </span><span class="kw">fn </span>attribute_connect(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;, attribute: <span class="kw-2">&amp;</span>str, column: i32) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_attribute_connect(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+                attribute.to_glib_none().<span class="number">0</span>,
+                column,
+            );
+        }
+    }
 
     <span class="doccomment">/// Disconnects `attribute` for the `renderer` in `self` so that
     /// attribute will no longer be updated with values from the
@@ -2570,7 +2503,15 @@
     /// ## `attribute`
     /// the attribute name
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_attribute_disconnect&quot;</span>)]
-    </span><span class="kw">fn </span>attribute_disconnect(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;, attribute: <span class="kw-2">&amp;</span>str);
+    </span><span class="kw">fn </span>attribute_disconnect(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;, attribute: <span class="kw-2">&amp;</span>str) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_attribute_disconnect(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+                attribute.to_glib_none().<span class="number">0</span>,
+            );
+        }
+    }
 
     <span class="doccomment">/// Returns the model column that an attribute has been mapped to,
     /// or -1 if the attribute is not mapped.
@@ -2583,10 +2524,20 @@
     ///
     /// the model column, or -1
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_attribute_get_column&quot;</span>)]
-    </span><span class="kw">fn </span>attribute_get_column(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;, attribute: <span class="kw-2">&amp;</span>str) -&gt; i32;
+    </span><span class="kw">fn </span>attribute_get_column(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;, attribute: <span class="kw-2">&amp;</span>str) -&gt; i32 {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_attribute_get_column(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+                attribute.to_glib_none().<span class="number">0</span>,
+            )
+        }
+    }
 
     <span class="comment">//#[doc(alias = &quot;gtk_cell_area_cell_get&quot;)]
-    //fn cell_get(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_prop_name: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs);
+    //fn cell_get(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_prop_name: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) {
+    //    unsafe { TODO: call ffi:gtk_cell_area_cell_get() }
+    //}
 
     </span><span class="doccomment">/// Gets the value of a cell property for `renderer` in `self`.
     /// ## `renderer`
@@ -2604,13 +2555,28 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
         property_name: <span class="kw-2">&amp;</span>str,
-    ) -&gt; glib::Value;
+    ) -&gt; glib::Value {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::uninitialized();
+            ffi::gtk_cell_area_cell_get_property(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+                property_name.to_glib_none().<span class="number">0</span>,
+                value.to_glib_none_mut().<span class="number">0</span>,
+            );
+            value
+        }
+    }
 
     <span class="comment">//#[doc(alias = &quot;gtk_cell_area_cell_get_valist&quot;)]
-    //fn cell_get_valist(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_property_name: &amp;str, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported);
+    //fn cell_get_valist(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_property_name: &amp;str, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported) {
+    //    unsafe { TODO: call ffi:gtk_cell_area_cell_get_valist() }
+    //}
 
     //#[doc(alias = &quot;gtk_cell_area_cell_set&quot;)]
-    //fn cell_set(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_prop_name: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs);
+    //fn cell_set(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_prop_name: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) {
+    //    unsafe { TODO: call ffi:gtk_cell_area_cell_set() }
+    //}
 
     </span><span class="doccomment">/// Sets a cell property for `renderer` in `self`.
     /// ## `renderer`
@@ -2625,10 +2591,21 @@
         renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
         property_name: <span class="kw-2">&amp;</span>str,
         value: <span class="kw-2">&amp;</span>glib::Value,
-    );
+    ) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_cell_set_property(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+                property_name.to_glib_none().<span class="number">0</span>,
+                value.to_glib_none().<span class="number">0</span>,
+            );
+        }
+    }
 
     <span class="comment">//#[doc(alias = &quot;gtk_cell_area_cell_set_valist&quot;)]
-    //fn cell_set_valist(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_property_name: &amp;str, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported);
+    //fn cell_set_valist(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_property_name: &amp;str, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported) {
+    //    unsafe { TODO: call ffi:gtk_cell_area_cell_set_valist() }
+    //}
 
     </span><span class="doccomment">/// This is sometimes needed for cases where rows need to share
     /// alignments in one orientation but may be separately grouped
@@ -2648,7 +2625,14 @@
     ///
     /// a newly created [`CellAreaContext`][crate::CellAreaContext] copy of `context`.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_copy_context&quot;</span>)]
-    </span><span class="kw">fn </span>copy_context(<span class="kw-2">&amp;</span><span class="self">self</span>, context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;CellAreaContext&gt;;
+    </span><span class="kw">fn </span>copy_context(<span class="kw-2">&amp;</span><span class="self">self</span>, context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;CellAreaContext&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gtk_cell_area_copy_context(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Creates a [`CellAreaContext`][crate::CellAreaContext] to be used with `self` for
     /// all purposes. [`CellAreaContext`][crate::CellAreaContext] stores geometry information
@@ -2661,7 +2645,13 @@
     ///
     /// a newly created [`CellAreaContext`][crate::CellAreaContext] which can be used with `self`.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_create_context&quot;</span>)]
-    </span><span class="kw">fn </span>create_context(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellAreaContext&gt;;
+    </span><span class="kw">fn </span>create_context(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellAreaContext&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gtk_cell_area_create_context(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Delegates event handling to a [`CellArea`][crate::CellArea].
     /// ## `context`
@@ -2686,7 +2676,18 @@
         event: <span class="kw-2">&amp;</span>gdk::Event,
         cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
         flags: CellRendererState,
-    ) -&gt; i32;
+    ) -&gt; i32 {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_event(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                mut_override(event.to_glib_none().<span class="number">0</span>),
+                cell_area.to_glib_none().<span class="number">0</span>,
+                flags.into_glib(),
+            )
+        }
+    }
 
     <span class="doccomment">/// This should be called by the `self`’s owning layout widget
     /// when focus is to be passed to `self`, or moved within `self`
@@ -2702,7 +2703,14 @@
     ///
     /// [`true`] if focus remains inside `self` as a result of this call.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_focus&quot;</span>)]
-    </span><span class="kw">fn </span>focus(<span class="kw-2">&amp;</span><span class="self">self</span>, direction: DirectionType) -&gt; bool;
+    </span><span class="kw">fn </span>focus(<span class="kw-2">&amp;</span><span class="self">self</span>, direction: DirectionType) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_cell_area_focus(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                direction.into_glib(),
+            ))
+        }
+    }
 
     <span class="doccomment">/// Calls `callback` for every [`CellRenderer`][crate::CellRenderer] in `self`.
     /// ## `callback`
@@ -2710,7 +2718,26 @@
     /// ## `callback_data`
     /// user provided data pointer
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_foreach&quot;</span>)]
-    </span><span class="kw">fn </span>foreach&lt;P: FnMut(<span class="kw-2">&amp;</span>CellRenderer) -&gt; bool&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, callback: P);
+    </span><span class="kw">fn </span>foreach&lt;P: FnMut(<span class="kw-2">&amp;</span>CellRenderer) -&gt; bool&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, callback: P) {
+        <span class="kw">let </span>callback_data: P = callback;
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>callback_func&lt;P: FnMut(<span class="kw-2">&amp;</span>CellRenderer) -&gt; bool&gt;(
+            renderer: <span class="kw-2">*mut </span>ffi::GtkCellRenderer,
+            data: glib::ffi::gpointer,
+        ) -&gt; glib::ffi::gboolean {
+            <span class="kw">let </span>renderer = from_glib_borrow(renderer);
+            <span class="kw">let </span>callback: <span class="kw-2">*mut </span>P = data <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_ as </span>usize <span class="kw">as </span><span class="kw-2">*mut </span>P;
+            (<span class="kw-2">*</span>callback)(<span class="kw-2">&amp;</span>renderer).into_glib()
+        }
+        <span class="kw">let </span>callback = <span class="prelude-val">Some</span>(callback_func::&lt;P&gt; <span class="kw">as _</span>);
+        <span class="kw">let </span>super_callback0: <span class="kw-2">&amp;</span>P = <span class="kw-2">&amp;</span>callback_data;
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_foreach(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                callback,
+                super_callback0 <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_ as </span>usize <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+            );
+        }
+    }
 
     <span class="doccomment">/// Calls `callback` for every [`CellRenderer`][crate::CellRenderer] in `self` with the
     /// allocated rectangle inside `cell_area`.
@@ -2734,7 +2761,36 @@
         cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
         background_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
         callback: P,
-    );
+    ) {
+        <span class="kw">let </span>callback_data: P = callback;
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>callback_func&lt;
+            P: FnMut(<span class="kw-2">&amp;</span>CellRenderer, <span class="kw-2">&amp;</span>gdk::Rectangle, <span class="kw-2">&amp;</span>gdk::Rectangle) -&gt; bool,
+        &gt;(
+            renderer: <span class="kw-2">*mut </span>ffi::GtkCellRenderer,
+            cell_area: <span class="kw-2">*const </span>gdk::ffi::GdkRectangle,
+            cell_background: <span class="kw-2">*const </span>gdk::ffi::GdkRectangle,
+            data: glib::ffi::gpointer,
+        ) -&gt; glib::ffi::gboolean {
+            <span class="kw">let </span>renderer = from_glib_borrow(renderer);
+            <span class="kw">let </span>cell_area = from_glib_borrow(cell_area);
+            <span class="kw">let </span>cell_background = from_glib_borrow(cell_background);
+            <span class="kw">let </span>callback: <span class="kw-2">*mut </span>P = data <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_ as </span>usize <span class="kw">as </span><span class="kw-2">*mut </span>P;
+            (<span class="kw-2">*</span>callback)(<span class="kw-2">&amp;</span>renderer, <span class="kw-2">&amp;</span>cell_area, <span class="kw-2">&amp;</span>cell_background).into_glib()
+        }
+        <span class="kw">let </span>callback = <span class="prelude-val">Some</span>(callback_func::&lt;P&gt; <span class="kw">as _</span>);
+        <span class="kw">let </span>super_callback0: <span class="kw-2">&amp;</span>P = <span class="kw-2">&amp;</span>callback_data;
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_foreach_alloc(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                cell_area.to_glib_none().<span class="number">0</span>,
+                background_area.to_glib_none().<span class="number">0</span>,
+                callback,
+                super_callback0 <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_ as </span>usize <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+            );
+        }
+    }
 
     <span class="doccomment">/// Derives the allocation of `renderer` inside `self` if `self`
     /// were to be renderered in `cell_area`.
@@ -2761,7 +2817,20 @@
         widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
         renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
         cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-    ) -&gt; gdk::Rectangle;
+    ) -&gt; gdk::Rectangle {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>allocation = gdk::Rectangle::uninitialized();
+            ffi::gtk_cell_area_get_cell_allocation(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+                cell_area.to_glib_none().<span class="number">0</span>,
+                allocation.to_glib_none_mut().<span class="number">0</span>,
+            );
+            allocation
+        }
+    }
 
     <span class="doccomment">/// Gets the [`CellRenderer`][crate::CellRenderer] at `x` and `y` coordinates inside `self` and optionally
     /// returns the full cell allocation for it inside `cell_area`.
@@ -2793,7 +2862,21 @@
         cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
         x: i32,
         y: i32,
-    ) -&gt; (CellRenderer, gdk::Rectangle);
+    ) -&gt; (CellRenderer, gdk::Rectangle) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>alloc_area = gdk::Rectangle::uninitialized();
+            <span class="kw">let </span>ret = from_glib_none(ffi::gtk_cell_area_get_cell_at_position(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                cell_area.to_glib_none().<span class="number">0</span>,
+                x,
+                y,
+                alloc_area.to_glib_none_mut().<span class="number">0</span>,
+            ));
+            (ret, alloc_area)
+        }
+    }
 
     <span class="doccomment">/// Gets the current [`TreePath`][crate::TreePath] string for the currently
     /// applied [`TreeIter`][crate::TreeIter], this is implicitly updated when
@@ -2808,7 +2891,13 @@
     /// should not be freed.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_get_current_path_string&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_current_path_string&quot;</span>)]
-    </span><span class="kw">fn </span>current_path_string(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
+    </span><span class="kw">fn </span>current_path_string(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_cell_area_get_current_path_string(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the [`CellEditable`][crate::CellEditable] widget currently used
     /// to edit the currently edited cell.
@@ -2818,7 +2907,13 @@
     /// The currently active [`CellEditable`][crate::CellEditable] widget
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_get_edit_widget&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_edit_widget&quot;</span>)]
-    </span><span class="kw">fn </span>edit_widget(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellEditable&gt;;
+    </span><span class="kw">fn </span>edit_widget(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellEditable&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_cell_area_get_edit_widget(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the [`CellRenderer`][crate::CellRenderer] in `self` that is currently
     /// being edited.
@@ -2828,7 +2923,13 @@
     /// The currently edited [`CellRenderer`][crate::CellRenderer]
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_get_edited_cell&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_edited_cell&quot;</span>)]
-    </span><span class="kw">fn </span>edited_cell(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellRenderer&gt;;
+    </span><span class="kw">fn </span>edited_cell(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellRenderer&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_cell_area_get_edited_cell(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Retrieves the currently focused cell for `self`
     ///
@@ -2837,7 +2938,13 @@
     /// the currently focused cell in `self`.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_get_focus_cell&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_focus_cell&quot;</span>)]
-    </span><span class="kw">fn </span>focus_cell(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellRenderer&gt;;
+    </span><span class="kw">fn </span>focus_cell(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellRenderer&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_cell_area_get_focus_cell(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the [`CellRenderer`][crate::CellRenderer] which is expected to be focusable
     /// for which `renderer` is, or may be a sibling.
@@ -2855,7 +2962,14 @@
     ///  is a sibling, or [`None`].
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_get_focus_from_sibling&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_focus_from_sibling&quot;</span>)]
-    </span><span class="kw">fn </span>focus_from_sibling(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;CellRenderer&gt;;
+    </span><span class="kw">fn </span>focus_from_sibling(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;CellRenderer&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_cell_area_get_focus_from_sibling(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the focus sibling cell renderers for `renderer`.
     /// ## `renderer`
@@ -2867,7 +2981,14 @@
     ///  The returned list is internal and should not be freed.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_get_focus_siblings&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_focus_siblings&quot;</span>)]
-    </span><span class="kw">fn </span>focus_siblings(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) -&gt; Vec&lt;CellRenderer&gt;;
+    </span><span class="kw">fn </span>focus_siblings(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) -&gt; Vec&lt;CellRenderer&gt; {
+        <span class="kw">unsafe </span>{
+            FromGlibPtrContainer::from_glib_none(ffi::gtk_cell_area_get_focus_siblings(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Retrieves a cell area’s initial minimum and natural height.
     ///
@@ -2895,7 +3016,20 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
         widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-    ) -&gt; (i32, i32);
+    ) -&gt; (i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>minimum_height = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>natural_height = mem::MaybeUninit::uninit();
+            ffi::gtk_cell_area_get_preferred_height(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                minimum_height.as_mut_ptr(),
+                natural_height.as_mut_ptr(),
+            );
+            (minimum_height.assume_init(), natural_height.assume_init())
+        }
+    }
 
     <span class="doccomment">/// Retrieves a cell area’s minimum and natural height if it would be given
     /// the specified `width`.
@@ -2933,7 +3067,21 @@
         context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
         widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
         width: i32,
-    ) -&gt; (i32, i32);
+    ) -&gt; (i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>minimum_height = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>natural_height = mem::MaybeUninit::uninit();
+            ffi::gtk_cell_area_get_preferred_height_for_width(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                width,
+                minimum_height.as_mut_ptr(),
+                natural_height.as_mut_ptr(),
+            );
+            (minimum_height.assume_init(), natural_height.assume_init())
+        }
+    }
 
     <span class="doccomment">/// Retrieves a cell area’s initial minimum and natural width.
     ///
@@ -2961,7 +3109,20 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
         widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-    ) -&gt; (i32, i32);
+    ) -&gt; (i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>minimum_width = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>natural_width = mem::MaybeUninit::uninit();
+            ffi::gtk_cell_area_get_preferred_width(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                minimum_width.as_mut_ptr(),
+                natural_width.as_mut_ptr(),
+            );
+            (minimum_width.assume_init(), natural_width.assume_init())
+        }
+    }
 
     <span class="doccomment">/// Retrieves a cell area’s minimum and natural width if it would be given
     /// the specified `height`.
@@ -2999,7 +3160,21 @@
         context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
         widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
         height: i32,
-    ) -&gt; (i32, i32);
+    ) -&gt; (i32, i32) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>minimum_width = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>natural_width = mem::MaybeUninit::uninit();
+            ffi::gtk_cell_area_get_preferred_width_for_height(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                height,
+                minimum_width.as_mut_ptr(),
+                natural_width.as_mut_ptr(),
+            );
+            (minimum_width.assume_init(), natural_width.assume_init())
+        }
+    }
 
     <span class="doccomment">/// Gets whether the area prefers a height-for-width layout
     /// or a width-for-height layout.
@@ -3009,7 +3184,13 @@
     /// The [`SizeRequestMode`][crate::SizeRequestMode] preferred by `self`.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_get_request_mode&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_request_mode&quot;</span>)]
-    </span><span class="kw">fn </span>request_mode(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; SizeRequestMode;
+    </span><span class="kw">fn </span>request_mode(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; SizeRequestMode {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_cell_area_get_request_mode(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Checks if `self` contains `renderer`.
     /// ## `renderer`
@@ -3019,7 +3200,14 @@
     ///
     /// [`true`] if `renderer` is in the `self`.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_has_renderer&quot;</span>)]
-    </span><span class="kw">fn </span>has_renderer(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) -&gt; bool;
+    </span><span class="kw">fn </span>has_renderer(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_cell_area_has_renderer(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// This is a convenience function for [`CellArea`][crate::CellArea] implementations
     /// to get the inner area where a given [`CellRenderer`][crate::CellRenderer] will be
@@ -3040,7 +3228,18 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
         cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-    ) -&gt; gdk::Rectangle;
+    ) -&gt; gdk::Rectangle {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>inner_area = gdk::Rectangle::uninitialized();
+            ffi::gtk_cell_area_inner_cell_area(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                cell_area.to_glib_none().<span class="number">0</span>,
+                inner_area.to_glib_none_mut().<span class="number">0</span>,
+            );
+            inner_area
+        }
+    }
 
     <span class="doccomment">/// Returns whether the area can do anything when activated,
     /// after applying new attributes to `self`.
@@ -3049,7 +3248,13 @@
     ///
     /// whether `self` can do anything when activated.
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_is_activatable&quot;</span>)]
-    </span><span class="kw">fn </span>is_activatable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="kw">fn </span>is_activatable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_cell_area_is_activatable(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Returns whether `sibling` is one of `renderer`’s focus siblings
     /// (see [`add_focus_sibling()`][Self::add_focus_sibling()]).
@@ -3066,13 +3271,28 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
         sibling: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-    ) -&gt; bool;
+    ) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_cell_area_is_focus_sibling(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+                sibling.as_ref().to_glib_none().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Removes `renderer` from `self`.
     /// ## `renderer`
     /// the [`CellRenderer`][crate::CellRenderer] to remove from `self`
     </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_remove&quot;</span>)]
-    </span><span class="kw">fn </span>remove(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;);
+    </span><span class="kw">fn </span>remove(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_remove(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+            );
+        }
+    }
 
     <span class="doccomment">/// Removes `sibling` from `renderer`’s focus sibling list
     /// (see [`add_focus_sibling()`][Self::add_focus_sibling()]).
@@ -3085,7 +3305,15 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
         sibling: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-    );
+    ) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_remove_focus_sibling(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                renderer.as_ref().to_glib_none().<span class="number">0</span>,
+                sibling.as_ref().to_glib_none().<span class="number">0</span>,
+            );
+        }
+    }
 
     <span class="doccomment">/// Renders `self`’s cells according to `self`’s layout onto `widget` at
     /// the given coordinates.
@@ -3113,7 +3341,20 @@
         cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
         flags: CellRendererState,
         paint_focus: bool,
-    );
+    ) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_cell_area_render(
+                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
+                context.as_ref().to_glib_none().<span class="number">0</span>,
+                widget.as_ref().to_glib_none().<span class="number">0</span>,
+                mut_override(cr.to_glib_none().<span class="number">0</span>),
+                background_area.to_glib_none().<span class="number">0</span>,
+                cell_area.to_glib_none().<span class="number">0</span>,
+                flags.into_glib(),
+                paint_focus.into_glib(),
+            );
+        }
+    }
 
     <span class="doccomment">/// This is a convenience function for [`CellArea`][crate::CellArea] implementations
     /// to request size for cell renderers. It’s important to use this
@@ -3145,662 +3386,6 @@
         orientation: Orientation,
         widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
         for_size: i32,
-    ) -&gt; (i32, i32);
-
-    <span class="doccomment">/// Explicitly sets the currently focused cell to `renderer`.
-    ///
-    /// This is generally called by implementations of
-    /// `GtkCellAreaClass.focus()` or `GtkCellAreaClass.event()`,
-    /// however it can also be used to implement functions such
-    /// as [`TreeViewExt::set_cursor_on_cell()`][crate::prelude::TreeViewExt::set_cursor_on_cell()].
-    /// ## `renderer`
-    /// the [`CellRenderer`][crate::CellRenderer] to give focus to
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_set_focus_cell&quot;</span>)]
-    </span><span class="kw">fn </span>set_focus_cell(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;);
-
-    <span class="doccomment">/// Explicitly stops the editing of the currently edited cell.
-    ///
-    /// If `canceled` is [`true`], the currently edited cell renderer
-    /// will emit the ::editing-canceled signal, otherwise the
-    /// the ::editing-done signal will be emitted on the current
-    /// edit widget.
-    ///
-    /// See [`edited_cell()`][Self::edited_cell()] and [`edit_widget()`][Self::edit_widget()].
-    /// ## `canceled`
-    /// whether editing was canceled.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_stop_editing&quot;</span>)]
-    </span><span class="kw">fn </span>stop_editing(<span class="kw-2">&amp;</span><span class="self">self</span>, canceled: bool);
-
-    <span class="doccomment">/// Indicates that editing has started on `renderer` and that `editable`
-    /// should be added to the owning cell-layouting widget at `cell_area`.
-    /// ## `renderer`
-    /// the [`CellRenderer`][crate::CellRenderer] that started the edited
-    /// ## `editable`
-    /// the [`CellEditable`][crate::CellEditable] widget to add
-    /// ## `cell_area`
-    /// the [`Widget`][crate::Widget] relative [`gdk::Rectangle`][crate::gdk::Rectangle] coordinates
-    ///  where `editable` should be added
-    /// ## `path`
-    /// the [`TreePath`][crate::TreePath] string this edit was initiated for
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;add-editable&quot;</span>)]
-    </span><span class="kw">fn </span>connect_add_editable&lt;
-        F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>CellRenderer, <span class="kw-2">&amp;</span>CellEditable, <span class="kw-2">&amp;</span>gdk::Rectangle, TreePath) + <span class="lifetime">&#39;static</span>,
-    &gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        f: F,
-    ) -&gt; SignalHandlerId;
-
-    <span class="doccomment">/// This signal is emitted whenever applying attributes to `area` from `model`
-    /// ## `model`
-    /// the [`TreeModel`][crate::TreeModel] to apply the attributes from
-    /// ## `iter`
-    /// the [`TreeIter`][crate::TreeIter] indicating which row to apply the attributes of
-    /// ## `is_expander`
-    /// whether the view shows children for this row
-    /// ## `is_expanded`
-    /// whether the view is currently showing the children of this row
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;apply-attributes&quot;</span>)]
-    </span><span class="kw">fn </span>connect_apply_attributes&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>TreeModel, <span class="kw-2">&amp;</span>TreeIter, bool, bool) + <span class="lifetime">&#39;static</span>&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        f: F,
-    ) -&gt; SignalHandlerId;
-
-    <span class="doccomment">/// Indicates that focus changed on this `area`. This signal
-    /// is emitted either as a result of focus handling or event
-    /// handling.
-    ///
-    /// It&#39;s possible that the signal is emitted even if the
-    /// currently focused renderer did not change, this is
-    /// because focus may change to the same renderer in the
-    /// same cell area for a different row of data.
-    /// ## `renderer`
-    /// the [`CellRenderer`][crate::CellRenderer] that has focus
-    /// ## `path`
-    /// the current [`TreePath`][crate::TreePath] string set for `area`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;focus-changed&quot;</span>)]
-    </span><span class="kw">fn </span>connect_focus_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>CellRenderer, TreePath) + <span class="lifetime">&#39;static</span>&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        f: F,
-    ) -&gt; SignalHandlerId;
-
-    <span class="doccomment">/// Indicates that editing finished on `renderer` and that `editable`
-    /// should be removed from the owning cell-layouting widget.
-    /// ## `renderer`
-    /// the [`CellRenderer`][crate::CellRenderer] that finished editeding
-    /// ## `editable`
-    /// the [`CellEditable`][crate::CellEditable] widget to remove
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;remove-editable&quot;</span>)]
-    </span><span class="kw">fn </span>connect_remove_editable&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>CellRenderer, <span class="kw-2">&amp;</span>CellEditable) + <span class="lifetime">&#39;static</span>&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        f: F,
-    ) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;edit-widget&quot;</span>)]
-    </span><span class="kw">fn </span>connect_edit_widget_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;edited-cell&quot;</span>)]
-    </span><span class="kw">fn </span>connect_edited_cell_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;focus-cell&quot;</span>)]
-    </span><span class="kw">fn </span>connect_focus_cell_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-}
-
-<span class="kw">impl</span>&lt;O: IsA&lt;CellArea&gt;&gt; CellAreaExt <span class="kw">for </span>O {
-    <span class="kw">fn </span>activate(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-        cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-        flags: CellRendererState,
-        edit_only: bool,
-    ) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_cell_area_activate(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                context.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                cell_area.to_glib_none().<span class="number">0</span>,
-                flags.into_glib(),
-                edit_only.into_glib(),
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>activate_cell(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-        renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-        event: <span class="kw-2">&amp;</span>gdk::Event,
-        cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-        flags: CellRendererState,
-    ) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_cell_area_activate_cell(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-                mut_override(event.to_glib_none().<span class="number">0</span>),
-                cell_area.to_glib_none().<span class="number">0</span>,
-                flags.into_glib(),
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>add(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_add(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn </span>add_focus_sibling(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-        sibling: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-    ) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_add_focus_sibling(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-                sibling.as_ref().to_glib_none().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="comment">//fn add_with_properties(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_prop_name: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) {
-    //    unsafe { TODO: call ffi:gtk_cell_area_add_with_properties() }
-    //}
-
-    </span><span class="kw">fn </span>apply_attributes(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_model: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;TreeModel&gt;,
-        iter: <span class="kw-2">&amp;</span>TreeIter,
-        is_expander: bool,
-        is_expanded: bool,
-    ) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_apply_attributes(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                tree_model.as_ref().to_glib_none().<span class="number">0</span>,
-                mut_override(iter.to_glib_none().<span class="number">0</span>),
-                is_expander.into_glib(),
-                is_expanded.into_glib(),
-            );
-        }
-    }
-
-    <span class="kw">fn </span>attribute_connect(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;, attribute: <span class="kw-2">&amp;</span>str, column: i32) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_attribute_connect(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-                attribute.to_glib_none().<span class="number">0</span>,
-                column,
-            );
-        }
-    }
-
-    <span class="kw">fn </span>attribute_disconnect(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;, attribute: <span class="kw-2">&amp;</span>str) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_attribute_disconnect(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-                attribute.to_glib_none().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn </span>attribute_get_column(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;, attribute: <span class="kw-2">&amp;</span>str) -&gt; i32 {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_attribute_get_column(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-                attribute.to_glib_none().<span class="number">0</span>,
-            )
-        }
-    }
-
-    <span class="comment">//fn cell_get(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_prop_name: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) {
-    //    unsafe { TODO: call ffi:gtk_cell_area_cell_get() }
-    //}
-
-    </span><span class="kw">fn </span>cell_get_property(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-        property_name: <span class="kw-2">&amp;</span>str,
-    ) -&gt; glib::Value {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::uninitialized();
-            ffi::gtk_cell_area_cell_get_property(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-                property_name.to_glib_none().<span class="number">0</span>,
-                value.to_glib_none_mut().<span class="number">0</span>,
-            );
-            value
-        }
-    }
-
-    <span class="comment">//fn cell_get_valist(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_property_name: &amp;str, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported) {
-    //    unsafe { TODO: call ffi:gtk_cell_area_cell_get_valist() }
-    //}
-
-    //fn cell_set(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_prop_name: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) {
-    //    unsafe { TODO: call ffi:gtk_cell_area_cell_set() }
-    //}
-
-    </span><span class="kw">fn </span>cell_set_property(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-        property_name: <span class="kw-2">&amp;</span>str,
-        value: <span class="kw-2">&amp;</span>glib::Value,
-    ) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_cell_set_property(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-                property_name.to_glib_none().<span class="number">0</span>,
-                value.to_glib_none().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="comment">//fn cell_set_valist(&amp;self, renderer: &amp;impl IsA&lt;CellRenderer&gt;, first_property_name: &amp;str, var_args: /*Unknown conversion*//*Unimplemented*/Unsupported) {
-    //    unsafe { TODO: call ffi:gtk_cell_area_cell_set_valist() }
-    //}
-
-    </span><span class="kw">fn </span>copy_context(<span class="kw-2">&amp;</span><span class="self">self</span>, context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;CellAreaContext&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gtk_cell_area_copy_context(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                context.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>create_context(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellAreaContext&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gtk_cell_area_create_context(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>event(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-        event: <span class="kw-2">&amp;</span>gdk::Event,
-        cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-        flags: CellRendererState,
-    ) -&gt; i32 {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_event(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                context.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                mut_override(event.to_glib_none().<span class="number">0</span>),
-                cell_area.to_glib_none().<span class="number">0</span>,
-                flags.into_glib(),
-            )
-        }
-    }
-
-    <span class="kw">fn </span>focus(<span class="kw-2">&amp;</span><span class="self">self</span>, direction: DirectionType) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_cell_area_focus(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                direction.into_glib(),
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>foreach&lt;P: FnMut(<span class="kw-2">&amp;</span>CellRenderer) -&gt; bool&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, callback: P) {
-        <span class="kw">let </span>callback_data: P = callback;
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>callback_func&lt;P: FnMut(<span class="kw-2">&amp;</span>CellRenderer) -&gt; bool&gt;(
-            renderer: <span class="kw-2">*mut </span>ffi::GtkCellRenderer,
-            data: glib::ffi::gpointer,
-        ) -&gt; glib::ffi::gboolean {
-            <span class="kw">let </span>renderer = from_glib_borrow(renderer);
-            <span class="kw">let </span>callback: <span class="kw-2">*mut </span>P = data <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_ as </span>usize <span class="kw">as </span><span class="kw-2">*mut </span>P;
-            <span class="kw">let </span>res = (<span class="kw-2">*</span>callback)(<span class="kw-2">&amp;</span>renderer);
-            res.into_glib()
-        }
-        <span class="kw">let </span>callback = <span class="prelude-val">Some</span>(callback_func::&lt;P&gt; <span class="kw">as _</span>);
-        <span class="kw">let </span>super_callback0: <span class="kw-2">&amp;</span>P = <span class="kw-2">&amp;</span>callback_data;
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_foreach(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                callback,
-                super_callback0 <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_ as </span>usize <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn </span>foreach_alloc&lt;P: FnMut(<span class="kw-2">&amp;</span>CellRenderer, <span class="kw-2">&amp;</span>gdk::Rectangle, <span class="kw-2">&amp;</span>gdk::Rectangle) -&gt; bool&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-        cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-        background_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-        callback: P,
-    ) {
-        <span class="kw">let </span>callback_data: P = callback;
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>callback_func&lt;
-            P: FnMut(<span class="kw-2">&amp;</span>CellRenderer, <span class="kw-2">&amp;</span>gdk::Rectangle, <span class="kw-2">&amp;</span>gdk::Rectangle) -&gt; bool,
-        &gt;(
-            renderer: <span class="kw-2">*mut </span>ffi::GtkCellRenderer,
-            cell_area: <span class="kw-2">*const </span>gdk::ffi::GdkRectangle,
-            cell_background: <span class="kw-2">*const </span>gdk::ffi::GdkRectangle,
-            data: glib::ffi::gpointer,
-        ) -&gt; glib::ffi::gboolean {
-            <span class="kw">let </span>renderer = from_glib_borrow(renderer);
-            <span class="kw">let </span>cell_area = from_glib_borrow(cell_area);
-            <span class="kw">let </span>cell_background = from_glib_borrow(cell_background);
-            <span class="kw">let </span>callback: <span class="kw-2">*mut </span>P = data <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_ as </span>usize <span class="kw">as </span><span class="kw-2">*mut </span>P;
-            <span class="kw">let </span>res = (<span class="kw-2">*</span>callback)(<span class="kw-2">&amp;</span>renderer, <span class="kw-2">&amp;</span>cell_area, <span class="kw-2">&amp;</span>cell_background);
-            res.into_glib()
-        }
-        <span class="kw">let </span>callback = <span class="prelude-val">Some</span>(callback_func::&lt;P&gt; <span class="kw">as _</span>);
-        <span class="kw">let </span>super_callback0: <span class="kw-2">&amp;</span>P = <span class="kw-2">&amp;</span>callback_data;
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_foreach_alloc(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                context.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                cell_area.to_glib_none().<span class="number">0</span>,
-                background_area.to_glib_none().<span class="number">0</span>,
-                callback,
-                super_callback0 <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_ as </span>usize <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn </span>cell_allocation(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-        renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-        cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-    ) -&gt; gdk::Rectangle {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>allocation = gdk::Rectangle::uninitialized();
-            ffi::gtk_cell_area_get_cell_allocation(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                context.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-                cell_area.to_glib_none().<span class="number">0</span>,
-                allocation.to_glib_none_mut().<span class="number">0</span>,
-            );
-            allocation
-        }
-    }
-
-    <span class="kw">fn </span>cell_at_position(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-        cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-        x: i32,
-        y: i32,
-    ) -&gt; (CellRenderer, gdk::Rectangle) {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>alloc_area = gdk::Rectangle::uninitialized();
-            <span class="kw">let </span>ret = from_glib_none(ffi::gtk_cell_area_get_cell_at_position(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                context.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                cell_area.to_glib_none().<span class="number">0</span>,
-                x,
-                y,
-                alloc_area.to_glib_none_mut().<span class="number">0</span>,
-            ));
-            (ret, alloc_area)
-        }
-    }
-
-    <span class="kw">fn </span>current_path_string(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_none(ffi::gtk_cell_area_get_current_path_string(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>edit_widget(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellEditable&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_none(ffi::gtk_cell_area_get_edit_widget(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>edited_cell(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellRenderer&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_none(ffi::gtk_cell_area_get_edited_cell(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>focus_cell(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellRenderer&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_none(ffi::gtk_cell_area_get_focus_cell(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>focus_from_sibling(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;CellRenderer&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_none(ffi::gtk_cell_area_get_focus_from_sibling(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>focus_siblings(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) -&gt; Vec&lt;CellRenderer&gt; {
-        <span class="kw">unsafe </span>{
-            FromGlibPtrContainer::from_glib_none(ffi::gtk_cell_area_get_focus_siblings(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>preferred_height(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-    ) -&gt; (i32, i32) {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>minimum_height = mem::MaybeUninit::uninit();
-            <span class="kw">let </span><span class="kw-2">mut </span>natural_height = mem::MaybeUninit::uninit();
-            ffi::gtk_cell_area_get_preferred_height(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                context.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                minimum_height.as_mut_ptr(),
-                natural_height.as_mut_ptr(),
-            );
-            (minimum_height.assume_init(), natural_height.assume_init())
-        }
-    }
-
-    <span class="kw">fn </span>preferred_height_for_width(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-        width: i32,
-    ) -&gt; (i32, i32) {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>minimum_height = mem::MaybeUninit::uninit();
-            <span class="kw">let </span><span class="kw-2">mut </span>natural_height = mem::MaybeUninit::uninit();
-            ffi::gtk_cell_area_get_preferred_height_for_width(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                context.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                width,
-                minimum_height.as_mut_ptr(),
-                natural_height.as_mut_ptr(),
-            );
-            (minimum_height.assume_init(), natural_height.assume_init())
-        }
-    }
-
-    <span class="kw">fn </span>preferred_width(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-    ) -&gt; (i32, i32) {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>minimum_width = mem::MaybeUninit::uninit();
-            <span class="kw">let </span><span class="kw-2">mut </span>natural_width = mem::MaybeUninit::uninit();
-            ffi::gtk_cell_area_get_preferred_width(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                context.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                minimum_width.as_mut_ptr(),
-                natural_width.as_mut_ptr(),
-            );
-            (minimum_width.assume_init(), natural_width.assume_init())
-        }
-    }
-
-    <span class="kw">fn </span>preferred_width_for_height(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-        height: i32,
-    ) -&gt; (i32, i32) {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>minimum_width = mem::MaybeUninit::uninit();
-            <span class="kw">let </span><span class="kw-2">mut </span>natural_width = mem::MaybeUninit::uninit();
-            ffi::gtk_cell_area_get_preferred_width_for_height(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                context.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                height,
-                minimum_width.as_mut_ptr(),
-                natural_width.as_mut_ptr(),
-            );
-            (minimum_width.assume_init(), natural_width.assume_init())
-        }
-    }
-
-    <span class="kw">fn </span>request_mode(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; SizeRequestMode {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_cell_area_get_request_mode(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>has_renderer(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_cell_area_has_renderer(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>inner_cell_area(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-        cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-    ) -&gt; gdk::Rectangle {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>inner_area = gdk::Rectangle::uninitialized();
-            ffi::gtk_cell_area_inner_cell_area(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                cell_area.to_glib_none().<span class="number">0</span>,
-                inner_area.to_glib_none_mut().<span class="number">0</span>,
-            );
-            inner_area
-        }
-    }
-
-    <span class="kw">fn </span>is_activatable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_cell_area_is_activatable(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>is_focus_sibling(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-        sibling: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-    ) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_cell_area_is_focus_sibling(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-                sibling.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>remove(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_remove(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn </span>remove_focus_sibling(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-        sibling: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-    ) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_remove_focus_sibling(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                renderer.as_ref().to_glib_none().<span class="number">0</span>,
-                sibling.as_ref().to_glib_none().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn </span>render(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        context: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellAreaContext&gt;,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-        cr: <span class="kw-2">&amp;</span>cairo::Context,
-        background_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-        cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
-        flags: CellRendererState,
-        paint_focus: bool,
-    ) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_cell_area_render(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                context.as_ref().to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-                mut_override(cr.to_glib_none().<span class="number">0</span>),
-                background_area.to_glib_none().<span class="number">0</span>,
-                cell_area.to_glib_none().<span class="number">0</span>,
-                flags.into_glib(),
-                paint_focus.into_glib(),
-            );
-        }
-    }
-
-    <span class="kw">fn </span>request_renderer(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;,
-        orientation: Orientation,
-        widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
-        for_size: i32,
     ) -&gt; (i32, i32) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>minimum_size = mem::MaybeUninit::uninit();
@@ -3818,7 +3403,16 @@
         }
     }
 
-    <span class="kw">fn </span>set_focus_cell(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) {
+    <span class="doccomment">/// Explicitly sets the currently focused cell to `renderer`.
+    ///
+    /// This is generally called by implementations of
+    /// `GtkCellAreaClass.focus()` or `GtkCellAreaClass.event()`,
+    /// however it can also be used to implement functions such
+    /// as [`TreeViewExt::set_cursor_on_cell()`][crate::prelude::TreeViewExt::set_cursor_on_cell()].
+    /// ## `renderer`
+    /// the [`CellRenderer`][crate::CellRenderer] to give focus to
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_set_focus_cell&quot;</span>)]
+    </span><span class="kw">fn </span>set_focus_cell(<span class="kw-2">&amp;</span><span class="self">self</span>, renderer: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellRenderer&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_cell_area_set_focus_cell(
                 <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
@@ -3827,13 +3421,36 @@
         }
     }
 
-    <span class="kw">fn </span>stop_editing(<span class="kw-2">&amp;</span><span class="self">self</span>, canceled: bool) {
+    <span class="doccomment">/// Explicitly stops the editing of the currently edited cell.
+    ///
+    /// If `canceled` is [`true`], the currently edited cell renderer
+    /// will emit the ::editing-canceled signal, otherwise the
+    /// the ::editing-done signal will be emitted on the current
+    /// edit widget.
+    ///
+    /// See [`edited_cell()`][Self::edited_cell()] and [`edit_widget()`][Self::edit_widget()].
+    /// ## `canceled`
+    /// whether editing was canceled.
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_cell_area_stop_editing&quot;</span>)]
+    </span><span class="kw">fn </span>stop_editing(<span class="kw-2">&amp;</span><span class="self">self</span>, canceled: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_cell_area_stop_editing(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, canceled.into_glib());
         }
     }
 
-    <span class="kw">fn </span>connect_add_editable&lt;
+    <span class="doccomment">/// Indicates that editing has started on `renderer` and that `editable`
+    /// should be added to the owning cell-layouting widget at `cell_area`.
+    /// ## `renderer`
+    /// the [`CellRenderer`][crate::CellRenderer] that started the edited
+    /// ## `editable`
+    /// the [`CellEditable`][crate::CellEditable] widget to add
+    /// ## `cell_area`
+    /// the [`Widget`][crate::Widget] relative [`gdk::Rectangle`][crate::gdk::Rectangle] coordinates
+    ///  where `editable` should be added
+    /// ## `path`
+    /// the [`TreePath`][crate::TreePath] string this edit was initiated for
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;add-editable&quot;</span>)]
+    </span><span class="kw">fn </span>connect_add_editable&lt;
         F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>CellRenderer, <span class="kw-2">&amp;</span>CellEditable, <span class="kw-2">&amp;</span>gdk::Rectangle, TreePath) + <span class="lifetime">&#39;static</span>,
     &gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -3873,7 +3490,17 @@
         }
     }
 
-    <span class="kw">fn </span>connect_apply_attributes&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>TreeModel, <span class="kw-2">&amp;</span>TreeIter, bool, bool) + <span class="lifetime">&#39;static</span>&gt;(
+    <span class="doccomment">/// This signal is emitted whenever applying attributes to `area` from `model`
+    /// ## `model`
+    /// the [`TreeModel`][crate::TreeModel] to apply the attributes from
+    /// ## `iter`
+    /// the [`TreeIter`][crate::TreeIter] indicating which row to apply the attributes of
+    /// ## `is_expander`
+    /// whether the view shows children for this row
+    /// ## `is_expanded`
+    /// whether the view is currently showing the children of this row
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;apply-attributes&quot;</span>)]
+    </span><span class="kw">fn </span>connect_apply_attributes&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>TreeModel, <span class="kw-2">&amp;</span>TreeIter, bool, bool) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId {
@@ -3910,7 +3537,20 @@
         }
     }
 
-    <span class="kw">fn </span>connect_focus_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>CellRenderer, TreePath) + <span class="lifetime">&#39;static</span>&gt;(
+    <span class="doccomment">/// Indicates that focus changed on this `area`. This signal
+    /// is emitted either as a result of focus handling or event
+    /// handling.
+    ///
+    /// It&#39;s possible that the signal is emitted even if the
+    /// currently focused renderer did not change, this is
+    /// because focus may change to the same renderer in the
+    /// same cell area for a different row of data.
+    /// ## `renderer`
+    /// the [`CellRenderer`][crate::CellRenderer] that has focus
+    /// ## `path`
+    /// the current [`TreePath`][crate::TreePath] string set for `area`
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;focus-changed&quot;</span>)]
+    </span><span class="kw">fn </span>connect_focus_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>CellRenderer, TreePath) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId {
@@ -3944,7 +3584,14 @@
         }
     }
 
-    <span class="kw">fn </span>connect_remove_editable&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>CellRenderer, <span class="kw-2">&amp;</span>CellEditable) + <span class="lifetime">&#39;static</span>&gt;(
+    <span class="doccomment">/// Indicates that editing finished on `renderer` and that `editable`
+    /// should be removed from the owning cell-layouting widget.
+    /// ## `renderer`
+    /// the [`CellRenderer`][crate::CellRenderer] that finished editeding
+    /// ## `editable`
+    /// the [`CellEditable`][crate::CellEditable] widget to remove
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;remove-editable&quot;</span>)]
+    </span><span class="kw">fn </span>connect_remove_editable&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>CellRenderer, <span class="kw-2">&amp;</span>CellEditable) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId {
@@ -3977,7 +3624,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_edit_widget_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;edit-widget&quot;</span>)]
+    </span><span class="kw">fn </span>connect_edit_widget_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_edit_widget_trampoline&lt;
             P: IsA&lt;CellArea&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -4002,7 +3650,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_edited_cell_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;edited-cell&quot;</span>)]
+    </span><span class="kw">fn </span>connect_edited_cell_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_edited_cell_trampoline&lt;
             P: IsA&lt;CellArea&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -4027,7 +3676,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_focus_cell_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;focus-cell&quot;</span>)]
+    </span><span class="kw">fn </span>connect_focus_cell_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_focus_cell_trampoline&lt;P: IsA&lt;CellArea&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkCellArea,
             _param_spec: glib::ffi::gpointer,
@@ -4050,10 +3700,11 @@
     }
 }
 
+<span class="kw">impl</span>&lt;O: IsA&lt;CellArea&gt;&gt; CellAreaExt <span class="kw">for </span>O {}
+
 <span class="kw">impl </span>fmt::Display <span class="kw">for </span>CellArea {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
         f.write_str(<span class="string">&quot;CellArea&quot;</span>)
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (5e37043d6 2023-01-22)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

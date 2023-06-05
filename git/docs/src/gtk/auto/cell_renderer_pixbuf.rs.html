@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/cell_renderer_pixbuf.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cell_renderer_pixbuf.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-a6e10e60fb712b0f.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk/src/auto/cell_renderer_pixbuf.rs`."><title>cell_renderer_pixbuf.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-2fcac8296ac587d8.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0-nightly (101fa903b 2023-06-04)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-48600a9606eff342.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -731,36 +731,172 @@
 <a href="#658" id="658">658</a>
 <a href="#659" id="659">659</a>
 <a href="#660" id="660">660</a>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+<a href="#661" id="661">661</a>
+<a href="#662" id="662">662</a>
+<a href="#663" id="663">663</a>
+<a href="#664" id="664">664</a>
+<a href="#665" id="665">665</a>
+<a href="#666" id="666">666</a>
+<a href="#667" id="667">667</a>
+<a href="#668" id="668">668</a>
+<a href="#669" id="669">669</a>
+<a href="#670" id="670">670</a>
+<a href="#671" id="671">671</a>
+<a href="#672" id="672">672</a>
+<a href="#673" id="673">673</a>
+<a href="#674" id="674">674</a>
+<a href="#675" id="675">675</a>
+<a href="#676" id="676">676</a>
+</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use </span><span class="kw">crate</span>::CellRenderer;
-<span class="kw">use </span><span class="kw">crate</span>::CellRendererMode;
-<span class="kw">use </span>glib::object::Cast;
-<span class="kw">use </span>glib::object::IsA;
-<span class="kw">use </span>glib::signal::connect_raw;
-<span class="kw">use </span>glib::signal::SignalHandlerId;
-<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
-<span class="kw">use </span>glib::StaticType;
-<span class="kw">use </span>glib::ToValue;
-<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
-<span class="kw">use </span>std::fmt;
-<span class="kw">use </span>std::mem::transmute;
+</span><span class="kw">use crate</span>::{CellRenderer, CellRendererMode};
+<span class="kw">use </span>glib::{
+    prelude::<span class="kw-2">*</span>,
+    signal::{connect_raw, SignalHandlerId},
+    translate::<span class="kw-2">*</span>,
+};
+<span class="kw">use </span>std::{boxed::Box <span class="kw">as </span>Box_, fmt, mem::transmute};
 
 <span class="macro">glib::wrapper! </span>{
     <span class="doccomment">/// A [`CellRendererPixbuf`][crate::CellRendererPixbuf] can be used to render an image in a cell. It allows
     /// to render either a given [`gdk_pixbuf::Pixbuf`][crate::gdk_pixbuf::Pixbuf] (set via the
-    /// `property::CellRendererPixbuf::pixbuf` property) or a named icon (set via the
-    /// `property::CellRendererPixbuf::icon-name` property).
+    /// [`pixbuf`][struct@crate::CellRendererPixbuf#pixbuf] property) or a named icon (set via the
+    /// [`icon-name`][struct@crate::CellRendererPixbuf#icon-name] property).
     ///
     /// To support the tree view, [`CellRendererPixbuf`][crate::CellRendererPixbuf] also supports rendering two
-    /// alternative pixbufs, when the `property::CellRenderer::is-expander` property is [`true`].
-    /// If the `property::CellRenderer::is-expanded` property is [`true`] and the
-    /// `property::CellRendererPixbuf::pixbuf-expander-open` property is set to a pixbuf, it
-    /// renders that pixbuf, if the `property::CellRenderer::is-expanded` property is [`false`]
-    /// and the `property::CellRendererPixbuf::pixbuf-expander-closed` property is set to a
+    /// alternative pixbufs, when the [`is-expander`][struct@crate::CellRenderer#is-expander] property is [`true`].
+    /// If the [`is-expanded`][struct@crate::CellRenderer#is-expanded] property is [`true`] and the
+    /// [`pixbuf-expander-open`][struct@crate::CellRendererPixbuf#pixbuf-expander-open] property is set to a pixbuf, it
+    /// renders that pixbuf, if the [`is-expanded`][struct@crate::CellRenderer#is-expanded] property is [`false`]
+    /// and the [`pixbuf-expander-closed`][struct@crate::CellRendererPixbuf#pixbuf-expander-closed] property is set to a
     /// pixbuf, it renders that one.
+    ///
+    /// ## Properties
+    ///
+    ///
+    /// #### `follow-state`
+    ///  Specifies whether the rendered pixbuf should be colorized
+    /// according to the [`CellRendererState`][crate::CellRendererState].
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `gicon`
+    ///  The GIcon representing the icon to display.
+    /// If the icon theme is changed, the image will be updated
+    /// automatically.
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `icon-name`
+    ///  The name of the themed icon to display.
+    /// This property only has an effect if not overridden by &quot;stock_id&quot;
+    /// or &quot;pixbuf&quot; properties.
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `pixbuf`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `pixbuf-expander-closed`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `pixbuf-expander-open`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `stock-detail`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `stock-id`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `stock-size`
+    ///  The [`IconSize`][crate::IconSize] value that specifies the size of the rendered icon.
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `surface`
+    ///  Readable | Writeable
+    /// &lt;details&gt;&lt;summary&gt;&lt;h4&gt;CellRenderer&lt;/h4&gt;&lt;/summary&gt;
+    ///
+    ///
+    /// #### `cell-background`
+    ///  Writeable
+    ///
+    ///
+    /// #### `cell-background-gdk`
+    ///  Cell background as a `GdkColor`
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `cell-background-rgba`
+    ///  Cell background as a [`gdk::RGBA`][crate::gdk::RGBA]
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `cell-background-set`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `editing`
+    ///  Readable
+    ///
+    ///
+    /// #### `height`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `is-expanded`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `is-expander`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `mode`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `sensitive`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `visible`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `width`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `xalign`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `xpad`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `yalign`
+    ///  Readable | Writeable
+    ///
+    ///
+    /// #### `ypad`
+    ///  Readable | Writeable
+    /// &lt;/details&gt;
     ///
     /// # Implements
     ///
@@ -798,7 +934,7 @@
     ///
     /// This method returns an instance of [`CellRendererPixbufBuilder`](crate::builders::CellRendererPixbufBuilder) which can be used to create [`CellRendererPixbuf`] objects.
     </span><span class="kw">pub fn </span>builder() -&gt; CellRendererPixbufBuilder {
-        CellRendererPixbufBuilder::default()
+        CellRendererPixbufBuilder::new()
     }
 }
 
@@ -808,235 +944,178 @@
     }
 }
 
-<span class="attr">#[derive(Clone, Default)]
-</span><span class="comment">// rustdoc-stripper-ignore-next
+<span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`CellRendererPixbuf`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
 </span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>CellRendererPixbufBuilder {
-    gicon: <span class="prelude-ty">Option</span>&lt;gio::Icon&gt;,
-    icon_name: <span class="prelude-ty">Option</span>&lt;String&gt;,
-    pixbuf: <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt;,
-    pixbuf_expander_closed: <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt;,
-    pixbuf_expander_open: <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt;,
-    stock_detail: <span class="prelude-ty">Option</span>&lt;String&gt;,
-    stock_size: <span class="prelude-ty">Option</span>&lt;u32&gt;,
-    surface: <span class="prelude-ty">Option</span>&lt;cairo::Surface&gt;,
-    cell_background: <span class="prelude-ty">Option</span>&lt;String&gt;,
-    cell_background_rgba: <span class="prelude-ty">Option</span>&lt;gdk::RGBA&gt;,
-    cell_background_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    height: <span class="prelude-ty">Option</span>&lt;i32&gt;,
-    is_expanded: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    is_expander: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    mode: <span class="prelude-ty">Option</span>&lt;CellRendererMode&gt;,
-    sensitive: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    visible: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    width: <span class="prelude-ty">Option</span>&lt;i32&gt;,
-    xalign: <span class="prelude-ty">Option</span>&lt;f32&gt;,
-    xpad: <span class="prelude-ty">Option</span>&lt;u32&gt;,
-    yalign: <span class="prelude-ty">Option</span>&lt;f32&gt;,
-    ypad: <span class="prelude-ty">Option</span>&lt;u32&gt;,
+    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">&#39;static</span>, CellRendererPixbuf&gt;,
 }
 
 <span class="kw">impl </span>CellRendererPixbufBuilder {
-    <span class="comment">// rustdoc-stripper-ignore-next
-    </span><span class="doccomment">/// Create a new [`CellRendererPixbufBuilder`].
-    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::default()
+    <span class="kw">fn </span>new() -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: glib::object::Object::builder(),
+        }
+    }
+
+    <span class="doccomment">/// The GIcon representing the icon to display.
+    /// If the icon theme is changed, the image will be updated
+    /// automatically.
+    </span><span class="kw">pub fn </span>gicon(<span class="self">self</span>, gicon: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Icon&gt;) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;gicon&quot;</span>, gicon.clone().upcast()),
+        }
+    }
+
+    <span class="doccomment">/// The name of the themed icon to display.
+    /// This property only has an effect if not overridden by &quot;stock_id&quot;
+    /// or &quot;pixbuf&quot; properties.
+    </span><span class="kw">pub fn </span>icon_name(<span class="self">self</span>, icon_name: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;icon-name&quot;</span>, icon_name.into()),
+        }
+    }
+
+    <span class="kw">pub fn </span>pixbuf(<span class="self">self</span>, pixbuf: <span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;pixbuf&quot;</span>, pixbuf.clone()),
+        }
+    }
+
+    <span class="kw">pub fn </span>pixbuf_expander_closed(<span class="self">self</span>, pixbuf_expander_closed: <span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self
+                </span>.builder
+                .property(<span class="string">&quot;pixbuf-expander-closed&quot;</span>, pixbuf_expander_closed.clone()),
+        }
+    }
+
+    <span class="kw">pub fn </span>pixbuf_expander_open(<span class="self">self</span>, pixbuf_expander_open: <span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self
+                </span>.builder
+                .property(<span class="string">&quot;pixbuf-expander-open&quot;</span>, pixbuf_expander_open.clone()),
+        }
+    }
+
+    <span class="kw">pub fn </span>stock_detail(<span class="self">self</span>, stock_detail: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;stock-detail&quot;</span>, stock_detail.into()),
+        }
+    }
+
+    <span class="doccomment">/// The [`IconSize`][crate::IconSize] value that specifies the size of the rendered icon.
+    </span><span class="kw">pub fn </span>stock_size(<span class="self">self</span>, stock_size: u32) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;stock-size&quot;</span>, stock_size),
+        }
+    }
+
+    <span class="kw">pub fn </span>surface(<span class="self">self</span>, surface: <span class="kw-2">&amp;</span>cairo::Surface) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;surface&quot;</span>, surface),
+        }
+    }
+
+    <span class="kw">pub fn </span>cell_background(<span class="self">self</span>, cell_background: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self
+                </span>.builder
+                .property(<span class="string">&quot;cell-background&quot;</span>, cell_background.into()),
+        }
+    }
+
+    <span class="doccomment">/// Cell background as a [`gdk::RGBA`][crate::gdk::RGBA]
+    </span><span class="kw">pub fn </span>cell_background_rgba(<span class="self">self</span>, cell_background_rgba: <span class="kw-2">&amp;</span>gdk::RGBA) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self
+                </span>.builder
+                .property(<span class="string">&quot;cell-background-rgba&quot;</span>, cell_background_rgba),
+        }
+    }
+
+    <span class="kw">pub fn </span>cell_background_set(<span class="self">self</span>, cell_background_set: bool) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self
+                </span>.builder
+                .property(<span class="string">&quot;cell-background-set&quot;</span>, cell_background_set),
+        }
+    }
+
+    <span class="kw">pub fn </span>height(<span class="self">self</span>, height: i32) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;height&quot;</span>, height),
+        }
+    }
+
+    <span class="kw">pub fn </span>is_expanded(<span class="self">self</span>, is_expanded: bool) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;is-expanded&quot;</span>, is_expanded),
+        }
+    }
+
+    <span class="kw">pub fn </span>is_expander(<span class="self">self</span>, is_expander: bool) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;is-expander&quot;</span>, is_expander),
+        }
+    }
+
+    <span class="kw">pub fn </span>mode(<span class="self">self</span>, mode: CellRendererMode) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;mode&quot;</span>, mode),
+        }
+    }
+
+    <span class="kw">pub fn </span>sensitive(<span class="self">self</span>, sensitive: bool) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;sensitive&quot;</span>, sensitive),
+        }
+    }
+
+    <span class="kw">pub fn </span>visible(<span class="self">self</span>, visible: bool) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;visible&quot;</span>, visible),
+        }
+    }
+
+    <span class="kw">pub fn </span>width(<span class="self">self</span>, width: i32) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;width&quot;</span>, width),
+        }
+    }
+
+    <span class="kw">pub fn </span>xalign(<span class="self">self</span>, xalign: f32) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;xalign&quot;</span>, xalign),
+        }
+    }
+
+    <span class="kw">pub fn </span>xpad(<span class="self">self</span>, xpad: u32) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;xpad&quot;</span>, xpad),
+        }
+    }
+
+    <span class="kw">pub fn </span>yalign(<span class="self">self</span>, yalign: f32) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;yalign&quot;</span>, yalign),
+        }
+    }
+
+    <span class="kw">pub fn </span>ypad(<span class="self">self</span>, ypad: u32) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;ypad&quot;</span>, ypad),
+        }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`CellRendererPixbuf`].
     </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; CellRendererPixbuf {
-        <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>gicon) = <span class="self">self</span>.gicon {
-            properties.push((<span class="string">&quot;gicon&quot;</span>, gicon));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>icon_name) = <span class="self">self</span>.icon_name {
-            properties.push((<span class="string">&quot;icon-name&quot;</span>, icon_name));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>pixbuf) = <span class="self">self</span>.pixbuf {
-            properties.push((<span class="string">&quot;pixbuf&quot;</span>, pixbuf));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>pixbuf_expander_closed) = <span class="self">self</span>.pixbuf_expander_closed {
-            properties.push((<span class="string">&quot;pixbuf-expander-closed&quot;</span>, pixbuf_expander_closed));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>pixbuf_expander_open) = <span class="self">self</span>.pixbuf_expander_open {
-            properties.push((<span class="string">&quot;pixbuf-expander-open&quot;</span>, pixbuf_expander_open));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>stock_detail) = <span class="self">self</span>.stock_detail {
-            properties.push((<span class="string">&quot;stock-detail&quot;</span>, stock_detail));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>stock_size) = <span class="self">self</span>.stock_size {
-            properties.push((<span class="string">&quot;stock-size&quot;</span>, stock_size));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>surface) = <span class="self">self</span>.surface {
-            properties.push((<span class="string">&quot;surface&quot;</span>, surface));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>cell_background) = <span class="self">self</span>.cell_background {
-            properties.push((<span class="string">&quot;cell-background&quot;</span>, cell_background));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>cell_background_rgba) = <span class="self">self</span>.cell_background_rgba {
-            properties.push((<span class="string">&quot;cell-background-rgba&quot;</span>, cell_background_rgba));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>cell_background_set) = <span class="self">self</span>.cell_background_set {
-            properties.push((<span class="string">&quot;cell-background-set&quot;</span>, cell_background_set));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>height) = <span class="self">self</span>.height {
-            properties.push((<span class="string">&quot;height&quot;</span>, height));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>is_expanded) = <span class="self">self</span>.is_expanded {
-            properties.push((<span class="string">&quot;is-expanded&quot;</span>, is_expanded));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>is_expander) = <span class="self">self</span>.is_expander {
-            properties.push((<span class="string">&quot;is-expander&quot;</span>, is_expander));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>mode) = <span class="self">self</span>.mode {
-            properties.push((<span class="string">&quot;mode&quot;</span>, mode));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>sensitive) = <span class="self">self</span>.sensitive {
-            properties.push((<span class="string">&quot;sensitive&quot;</span>, sensitive));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>visible) = <span class="self">self</span>.visible {
-            properties.push((<span class="string">&quot;visible&quot;</span>, visible));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>width) = <span class="self">self</span>.width {
-            properties.push((<span class="string">&quot;width&quot;</span>, width));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>xalign) = <span class="self">self</span>.xalign {
-            properties.push((<span class="string">&quot;xalign&quot;</span>, xalign));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>xpad) = <span class="self">self</span>.xpad {
-            properties.push((<span class="string">&quot;xpad&quot;</span>, xpad));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>yalign) = <span class="self">self</span>.yalign {
-            properties.push((<span class="string">&quot;yalign&quot;</span>, yalign));
-        }
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>ypad) = <span class="self">self</span>.ypad {
-            properties.push((<span class="string">&quot;ypad&quot;</span>, ypad));
-        }
-        glib::Object::new::&lt;CellRendererPixbuf&gt;(<span class="kw-2">&amp;</span>properties)
+        <span class="self">self</span>.builder.build()
     }
-
-    <span class="doccomment">/// The GIcon representing the icon to display.
-    /// If the icon theme is changed, the image will be updated
-    /// automatically.
-    </span><span class="kw">pub fn </span>gicon(<span class="kw-2">mut </span><span class="self">self</span>, gicon: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Icon&gt;) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.gicon = <span class="prelude-val">Some</span>(gicon.clone().upcast());
-        <span class="self">self
-    </span>}
-
-    <span class="doccomment">/// The name of the themed icon to display.
-    /// This property only has an effect if not overridden by &quot;stock_id&quot;
-    /// or &quot;pixbuf&quot; properties.
-    </span><span class="kw">pub fn </span>icon_name(<span class="kw-2">mut </span><span class="self">self</span>, icon_name: <span class="kw-2">&amp;</span>str) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.icon_name = <span class="prelude-val">Some</span>(icon_name.to_string());
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>pixbuf(<span class="kw-2">mut </span><span class="self">self</span>, pixbuf: <span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.pixbuf = <span class="prelude-val">Some</span>(pixbuf.clone());
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>pixbuf_expander_closed(<span class="kw-2">mut </span><span class="self">self</span>, pixbuf_expander_closed: <span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.pixbuf_expander_closed = <span class="prelude-val">Some</span>(pixbuf_expander_closed.clone());
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>pixbuf_expander_open(<span class="kw-2">mut </span><span class="self">self</span>, pixbuf_expander_open: <span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.pixbuf_expander_open = <span class="prelude-val">Some</span>(pixbuf_expander_open.clone());
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>stock_detail(<span class="kw-2">mut </span><span class="self">self</span>, stock_detail: <span class="kw-2">&amp;</span>str) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.stock_detail = <span class="prelude-val">Some</span>(stock_detail.to_string());
-        <span class="self">self
-    </span>}
-
-    <span class="doccomment">/// The [`IconSize`][crate::IconSize] value that specifies the size of the rendered icon.
-    </span><span class="kw">pub fn </span>stock_size(<span class="kw-2">mut </span><span class="self">self</span>, stock_size: u32) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.stock_size = <span class="prelude-val">Some</span>(stock_size);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>surface(<span class="kw-2">mut </span><span class="self">self</span>, surface: <span class="kw-2">&amp;</span>cairo::Surface) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.surface = <span class="prelude-val">Some</span>(surface.clone());
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>cell_background(<span class="kw-2">mut </span><span class="self">self</span>, cell_background: <span class="kw-2">&amp;</span>str) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.cell_background = <span class="prelude-val">Some</span>(cell_background.to_string());
-        <span class="self">self
-    </span>}
-
-    <span class="doccomment">/// Cell background as a [`gdk::RGBA`][crate::gdk::RGBA]
-    </span><span class="kw">pub fn </span>cell_background_rgba(<span class="kw-2">mut </span><span class="self">self</span>, cell_background_rgba: <span class="kw-2">&amp;</span>gdk::RGBA) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.cell_background_rgba = <span class="prelude-val">Some</span>(cell_background_rgba.clone());
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>cell_background_set(<span class="kw-2">mut </span><span class="self">self</span>, cell_background_set: bool) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.cell_background_set = <span class="prelude-val">Some</span>(cell_background_set);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>height(<span class="kw-2">mut </span><span class="self">self</span>, height: i32) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.height = <span class="prelude-val">Some</span>(height);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>is_expanded(<span class="kw-2">mut </span><span class="self">self</span>, is_expanded: bool) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.is_expanded = <span class="prelude-val">Some</span>(is_expanded);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>is_expander(<span class="kw-2">mut </span><span class="self">self</span>, is_expander: bool) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.is_expander = <span class="prelude-val">Some</span>(is_expander);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>mode(<span class="kw-2">mut </span><span class="self">self</span>, mode: CellRendererMode) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.mode = <span class="prelude-val">Some</span>(mode);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>sensitive(<span class="kw-2">mut </span><span class="self">self</span>, sensitive: bool) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.sensitive = <span class="prelude-val">Some</span>(sensitive);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>visible(<span class="kw-2">mut </span><span class="self">self</span>, visible: bool) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.visible = <span class="prelude-val">Some</span>(visible);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>width(<span class="kw-2">mut </span><span class="self">self</span>, width: i32) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.width = <span class="prelude-val">Some</span>(width);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>xalign(<span class="kw-2">mut </span><span class="self">self</span>, xalign: f32) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.xalign = <span class="prelude-val">Some</span>(xalign);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>xpad(<span class="kw-2">mut </span><span class="self">self</span>, xpad: u32) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.xpad = <span class="prelude-val">Some</span>(xpad);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>yalign(<span class="kw-2">mut </span><span class="self">self</span>, yalign: f32) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.yalign = <span class="prelude-val">Some</span>(yalign);
-        <span class="self">self
-    </span>}
-
-    <span class="kw">pub fn </span>ypad(<span class="kw-2">mut </span><span class="self">self</span>, ypad: u32) -&gt; <span class="self">Self </span>{
-        <span class="self">self</span>.ypad = <span class="prelude-val">Some</span>(ypad);
-        <span class="self">self
-    </span>}
 }
 
 <span class="doccomment">/// Trait containing all [`struct@CellRendererPixbuf`] methods.
@@ -1044,98 +1123,35 @@
 /// # Implementors
 ///
 /// [`CellRendererPixbuf`][struct@crate::CellRendererPixbuf]
-</span><span class="kw">pub trait </span>CellRendererPixbufExt: <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span>CellRendererPixbufExt: IsA&lt;CellRendererPixbuf&gt; + <span class="lifetime">&#39;static </span>{
     <span class="doccomment">/// The GIcon representing the icon to display.
     /// If the icon theme is changed, the image will be updated
     /// automatically.
-    </span><span class="kw">fn </span>gicon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gio::Icon&gt;;
-
-    <span class="doccomment">/// The GIcon representing the icon to display.
-    /// If the icon theme is changed, the image will be updated
-    /// automatically.
-    </span><span class="kw">fn </span>set_gicon&lt;P: IsA&lt;gio::Icon&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, gicon: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;);
-
-    <span class="doccomment">/// The name of the themed icon to display.
-    /// This property only has an effect if not overridden by &quot;stock_id&quot;
-    /// or &quot;pixbuf&quot; properties.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;icon-name&quot;</span>)]
-    </span><span class="kw">fn </span>icon_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
-
-    <span class="doccomment">/// The name of the themed icon to display.
-    /// This property only has an effect if not overridden by &quot;stock_id&quot;
-    /// or &quot;pixbuf&quot; properties.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;icon-name&quot;</span>)]
-    </span><span class="kw">fn </span>set_icon_name(<span class="kw-2">&amp;</span><span class="self">self</span>, icon_name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
-
-    <span class="kw">fn </span>pixbuf(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt;;
-
-    <span class="kw">fn </span>set_pixbuf(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf&gt;);
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-closed&quot;</span>)]
-    </span><span class="kw">fn </span>pixbuf_expander_closed(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt;;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-closed&quot;</span>)]
-    </span><span class="kw">fn </span>set_pixbuf_expander_closed(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf_expander_closed: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf&gt;);
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-open&quot;</span>)]
-    </span><span class="kw">fn </span>pixbuf_expander_open(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt;;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-open&quot;</span>)]
-    </span><span class="kw">fn </span>set_pixbuf_expander_open(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf_expander_open: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf&gt;);
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;stock-detail&quot;</span>)]
-    </span><span class="kw">fn </span>stock_detail(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;stock-detail&quot;</span>)]
-    </span><span class="kw">fn </span>set_stock_detail(<span class="kw-2">&amp;</span><span class="self">self</span>, stock_detail: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
-
-    <span class="kw">fn </span>surface(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;cairo::Surface&gt;;
-
-    <span class="kw">fn </span>set_surface(<span class="kw-2">&amp;</span><span class="self">self</span>, surface: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>cairo::Surface&gt;);
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;gicon&quot;</span>)]
-    </span><span class="kw">fn </span>connect_gicon_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;icon-name&quot;</span>)]
-    </span><span class="kw">fn </span>connect_icon_name_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf&quot;</span>)]
-    </span><span class="kw">fn </span>connect_pixbuf_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-closed&quot;</span>)]
-    </span><span class="kw">fn </span>connect_pixbuf_expander_closed_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        f: F,
-    ) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-open&quot;</span>)]
-    </span><span class="kw">fn </span>connect_pixbuf_expander_open_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;stock-detail&quot;</span>)]
-    </span><span class="kw">fn </span>connect_stock_detail_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;stock-size&quot;</span>)]
-    </span><span class="kw">fn </span>connect_stock_size_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;surface&quot;</span>)]
-    </span><span class="kw">fn </span>connect_surface_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-}
-
-<span class="kw">impl</span>&lt;O: IsA&lt;CellRendererPixbuf&gt;&gt; CellRendererPixbufExt <span class="kw">for </span>O {
-    <span class="kw">fn </span>gicon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gio::Icon&gt; {
+    </span><span class="kw">fn </span>gicon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gio::Icon&gt; {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;gicon&quot;</span>)
     }
 
-    <span class="kw">fn </span>set_gicon&lt;P: IsA&lt;gio::Icon&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, gicon: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;) {
-        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;gicon&quot;</span>, <span class="kw-2">&amp;</span>gicon)
+    <span class="doccomment">/// The GIcon representing the icon to display.
+    /// If the icon theme is changed, the image will be updated
+    /// automatically.
+    </span><span class="kw">fn </span>set_gicon&lt;P: IsA&lt;gio::Icon&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, gicon: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;) {
+        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;gicon&quot;</span>, gicon)
     }
 
-    <span class="kw">fn </span>icon_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+    <span class="doccomment">/// The name of the themed icon to display.
+    /// This property only has an effect if not overridden by &quot;stock_id&quot;
+    /// or &quot;pixbuf&quot; properties.
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;icon-name&quot;</span>)]
+    </span><span class="kw">fn </span>icon_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;icon-name&quot;</span>)
     }
 
-    <span class="kw">fn </span>set_icon_name(<span class="kw-2">&amp;</span><span class="self">self</span>, icon_name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
-        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;icon-name&quot;</span>, <span class="kw-2">&amp;</span>icon_name)
+    <span class="doccomment">/// The name of the themed icon to display.
+    /// This property only has an effect if not overridden by &quot;stock_id&quot;
+    /// or &quot;pixbuf&quot; properties.
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;icon-name&quot;</span>)]
+    </span><span class="kw">fn </span>set_icon_name(<span class="kw-2">&amp;</span><span class="self">self</span>, icon_name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
+        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;icon-name&quot;</span>, icon_name)
     }
 
     <span class="kw">fn </span>pixbuf(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt; {
@@ -1143,35 +1159,41 @@
     }
 
     <span class="kw">fn </span>set_pixbuf(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf&gt;) {
-        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;pixbuf&quot;</span>, <span class="kw-2">&amp;</span>pixbuf)
+        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;pixbuf&quot;</span>, pixbuf)
     }
 
-    <span class="kw">fn </span>pixbuf_expander_closed(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt; {
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-closed&quot;</span>)]
+    </span><span class="kw">fn </span>pixbuf_expander_closed(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt; {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;pixbuf-expander-closed&quot;</span>)
     }
 
-    <span class="kw">fn </span>set_pixbuf_expander_closed(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf_expander_closed: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf&gt;) {
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-closed&quot;</span>)]
+    </span><span class="kw">fn </span>set_pixbuf_expander_closed(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf_expander_closed: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf&gt;) {
         glib::ObjectExt::set_property(
             <span class="self">self</span>.as_ref(),
             <span class="string">&quot;pixbuf-expander-closed&quot;</span>,
-            <span class="kw-2">&amp;</span>pixbuf_expander_closed,
+            pixbuf_expander_closed,
         )
     }
 
-    <span class="kw">fn </span>pixbuf_expander_open(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt; {
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-open&quot;</span>)]
+    </span><span class="kw">fn </span>pixbuf_expander_open(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk_pixbuf::Pixbuf&gt; {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;pixbuf-expander-open&quot;</span>)
     }
 
-    <span class="kw">fn </span>set_pixbuf_expander_open(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf_expander_open: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf&gt;) {
-        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;pixbuf-expander-open&quot;</span>, <span class="kw-2">&amp;</span>pixbuf_expander_open)
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-open&quot;</span>)]
+    </span><span class="kw">fn </span>set_pixbuf_expander_open(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf_expander_open: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk_pixbuf::Pixbuf&gt;) {
+        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;pixbuf-expander-open&quot;</span>, pixbuf_expander_open)
     }
 
-    <span class="kw">fn </span>stock_detail(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+    <span class="attr">#[doc(alias = <span class="string">&quot;stock-detail&quot;</span>)]
+    </span><span class="kw">fn </span>stock_detail(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;stock-detail&quot;</span>)
     }
 
-    <span class="kw">fn </span>set_stock_detail(<span class="kw-2">&amp;</span><span class="self">self</span>, stock_detail: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
-        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;stock-detail&quot;</span>, <span class="kw-2">&amp;</span>stock_detail)
+    <span class="attr">#[doc(alias = <span class="string">&quot;stock-detail&quot;</span>)]
+    </span><span class="kw">fn </span>set_stock_detail(<span class="kw-2">&amp;</span><span class="self">self</span>, stock_detail: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
+        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;stock-detail&quot;</span>, stock_detail)
     }
 
     <span class="kw">fn </span>surface(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;cairo::Surface&gt; {
@@ -1179,10 +1201,11 @@
     }
 
     <span class="kw">fn </span>set_surface(<span class="kw-2">&amp;</span><span class="self">self</span>, surface: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>cairo::Surface&gt;) {
-        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;surface&quot;</span>, <span class="kw-2">&amp;</span>surface)
+        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;surface&quot;</span>, surface)
     }
 
-    <span class="kw">fn </span>connect_gicon_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;gicon&quot;</span>)]
+    </span><span class="kw">fn </span>connect_gicon_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_gicon_trampoline&lt;
             P: IsA&lt;CellRendererPixbuf&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1207,7 +1230,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_icon_name_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;icon-name&quot;</span>)]
+    </span><span class="kw">fn </span>connect_icon_name_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_icon_name_trampoline&lt;
             P: IsA&lt;CellRendererPixbuf&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1232,7 +1256,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_pixbuf_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf&quot;</span>)]
+    </span><span class="kw">fn </span>connect_pixbuf_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_pixbuf_trampoline&lt;
             P: IsA&lt;CellRendererPixbuf&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1257,7 +1282,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_pixbuf_expander_closed_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-closed&quot;</span>)]
+    </span><span class="kw">fn </span>connect_pixbuf_expander_closed_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId {
@@ -1285,7 +1311,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_pixbuf_expander_open_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixbuf-expander-open&quot;</span>)]
+    </span><span class="kw">fn </span>connect_pixbuf_expander_open_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_pixbuf_expander_open_trampoline&lt;
             P: IsA&lt;CellRendererPixbuf&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1310,7 +1337,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_stock_detail_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;stock-detail&quot;</span>)]
+    </span><span class="kw">fn </span>connect_stock_detail_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_stock_detail_trampoline&lt;
             P: IsA&lt;CellRendererPixbuf&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1335,7 +1363,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_stock_size_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;stock-size&quot;</span>)]
+    </span><span class="kw">fn </span>connect_stock_size_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_stock_size_trampoline&lt;
             P: IsA&lt;CellRendererPixbuf&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1360,7 +1389,8 @@
         }
     }
 
-    <span class="kw">fn </span>connect_surface_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+    <span class="attr">#[doc(alias = <span class="string">&quot;surface&quot;</span>)]
+    </span><span class="kw">fn </span>connect_surface_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_surface_trampoline&lt;
             P: IsA&lt;CellRendererPixbuf&gt;,
             F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
@@ -1386,10 +1416,11 @@
     }
 }
 
+<span class="kw">impl</span>&lt;O: IsA&lt;CellRendererPixbuf&gt;&gt; CellRendererPixbufExt <span class="kw">for </span>O {}
+
 <span class="kw">impl </span>fmt::Display <span class="kw">for </span>CellRendererPixbuf {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
         f.write_str(<span class="string">&quot;CellRendererPixbuf&quot;</span>)
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (5e37043d6 2023-01-22)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>
